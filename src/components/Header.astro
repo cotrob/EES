@@ -2,46 +2,131 @@
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
+  {
+    label: 'Services',
+    megaMenu: [
+      {
+        title: 'Residential',
+        links: [
+          { href: '/services/solar-panels', label: 'Solar Panel Installation' },
+          { href: '/services/battery-storage', label: 'Battery Storage' },
+          { href: '/services/ev-charging', label: 'EV Charging' },
+        ],
+      },
+      {
+        title: 'Commercial',
+        links: [
+          { href: '/services/commercial-solar', label: 'Commercial Solar' },
+          { href: '/services/industrial', label: 'Industrial Solutions' },
+          { href: '/services/maintenance', label: 'Maintenance & Support' },
+        ],
+      },
+      {
+        title: 'Resources',
+        links: [
+          { href: '/services/consultation', label: 'Free Consultation' },
+          { href: '/services/financing', label: 'Financing Options' },
+          { href: '/services/faq', label: 'FAQs' },
+        ],
+      },
+    ],
+  },
   { href: '/blog', label: 'Blog' },
   { href: '/case-studies', label: 'Case Studies' },
+  { href: '/laboratory', label: 'Laboratory' },
   { href: '/contact', label: 'Contact' },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="header">
+<header class="header" id="main-header">
   <nav class="nav">
     <a href="/" class="logo">
-      <!-- TODO: Add your logo -->
-      <span>Logo</span>
+      <span>EES</span>
     </a>
     <ul class="nav-links">
       {navItems.map((item) => (
-        <li>
-          <a
-            href={item.href}
-            class:list={['nav-link', { active: currentPath === item.href }]}
-          >
-            {item.label}
-          </a>
+        <li class:list={['nav-item', { 'has-mega': item.megaMenu }]}>
+          {item.href ? (
+            <a
+              href={item.href}
+              class:list={['nav-link', { active: currentPath === item.href }]}
+            >
+              {item.label}
+            </a>
+          ) : (
+            <>
+              <button class="nav-link nav-toggle" type="button">
+                {item.label}
+                <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </button>
+              <div class="mega-menu">
+                <div class="mega-menu-inner">
+                  {item.megaMenu.map((column) => (
+                    <div class="mega-column">
+                      <h3>{column.title}</h3>
+                      <ul>
+                        {column.links.map((link) => (
+                          <li>
+                            <a href={link.href}>{link.label}</a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
         </li>
       ))}
     </ul>
+    <a href="/contact" class="nav-cta">Get a Quote</a>
   </nav>
 </header>
 
+<script>
+  const header = document.getElementById('main-header');
+
+  function handleScroll() {
+    if (window.scrollY > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+</script>
+
 <style>
   .header {
-    padding: 1rem 2rem;
-    background: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 4rem);
+    max-width: 1200px;
+    z-index: 1000;
+    padding: 0.875rem 2rem;
+    background: #ffffff;
+    border-radius: 9999px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  }
+
+  .header.scrolled {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   }
 
   .nav {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,27 +134,132 @@ const currentPath = Astro.url.pathname;
 
   .logo {
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     text-decoration: none;
-    color: inherit;
+    color: #0066cc;
   }
 
   .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 0.25rem;
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
+  .nav-item {
+    position: relative;
+  }
+
   .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem 1rem;
     text-decoration: none;
     color: #333;
-    transition: color 0.2s;
+    font-weight: 500;
+    border-radius: 9999px;
+    transition: background 0.2s, color 0.2s;
+    background: none;
+    border: none;
+    font-size: 0.9375rem;
+    cursor: pointer;
+    white-space: nowrap;
   }
 
   .nav-link:hover,
   .nav-link.active {
+    background: rgba(0, 102, 204, 0.1);
+    color: #0066cc;
+  }
+
+  .nav-toggle .chevron {
+    transition: transform 0.2s;
+  }
+
+  .nav-item.has-mega:hover .chevron {
+    transform: rotate(180deg);
+  }
+
+  .nav-cta {
+    padding: 0.625rem 1.5rem;
+    background: #0066cc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: background 0.2s, transform 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover {
+    background: #0052a3;
+    color: #fff;
+    transform: scale(1.02);
+  }
+
+  /* Mega Menu */
+  .mega-menu {
+    position: absolute;
+    top: calc(100% + 1rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    padding-top: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    pointer-events: none;
+  }
+
+  .nav-item.has-mega:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .mega-menu-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    min-width: 580px;
+  }
+
+  .mega-column h3 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #888;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .mega-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mega-column li {
+    margin-bottom: 0.375rem;
+  }
+
+  .mega-column a {
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+    display: block;
+    padding: 0.375rem 0;
+  }
+
+  .mega-column a:hover {
     color: #0066cc;
   }
 </style>

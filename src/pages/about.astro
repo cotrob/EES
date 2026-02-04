@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About Us | Your Company Name"
+  description="Learn about our company, our mission, and the team behind our success."
+>
+  <section class="page-header">
+    <div class="container">
+      <h1>About Us</h1>
+      <p>Learn more about who we are and what we do.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Our Story</h2>
+      <p>
+        Tell your company's story here. This section should explain how you started,
+        what drives you, and what makes you different from competitors.
+      </p>
+
+      <h2>Our Mission</h2>
+      <p>
+        Your mission statement goes here. Explain the purpose of your company
+        and the value you provide to customers.
+      </p>
+
+      <h2>Our Values</h2>
+      <ul>
+        <li><strong>Value One:</strong> Description of your first core value.</li>
+        <li><strong>Value Two:</strong> Description of your second core value.</li>
+        <li><strong>Value Three:</strong> Description of your third core value.</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding: 4rem 0;
+    text-align: center;
+    background: #f5f7fa;
+  }
+
+  .page-header p {
+    color: #666;
+    font-size: 1.125rem;
+  }
+</style>

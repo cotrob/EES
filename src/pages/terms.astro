@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Terms of Service | Your Company Name"
+  description="Our terms of service outline the rules and regulations for using our website."
+>
+  <section class="page-header">
+    <div class="container">
+      <h1>Terms of Service</h1>
+      <p>Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Agreement to Terms</h2>
+      <p>
+        By accessing our website, you agree to be bound by these Terms of Service
+        and all applicable laws and regulations.
+      </p>
+
+      <h2>Use License</h2>
+      <p>
+        Permission is granted to temporarily view the materials on our website
+        for personal, non-commercial use only.
+      </p>
+
+      <h2>Disclaimer</h2>
+      <p>
+        The materials on our website are provided on an 'as is' basis.
+        We make no warranties, expressed or implied, and hereby disclaim
+        all other warranties.
+      </p>
+
+      <h2>Limitations</h2>
+      <p>
+        In no event shall Your Company Name be liable for any damages arising
+        out of the use or inability to use the materials on our website.
+      </p>
+
+      <h2>Contact Us</h2>
+      <p>
+        If you have any questions about these Terms, please contact us at
+        <a href="mailto:legal@example.com">legal@example.com</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding: 4rem 0;
+    text-align: center;
+    background: #f5f7fa;
+  }
+
+  .page-header p {
+    color: #666;
+    font-size: 0.875rem;
+  }
+</style>

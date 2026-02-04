@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const caseStudies = await getCollection('caseStudies');
+  return caseStudies.map((study) => ({
+    params: { slug: study.id },
+    props: { study },
+  }));
+}
+
+const { study } = Astro.props;
+const { Content } = await render(study);
+---
+
+<BaseLayout
+  title={`${study.data.title} | Case Studies | Your Company Name`}
+  description={study.data.description}
+  image={study.data.image?.src}
+  type="article"
+  publishedTime={study.data.pubDate}
+>
+  <article class="case-study">
+    <header class="study-header">
+      <div class="container">
+        {study.data.industry && (
+          <span class="industry">{study.data.industry}</span>
+        )}
+        <h1>{study.data.title}</h1>
+        {study.data.client && <p class="client">Client: {study.data.client}</p>}
+      </div>
+    </header>
+
+    {study.data.image && (
+      <div class="featured-image container">
+        <img src={study.data.image.src} alt={study.data.image.alt} />
+      </div>
+    )}
+
+    <div class="container study-layout">
+      <aside class="study-sidebar">
+        {study.data.results.length > 0 && (
+          <div class="results-box">
+            <h2>Key Results</h2>
+            <ul>
+              {study.data.results.map((result) => (
+                <li>{result}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </aside>
+
+      <div class="prose study-content">
+        <Content />
+      </div>
+    </div>
+
+    <div class="container">
+      {study.data.tags.length > 0 && (
+        <div class="study-tags">
+          {study.data.tags.map((tag) => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      )}
+
+      <nav class="study-nav">
+        <a href="/case-studies">&larr; Back to Case Studies</a>
+      </nav>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .case-study {
+    padding-bottom: 4rem;
+  }
+
+  .study-header {
+    padding: 4rem 0 2rem;
+    text-align: center;
+    background: #f5f7fa;
+  }
+
+  .industry {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #0066cc;
+    font-weight: 600;
+  }
+
+  .study-header h1 {
+    margin-top: 0.5rem;
+    font-size: 2.5rem;
+  }
+
+  .client {
+    color: #666;
+    margin-top: 0.5rem;
+  }
+
+  .featured-image {
+    margin: 2rem auto;
+  }
+
+  .featured-image img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  .study-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 900px) {
+    .study-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .results-box {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    position: sticky;
+    top: 2rem;
+  }
+
+  .results-box h2 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #166534;
+  }
+
+  .results-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .results-box li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.75rem;
+    font-size: 0.9375rem;
+    color: #166534;
+  }
+
+  .results-box li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  .study-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .tag {
+    background: #f3f4f6;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  .study-nav {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .study-nav a {
+    text-decoration: none;
+    font-weight: 500;
+  }
+</style>

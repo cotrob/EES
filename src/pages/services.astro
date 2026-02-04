@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Services | Your Company Name"
+  description="Explore our range of services designed to help your business succeed."
+>
+  <section class="page-header">
+    <div class="container">
+      <h1>Our Services</h1>
+      <p>Comprehensive solutions tailored to your needs.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="services-grid">
+        <div class="service-card">
+          <h2>Service One</h2>
+          <p>
+            Description of your first service. Explain the benefits and
+            what problems it solves for your customers.
+          </p>
+          <a href="/contact" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="service-card">
+          <h2>Service Two</h2>
+          <p>
+            Description of your second service. Explain the benefits and
+            what problems it solves for your customers.
+          </p>
+          <a href="/contact" class="btn btn-primary">Learn More</a>
+        </div>
+        <div class="service-card">
+          <h2>Service Three</h2>
+          <p>
+            Description of your third service. Explain the benefits and
+            what problems it solves for your customers.
+          </p>
+          <a href="/contact" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding: 4rem 0;
+    text-align: center;
+    background: #f5f7fa;
+  }
+
+  .page-header p {
+    color: #666;
+    font-size: 1.125rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .service-card {
+    padding: 2rem;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .service-card p {
+    flex: 1;
+  }
+
+  .service-card .btn {
+    align-self: flex-start;
+  }
+</style>

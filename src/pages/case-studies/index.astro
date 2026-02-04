@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const caseStudies = (await getCollection('caseStudies'))
+  .filter((study) => !study.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout
+  title="Case Studies | Your Company Name"
+  description="Explore our success stories and see how we've helped businesses achieve their goals."
+>
+  <section class="page-header">
+    <div class="container">
+      <h1>Case Studies</h1>
+      <p>Real results for real businesses.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {caseStudies.length === 0 ? (
+        <p class="no-posts">No case studies yet. Check back soon!</p>
+      ) : (
+        <div class="studies-grid">
+          {caseStudies.map((study) => (
+            <article class="study-card">
+              {study.data.image && (
+                <img
+                  src={study.data.image.src}
+                  alt={study.data.image.alt}
+                  class="study-image"
+                />
+              )}
+              <div class="study-content">
+                {study.data.industry && (
+                  <span class="industry">{study.data.industry}</span>
+                )}
+                <h2>
+                  <a href={`/case-studies/${study.id}`}>{study.data.title}</a>
+                </h2>
+                <p>{study.data.description}</p>
+                {study.data.results.length > 0 && (
+                  <ul class="results-preview">
+                    {study.data.results.slice(0, 2).map((result) => (
+                      <li>{result}</li>
+                    ))}
+                  </ul>
+                )}
+                <a href={`/case-studies/${study.id}`} class="read-more">
+                  Read case study &rarr;
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding: 4rem 0;
+    text-align: center;
+    background: #f5f7fa;
+  }
+
+  .page-header p {
+    color: #666;
+    font-size: 1.125rem;
+  }
+
+  .no-posts {
+    text-align: center;
+    color: #666;
+  }
+
+  .studies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .study-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .study-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .study-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .industry {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #0066cc;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .study-content h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .study-content h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .study-content h2 a:hover {
+    color: #0066cc;
+  }
+
+  .study-content > p {
+    color: #666;
+  }
+
+  .results-preview {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    flex: 1;
+  }
+
+  .results-preview li {
+    padding-left: 1.25rem;
+    position: relative;
+    font-size: 0.875rem;
+    color: #059669;
+    margin-bottom: 0.25rem;
+  }
+
+  .results-preview li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+  }
+
+  .read-more {
+    font-weight: 500;
+    text-decoration: none;
+  }
+</style>

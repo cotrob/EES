@@ -1,0 +1,86 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Company</h3>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/case-studies">Case Studies</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="/blog">Blog</a></li>
+        <!-- TODO: Add more resource links -->
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {currentYear} Your Company Name. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 3rem 2rem 1rem;
+    margin-top: auto;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .footer-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-section a:hover {
+    color: #fff;
+  }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+    text-align: center;
+    color: #888;
+    font-size: 0.875rem;
+  }
+</style>

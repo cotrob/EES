@@ -1,0 +1,504 @@
+---
+const questions = [
+  {
+    id: "property_type",
+    question: "What type of property are you looking to power?",
+    options: [
+      { label: "My Business", value: "business", icon: "building" },
+      { label: "My Home", value: "home", icon: "home" },
+      { label: "Both", value: "both", icon: "both" },
+    ],
+  },
+  {
+    id: "monthly_bill",
+    question: "What's your average monthly electricity bill?",
+    options: [
+      { label: "Not Sure Yet", value: "not_sure_yet" },
+      { label: "Under $300", value: "under_300" },
+      { label: "$300 - $800", value: "300_800" },
+      { label: "$800 - $2,000", value: "800_2000" },
+      { label: "Over $2,000", value: "over_2000" },
+    ],
+  },
+  {
+    id: "ownership",
+    question: "Do you own the property?",
+    options: [
+      { label: "Yes, I own it", value: "own" },
+      { label: "I'm renting", value: "rent" },
+      { label: "Planning to purchase", value: "planning" },
+    ],
+  },
+  {
+    id: "goal",
+    question: "What's your primary goal with solar?",
+    options: [
+      { label: "Reduce electricity costs", value: "costs" },
+      { label: "Energy independence", value: "independence" },
+      { label: "Environmental impact", value: "environmental" },
+      { label: "Long-term investment", value: "investment" },
+    ],
+  },
+  {
+    id: "timeline",
+    question: "When are you looking to install?",
+    options: [
+      { label: "As soon as possible", value: "asap" },
+      { label: "1-3 months", value: "1_3_months" },
+      { label: "3-6 months", value: "3_6_months" },
+      { label: "Just researching", value: "researching" },
+    ],
+  },
+];
+---
+
+<section class="qualifier" id="solar-qualifier" data-total={questions.length}>
+  <div class="qualifier-inner">
+    <div class="qualifier-header">
+      <p class="qualifier-label">Solar Assessment</p>
+      <h2>Is solar right for <em>you?</em></h2>
+      <p class="qualifier-desc">Answer a few quick questions to see how much you could save with solar energy</p>
+    </div>
+
+    <div class="qualifier-progress" id="qualifier-progress">
+      <div class="progress-info">
+        <span class="progress-step" id="progress-step">Question 1 of {questions.length}</span>
+        <span class="progress-pct" id="progress-pct">20%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width: 20%"></div>
+      </div>
+    </div>
+
+    <div class="qualifier-body">
+      {questions.map((q, i) => (
+        <div class:list={['qualifier-step', { active: i === 0 }]} data-step={i} style={i === 0 ? '' : 'display:none'}>
+          <h3 class="question-text">{q.question}</h3>
+          <div class="question-options">
+            {q.options.map((opt) => (
+              <button class="option-btn" data-value={opt.value} type="button">
+                {'icon' in opt && opt.icon === "building" && (
+                  <svg class="option-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                  </svg>
+                )}
+                {'icon' in opt && opt.icon === "home" && (
+                  <svg class="option-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                  </svg>
+                )}
+                {'icon' in opt && opt.icon === "both" && (
+                  <svg class="option-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72l1.189-1.19A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72M6.75 18h3.75a.75.75 0 0 0 .75-.75V13.5a.75.75 0 0 0-.75-.75H6.75a.75.75 0 0 0-.75.75v3.75c0 .414.336.75.75.75Z" />
+                  </svg>
+                )}
+                <span class="option-label">{opt.label}</span>
+                <svg class="option-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+            ))}
+          </div>
+          {i > 0 && (
+            <button class="back-btn" type="button">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+              </svg>
+              Back
+            </button>
+          )}
+        </div>
+      ))}
+
+      <div class="qualifier-complete" id="qualifier-complete">
+        <div class="complete-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="40" height="40">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+          </svg>
+        </div>
+        <h3>Great news!</h3>
+        <p>Based on your answers, solar could be a great fit for you. Let's discuss your options.</p>
+        <div class="complete-actions">
+          <a href="/contact" class="btn btn-primary">
+            Get a Free Quote
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <button class="btn-reset" id="qualifier-reset" type="button">Start Over</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const section = document.getElementById('solar-qualifier') as HTMLElement;
+  const total = parseInt(section.dataset.total || '5');
+  const steps = section.querySelectorAll<HTMLElement>('.qualifier-step');
+  const completeEl = document.getElementById('qualifier-complete') as HTMLElement;
+  const progressEl = document.getElementById('qualifier-progress') as HTMLElement;
+  const progressStep = document.getElementById('progress-step') as HTMLElement;
+  const progressPct = document.getElementById('progress-pct') as HTMLElement;
+  const progressFill = document.getElementById('progress-fill') as HTMLElement;
+  const resetBtn = document.getElementById('qualifier-reset') as HTMLElement;
+
+  let currentStep = 0;
+
+  function updateProgress() {
+    const pct = Math.round(((currentStep + 1) / total) * 100);
+    progressStep.textContent = `Question ${currentStep + 1} of ${total}`;
+    progressPct.textContent = `${pct}%`;
+    progressFill.style.width = `${pct}%`;
+  }
+
+  function showStep(index: number, direction: 'forward' | 'back') {
+    const current = steps[currentStep];
+    const animOut = direction === 'forward' ? 'slide-out-left' : 'slide-out-right';
+    const animIn = direction === 'forward' ? 'slide-in-right' : 'slide-in-left';
+
+    current.classList.add(animOut);
+
+    setTimeout(() => {
+      current.classList.remove('active', animOut);
+      current.style.display = 'none';
+      currentStep = index;
+
+      if (currentStep >= total) {
+        completeEl.style.display = 'block';
+        completeEl.classList.add('fade-in');
+        progressEl.classList.add('hidden');
+      } else {
+        const next = steps[currentStep];
+        next.style.display = 'block';
+        next.classList.add('active', animIn);
+        updateProgress();
+        setTimeout(() => next.classList.remove(animIn), 300);
+      }
+    }, 300);
+  }
+
+  // Option buttons
+  steps.forEach((step) => {
+    step.querySelectorAll('.option-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        showStep(currentStep + 1, 'forward');
+      });
+    });
+
+    const backBtn = step.querySelector('.back-btn');
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        showStep(currentStep - 1, 'back');
+      });
+    }
+  });
+
+  // Reset
+  resetBtn.addEventListener('click', () => {
+    completeEl.style.display = 'none';
+    completeEl.classList.remove('fade-in');
+    progressEl.classList.remove('hidden');
+    steps.forEach((s) => { s.style.display = 'none'; s.classList.remove('active'); });
+    currentStep = 0;
+    steps[0].style.display = 'block';
+    steps[0].classList.add('active');
+    updateProgress();
+  });
+</script>
+
+<style>
+  .qualifier {
+    padding: 6rem 1.5rem;
+    background: #f8f9fa;
+  }
+
+  .qualifier-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .qualifier-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .qualifier-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #2061B7;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .qualifier-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0E2B47;
+    margin-bottom: 0.75rem;
+  }
+
+  .qualifier-header h2 em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .qualifier-desc {
+    font-size: 0.95rem;
+    color: #666;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .qualifier-progress {
+    margin-bottom: 2.5rem;
+    transition: opacity 0.3s ease;
+  }
+
+  .qualifier-progress.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .progress-step,
+  .progress-pct {
+    font-size: 0.75rem;
+    color: #999;
+    font-weight: 500;
+  }
+
+  .progress-track {
+    height: 4px;
+    background: #e5e7eb;
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: #2061B7;
+    border-radius: 9999px;
+    transition: width 0.5s ease;
+  }
+
+  .qualifier-body {
+    min-height: 320px;
+    position: relative;
+  }
+
+  .qualifier-step {
+    display: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .qualifier-step.active {
+    display: block;
+  }
+
+  .qualifier-step.slide-out-left {
+    opacity: 0;
+    transform: translateX(-2rem);
+  }
+
+  .qualifier-step.slide-out-right {
+    opacity: 0;
+    transform: translateX(2rem);
+  }
+
+  .qualifier-step.slide-in-right {
+    animation: slideInRight 0.3s ease forwards;
+  }
+
+  .qualifier-step.slide-in-left {
+    animation: slideInLeft 0.3s ease forwards;
+  }
+
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(2rem); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-2rem); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .question-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    color: #0E2B47;
+    margin-bottom: 2rem;
+  }
+
+  .question-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .option-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+
+  .option-btn:hover {
+    border-color: #2061B7;
+    background: rgba(32, 97, 183, 0.03);
+    box-shadow: 0 0 20px -8px rgba(32, 97, 183, 0.25);
+  }
+
+  .option-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #999;
+    flex-shrink: 0;
+    transition: color 0.2s;
+  }
+
+  .option-btn:hover .option-icon {
+    color: #2061B7;
+  }
+
+  .option-label {
+    flex: 1;
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .option-btn:hover .option-label {
+    color: #0E2B47;
+  }
+
+  .option-arrow {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #ccc;
+    flex-shrink: 0;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .option-btn:hover .option-arrow {
+    color: #2061B7;
+    transform: translateX(4px);
+  }
+
+  .back-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem auto 0;
+    padding: 0.5rem 1rem;
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .back-btn:hover {
+    color: #333;
+  }
+
+  .qualifier-complete {
+    display: none;
+    text-align: center;
+  }
+
+  .qualifier-complete.active {
+    display: block;
+  }
+
+  .qualifier-complete.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .complete-icon {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto 2rem;
+    border-radius: 9999px;
+    background: rgba(32, 97, 183, 0.1);
+    border: 1px solid rgba(32, 97, 183, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2061B7;
+  }
+
+  .qualifier-complete h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0E2B47;
+    margin-bottom: 0.75rem;
+  }
+
+  .qualifier-complete p {
+    font-size: 0.95rem;
+    color: #666;
+    max-width: 380px;
+    margin: 0 auto 2rem;
+  }
+
+  .complete-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .complete-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-reset {
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    border: 1px solid #e5e7eb;
+    background: none;
+    color: #666;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-reset:hover {
+    border-color: #999;
+    color: #333;
+  }
+
+  @media (min-width: 640px) {
+    .complete-actions {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+</style>

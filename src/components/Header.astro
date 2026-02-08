@@ -7,23 +7,38 @@ const navItems = [
     megaMenu: [
       {
         title: 'Residential',
-        links: [
-          { href: '/services/solar-panels', label: 'Solar Panel Installation' },
-          { href: '/services/battery-storage', label: 'Battery Storage' },
-          { href: '/services/ev-charging', label: 'EV Charging' },
+        image: '/image/photography/Frontage_1.webp',
+        href: '/services/residential',
+        buttonText: 'See Examples',
+        services: [
+          { href: '/services/residential/solar-systems', label: 'Solar Systems' },
+          { href: '/services/residential/comfort-conditioning', label: 'Comfort Conditioning' },
+          { href: '/services/residential/battery-systems', label: 'Battery Systems' },
+          { href: '/services/residential/heat-pump-systems', label: 'Heat Pump Systems' },
+          { href: '/services/residential/home-automation', label: 'Home Automation' },
+          { href: '/services/residential/hvac', label: 'HVAC' },
         ],
       },
       {
         title: 'Commercial',
-        links: [
-          { href: '/services/commercial-solar', label: 'Commercial Solar' },
-          { href: '/services/industrial', label: 'Industrial Solutions' },
-          { href: '/services/maintenance', label: 'Maintenance & Support' },
+        image: '/image/photography/Frontage_5.webp',
+        href: '/services/commercial',
+        buttonText: 'See Examples',
+        services: [
+          { href: '/services/commercial/solar-systems', label: 'Solar Systems' },
+          { href: '/services/commercial/comfort-conditioning', label: 'Comfort Conditioning' },
+          { href: '/services/commercial/battery-systems', label: 'Battery Systems' },
+          { href: '/services/commercial/heat-pump-systems', label: 'Heat Pump Systems' },
+          { href: '/services/commercial/home-automation', label: 'Home Automation' },
+          { href: '/services/commercial/hvac', label: 'HVAC' },
         ],
       },
       {
         title: 'Resources',
-        links: [
+        image: '/image/photography/Frontage_3.webp',
+        href: '/resources',
+        hideButton: true,
+        services: [
           { href: '/services/consultation', label: 'Free Consultation' },
           { href: '/services/financing', label: 'Financing Options' },
           { href: '/services/faq', label: 'FAQs' },
@@ -31,22 +46,52 @@ const navItems = [
       },
     ],
   },
-  { href: '/blog', label: 'Blog' },
+  { divider: true },
+  {
+    label: 'Research',
+    megaMenu: [
+      {
+        title: 'Facility',
+        image: '/image/photography/Frontage_6.webp',
+        href: '/laboratory/facility',
+        services: [
+          { href: '/laboratory/simulation-room', label: 'Simulation Room (Test Cell)' },
+        ],
+      },
+      {
+        title: 'Products',
+        image: '/image/photography/Frontage_7.webp',
+        href: '/laboratory/products',
+        services: [
+          { href: '/laboratory/hydronic-ceiling-panels', label: 'Hydronic Ceiling Panels' },
+          { href: '/laboratory/environmental-service-pod', label: 'Environmental Service Pod' },
+        ],
+      },
+    ],
+  },
+  { divider: true },
   { href: '/case-studies', label: 'Case Studies' },
-  { href: '/laboratory', label: 'Laboratory' },
+  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
+<a href="/" class="hero-logo" id="hero-logo">
+  <img src="/image/logo/Logo_color_bottom_cap.svg" alt="EES Environmental Energy Services" class="hero-logo-img" />
+</a>
+
 <header class="header" id="main-header">
   <nav class="nav">
     <a href="/" class="logo">
-      <span>EES</span>
+      <img src="/image/logo/Logo_color_bottom_cap.svg" alt="EES Environmental Energy Services" class="logo-img" />
     </a>
     <ul class="nav-links">
-      {navItems.map((item) => (
+      {navItems.map((item: any) => (
+        item.divider ? (
+          <li class="nav-divider" aria-hidden="true"></li>
+        ) : (
         <li class:list={['nav-item', { 'has-mega': item.megaMenu }]}>
           {item.href ? (
             <a
@@ -65,16 +110,31 @@ const currentPath = Astro.url.pathname;
               </button>
               <div class="mega-menu">
                 <div class="mega-menu-inner">
-                  {item.megaMenu.map((column) => (
-                    <div class="mega-column">
-                      <h3>{column.title}</h3>
-                      <ul>
-                        {column.links.map((link) => (
-                          <li>
-                            <a href={link.href}>{link.label}</a>
-                          </li>
-                        ))}
-                      </ul>
+                  {item.megaMenu?.map((card: any) => (
+                    <div class="mega-card">
+                      <img src={card.image} alt={card.title} class="mega-card-img" />
+                      <div class="mega-card-overlay"></div>
+                      <div class="mega-card-content">
+                        <div class="mega-card-header">
+                          <h3>{card.title}</h3>
+                          {!card.hideButton && (
+                            <a href={card.href} class="mega-learn-more">
+                              {card.buttonText || 'Learn More'}
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                            </a>
+                          )}
+                        </div>
+                        <ul class="mega-card-links">
+                          {card.services.map((svc: any) => (
+                            <li>
+                              <a href={svc.href}>
+                                {svc.label}
+                                <svg class="mega-link-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -82,25 +142,89 @@ const currentPath = Astro.url.pathname;
             </>
           )}
         </li>
+        )
       ))}
     </ul>
-    <a href="/contact" class="nav-cta">Get a Quote</a>
+    <a href="#solar-qualifier" class="nav-cta">Get Your Free Quote</a>
+    <button class="menu-toggle" id="menu-toggle" type="button">Menu</button>
   </nav>
 </header>
 
 <script>
   const header = document.getElementById('main-header');
+  const menuToggle = document.getElementById('menu-toggle');
+  const heroLogo = document.getElementById('hero-logo');
 
   function handleScroll() {
-    if (window.scrollY > 50) {
+    const hero = document.querySelector('.hero') as HTMLElement | null;
+    const threshold = hero ? hero.offsetHeight - 100 : 50;
+    if (window.scrollY > threshold) {
       header?.classList.add('scrolled');
+      heroLogo?.classList.add('hidden');
     } else {
       header?.classList.remove('scrolled');
+      heroLogo?.classList.remove('hidden');
     }
   }
 
+  menuToggle?.addEventListener('click', () => {
+    header?.classList.toggle('menu-open');
+    const isOpen = header?.classList.contains('menu-open');
+    menuToggle.textContent = isOpen ? 'Close' : 'Menu';
+  });
+
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
+
+  // Mega menu: open on hover, close after delay on leave
+  const megaItems = document.querySelectorAll('.nav-item.has-mega');
+  const megaTimers = new Map<Element, ReturnType<typeof setTimeout>>();
+
+  megaItems.forEach((item) => {
+    item.addEventListener('mouseenter', () => {
+      // Clear this item's pending close
+      const timer = megaTimers.get(item);
+      if (timer) {
+        clearTimeout(timer);
+        megaTimers.delete(item);
+      }
+      // Close any other open mega menus immediately
+      megaItems.forEach((other) => {
+        if (other !== item) {
+          other.classList.remove('mega-open');
+          const otherTimer = megaTimers.get(other);
+          if (otherTimer) {
+            clearTimeout(otherTimer);
+            megaTimers.delete(other);
+          }
+        }
+      });
+      item.classList.add('mega-open');
+    });
+
+    item.addEventListener('mouseleave', () => {
+      const timer = setTimeout(() => {
+        item.classList.remove('mega-open');
+        megaTimers.delete(item);
+      }, 2100);
+      megaTimers.set(item, timer);
+    });
+  });
+
+  // Close mega menu when clicking anywhere outside
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    megaItems.forEach((item) => {
+      if (!item.contains(target)) {
+        item.classList.remove('mega-open');
+        const timer = megaTimers.get(item);
+        if (timer) {
+          clearTimeout(timer);
+          megaTimers.delete(item);
+        }
+      }
+    });
+  });
 </script>
 
 <style>
@@ -113,17 +237,21 @@ const currentPath = Astro.url.pathname;
     max-width: 1200px;
     z-index: 1000;
     padding: 0.875rem 2rem;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     border-radius: 9999px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
   }
 
   .header.scrolled {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    background: rgba(14, 43, 71, 0.85);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   }
 
   .nav {
@@ -132,11 +260,50 @@ const currentPath = Astro.url.pathname;
     align-items: center;
   }
 
-  .logo {
-    font-weight: bold;
-    font-size: 1.5rem;
+  /* Hero logo - fixed top-left, visible on hero */
+  .hero-logo {
+    position: fixed;
+    top: 1.5rem;
+    left: 2rem;
+    z-index: 1001;
     text-decoration: none;
-    color: #0066cc;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .hero-logo.hidden {
+    opacity: 0;
+    transform: translateY(-1rem);
+    pointer-events: none;
+  }
+
+  .hero-logo-img {
+    height: 5rem;
+    width: auto;
+  }
+
+  /* Nav logo - hidden on hero, visible when scrolled */
+  .logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+  }
+
+  .header.scrolled .logo {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+
+  .logo-img {
+    height: 2.5rem;
+    width: auto;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
   }
 
   .nav-links {
@@ -151,13 +318,22 @@ const currentPath = Astro.url.pathname;
     position: relative;
   }
 
+  .nav-divider {
+    width: 1px;
+    height: 1.25rem;
+    background: rgba(255, 255, 255, 0.3);
+    align-self: center;
+    margin: 0 0.25rem;
+    list-style: none;
+  }
+
   .nav-link {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
     padding: 0.5rem 1rem;
     text-decoration: none;
-    color: #333;
+    color: #fff;
     font-weight: 500;
     border-radius: 9999px;
     transition: background 0.2s, color 0.2s;
@@ -170,24 +346,25 @@ const currentPath = Astro.url.pathname;
 
   .nav-link:hover,
   .nav-link.active {
-    background: rgba(0, 102, 204, 0.1);
-    color: #0066cc;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
   }
 
   .nav-toggle .chevron {
     transition: transform 0.2s;
   }
 
-  .nav-item.has-mega:hover .chevron {
+  .nav-item.has-mega.mega-open .chevron {
     transform: rotate(180deg);
   }
 
   .nav-cta {
     padding: 0.625rem 1.5rem;
-    background: #0066cc;
+    background: #2061B7;
     color: #fff;
     text-decoration: none;
     border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     font-weight: 500;
     font-size: 0.9375rem;
     transition: background 0.2s, transform 0.2s;
@@ -195,7 +372,7 @@ const currentPath = Astro.url.pathname;
   }
 
   .nav-cta:hover {
-    background: #0052a3;
+    background: #184A8B;
     color: #fff;
     transform: scale(1.02);
   }
@@ -213,7 +390,7 @@ const currentPath = Astro.url.pathname;
     pointer-events: none;
   }
 
-  .nav-item.has-mega:hover .mega-menu {
+  .nav-item.has-mega.mega-open .mega-menu {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
@@ -222,44 +399,293 @@ const currentPath = Astro.url.pathname;
 
   .mega-menu-inner {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding: 2rem;
-    background: #fff;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    gap: 1rem;
+    padding: 1rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(14, 43, 71, 0.5));
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 1.5rem;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-    min-width: 580px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
   }
 
-  .mega-column h3 {
+  .mega-card {
+    position: relative;
+    display: block;
+    border-radius: 1rem;
+    overflow: hidden;
+    min-height: 320px;
+    min-width: 240px;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .mega-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  .mega-card-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .mega-card:hover .mega-card-img {
+    transform: scale(1.05);
+  }
+
+  .mega-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(14, 30, 20, 0.95) 0%,
+      rgba(14, 30, 20, 0.88) 55%,
+      rgba(14, 30, 20, 0.4) 80%,
+      transparent 100%
+    );
+    z-index: 1;
+  }
+
+  .mega-card-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.25rem;
+    z-index: 2;
+    color: #fff;
+  }
+
+  .mega-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    gap: 0.75rem;
+  }
+
+  .mega-card-content h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+    letter-spacing: 0.01em;
+  }
+
+  .mega-learn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.3rem 0.75rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 9999px;
+    color: #fff;
+    text-decoration: none;
     font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #888;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background 0.2s;
   }
 
-  .mega-column ul {
+  .mega-learn-more:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+  }
+
+  .mega-card-links {
     list-style: none;
     padding: 0;
     margin: 0;
+    padding-left: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    min-height: 10.5rem;
   }
 
-  .mega-column li {
-    margin-bottom: 0.375rem;
-  }
-
-  .mega-column a {
-    color: #333;
+  .mega-card-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    font-size: 0.9375rem;
-    transition: color 0.2s;
-    display: block;
-    padding: 0.375rem 0;
+    font-size: 0.875rem;
+    transition: color 0.15s;
   }
 
-  .mega-column a:hover {
-    color: #0066cc;
+  .mega-card-links a:hover {
+    color: #fff;
+  }
+
+  .mega-link-chevron {
+    opacity: 0.4;
+    transition: opacity 0.15s, transform 0.15s;
+    flex-shrink: 0;
+  }
+
+  .mega-card-links a:hover .mega-link-chevron {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+
+  /* Menu toggle - hidden on desktop */
+  .menu-toggle {
+    display: none;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: background 0.2s;
+  }
+
+  .menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  @media (max-width: 900px) {
+    .hero-logo {
+      top: 1rem;
+      left: 1.25rem;
+    }
+
+    .hero-logo-img {
+      height: 3rem;
+    }
+
+    .header {
+      border-radius: 9999px;
+      padding: 0.75rem 1.25rem;
+      width: auto;
+      left: auto;
+      right: 1.25rem;
+      transform: none;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border: none;
+      box-shadow: none;
+    }
+
+    .header.scrolled {
+      width: calc(100% - 2rem);
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+      background: rgba(14, 43, 71, 0.85);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links,
+    .nav-cta {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    /* Open state */
+    .header.menu-open {
+      border-radius: 1.5rem;
+      top: 1rem;
+      width: calc(100% - 2rem);
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+      background: rgba(14, 43, 71, 0.85);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .header.menu-open .nav {
+      flex-wrap: wrap;
+    }
+
+    .header.menu-open .nav-links {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 0.25rem;
+      padding: 1rem 0 0.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      margin-top: 0.75rem;
+    }
+
+    .header.menu-open .nav-divider {
+      display: none;
+    }
+
+    .header.menu-open .nav-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .header.menu-open .nav-link {
+      padding: 0.625rem 1rem;
+      border-radius: 0.75rem;
+    }
+
+    /* Mega menu mobile */
+    .header.menu-open .mega-menu {
+      position: static;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      padding-top: 0;
+    }
+
+    .header.menu-open .mega-menu-inner {
+      grid-auto-flow: row;
+      grid-auto-columns: unset;
+      grid-template-columns: 1fr;
+      min-width: 0;
+      padding: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 0.75rem;
+      box-shadow: none;
+      gap: 0.5rem;
+    }
+
+    .header.menu-open .mega-card {
+      min-height: 0;
+    }
+
+    .header.menu-open .mega-card-content {
+      position: relative;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 0.75rem;
+    }
+
+    .header.menu-open .mega-card-links {
+      min-height: 0;
+    }
+
+    .header.menu-open .mega-card-img,
+    .header.menu-open .mega-card-overlay {
+      display: none;
+    }
   }
 </style>

@@ -3,84 +3,253 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="footer">
-  <div class="footer-content">
-    <div class="footer-section">
-      <h3>Company</h3>
-      <ul>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/case-studies">Case Studies</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">
+        <img src="/image/logo/Logo_color_bottom_cap.svg" alt="EES Environmental Energy Services" />
+      </a>
+      <address class="footer-address">
+        13 Nobility Street<br />
+        Moolap VIC 3224<br />
+        <a href="tel:0427664827">0427 664 827</a><br />
+        <a href="mailto:support@eeservices.io">support@eeservices.io</a>
+      </address>
+      <p class="footer-tagline">Honest advice, quality workmanship and long-term support from our local team in Geelong and Torquay.</p>
+      <a href="#solar-qualifier" class="footer-cta btn btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+        Get Your Free Quote
+      </a>
     </div>
-    <div class="footer-section">
-      <h3>Resources</h3>
-      <ul>
-        <li><a href="/blog">Blog</a></li>
-        <!-- TODO: Add more resource links -->
-      </ul>
-    </div>
-    <div class="footer-section">
-      <h3>Legal</h3>
-      <ul>
-        <li><a href="/privacy">Privacy Policy</a></li>
-        <li><a href="/terms">Terms of Service</a></li>
-      </ul>
+
+    <div class="footer-links">
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Residential</h3>
+        <ul>
+          <li><a href="/services/residential/solar-systems">Solar Systems</a></li>
+          <li><a href="/services/residential/comfort-conditioning">Comfort Conditioning</a></li>
+          <li><a href="/services/residential/battery-systems">Battery Systems</a></li>
+          <li><a href="/services/residential/heat-pump-systems">Heat Pump Systems</a></li>
+          <li><a href="/services/residential/home-automation">Home Automation</a></li>
+          <li><a href="/services/residential/hvac">HVAC</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Commercial</h3>
+        <ul>
+          <li><a href="/services/commercial/solar-systems">Solar Systems</a></li>
+          <li><a href="/services/commercial/comfort-conditioning">Comfort Conditioning</a></li>
+          <li><a href="/services/commercial/battery-systems">Battery Systems</a></li>
+          <li><a href="/services/commercial/heat-pump-systems">Heat Pump Systems</a></li>
+          <li><a href="/services/commercial/home-automation">Home Automation</a></li>
+          <li><a href="/services/commercial/hvac">HVAC</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Research</h3>
+        <ul>
+          <li><a href="/laboratory/facility">Facility</a></li>
+          <li><a href="/laboratory/simulation-room">Simulation Room</a></li>
+          <li><a href="/laboratory/products">Products</a></li>
+          <li><a href="/laboratory/hydronic-ceiling-panels">Hydronic Ceiling Panels</a></li>
+          <li><a href="/laboratory/environmental-service-pod">Environmental Service Pod</a></li>
+        </ul>
+        <h3 class="footer-col-subheading">Resources</h3>
+        <ul>
+          <li><a href="/services/consultation">Free Consultation</a></li>
+          <li><a href="/services/financing">Financing Options</a></li>
+          <li><a href="/services/faq">FAQs</a></li>
+        </ul>
+      </div>
     </div>
   </div>
+
   <div class="footer-bottom">
-    <p>&copy; {currentYear} Your Company Name. All rights reserved.</p>
+    <p>&copy; {currentYear} Environmental Energy Services. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+    </div>
   </div>
 </footer>
 
 <style>
   .footer {
-    background: #1a1a1a;
+    background: #0E2B47;
     color: #fff;
-    padding: 3rem 2rem 1rem;
     margin-top: auto;
   }
 
-  .footer-content {
+  .footer-main {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 4rem 2rem 3rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 280px 1fr;
+    gap: 4rem;
+  }
+
+  /* Brand column */
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .footer-logo {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .footer-logo img {
+    height: 4.5rem;
+    width: auto;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+  }
+
+  .footer-address {
+    font-style: normal;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+  }
+
+  .footer-address a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-address a:hover {
+    color: #fff;
+  }
+
+  .footer-tagline {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .footer-cta {
+    align-self: flex-start;
+    font-size: 0.875rem;
+    padding: 0.625rem 1.25rem;
+  }
+
+  /* Link columns */
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
   }
 
-  .footer-section h3 {
+  .footer-col h3 {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: 1rem;
-    font-size: 1rem;
   }
 
-  .footer-section ul {
+  .footer-col-subheading {
+    margin-top: 1.5rem;
+  }
+
+  .footer-col ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
-  .footer-section li {
+  .footer-col li {
     margin-bottom: 0.5rem;
   }
 
-  .footer-section a {
-    color: #ccc;
+  .footer-col a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover {
+    color: #fff;
+  }
+
+  /* Bottom bar */
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-legal a {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.4);
     text-decoration: none;
     transition: color 0.2s;
   }
 
-  .footer-section a:hover {
-    color: #fff;
+  .footer-legal a:hover {
+    color: rgba(255, 255, 255, 0.8);
   }
 
-  .footer-bottom {
-    max-width: 1200px;
-    margin: 2rem auto 0;
-    padding-top: 1rem;
-    border-top: 1px solid #333;
-    text-align: center;
-    color: #888;
-    font-size: 0.875rem;
+  @media (max-width: 1000px) {
+    .footer-main {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 3rem 1.5rem 2.5rem;
+    }
+
+    .footer-links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-main {
+      padding: 2.5rem 1.25rem 2rem;
+    }
+
+    .footer-links {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: center;
+      padding: 1.25rem 1.25rem;
+    }
   }
 </style>

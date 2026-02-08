@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SolarQualifier from '../components/SolarQualifier.astro';
+import GoogleMap from '../components/GoogleMap.astro';
 ---
 
 <BaseLayout
@@ -27,7 +28,7 @@ import SolarQualifier from '../components/SolarQualifier.astro';
         Honest advice, quality workmanship and long-term support from our local team in Geelong and Torquay.<br class="subtitle-br"> Trusted by thousands of Victorian homes and businesses to deliver real savings.
       </p>
       <div class="hero-cta">
-        <a href="#solar-qualifier" class="btn btn-primary">Get Your Free Quote</a>
+        <a href="#solar-qualifier" class="btn btn-primary"><svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>Get Your Free Quote</a>
       </div>
     </div>
     <div class="hero-bottom-bar">
@@ -221,11 +222,9 @@ import SolarQualifier from '../components/SolarQualifier.astro';
       <div class="guarantee-left">
         <h2>Our guarantee</h2>
         <p>We use best-in-class products, back our work with a 10-year workmanship warranty and guarantee our team is accredited.</p>
-        <div class="guarantee-mark">
-          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="28" cy="48" r="14" fill="rgba(255,255,255,0.1)"/>
-            <path d="M42 90 L62 40 L56 65 L80 28" stroke="rgba(255,255,255,0.1)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+        <div class="guarantee-signature">
+          <span class="signature-text">Lincoln Luther</span>
+          <span class="signature-title">Director</span>
         </div>
       </div>
       <div class="guarantee-grid">
@@ -408,6 +407,9 @@ import SolarQualifier from '../components/SolarQualifier.astro';
       </div>
     </div>
   </section>
+
+  <!-- Location Map -->
+  <GoogleMap />
 
   <!-- Solar Qualifier -->
   <SolarQualifier />
@@ -636,8 +638,29 @@ import SolarQualifier from '../components/SolarQualifier.astro';
     max-width: 380px;
   }
 
-  .guarantee-mark {
-    margin-top: 2rem;
+  .guarantee-signature {
+    margin-top: 2.5rem;
+    max-width: 380px;
+  }
+
+  .signature-text {
+    font-family: 'Playwrite RO', cursive;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.35);
+    display: block;
+    font-size: 2.25rem;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .signature-title {
+    display: block;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.5rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 500;
   }
 
   .guarantee-grid {
@@ -697,7 +720,7 @@ import SolarQualifier from '../components/SolarQualifier.astro';
       font-size: 2.25rem;
     }
 
-    .guarantee-mark {
+    .guarantee-signature {
       display: none;
     }
   }

@@ -12,6 +12,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -221,7 +222,7 @@ p {
 
 /* What We Do Section */
 .what-we-do {
-  background: #fff;
+  background: #f8f9fa;
   padding: 5rem 0;
   position: relative;
   overflow: hidden;
@@ -293,10 +294,11 @@ p {
   margin-bottom: 0.625rem;
   color: #fff;
   font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .service-card-content p {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 1.25rem;
   line-height: 1.6;

@@ -79,8 +79,8 @@ const navItems = [
     ],
   },
   { divider: true },
-  { href: '/case-studies', label: 'Case Studies' },
-  { href: '/blog', label: 'Blog' },
+  // { href: '/case-studies', label: 'Case Studies' },
+  // { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -174,33 +174,43 @@ const currentPath = Astro.url.pathname;
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
 
-  // Mega menu: open on hover, close after delay on leave
+  // Mega menu interactions
   const megaItems = document.querySelectorAll('.nav-item.has-mega');
   const megaTimers = new Map<Element, ReturnType<typeof setTimeout>>();
+  const isMobile = () => window.innerWidth <= 900;
 
+  // Mobile: click toggles on nav-toggle buttons
+  document.querySelectorAll('.nav-toggle').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      if (!isMobile()) return;
+      e.preventDefault();
+      const item = btn.closest('.nav-item.has-mega');
+      if (!item) return;
+      const wasOpen = item.classList.contains('mega-open');
+      // Close all others
+      megaItems.forEach((other) => other.classList.remove('mega-open'));
+      if (!wasOpen) item.classList.add('mega-open');
+    });
+  });
+
+  // Desktop: open on hover, close after delay on leave
   megaItems.forEach((item) => {
     item.addEventListener('mouseenter', () => {
-      // Clear this item's pending close
+      if (isMobile()) return;
       const timer = megaTimers.get(item);
-      if (timer) {
-        clearTimeout(timer);
-        megaTimers.delete(item);
-      }
-      // Close any other open mega menus immediately
+      if (timer) { clearTimeout(timer); megaTimers.delete(item); }
       megaItems.forEach((other) => {
         if (other !== item) {
           other.classList.remove('mega-open');
-          const otherTimer = megaTimers.get(other);
-          if (otherTimer) {
-            clearTimeout(otherTimer);
-            megaTimers.delete(other);
-          }
+          const t = megaTimers.get(other);
+          if (t) { clearTimeout(t); megaTimers.delete(other); }
         }
       });
       item.classList.add('mega-open');
     });
 
     item.addEventListener('mouseleave', () => {
+      if (isMobile()) return;
       const timer = setTimeout(() => {
         item.classList.remove('mega-open');
         megaTimers.delete(item);
@@ -216,10 +226,7 @@ const currentPath = Astro.url.pathname;
       if (!item.contains(target)) {
         item.classList.remove('mega-open');
         const timer = megaTimers.get(item);
-        if (timer) {
-          clearTimeout(timer);
-          megaTimers.delete(item);
-        }
+        if (timer) { clearTimeout(timer); megaTimers.delete(item); }
       }
     });
   });
@@ -288,6 +295,10 @@ const currentPath = Astro.url.pathname;
     position: relative;
   }
 
+  .nav-item.has-mega {
+    position: static;
+  }
+
   .nav-divider {
     width: 1px;
     height: 1.25rem;
@@ -348,10 +359,22 @@ const currentPath = Astro.url.pathname;
     flex-shrink: 0;
   }
 
+  .cta-arrow {
+    animation: arrowBounce 2.5s ease-in-out infinite;
+  }
+
   .nav-cta:hover {
     background: #184A8B;
     color: #fff;
-    transform: scale(1.02);
+  }
+
+  .nav-cta:hover .cta-arrow {
+    animation: none;
+  }
+
+  @keyframes arrowBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
   }
 
   /* Mega Menu */
@@ -403,14 +426,38 @@ const currentPath = Astro.url.pathname;
     border-radius: 0.75rem;
     padding: 1.25rem;
     min-width: 260px;
-    background: #163554;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: background 0.2s;
+    background: linear-gradient(135deg, rgba(22, 53, 84, 0.6) 0%, rgba(14, 43, 71, 0.4) 100%);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 0 20px rgba(255, 255, 255, 0.03),
+      0 4px 16px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
     color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mega-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
+    pointer-events: none;
   }
 
   .mega-card:hover {
-    background: #1b3f63;
+    background: linear-gradient(135deg, rgba(27, 63, 99, 0.7) 0%, rgba(20, 55, 88, 0.5) 100%);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 0 24px rgba(255, 255, 255, 0.05),
+      0 8px 24px rgba(0, 0, 0, 0.2);
   }
 
   .mega-card-header {
@@ -508,10 +555,14 @@ const currentPath = Astro.url.pathname;
 
   @media (max-width: 900px) {
     .header {
+      left: 1rem;
+      right: auto;
+      width: calc(100vw - 2rem);
+      max-width: none;
+      transform: none;
+      top: 1rem;
       border-radius: 9999px;
       padding: 0.75rem 1.25rem;
-      width: calc(100% - 2rem);
-      top: 1rem;
     }
 
     .nav-links,
@@ -530,11 +581,6 @@ const currentPath = Astro.url.pathname;
     /* Open state */
     .header.menu-open {
       border-radius: 1.5rem;
-      top: 1rem;
-      width: calc(100% - 2rem);
-      left: 50%;
-      right: auto;
-      transform: translateX(-50%);
     }
 
     .header.menu-open::before {
@@ -574,30 +620,91 @@ const currentPath = Astro.url.pathname;
       border-radius: 0.75rem;
     }
 
-    /* Mega menu mobile */
+    /* Mega menu mobile - hidden by default, toggled via .mega-open */
     .header.menu-open .mega-menu {
       position: static;
       transform: none;
+      padding-top: 0;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.25s ease, max-height 0.3s ease, visibility 0.25s;
+    }
+
+    .header.menu-open .nav-item.has-mega.mega-open .mega-menu {
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
-      padding-top: 0;
+      max-height: 800px;
+      transform: none;
     }
 
+    /* Simple flat list on mobile - no cards */
     .header.menu-open .mega-menu-inner {
-      grid-auto-flow: row;
-      grid-auto-columns: unset;
-      grid-template-columns: 1fr;
-      min-width: 0;
-      padding: 0.5rem;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 0.25rem 0;
+      background: none;
+      border: none;
+      border-radius: 0;
       box-shadow: none;
-      gap: 0.5rem;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
 
     .header.menu-open .mega-card {
-      padding: 0.75rem;
+      background: none;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .header.menu-open .mega-card::before {
+      display: none;
+    }
+
+    .header.menu-open .mega-card-header {
+      margin-bottom: 0.25rem;
+    }
+
+    .header.menu-open .mega-card-header h3 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.45);
+      font-weight: 500;
+      margin-top: 0.75rem;
+    }
+
+    .header.menu-open .mega-learn-more {
+      display: none;
+    }
+
+    .header.menu-open .mega-card-links {
+      border-left: none;
+      padding-left: 0;
+      gap: 0;
+    }
+
+    .header.menu-open .mega-card-links a {
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.9375rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .header.menu-open .mega-card-links a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .header.menu-open .mega-link-chevron {
+      display: none;
     }
   }
 </style>

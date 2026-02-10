@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SolarQualifier from '../components/SolarQualifier.astro';
 import GoogleMap from '../components/GoogleMap.astro';
 ---
 
@@ -56,9 +55,47 @@ import GoogleMap from '../components/GoogleMap.astro';
         <div class="scroll-mouse">
           <div class="scroll-wheel"></div>
         </div>
-        <svg class="scroll-arrow" xmlns="http://www.w3.org/2000/svg" width="28" height="16" viewBox="0 0 14 8" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="scroll-arrow" xmlns="http://www.w3.org/2000/svg" width="39" height="22" viewBox="0 0 14 8" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M1 1l6 5 6-5"/>
         </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials Bar -->
+  <section class="credentials-bar">
+    <div class="credentials-bg"></div>
+    <div class="credentials-content">
+      <div class="credential">
+        <svg class="credential-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="12" y="6" width="40" height="52" rx="4" stroke="currentColor" stroke-width="3"/>
+          <path d="M24 30l6 6 12-12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 16h16" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <p>5000+ Panels Installed &amp; Counting</p>
+      </div>
+      <div class="credential">
+        <svg class="credential-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 12l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+        </svg>
+        <p>Five-Star Rated on Google</p>
+      </div>
+      <div class="credential">
+        <svg class="credential-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 36c0-8 8-12 12-12s4 4 8 4 4-4 8-4 12 4 12 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="24" cy="18" r="6" stroke="currentColor" stroke-width="3"/>
+          <circle cx="40" cy="18" r="6" stroke="currentColor" stroke-width="3"/>
+          <path d="M20 36v10h24V36" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p>Solar Victoria &amp; SAA Accredited Installer</p>
+      </div>
+      <div class="credential">
+        <svg class="credential-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 8l6 12h14l-10 9 4 13L32 34l-14 8 4-13-10-9h14z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M16 52h32" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <path d="M20 56h24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <p>Trusted by Homes &amp; Businesses Across Geelong</p>
       </div>
     </div>
   </section>
@@ -162,60 +199,15 @@ import GoogleMap from '../components/GoogleMap.astro';
     </div>
   </section>
 
-  <!-- Diagonal Divider (success stories to credentials) -->
-  <div class="diagonal-divider" style="background: #f8f9fa;">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="0,0 0,120 1440,120" fill="#f0eed9" />
-    </svg>
-  </div>
-
-  <!-- Credentials Bar -->
-  <section class="credentials-bar">
-    <div class="credentials-bg"></div>
-    <div class="credentials-content">
-      <div class="credential">
-        <svg class="credential-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="12" y="6" width="40" height="52" rx="4" stroke="currentColor" stroke-width="3"/>
-          <path d="M24 30l6 6 12-12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M24 16h16" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-        </svg>
-        <p>500+ Panels Installed &amp; Counting</p>
-      </div>
-      <div class="credential">
-        <svg class="credential-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M32 12l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
-        </svg>
-        <p>Five-Star Rated on Google</p>
-      </div>
-      <div class="credential">
-        <svg class="credential-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 36c0-8 8-12 12-12s4 4 8 4 4-4 8-4 12 4 12 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="24" cy="18" r="6" stroke="currentColor" stroke-width="3"/>
-          <circle cx="40" cy="18" r="6" stroke="currentColor" stroke-width="3"/>
-          <path d="M20 36v10h24V36" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <p>Solar Victoria &amp; SAA Accredited Installer</p>
-      </div>
-      <div class="credential">
-        <svg class="credential-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M32 8l6 12h14l-10 9 4 13L32 34l-14 8 4-13-10-9h14z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
-          <path d="M16 52h32" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-          <path d="M20 56h24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-        </svg>
-        <p>Trusted by Homes &amp; Businesses Across Geelong</p>
-      </div>
+  <!-- Guarantee Group (divider + section + divider animate together) -->
+  <div class="guarantee-group">
+    <div class="diagonal-divider" style="background: #fff;">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="0,0 0,120 1440,120" fill="#0E2B47" />
+      </svg>
     </div>
-  </section>
 
-  <!-- Diagonal Divider (credentials to guarantee) -->
-  <div class="diagonal-divider" style="background: #f0eed9;">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="0,0 0,120 1440,120" fill="#0E2B47" />
-    </svg>
-  </div>
-
-  <!-- Our Guarantee Section -->
-  <section class="guarantee">
+    <section class="guarantee">
     <div class="guarantee-inner">
       <div class="guarantee-left">
         <h2>Our guarantee</h2>
@@ -290,11 +282,11 @@ import GoogleMap from '../components/GoogleMap.astro';
     </div>
   </section>
 
-  <!-- Diagonal Divider (guarantee to testimonials) -->
-  <div class="diagonal-divider" style="background: #0E2B47;">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="0,0 0,120 1440,120" fill="#fff" />
-    </svg>
+    <div class="diagonal-divider" style="background: #0E2B47;">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="0,0 0,120 1440,120" fill="#fff" />
+      </svg>
+    </div>
   </div>
 
   <!-- Testimonials Section -->
@@ -356,6 +348,64 @@ import GoogleMap from '../components/GoogleMap.astro';
     </div>
   </section>
 
+  <!-- Diagonal Divider (testimonials to switching) -->
+  <div class="diagonal-divider" style="background: #fff;">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,0 0,120 1440,120" fill="#fbfaf3" />
+    </svg>
+  </div>
+
+  <!-- Switching to Solar Section -->
+  <section class="section switching-to-solar">
+    <div class="container">
+      <h2>Switching to solar is easy</h2>
+      <div class="steps-timeline">
+        <div class="step">
+          <div class="step-marker">
+            <span class="step-number">1</span>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3>Tell us about your home</h3>
+            <p>Answer a few quick questions online so we can check if your home's a good fit for solar. It only takes a couple of minutes.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-marker">
+            <span class="step-number">2</span>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3>Free remote consultation</h3>
+            <p>We'll put together a tailored design with upfront costs and realistic savings estimates. Our solar team will give you a call to walk through everything — no obligation, no pressure.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-marker">
+            <span class="step-number">3</span>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <h3>Hassle-free installation</h3>
+            <p>From the site inspection to the install itself, we handle the lot. Once we get cracking, most jobs are wrapped up within a few days.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-marker">
+            <span class="step-number">4</span>
+          </div>
+          <div class="step-content">
+            <h3>Sit back and soak up the savings</h3>
+            <p>We'll help you sort the best feed-in tariff and energy plan. You can track your generation and savings to make sure your system's earning its keep.</p>
+          </div>
+        </div>
+      </div>
+      <div class="switching-cta">
+        <a href="#solar-qualifier" class="btn btn-primary"><svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>Get Your Free Quote</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Accreditations Section -->
   <section class="section accreditations">
     <div class="container">
@@ -404,11 +454,139 @@ import GoogleMap from '../components/GoogleMap.astro';
     </div>
   </section>
 
+  <!-- Most Recent Work Bento Grid -->
+  <section class="section recent-work">
+    <div class="container">
+      <div class="recent-work-header">
+        <p class="recent-work-label">Portfolio</p>
+        <h2>Most Recent <span class="h2-light">Work</span></h2>
+        <p class="recent-work-desc">A selection of our latest commercial and residential solar installations across Victoria.</p>
+      </div>
+      <div class="bento-grid">
+        <div class="bento-item">
+          <img src="/image/photography/Frontage_1.webp" alt="Abbotsford commercial solar installation" />
+          <div class="bento-overlay">
+            <span class="bento-kw">12.33kW</span>
+            <span class="bento-name">Abbotsford</span>
+          </div>
+        </div>
+        <div class="bento-item">
+          <img src="/image/photography/Frontage_2.webp" alt="Lyka Pet Foods Warehouse solar installation" />
+          <div class="bento-overlay">
+            <span class="bento-kw">508kWp</span>
+            <span class="bento-name">Lyka Pet Foods<br/>Warehouse</span>
+          </div>
+        </div>
+        <div class="bento-item bento-wide-top">
+          <video autoplay muted loop playsinline preload="metadata" poster="/image/photography/comerical_V1.webp">
+            <source src="/image/video/video_donr_solar_roof.webm" type="video/webm" />
+            <source src="/image/video/video_donr_solar_roof_web.mp4" type="video/mp4" />
+          </video>
+          <div class="bento-overlay">
+            <span class="bento-kw">753kW</span>
+            <span class="bento-name">Bacchus Marsh</span>
+          </div>
+        </div>
+        <div class="bento-item">
+          <img src="/image/photography/Frontage_3.webp" alt="Cold Storage solar installation" />
+          <div class="bento-overlay">
+            <span class="bento-kw">455kW</span>
+            <span class="bento-name">Cold Storage</span>
+          </div>
+        </div>
+        <div class="bento-item bento-wide-bottom">
+          <img src="/image/photography/Frontage_5.webp" alt="Parts Centre solar installation" />
+          <div class="bento-overlay">
+            <span class="bento-kw">1,765kW</span>
+            <span class="bento-name">Parts Centre</span>
+          </div>
+        </div>
+        <div class="bento-item">
+          <img src="/image/photography/Frontage_6.webp" alt="Mentone Grammar solar installation" />
+          <div class="bento-overlay">
+            <span class="bento-kw">655kW + 263kW</span>
+            <span class="bento-name">Mentone Grammar<br/>Junior + Senior</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Location Map -->
   <GoogleMap />
 
-  <!-- Solar Qualifier -->
-  <SolarQualifier />
+  <!-- FAQ Section -->
+  <section class="section faq">
+    <div class="container">
+      <div class="faq-header">
+        <p class="faq-label">Common Questions</p>
+        <h2>Solar FAQs <span class="h2-light">for Geelong Homeowners</span></h2>
+        <p class="faq-desc">Straight answers to the questions we get asked every day by homes and businesses across the Geelong region.</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">How much money will I save going solar?</summary>
+          <div class="faq-answer">
+            <p>Savings depend on your household size, energy usage, roof orientation and your electricity tariff. Geelong averages around 4.2 peak sun hours per day, which means a well-designed system can offset the majority of your power bill. On average, our customers see their electricity costs drop by 70-90%. We provide a free consultation with realistic, conservative savings estimates tailored to your home before you commit to anything.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What rebates are available in Victoria?</summary>
+          <div class="faq-answer">
+            <p>Victorian homeowners can access the Solar Victoria rebate, which provides a significant discount on the upfront cost of a solar panel system. There are also rebates available for battery storage. On top of that, the federal Small-scale Renewable Energy Scheme (STC) reduces your system cost through tradeable certificates. As a Solar Victoria-approved retailer, EES handles all the paperwork for you so you get every dollar you're entitled to.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Is it worth getting a battery with solar panels?</summary>
+          <div class="faq-answer">
+            <p>For most Geelong households, absolutely. A battery lets you store excess solar energy generated during the day and use it in the evening when electricity rates are highest. It also gives you access to flexible time-of-use tariffs, and with the Victorian battery rebate reducing upfront costs, the payback period is shorter than ever. We'll assess your usage patterns and recommend whether a battery makes financial sense for your situation.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">How do I sell excess solar energy back to the grid?</summary>
+          <div class="faq-answer">
+            <p>Once your system is installed, you can sign up for a feed-in tariff with your electricity retailer. This pays you for every kilowatt-hour of excess energy your panels export to the grid. Feed-in tariff rates vary between retailers, so we'll help you compare options and find the best deal. You don't need to switch energy providers — most retailers offer a solar feed-in plan.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">How long does a solar installation take?</summary>
+          <div class="faq-answer">
+            <p>Most residential installations across Geelong, Torquay and the Bellarine are completed in a single day. Larger or more complex systems (like commercial jobs) may take two to three days. From your initial enquiry to panels on the roof, the whole process typically takes two to four weeks — including the design, site inspection, permits and installation.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What warranties do you offer?</summary>
+          <div class="faq-answer">
+            <p>We stand behind every install with a <strong>10-year workmanship warranty</strong> — that covers our labour and installation quality. On top of that, you get manufacturer warranties: typically 25-year product and performance warranties on solar panels, and 10-year warranties on inverters. We only use tier-one products from brands like Enphase, SigEnergy and Tesla, so you know the gear is built to last.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Will solar panels work on my roof?</summary>
+          <div class="faq-answer">
+            <p>Most roofs in the Geelong region are suitable for solar. North-facing roofs are ideal, but east and west orientations still produce excellent results — especially with modern high-efficiency panels. We assess your roof angle, shading, available space and structural suitability during our free consultation. If there are any issues, we'll be upfront about it rather than push a system that won't perform.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">What happens if I sell my home?</summary>
+          <div class="faq-answer">
+            <p>Solar panels are a selling point. They increase your home's Energy Efficiency Rating and are consistently shown to add value to Australian properties. The system stays with the house and transfers to the new owner, along with all remaining manufacturer warranties. Many buyers specifically seek out solar-equipped homes to lock in lower running costs.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Is EES accredited?</summary>
+          <div class="faq-answer">
+            <p>Yes. EES is fully accredited through the Clean Energy Council, Solar Accreditation Australia, and is an approved Solar Victoria retailer. We're also a certified installer for Tesla, Enphase and SigEnergy. Our team holds current electrical licences through Energy Safe Victoria, and we're members of the Smart Energy Council. Every install meets or exceeds Australian Standards.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">How do you ensure the highest quality installations?</summary>
+          <div class="faq-answer">
+            <p>Every system is designed by SAA-accredited designers and installed by licensed electricians. We manage the entire process in-house — from the initial design through to commissioning — so nothing gets lost in translation. After install, we monitor your system to make sure it's performing as expected. We're a phone call away if anything ever needs attention.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
@@ -455,7 +633,7 @@ import GoogleMap from '../components/GoogleMap.astro';
     1.5%    { opacity: 1; }
     9.5%    { opacity: 1; }
     11.1%   { opacity: 0; }
-    100%    { opacity: 0; filter: blur(16px); }
+    100%    { opacity: 0; }
   }
 
   .hero-overlay {
@@ -513,6 +691,19 @@ import GoogleMap from '../components/GoogleMap.astro';
     justify-content: center;
   }
 
+  .hero-cta .btn-arrow {
+    animation: arrowBounce 2.5s ease-in-out infinite;
+  }
+
+  .hero-cta .btn:hover .btn-arrow {
+    animation: none;
+  }
+
+  @keyframes arrowBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+  }
+
   /* Hero bottom bar - pills + scroll */
   .hero-bottom-bar {
     position: absolute;
@@ -552,10 +743,11 @@ import GoogleMap from '../components/GoogleMap.astro';
   }
 
   .pill-check {
-    width: 1rem;
-    height: 1rem;
-    color: #7dd87d;
+    width: 1.3rem;
+    height: 1.3rem;
+    color: #2e7d32;
     flex-shrink: 0;
+    filter: drop-shadow(0 1px 3px rgba(46, 125, 50, 0.4));
   }
 
   /* Scroll Indicator */
@@ -568,9 +760,9 @@ import GoogleMap from '../components/GoogleMap.astro';
   }
 
   .scroll-mouse {
-    width: 26px;
-    height: 42px;
-    border-radius: 13px;
+    width: 36px;
+    height: 59px;
+    border-radius: 18px;
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -578,19 +770,20 @@ import GoogleMap from '../components/GoogleMap.astro';
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     display: flex;
     justify-content: center;
-    padding-top: 8px;
+    padding-top: 11px;
   }
 
   .scroll-wheel {
-    width: 3px;
-    height: 8px;
+    width: 4px;
+    height: 11px;
     border-radius: 2px;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     animation: pulse 1.8s ease-in-out infinite;
   }
 
   .scroll-arrow {
-    opacity: 0.5;
+    width: 39px;
+    height: 22px;
   }
 
   @keyframes bounce {
@@ -601,6 +794,18 @@ import GoogleMap from '../components/GoogleMap.astro';
   @keyframes pulse {
     0%, 100% { opacity: 0.6; transform: translateY(0); }
     50% { opacity: 0.2; transform: translateY(3px); }
+  }
+
+  /* Guarantee Group - scroll reveal */
+  .guarantee-group {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .guarantee-group.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   /* Our Guarantee Section */
@@ -760,7 +965,7 @@ import GoogleMap from '../components/GoogleMap.astro';
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 3rem;
+    padding: 1.8rem 3rem;
     gap: 2rem;
     background: #f0eed9;
   }
@@ -847,7 +1052,7 @@ import GoogleMap from '../components/GoogleMap.astro';
 
   /* Success Stories Carousel */
   .success-stories {
-    background: #f8f9fa;
+    background: #fff;
     overflow: hidden;
   }
 
@@ -859,7 +1064,7 @@ import GoogleMap from '../components/GoogleMap.astro';
   .success-stories-header h2 {
     font-size: 2.75rem;
     font-weight: 800;
-    color: #2d3a2d;
+    color: #0E2B47;
     margin-bottom: 0.25rem;
   }
 
@@ -898,7 +1103,7 @@ import GoogleMap from '../components/GoogleMap.astro';
   .carousel-track-wrapper {
     width: 100%;
     overflow: hidden;
-    padding-bottom: 1rem;
+    padding: 1.5rem 0 2.5rem;
   }
 
   .carousel-track {
@@ -971,9 +1176,126 @@ import GoogleMap from '../components/GoogleMap.astro';
     }
   }
 
+  /* Switching to Solar Section */
+  .switching-to-solar {
+    background: rgba(240, 238, 217, 0.25);
+    padding: 5rem 1.5rem;
+  }
+
+  .switching-to-solar h2 {
+    text-align: center;
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 3rem;
+  }
+
+  .steps-timeline {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .step-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .step-number {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #fff;
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1;
+    transform: rotateY(180deg);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  }
+
+  .step.is-visible .step-number {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+
+  .step:nth-child(1) .step-number { transition-delay: 0.1s; }
+  .step:nth-child(2) .step-number { transition-delay: 0.3s; }
+  .step:nth-child(3) .step-number { transition-delay: 0.5s; }
+  .step:nth-child(4) .step-number { transition-delay: 0.7s; }
+
+  .step-line {
+    width: 4px;
+    flex: 1;
+    min-height: 40px;
+    background: #1a1a1a;
+    margin: 0 auto;
+    border-radius: 2px;
+  }
+
+  .step-content {
+    padding-bottom: 1.5rem;
+  }
+
+  .step-content h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem;
+    padding-top: 0.15rem;
+  }
+
+  .step-content p {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 540px;
+  }
+
+  .switching-cta {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+
+  @media (max-width: 600px) {
+    .switching-to-solar h2 {
+      font-size: 2rem;
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      font-size: 1.25rem;
+    }
+
+    .step {
+      gap: 1rem;
+    }
+
+    .step-content h3 {
+      font-size: 1.1rem;
+    }
+  }
+
   /* Accreditations Section */
   .accreditations {
-    background: #f8f9fa;
+    background: #fff;
     padding: 6rem 1.5rem;
   }
 
@@ -1072,6 +1394,271 @@ import GoogleMap from '../components/GoogleMap.astro';
       height: 50px;
     }
   }
+
+  /* Recent Work Bento Grid */
+  .recent-work {
+    background: #f8f9fa;
+    padding: 5rem 1.5rem;
+  }
+
+  .recent-work-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .recent-work-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #2061B7;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .recent-work-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0E2B47;
+    margin-bottom: 0.75rem;
+  }
+
+  .recent-work-desc {
+    font-size: 0.95rem;
+    color: #666;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 0.75rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .bento-item {
+    position: relative;
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  /* Row 1: col1 | col2 | col3-4 (wide) */
+  .bento-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .bento-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .bento-item:nth-child(3) { grid-column: 3 / 5; grid-row: 1; }
+
+  /* Row 2: col1 | col2-3 (wide) | col4 */
+  .bento-item:nth-child(4) { grid-column: 1; grid-row: 2; }
+  .bento-item:nth-child(5) { grid-column: 2 / 4; grid-row: 2; }
+  .bento-item:nth-child(6) { grid-column: 4; grid-row: 2; }
+
+  .bento-item img,
+  .bento-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 1 / 1;
+  }
+
+  .bento-wide-top img,
+  .bento-wide-top video,
+  .bento-wide-bottom img,
+  .bento-wide-bottom video {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+
+  .bento-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.65) 0%,
+      rgba(0, 0, 0, 0.2) 40%,
+      transparent 65%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem 1.15rem;
+    pointer-events: none;
+  }
+
+  .bento-kw {
+    display: inline-block;
+    width: fit-content;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.02em;
+  }
+
+  .bento-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.25;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 900px) {
+    .bento-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+    }
+
+    .bento-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .bento-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+    .bento-item:nth-child(3) { grid-column: 1 / 3; grid-row: 2; }
+    .bento-item:nth-child(4) { grid-column: 1; grid-row: 3; }
+    .bento-item:nth-child(5) { grid-column: 1 / 3; grid-row: 4; }
+    .bento-item:nth-child(6) { grid-column: 2; grid-row: 3; }
+
+    .bento-wide-top img,
+    .bento-wide-bottom img {
+      aspect-ratio: 16 / 9;
+    }
+
+    .recent-work-header h2 {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .bento-grid {
+      gap: 0.5rem;
+    }
+
+    .bento-name {
+      font-size: 0.9rem;
+    }
+
+    .bento-kw {
+      font-size: 0.6rem;
+    }
+  }
+
+  /* FAQ Section */
+  .faq {
+    background: #fff;
+    padding: 5rem 0;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .faq-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #2061B7;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .faq-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0E2B47;
+    margin-bottom: 0.75rem;
+  }
+
+  .faq-desc {
+    font-size: 0.95rem;
+    color: #666;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(14, 43, 71, 0.1);
+  }
+
+  .faq-item:first-child {
+    border-top: 1px solid rgba(14, 43, 71, 0.1);
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 0;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #0E2B47;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: color 0.2s;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #2061B7;
+    flex-shrink: 0;
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] .faq-question::after {
+    content: '−';
+  }
+
+  .faq-question:hover {
+    color: #2061B7;
+  }
+
+  .faq-answer {
+    padding: 0 0 1.5rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .faq-header h2 {
+      font-size: 2rem;
+    }
+
+    .faq-question {
+      font-size: 0.95rem;
+      padding: 1rem 0;
+    }
+
+    .faq-answer p {
+      font-size: 0.9rem;
+    }
+  }
 </style>
 
 <script>
@@ -1110,8 +1697,46 @@ import GoogleMap from '../components/GoogleMap.astro';
     prevBtn.addEventListener('click', () => scrollToIndex(currentIndex - 1));
     nextBtn.addEventListener('click', () => scrollToIndex(currentIndex + 1));
 
-    // Initialise centred on the middle card
+    // Initialise centred on the middle card once layout is stable
+    // Disable transition for initial position, then re-enable
+    track.style.transition = 'none';
     updateCards();
+    // Force reflow then restore transition
+    track.offsetHeight;
+    track.style.transition = '';
+
+    // Recalculate on window resize
+    window.addEventListener('resize', () => updateCards());
+  }
+
+  // Step number flip animation on scroll
+  const steps = document.querySelectorAll('.step');
+  if (steps.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    steps.forEach((step) => observer.observe(step));
+  }
+
+  // Guarantee group reveal on scroll
+  const guaranteeGroup = document.querySelector('.guarantee-group');
+  if (guaranteeGroup) {
+    const gObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          gObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    gObserver.observe(guaranteeGroup);
   }
 </script>
 

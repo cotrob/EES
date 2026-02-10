@@ -3,6 +3,7 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="footer">
+  <img src="/image/icon/Brand_wave_dots_white.svg" alt="" class="footer-decoration" aria-hidden="true" />
   <div class="footer-main">
     <div class="footer-brand">
       <a href="/" class="footer-logo">
@@ -16,7 +17,7 @@ const currentYear = new Date().getFullYear();
       </address>
       <p class="footer-tagline">Honest advice, quality workmanship and long-term support from our local team in Geelong and Torquay.</p>
       <a href="#solar-qualifier" class="footer-cta btn btn-primary">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
         Get Your Free Quote
       </a>
     </div>
@@ -90,6 +91,30 @@ const currentYear = new Date().getFullYear();
     background: #0E2B47;
     color: #fff;
     margin-top: auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer-decoration {
+    position: absolute;
+    left: -10%;
+    top: 50%;
+    transform: translateY(-50%) rotate(100deg);
+    opacity: 0.1;
+    pointer-events: none;
+    height: 100%;
+    width: auto;
+  }
+
+  @media (max-width: 1000px) {
+    .footer-decoration {
+      left: auto;
+      right: -10%;
+      top: 2rem;
+      transform: rotate(100deg);
+      height: auto;
+      width: 60%;
+    }
   }
 
   .footer-main {
@@ -184,10 +209,27 @@ const currentYear = new Date().getFullYear();
     text-decoration: none;
     font-size: 0.875rem;
     transition: color 0.2s;
+    position: relative;
+    display: inline-block;
+  }
+
+  .footer-col a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 0;
+    height: 1px;
+    background: #fff;
+    transition: width 0.3s ease;
   }
 
   .footer-col a:hover {
     color: #fff;
+  }
+
+  .footer-col a:hover::after {
+    width: 100%;
   }
 
   /* Bottom bar */

@@ -67,6 +67,15 @@ const navItems = [
           { href: '/laboratory/environmental-service-pod', label: 'Environmental Service Pod' },
         ],
       },
+      {
+        title: 'Resources',
+        href: '/laboratory/resources',
+        hideButton: true,
+        services: [
+          { href: '/laboratory/written-papers', label: 'Written Papers' },
+          { href: '/laboratory/footage', label: 'Footage' },
+        ],
+      },
     ],
   },
   { divider: true },
@@ -78,14 +87,10 @@ const navItems = [
 const currentPath = Astro.url.pathname;
 ---
 
-<a href="/" class="hero-logo" id="hero-logo">
-  <img src="/image/logo/Logo_color_bottom_cap.svg" alt="EES Environmental Energy Services" class="hero-logo-img" />
-</a>
-
 <header class="header" id="main-header">
   <nav class="nav">
     <a href="/" class="logo">
-      <img src="/image/logo/Logo_color_bottom_cap.svg" alt="EES Environmental Energy Services" class="logo-img" />
+      <img src="/image/logo/logo_special_navVersion_White.svg" alt="EES Environmental Energy Services" class="logo-img" />
     </a>
     <ul class="nav-links">
       {navItems.map((item: any) => (
@@ -112,29 +117,25 @@ const currentPath = Astro.url.pathname;
                 <div class="mega-menu-inner">
                   {item.megaMenu?.map((card: any) => (
                     <div class="mega-card">
-                      <img src={card.image} alt={card.title} class="mega-card-img" />
-                      <div class="mega-card-overlay"></div>
-                      <div class="mega-card-content">
-                        <div class="mega-card-header">
-                          <h3>{card.title}</h3>
-                          {!card.hideButton && (
-                            <a href={card.href} class="mega-learn-more">
-                              {card.buttonText || 'Learn More'}
-                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                            </a>
-                          )}
-                        </div>
-                        <ul class="mega-card-links">
-                          {card.services.map((svc: any) => (
-                            <li>
-                              <a href={svc.href}>
-                                {svc.label}
-                                <svg class="mega-link-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
+                      <div class="mega-card-header">
+                        <h3>{card.title}</h3>
+                        {!card.hideButton && (
+                          <a href={card.href} class="mega-learn-more">
+                            {card.buttonText || 'Learn More'}
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                          </a>
+                        )}
                       </div>
+                      <ul class="mega-card-links">
+                        {card.services.map((svc: any) => (
+                          <li>
+                            <a href={svc.href}>
+                              {svc.label}
+                              <svg class="mega-link-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   ))}
                 </div>
@@ -153,17 +154,14 @@ const currentPath = Astro.url.pathname;
 <script>
   const header = document.getElementById('main-header');
   const menuToggle = document.getElementById('menu-toggle');
-  const heroLogo = document.getElementById('hero-logo');
 
   function handleScroll() {
     const hero = document.querySelector('.hero') as HTMLElement | null;
     const threshold = hero ? hero.offsetHeight - 100 : 50;
     if (window.scrollY > threshold) {
       header?.classList.add('scrolled');
-      heroLogo?.classList.add('hidden');
     } else {
       header?.classList.remove('scrolled');
-      heroLogo?.classList.remove('hidden');
     }
   }
 
@@ -237,19 +235,25 @@ const currentPath = Astro.url.pathname;
     max-width: 1200px;
     z-index: 1000;
     padding: 0.875rem 2rem;
+    border-radius: 9999px;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border-radius: 9999px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    z-index: -1;
     transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
   }
 
-  .header.scrolled {
+  .header.scrolled::before {
     background: rgba(14, 43, 71, 0.85);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
     border-color: rgba(255, 255, 255, 0.15);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   }
@@ -260,50 +264,16 @@ const currentPath = Astro.url.pathname;
     align-items: center;
   }
 
-  /* Hero logo - fixed top-left, visible on hero */
-  .hero-logo {
-    position: fixed;
-    top: 1.5rem;
-    left: 2rem;
-    z-index: 1001;
-    text-decoration: none;
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-
-  .hero-logo.hidden {
-    opacity: 0;
-    transform: translateY(-1rem);
-    pointer-events: none;
-  }
-
-  .hero-logo-img {
-    height: 5rem;
-    width: auto;
-  }
-
-  /* Nav logo - hidden on hero, visible when scrolled */
+  /* Nav logo - always visible */
   .logo {
     text-decoration: none;
     display: flex;
     align-items: center;
-    opacity: 0;
-    transform: scale(0.8);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    pointer-events: none;
-  }
-
-  .header.scrolled .logo {
-    opacity: 1;
-    transform: scale(1);
-    pointer-events: auto;
   }
 
   .logo-img {
-    height: 2.5rem;
+    height: 1.75rem;
     width: auto;
-    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
   }
 
   .nav-links {
@@ -410,63 +380,37 @@ const currentPath = Astro.url.pathname;
     grid-auto-flow: column;
     gap: 1rem;
     padding: 1rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(14, 43, 71, 0.5));
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(80px) saturate(180%);
+    -webkit-backdrop-filter: blur(80px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 1.5rem;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  }
+
+  .header.scrolled .mega-menu-inner {
+    background: rgba(14, 43, 71, 0.85);
+    backdrop-filter: blur(80px) saturate(180%);
+    -webkit-backdrop-filter: blur(80px) saturate(180%);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   }
 
   .mega-card {
-    position: relative;
-    display: block;
-    border-radius: 1rem;
-    overflow: hidden;
-    min-height: 320px;
-    min-width: 240px;
-    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    min-width: 260px;
+    background: #163554;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background 0.2s;
+    color: #fff;
   }
 
   .mega-card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-  }
-
-  .mega-card-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-
-  .mega-card:hover .mega-card-img {
-    transform: scale(1.05);
-  }
-
-  .mega-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(14, 30, 20, 0.95) 0%,
-      rgba(14, 30, 20, 0.88) 55%,
-      rgba(14, 30, 20, 0.4) 80%,
-      transparent 100%
-    );
-    z-index: 1;
-  }
-
-  .mega-card-content {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.25rem;
-    z-index: 2;
-    color: #fff;
+    background: #1b3f63;
   }
 
   .mega-card-header {
@@ -477,7 +421,7 @@ const currentPath = Astro.url.pathname;
     gap: 0.75rem;
   }
 
-  .mega-card-content h3 {
+  .mega-card-header h3 {
     font-size: 1.0625rem;
     font-weight: 700;
     margin: 0;
@@ -515,7 +459,6 @@ const currentPath = Astro.url.pathname;
     flex-direction: column;
     gap: 0.125rem;
     border-left: 1px solid rgba(255, 255, 255, 0.15);
-    min-height: 10.5rem;
   }
 
   .mega-card-links a {
@@ -564,44 +507,20 @@ const currentPath = Astro.url.pathname;
   }
 
   @media (max-width: 900px) {
-    .hero-logo {
-      top: 1rem;
-      left: 1.25rem;
-    }
-
-    .hero-logo-img {
-      height: 3rem;
-    }
-
     .header {
       border-radius: 9999px;
       padding: 0.75rem 1.25rem;
-      width: auto;
-      left: auto;
-      right: 1.25rem;
-      transform: none;
-      background: transparent;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      border: none;
-      box-shadow: none;
-    }
-
-    .header.scrolled {
       width: calc(100% - 2rem);
-      left: 50%;
-      right: auto;
-      transform: translateX(-50%);
-      background: rgba(14, 43, 71, 0.85);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      top: 1rem;
     }
 
     .nav-links,
     .nav-cta {
       display: none;
+    }
+
+    .logo-img {
+      height: 1.5rem;
     }
 
     .menu-toggle {
@@ -616,10 +535,11 @@ const currentPath = Astro.url.pathname;
       left: 50%;
       right: auto;
       transform: translateX(-50%);
+    }
+
+    .header.menu-open::before {
       background: rgba(14, 43, 71, 0.85);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.15);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
 
@@ -677,22 +597,7 @@ const currentPath = Astro.url.pathname;
     }
 
     .header.menu-open .mega-card {
-      min-height: 0;
-    }
-
-    .header.menu-open .mega-card-content {
-      position: relative;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 0.75rem;
-    }
-
-    .header.menu-open .mega-card-links {
-      min-height: 0;
-    }
-
-    .header.menu-open .mega-card-img,
-    .header.menu-open .mega-card-overlay {
-      display: none;
+      padding: 0.75rem;
     }
   }
 </style>

@@ -36,5 +36,99 @@ const props = Astro.props;
       <slot />
     </main>
     <Footer />
+
+    <style is:global>
+      /* Scroll reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(32px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Staggered children reveal */
+      .reveal-stagger {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .reveal-stagger.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+
+    <script>
+      function initReveal() {
+        // Sections get observed individually
+        const sections = document.querySelectorAll('main > section');
+        // Dividers just get the hidden class — they reveal with their connected section
+        const dividers = document.querySelectorAll('main > .diagonal-divider');
+
+        sections.forEach((el) => el.classList.add('reveal'));
+        dividers.forEach((el) => el.classList.add('reveal'));
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                // Reveal both adjacent dividers with this section
+                const prev = entry.target.previousElementSibling;
+                const next = entry.target.nextElementSibling;
+                if (prev?.classList.contains('diagonal-divider')) {
+                  prev.classList.add('is-visible');
+                }
+                if (next?.classList.contains('diagonal-divider')) {
+                  next.classList.add('is-visible');
+                }
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        sections.forEach((el) => observer.observe(el));
+
+        // Staggered reveal for testimonial cards and accreditation logos
+        const staggerGroups = [
+          { container: '.testimonials-grid', children: '.testimonial-card' },
+          { container: '.accreditations-logos', children: '.accreditation-logo' },
+        ];
+
+        staggerGroups.forEach(({ container: sel, children: childSel }) => {
+          document.querySelectorAll(sel).forEach((container) => {
+            const children = container.querySelectorAll(childSel);
+            children.forEach((child, i) => {
+              child.classList.add('reveal-stagger');
+              (child as HTMLElement).style.transitionDelay = `${i * 0.1}s`;
+            });
+
+            const staggerObserver = new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                    const items = entry.target.querySelectorAll('.reveal-stagger');
+                    items.forEach((item) => item.classList.add('is-visible'));
+                    staggerObserver.unobserve(entry.target);
+                  }
+                });
+              },
+              { threshold: 0.15 }
+            );
+
+            staggerObserver.observe(container);
+          });
+        });
+      }
+
+      initReveal();
+    </script>
   </body>
 </html>

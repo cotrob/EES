@@ -228,6 +228,18 @@ p {
   overflow: hidden;
 }
 
+.what-we-do::before {
+  content: '';
+  position: absolute;
+  bottom: -800px;
+  left: -100px;
+  width: 1200px;
+  height: 1200px;
+  background: url('/image/textures/WhatWeDo_Texture.svg') no-repeat center / contain;
+  transform: rotate(30deg);
+  pointer-events: none;
+  opacity: 1.0;
+}
 
 .what-we-do-layout {
   display: flex;
@@ -238,6 +250,9 @@ p {
 .what-we-do-header {
   flex-shrink: 0;
   width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .what-we-do-header h2 {
@@ -246,6 +261,11 @@ p {
   color: #0E2B47;
   margin-bottom: 1.5rem;
   font-weight: 700;
+}
+
+.what-we-do-icon {
+  width: 156px;
+  height: auto;
 }
 
 .service-cards {
@@ -411,6 +431,10 @@ p {
   }
 }
 
+.testimonial-wrap {
+  position: relative;
+}
+
 .testimonial-card {
   background: rgba(240, 238, 217, 0.25);
   border-radius: 1rem;
@@ -477,4 +501,58 @@ p {
 .author-location {
   font-size: 0.8125rem;
   color: #666;
+}
+
+/* Glassmorphism reply bubble — below-right, overlapping card edge */
+.reply-bubble {
+  position: relative;
+  z-index: 2;
+  margin-top: -1.25rem;
+  margin-left: 15%;
+  margin-right: -17px;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 24px rgba(14, 43, 71, 0.06);
+  opacity: 0;
+  transform: translateX(-24px);
+}
+
+.reply-bubble.is-visible {
+  animation: replySlideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.reply-bubble p {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: #2d3a2d;
+  margin: 0 0 0.5rem;
+}
+
+.reply-from {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #0E2B47;
+}
+
+.reply-from img {
+  width: 16px;
+  height: auto;
+}
+
+@keyframes replySlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

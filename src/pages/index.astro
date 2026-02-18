@@ -55,7 +55,7 @@ import GoogleMap from '../components/GoogleMap.astro';
         <div class="scroll-mouse">
           <div class="scroll-wheel"></div>
         </div>
-        <svg class="scroll-arrow" xmlns="http://www.w3.org/2000/svg" width="39" height="22" viewBox="0 0 14 8" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="scroll-arrow" xmlns="http://www.w3.org/2000/svg" width="39" height="22" viewBox="0 0 14 8" fill="none" stroke="white" opacity="0.7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M1 1l6 5 6-5"/>
         </svg>
       </div>
@@ -68,20 +68,6 @@ import GoogleMap from '../components/GoogleMap.astro';
     <div class="credentials-content">
       <div class="credential">
         <svg class="credential-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="12" y="6" width="40" height="52" rx="4" stroke="currentColor" stroke-width="3"/>
-          <path d="M24 30l6 6 12-12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M24 16h16" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-        </svg>
-        <p>5000+ Panels Installed &amp; Counting</p>
-      </div>
-      <div class="credential">
-        <svg class="credential-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M32 12l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
-        </svg>
-        <p>Five-Star Rated on Google</p>
-      </div>
-      <div class="credential">
-        <svg class="credential-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 36c0-8 8-12 12-12s4 4 8 4 4-4 8-4 12 4 12 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
           <circle cx="24" cy="18" r="6" stroke="currentColor" stroke-width="3"/>
           <circle cx="40" cy="18" r="6" stroke="currentColor" stroke-width="3"/>
@@ -91,11 +77,27 @@ import GoogleMap from '../components/GoogleMap.astro';
       </div>
       <div class="credential">
         <svg class="credential-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M32 8l6 12h14l-10 9 4 13L32 34l-14 8 4-13-10-9h14z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
-          <path d="M16 52h32" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-          <path d="M20 56h24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <!-- Geelong Bollard silhouette -->
+          <ellipse cx="32" cy="12" rx="8" ry="9" stroke="currentColor" stroke-width="3"/>
+          <path d="M24 20c-2 4-4 12-4 22v2h24v-2c0-10-2-18-4-22" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 52h24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <path d="M18 58h28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
         </svg>
         <p>Trusted by Homes &amp; Businesses Across Geelong</p>
+      </div>
+      <div class="credential">
+        <svg class="credential-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 12l5 10 11 2-8 8 2 11-10-5-10 5 2-11-8-8 11-2z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+        </svg>
+        <p>Five-Star Rated on Google</p>
+      </div>
+      <div class="credential">
+        <svg class="credential-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="12" y="6" width="40" height="52" rx="4" stroke="currentColor" stroke-width="3"/>
+          <path d="M24 30l6 6 12-12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 16h16" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <p>5000+ Panels Installed &amp; Counting</p>
       </div>
     </div>
   </section>
@@ -106,6 +108,7 @@ import GoogleMap from '../components/GoogleMap.astro';
       <div class="what-we-do-layout">
         <div class="what-we-do-header">
           <h2>What<br />We Do</h2>
+          <img src="/image/logo/logo_special_navVersion_White.svg" alt="EES" class="what-we-do-icon" />
         </div>
         <div class="service-cards">
           <div class="service-card" style="background-image: url('/image/photography/Frontage_4b.webp');">
@@ -296,52 +299,76 @@ import GoogleMap from '../components/GoogleMap.astro';
       <h2>Direct Messages <span class="h2-light">from Clients</span></h2>
       <p class="testimonials-desc">We're local to Geelong and Torquay. Here's more proof of how we look after our clients.</p>
       <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <p class="testimonial-text">
-            Honestly didn't know what to expect but the boys rocked up on time, got it all done in a day and <strong>left the place cleaner than they found it.</strong> Already noticed the power bills dropping. Wish I'd done it years ago.
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">KW</div>
-            <div class="author-info">
-              <span class="author-name">Karen W.</span>
-              <span class="author-location">Geelong, VIC</span>
+        <div class="testimonial-wrap">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              Hi Lincoln, just wanted to say thanks to you and the boys. They were on time, got it all sorted in a day and <strong>left the place cleaner than they found it</strong> which honestly surprised me. Already noticed the bills coming down. Should've done it years ago!
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">KW</div>
+              <div class="author-info">
+                <span class="author-name">Karen W.</span>
+                <span class="author-location">Geelong, VIC</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-text">
-            Had three different companies come out and give us quotes. Lincoln was the only one who <strong>didn't try to upsell us</strong> on a bigger system we didn't need. Felt like talking to a mate rather than a salesman. That's rare these days.
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">RS</div>
-            <div class="author-info">
-              <span class="author-name">Rob S.</span>
-              <span class="author-location">Torquay, VIC</span>
-            </div>
+          <div class="reply-bubble">
+            <p>Legend Karen, thanks for that! Always leave it cleaner than we found it haha. Stoked the bills are already dropping too.</p>
+            <span class="reply-from"><img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" /> Lincoln, EES</span>
           </div>
         </div>
-        <div class="testimonial-card">
-          <p class="testimonial-text">
-            Called on Monday arvo, <strong>panels on the roof by Thursday.</strong> Didn't muck around. The sparky even showed my wife how to check the app before he left. Pretty stoked with the whole thing to be honest.
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">BT</div>
-            <div class="author-info">
-              <span class="author-name">Ben T.</span>
-              <span class="author-location">Bellarine, VIC</span>
+        <div class="testimonial-wrap">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              Hey mate, got three quotes and yours was the only one that <strong>didn't try to upsell us</strong> on a bigger system. Appreciated the honesty, felt like talking to a mate not a salesman. We're really happy with how it's all going, cheers.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">RS</div>
+              <div class="author-info">
+                <span class="author-name">Rob S.</span>
+                <span class="author-location">Torquay, VIC</span>
+              </div>
             </div>
           </div>
+          <div class="reply-bubble">
+            <p>Cheers Rob! Yeah we only ever quote what actually makes sense for the house. No point oversizing it hey. Glad we could help mate.</p>
+            <span class="reply-from"><img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" /> Lincoln, EES</span>
+          </div>
         </div>
-        <div class="testimonial-card">
-          <p class="testimonial-text">
-            We run a cafe so downtime is money. These guys <strong>scheduled everything around our trade hours</strong> and genuinely gave a damn about not disrupting us. Six months in and the bills are a fraction of what they were. Best business decision we've made.
-          </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">NH</div>
-            <div class="author-info">
-              <span class="author-name">Nicole H.</span>
-              <span class="author-location">Anglesea, VIC</span>
+        <div class="testimonial-wrap">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              Hey Lincoln, just wanted to say thanks. We called Monday arvo and the <strong>panels were up by Thursday.</strong> Couldn't believe how quick it all was. The sparky even showed my wife how to use the monitoring app before he left. Really stoked with how it all turned out.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">BT</div>
+              <div class="author-info">
+                <span class="author-name">Ben T.</span>
+                <span class="author-location">Bellarine, VIC</span>
+              </div>
             </div>
+          </div>
+          <div class="reply-bubble">
+            <p>Thanks Ben! Monday to Thursday is a solid turnaround hey. Hope the missus is loving the app, it's a game changer.</p>
+            <span class="reply-from"><img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" /> Lincoln, EES</span>
+          </div>
+        </div>
+        <div class="testimonial-wrap">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              Hi Lincoln, just wanted to drop you a note. We were a bit worried about how it'd all work, but the <strong>cafe ran smoothly the whole time</strong> with your crew there. They really looked after us and scheduled everything around our trade hours. It's been six months now and the bills are a fraction of what they used to be.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">NH</div>
+              <div class="author-info">
+                <span class="author-name">Nicole H.</span>
+                <span class="author-location">Anglesea, VIC</span>
+              </div>
+            </div>
+          </div>
+          <div class="reply-bubble">
+            <p>Ha thanks Nicole! No way we were shutting down the best coffee in Anglesea. Glad the bills are looking good too, that's what it's all about.</p>
+            <span class="reply-from"><img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" /> Lincoln, EES</span>
           </div>
         </div>
       </div>
@@ -798,9 +825,27 @@ import GoogleMap from '../components/GoogleMap.astro';
 
   /* Guarantee Group - scroll reveal */
   .guarantee-group {
+    position: relative;
+    overflow: hidden;
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .guarantee-group::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -500px;
+    width: 600px;
+    height: 600px;
+    background: url('/image/textures/TickMatrix.svg') repeat;
+    background-size: 240px;
+    opacity: 0.5;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    pointer-events: none;
+    z-index: 2;
   }
 
   .guarantee-group.is-visible {
@@ -948,7 +993,22 @@ import GoogleMap from '../components/GoogleMap.astro';
 
   .credentials-bar {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    z-index: 10;
+  }
+
+  .credentials-bar::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    z-index: 20;
   }
 
   .credentials-bg {
@@ -1211,17 +1271,15 @@ import GoogleMap from '../components/GoogleMap.astro';
   }
 
   .step-number {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: #fff;
-    color: #1a1a1a;
+    width: 62px;
+    height: 62px;
+    background: url('/image/icon/Icon_PageAccent_Blue_V2.svg') no-repeat center / contain;
+    color: #fff;
     font-size: 1.5rem;
     font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     position: relative;
     z-index: 1;
     transform: rotateY(180deg);
@@ -1660,6 +1718,23 @@ import GoogleMap from '../components/GoogleMap.astro';
     }
   }
 </style>
+
+<script>
+  const replyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bubble = entry.target as HTMLElement;
+        bubble.classList.add('is-visible');
+        replyObserver.unobserve(bubble);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.reply-bubble').forEach((bubble, i) => {
+    (bubble as HTMLElement).style.animationDelay = `${i * 0.15}s`;
+    replyObserver.observe(bubble);
+  });
+</script>
 
 <script>
   const track = document.querySelector('.carousel-track') as HTMLElement;

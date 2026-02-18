@@ -1,0 +1,50 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <g id="tick">
+    <path d="M-9 0l6 6 12-12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</defs>
+<g opacity="0.5">
+  <use href="#tick" transform="translate(25,19) rotate(45)"/>
+  <use href="#tick" transform="translate(65,19) rotate(45)"/>
+  <use href="#tick" transform="translate(105,19) rotate(45)"/>
+  <use href="#tick" transform="translate(145,19) rotate(45)"/>
+  <use href="#tick" transform="translate(185,19) rotate(45)"/>
+  <use href="#tick" transform="translate(225,19) rotate(45)"/>
+
+  <use href="#tick" transform="translate(25,59) rotate(45)"/>
+  <use href="#tick" transform="translate(65,59) rotate(45)"/>
+  <use href="#tick" transform="translate(105,59) rotate(45)"/>
+  <use href="#tick" transform="translate(145,59) rotate(45)"/>
+  <use href="#tick" transform="translate(185,59) rotate(45)"/>
+  <use href="#tick" transform="translate(225,59) rotate(45)"/>
+
+  <use href="#tick" transform="translate(25,99) rotate(45)"/>
+  <use href="#tick" transform="translate(65,99) rotate(45)"/>
+  <use href="#tick" transform="translate(105,99) rotate(45)"/>
+  <use href="#tick" transform="translate(145,99) rotate(45)"/>
+  <use href="#tick" transform="translate(185,99) rotate(45)"/>
+  <use href="#tick" transform="translate(225,99) rotate(45)"/>
+
+  <use href="#tick" transform="translate(25,139) rotate(45)"/>
+  <use href="#tick" transform="translate(65,139) rotate(45)"/>
+  <use href="#tick" transform="translate(105,139) rotate(45)"/>
+  <use href="#tick" transform="translate(145,139) rotate(45)"/>
+  <use href="#tick" transform="translate(185,139) rotate(45)"/>
+  <use href="#tick" transform="translate(225,139) rotate(45)"/>
+
+  <use href="#tick" transform="translate(25,179) rotate(45)"/>
+  <use href="#tick" transform="translate(65,179) rotate(45)"/>
+  <use href="#tick" transform="translate(105,179) rotate(45)"/>
+  <use href="#tick" transform="translate(145,179) rotate(45)"/>
+  <use href="#tick" transform="translate(185,179) rotate(45)"/>
+  <use href="#tick" transform="translate(225,179) rotate(45)"/>
+
+  <use href="#tick" transform="translate(25,219) rotate(45)"/>
+  <use href="#tick" transform="translate(65,219) rotate(45)"/>
+  <use href="#tick" transform="translate(105,219) rotate(45)"/>
+  <use href="#tick" transform="translate(145,219) rotate(45)"/>
+  <use href="#tick" transform="translate(185,219) rotate(45)"/>
+  <use href="#tick" transform="translate(225,219) rotate(45)"/>
+</g>
+</svg>

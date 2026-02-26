@@ -3,73 +3,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="Services | Your Company Name"
-  description="Explore our range of services designed to help your business succeed."
+  title="Our Services | EES"
+  description="Energy-efficient solutions for homes and businesses — solar, batteries, hydronic comfort conditioning, heat pumps, and smart automation."
 >
   <section class="page-header">
     <div class="container">
       <h1>Our Services</h1>
-      <p>Comprehensive solutions tailored to your needs.</p>
+      <p>Energy-efficient solutions for homes and businesses.</p>
     </div>
   </section>
 
   <section class="section">
-    <div class="container">
-      <div class="services-grid">
-        <div class="service-card">
-          <h2>Service One</h2>
-          <p>
-            Description of your first service. Explain the benefits and
-            what problems it solves for your customers.
-          </p>
-          <a href="/contact" class="btn btn-primary">Learn More</a>
-        </div>
-        <div class="service-card">
-          <h2>Service Two</h2>
-          <p>
-            Description of your second service. Explain the benefits and
-            what problems it solves for your customers.
-          </p>
-          <a href="/contact" class="btn btn-primary">Learn More</a>
-        </div>
-        <div class="service-card">
-          <h2>Service Three</h2>
-          <p>
-            Description of your third service. Explain the benefits and
-            what problems it solves for your customers.
-          </p>
-          <a href="/contact" class="btn btn-primary">Learn More</a>
-        </div>
-      </div>
+    <div class="container prose">
+      <h2>Residential</h2>
+      <p>
+        We design and install complete energy systems for homes — from solar panels and batteries to hydronic heating/cooling and smart automation.
+      </p>
+      <ul>
+        <li><strong><a href="/services/residential/solar-systems">Solar Systems</a></strong> — rooftop PV designed for your energy profile</li>
+        <li><strong><a href="/services/residential/battery-systems">Battery Systems</a></strong> — store solar energy for use day and night</li>
+        <li><strong><a href="/services/residential/comfort-conditioning">Comfort Conditioning</a></strong> — radiant hydronic ceiling panels for heating and cooling</li>
+        <li><strong><a href="/services/residential/heat-pump-systems">Heat Pump Systems</a></strong> — polyvalent heat pumps for heating, cooling, and hot water</li>
+        <li><strong><a href="/services/residential/home-automation">Home Automation</a></strong> — intelligent control of your energy and comfort systems</li>
+      </ul>
+
+      <h2>Commercial</h2>
+      <p>
+        The same technology, scaled for commercial buildings and developments.
+      </p>
+      <ul>
+        <li><strong><a href="/services/commercial/solar-systems">Solar Systems</a></strong></li>
+        <li><strong><a href="/services/commercial/battery-systems">Battery Systems</a></strong></li>
+        <li><strong><a href="/services/commercial/comfort-conditioning">Comfort Conditioning</a></strong></li>
+        <li><strong><a href="/services/commercial/heat-pump-systems">Heat Pump Systems</a></strong></li>
+        <li><strong><a href="/services/commercial/home-automation">Building Automation</a></strong></li>
+      </ul>
+
+      <h2>Consultation &amp; Support</h2>
+      <ul>
+        <li><strong><a href="/services/consultation">Free Consultation</a></strong> — we assess your property and design a system tailored to your needs</li>
+        <li><strong><a href="/services/financing">Financing Options</a></strong> — flexible payment options to make the switch affordable</li>
+        <li><strong><a href="/services/faq">FAQs</a></strong> — common questions about our systems and process</li>
+      </ul>
     </div>
   </section>
 </BaseLayout>
-
-<style>
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-
-  .service-card {
-    padding: 2rem;
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.5rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .service-card h2 {
-    font-size: 1.5rem;
-  }
-
-  .service-card p {
-    flex: 1;
-  }
-
-  .service-card .btn {
-    align-self: flex-start;
-  }
-</style>

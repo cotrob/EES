@@ -47,6 +47,8 @@ import GoogleMap from '../components/GoogleMap.astro';
       </div>
     </div>
 
+    <img src="/image/icon/Brand_wave_dots_lightblue.svg" alt="" class="hero-wave-accent" />
+
     <div class="hero-bottom-bar">
       <div class="scroll-indicator">
         <div class="scroll-mouse">
@@ -911,13 +913,20 @@ import GoogleMap from '../components/GoogleMap.astro';
   }
 
   .hero-vid-accent {
-    background: linear-gradient(170deg, #C0D446 0%, #5a9a3a 35%, #2061B7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
+    color: #C0D446;
+  }
+
+  .hero-wave-accent {
+    position: absolute;
+    bottom: 0;
+    right: -180px;
+    width: 45%;
+    max-width: 600px;
+    z-index: 1;
+    opacity: 0.15;
+    pointer-events: none;
+    scale: 1.2;
+    rotate: 180;
   }
 
   .hero-vid-subtitle {

@@ -1,15 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import GoogleMap from '../components/GoogleMap.astro';
 ---
 
 <BaseLayout
-  title="Contact Us | Your Company Name"
-  description="Get in touch with us. We'd love to hear from you and discuss how we can help."
+  title="Contact EES | Solar & Energy Services Geelong | Get a Free Quote"
+  description="Get in touch with EES for solar, battery, heat pump and hydronic systems in Geelong. Call 0427 664 827 or request a free quote online."
 >
   <section class="page-header">
     <div class="container">
       <h1>Contact Us</h1>
-      <p>We'd love to hear from you.</p>
+      <p>Get in touch for a free, no-obligation consultation.</p>
     </div>
   </section>
 
@@ -18,21 +19,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="contact-info">
         <h2>Get in Touch</h2>
         <p>
-          Have a question or want to work together? Fill out the form
-          and we'll get back to you as soon as possible.
+          Whether you're looking at solar, batteries, heat pumps, or a complete energy system — we'd like to hear from you. Call, email, or fill in the form and we'll get back to you promptly.
         </p>
         <div class="contact-details">
           <div class="contact-item">
-            <h3>Email</h3>
-            <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+            <h3>Phone</h3>
+            <p><a href="tel:0427664827">0427 664 827</a></p>
           </div>
           <div class="contact-item">
-            <h3>Phone</h3>
-            <p><a href="tel:+1234567890">(123) 456-7890</a></p>
+            <h3>Email</h3>
+            <p><a href="mailto:support@eeservices.io">support@eeservices.io</a></p>
           </div>
           <div class="contact-item">
             <h3>Address</h3>
-            <p>123 Main Street<br />City, State 12345</p>
+            <p>13 Nobility Street<br />Moolap VIC 3224</p>
+          </div>
+          <div class="contact-item">
+            <h3>Service Area</h3>
+            <p>Greater Geelong, Torquay, Surf Coast, Bellarine Peninsula, Golden Plains, and regional Victoria.</p>
           </div>
         </div>
       </div>
@@ -46,17 +50,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <input type="email" id="email" name="email" required />
         </div>
         <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" required />
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" />
+        </div>
+        <div class="form-group">
+          <label for="service">What are you interested in?</label>
+          <select id="service" name="service">
+            <option value="">Select a service</option>
+            <option value="solar">Solar Panels</option>
+            <option value="battery">Battery Storage</option>
+            <option value="heat-pump">Heat Pump Hot Water</option>
+            <option value="hydronic">Hydronic Heating & Cooling</option>
+            <option value="automation">Home Automation</option>
+            <option value="commercial">Commercial System</option>
+            <option value="other">Other / Not Sure</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
+          <textarea id="message" name="message" rows="5"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Send Message</button>
       </form>
     </div>
   </section>
+
+  <GoogleMap />
 </BaseLayout>
 
 <style>
@@ -103,7 +122,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .form-group input,
-  .form-group textarea {
+  .form-group textarea,
+  .form-group select {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #d1d5db;
@@ -112,7 +132,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   .form-group input:focus,
-  .form-group textarea:focus {
+  .form-group textarea:focus,
+  .form-group select:focus {
     outline: none;
     border-color: #0066cc;
     box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);

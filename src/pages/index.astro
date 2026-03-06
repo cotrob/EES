@@ -7,6 +7,61 @@ import GoogleMap from '../components/GoogleMap.astro';
   title="Solar Installation Experts | EES"
   description="Professional solar panel installation for homes and businesses. Reduce energy costs and go green with our expert solar systems."
 >
+  <!-- ============================================================
+       HERO VARIANT: VIDEO (ACTIVE)
+       To swap back to image slideshow, comment this out and
+       uncomment the "HERO VARIANT: IMAGE SLIDESHOW" block below.
+       ============================================================ -->
+  <section class="hero hero--video">
+    <video class="hero-vid" autoplay muted loop playsinline poster="/image/photography/Frontage_13_TopCut_.webp">
+      <source src="/image/video/Timeline 1.webm" type="video/webm">
+      <source src="/image/video/Timeline 1.mp4" type="video/mp4">
+    </video>
+    <div class="hero-vid-overlay"></div>
+
+    <div class="hero-vid-content">
+      <p class="hero-vid-eyebrow">Servicing Greater Geelong, Melbourne &amp; Regional Victoria</p>
+      <h1>Making Solar<br>&amp; Batteries<br><span class="hero-vid-accent">Reliable for Years<br>to Come</span></h1>
+      <p class="hero-vid-subtitle">
+        Honest advice, quality workmanship and long-term support<br class="hero-vid-br"> from our local team in Geelong and Torquay.
+      </p>
+      <div class="hero-vid-cta">
+        <a href="#solar-qualifier" class="btn btn-primary btn--vibrant">
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          Get Your Energy Assessment
+        </a>
+      </div>
+      <div class="hero-vid-badges">
+        <div class="hero-vid-badge">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M5 10l3.5 3.5L15 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>SolarVic Accredited</span>
+        </div>
+        <div class="hero-vid-badge">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M5 10l3.5 3.5L15 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>SAI Approved Retailer</span>
+        </div>
+        <div class="hero-vid-badge">
+          <svg viewBox="0 0 20 20" fill="none"><path d="M5 10l3.5 3.5L15 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>CEC Accredited Installer</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-bottom-bar">
+      <div class="scroll-indicator">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <svg class="scroll-arrow" xmlns="http://www.w3.org/2000/svg" width="39" height="22" viewBox="0 0 14 8" fill="none" stroke="white" opacity="0.7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 1l6 5 6-5"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HERO VARIANT: IMAGE SLIDESHOW (INACTIVE — uncomment to use)
+       ============================================================
   <section class="hero">
     <div class="hero-slideshow">
       <img src="/image/photography/Frontage_13_TopCut_.webp" alt="EES office and showroom frontage in Geelong" class="hero-slide" width="3168" height="1344" fetchpriority="high" />
@@ -61,6 +116,7 @@ import GoogleMap from '../components/GoogleMap.astro';
       </div>
     </div>
   </section>
+  END HERO VARIANT: IMAGE SLIDESHOW -->
 
   <!-- Credentials Bar -->
   <section class="credentials-bar">
@@ -285,14 +341,23 @@ import GoogleMap from '../components/GoogleMap.astro';
     </div>
   </section>
 
-    <div class="diagonal-divider" style="background: #0E2B47;">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="0,0 0,120 1440,120" fill="#fff" />
-      </svg>
-    </div>
   </div>
 
   <!-- Testimonials Section -->
+  <div class="testimonials-wrapper">
+    <div class="testimonials-accent-grid" aria-hidden="true">
+      {Array.from({ length: 300 }).map((_, i) => (
+        <div class="t-accent-icon" style={`--delay: ${(i * 0.055).toFixed(3)}s`}>
+          <img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" width="40" height="35" />
+        </div>
+      ))}
+    </div>
+    <div class="diagonal-divider" style="background: transparent;">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="0,0 1440,0 1440,120" fill="#0E2B47" />
+        <polygon points="0,0 0,120 1440,120" fill="#fff" />
+      </svg>
+    </div>
   <section class="section testimonials">
     <div class="container">
       <p class="testimonials-label">Real Testimonials</p>
@@ -376,11 +441,13 @@ import GoogleMap from '../components/GoogleMap.astro';
   </section>
 
   <!-- Diagonal Divider (testimonials to switching) -->
-  <div class="diagonal-divider" style="background: #fff;">
+  <div class="diagonal-divider" style="background: transparent;">
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="0,0 0,120 1440,120" fill="#fbfaf3" />
+      <polygon points="0,0 1440,0 0,120" fill="#fff" />
+      <polygon points="0,120 1440,0 1440,120" fill="#fbfaf3" />
     </svg>
   </div>
+  </div><!-- /.testimonials-wrapper -->
 
   <!-- Switching to Solar Section -->
   <section class="section switching-to-solar">
@@ -493,15 +560,35 @@ import GoogleMap from '../components/GoogleMap.astro';
         <div class="bento-item">
           <img src="/image/photography/Frontage_1.webp" alt="Abbotsford commercial solar installation" />
           <div class="bento-overlay">
-            <span class="bento-kw">12.33kW</span>
-            <span class="bento-name">Abbotsford</span>
+            <div class="bento-content">
+              <span class="bento-kw">12.33kW</span>
+              <span class="bento-name">Abbotsford</span>
+              <div class="bento-details">
+                <ul>
+                  <li>36 premium tier-1 panels</li>
+                  <li>North-facing pitched roof</li>
+                  <li>10kWh battery storage</li>
+                </ul>
+                <p>Residential retrofit for a heritage home in Melbourne's inner east.</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="bento-item">
           <img src="/image/photography/Frontage_2.webp" alt="Lyka Pet Foods Warehouse solar installation" />
           <div class="bento-overlay">
-            <span class="bento-kw">508kWp</span>
-            <span class="bento-name">Lyka Pet Foods<br/>Warehouse</span>
+            <div class="bento-content">
+              <span class="bento-kw">508kWp</span>
+              <span class="bento-name">Lyka Pet Foods<br/>Warehouse</span>
+              <div class="bento-details">
+                <ul>
+                  <li>1,120 rooftop modules</li>
+                  <li>Full warehouse roof coverage</li>
+                  <li>Estimated 70% energy offset</li>
+                </ul>
+                <p>Large-scale commercial install for a national pet food distributor.</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="bento-item bento-wide-top">
@@ -510,33 +597,187 @@ import GoogleMap from '../components/GoogleMap.astro';
             <source src="/image/video/video_donr_solar_roof_web.mp4" type="video/mp4" />
           </video>
           <div class="bento-overlay">
-            <span class="bento-kw">753kW</span>
-            <span class="bento-name">Bacchus Marsh</span>
+            <div class="bento-content">
+              <span class="bento-kw">753kW</span>
+              <span class="bento-name">Bacchus Marsh</span>
+              <div class="bento-details">
+                <ul>
+                  <li>1,640 high-output panels</li>
+                  <li>Multi-roof commercial array</li>
+                  <li>Grid export capability</li>
+                </ul>
+                <p>Industrial facility in Bacchus Marsh's growing commercial precinct.</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="bento-item">
           <img src="/image/photography/Frontage_3.webp" alt="Cold Storage solar installation" />
           <div class="bento-overlay">
-            <span class="bento-kw">455kW</span>
-            <span class="bento-name">Cold Storage</span>
+            <div class="bento-content">
+              <span class="bento-kw">455kW</span>
+              <span class="bento-name">Cold Storage</span>
+              <div class="bento-details">
+                <ul>
+                  <li>980 commercial panels</li>
+                  <li>Offsetting refrigeration loads</li>
+                  <li>Rapid payback period</li>
+                </ul>
+                <p>Cold storage facility in Geelong's western industrial zone.</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="bento-item bento-wide-bottom">
           <img src="/image/photography/Frontage_5.webp" alt="Parts Centre solar installation" />
           <div class="bento-overlay">
-            <span class="bento-kw">1,765kW</span>
-            <span class="bento-name">Parts Centre</span>
+            <div class="bento-content">
+              <span class="bento-kw">1,765kW</span>
+              <span class="bento-name">Parts Centre</span>
+              <div class="bento-details">
+                <ul>
+                  <li>3,800+ panel installation</li>
+                  <li>Multi-building campus array</li>
+                  <li>One of Victoria's largest</li>
+                </ul>
+                <p>National automotive parts distribution centre with extensive roof space.</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="bento-item">
           <img src="/image/photography/Frontage_6.webp" alt="Mentone Grammar solar installation" />
+          <a href="/case-studies" class="bento-case-study-btn">See Case Study</a>
           <div class="bento-overlay">
-            <span class="bento-kw">655kW + 263kW</span>
-            <span class="bento-name">Mentone Grammar<br/>Junior + Senior</span>
+            <div class="bento-content">
+              <span class="bento-kw">655kW + 263kW</span>
+              <span class="bento-name">Mentone Grammar<br/>Junior + Senior</span>
+              <div class="bento-details">
+                <ul>
+                  <li>Dual-campus deployment</li>
+                  <li>2,000+ panels across two sites</li>
+                  <li>Powering classrooms and facilities</li>
+                </ul>
+                <p>Independent school spanning Junior and Senior campuses in Mentone.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="more-examples-toggle" id="more-examples-toggle">
+        More Examples
+        <svg class="more-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </a>
+      <div class="bento-grid bento-grid-extra" id="bento-extra">
+        <div class="bento-item">
+          <img src="/image/photography/Frontage_4.webp" alt="Geelong West solar installation" />
+          <div class="bento-overlay">
+            <div class="bento-content">
+              <span class="bento-kw">8.5kW</span>
+              <span class="bento-name">Geelong West</span>
+              <div class="bento-details">
+                <ul>
+                  <li>22 premium panels</li>
+                  <li>Full north-facing optimisation</li>
+                  <li>Battery-ready inverter</li>
+                </ul>
+                <p>Family home upgrade in Geelong West's leafy residential streets.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bento-item bento-wide-bottom">
+          <img src="/image/photography/Frontage_7.webp" alt="Ocean Grove solar installation" />
+          <div class="bento-overlay">
+            <div class="bento-content">
+              <span class="bento-kw">13.2kW</span>
+              <span class="bento-name">Ocean Grove</span>
+              <div class="bento-details">
+                <ul>
+                  <li>33 high-efficiency panels</li>
+                  <li>Coastal-rated mounting hardware</li>
+                  <li>Smart energy monitoring</li>
+                </ul>
+                <p>Modern coastal property on the Bellarine Peninsula.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bento-item">
+          <img src="/image/photography/Frontage_8.webp" alt="Torquay commercial solar installation" />
+          <div class="bento-overlay">
+            <div class="bento-content">
+              <span class="bento-kw">320kW</span>
+              <span class="bento-name">Torquay</span>
+              <div class="bento-details">
+                <ul>
+                  <li>700 commercial-grade panels</li>
+                  <li>Surf Coast business precinct</li>
+                  <li>Significant grid export</li>
+                </ul>
+                <p>Commercial premises serving the growing Torquay business district.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bento-item bento-wide-top">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="/image/video/Timeline 1.webm" type="video/webm" />
+            <source src="/image/video/Timeline 1.mp4" type="video/mp4" />
+          </video>
+          <a href="/case-studies" class="bento-case-study-btn">See Case Study</a>
+          <div class="bento-overlay">
+            <div class="bento-content">
+              <span class="bento-kw">186kW</span>
+              <span class="bento-name">Geelong CBD</span>
+              <div class="bento-details">
+                <ul>
+                  <li>400+ rooftop panels</li>
+                  <li>Multi-level commercial building</li>
+                  <li>Full energy monitoring suite</li>
+                </ul>
+                <p>Commercial rooftop installation in Geelong's central business district.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bento-item">
+          <img src="/image/photography/Frontage_9.webp" alt="Leopold solar installation" />
+          <div class="bento-overlay">
+            <div class="bento-content">
+              <span class="bento-kw">6.6kW</span>
+              <span class="bento-name">Leopold</span>
+              <div class="bento-details">
+                <ul>
+                  <li>18 premium panels</li>
+                  <li>Single-storey roof mount</li>
+                  <li>Full consumption monitoring</li>
+                </ul>
+                <p>Residential installation in Leopold's new housing estate.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bento-item">
+          <img src="/image/photography/Frontage_12.webp" alt="Drysdale commercial solar installation" />
+          <div class="bento-overlay">
+            <div class="bento-content">
+              <span class="bento-kw">445kW</span>
+              <span class="bento-name">Drysdale</span>
+              <div class="bento-details">
+                <ul>
+                  <li>960 commercial panels</li>
+                  <li>Large-scale roof array</li>
+                  <li>Significant energy offset</li>
+                </ul>
+                <p>Commercial facility in Drysdale serving the Bellarine region.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <img src="/image/icon/Brand_wave_dots_BlueByGoogleMaps.svg" alt="" class="recent-work-wave" aria-hidden="true" />
   </section>
 
   <!-- Location Map -->
@@ -617,6 +858,209 @@ import GoogleMap from '../components/GoogleMap.astro';
 </BaseLayout>
 
 <style>
+  /* =============================================
+     VIDEO HERO STYLES
+     ============================================= */
+  .hero--video {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .hero-vid {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .hero-vid-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(135deg, rgba(120, 150, 30, 0.30) 0%, rgba(14, 43, 71, 0.82) 25%, rgba(14, 43, 71, 0.55) 55%, rgba(14, 43, 71, 0.25) 100%),
+      linear-gradient(to top, rgba(0, 0, 0, 0.35) 0%, transparent 40%);
+  }
+
+  .hero-vid-content {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: max(4rem, calc(50vw - 600px + 2rem));
+    transform: translateY(-50%);
+    max-width: 640px;
+    width: 100%;
+    padding: 0;
+    color: #fff;
+  }
+
+  .hero-vid-eyebrow {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+    padding: 0.35rem 0.85rem;
+    background: rgba(32, 97, 183, 0.25);
+    border: 1px solid rgba(32, 97, 183, 0.4);
+    border-radius: 4px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .hero--video h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.08;
+    color: #fff;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-vid-accent {
+    color: #C0D446;
+  }
+
+  .hero-vid-subtitle {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+    max-width: 480px;
+  }
+
+  .hero-vid-cta {
+    margin-bottom: 1.75rem;
+  }
+
+  .btn--vibrant {
+    background: linear-gradient(135deg, #2061B7 0%, #184A8B 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(32, 97, 183, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn--vibrant:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(32, 97, 183, 0.5);
+  }
+
+  .btn--vibrant .btn-arrow {
+    animation: arrowBounce 2.5s ease-in-out infinite;
+    stroke: #fff;
+  }
+
+  .btn--vibrant:hover .btn-arrow {
+    animation: none;
+  }
+
+  .hero-vid-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+  }
+
+  .hero-vid-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-vid-badge svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    color: #5B9BF0;
+    flex-shrink: 0;
+  }
+
+  /* Reuse bottom bar from original hero */
+  .hero--video .hero-bottom-bar {
+    position: absolute;
+    z-index: 2;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  /* =============================================
+     VIDEO HERO RESPONSIVE
+     ============================================= */
+  @media (max-width: 900px) {
+    .hero--video h1 {
+      font-size: 2.75rem;
+    }
+
+    .hero-vid-content {
+      left: 2rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero--video {
+      padding: 1.25rem;
+    }
+
+    .hero-vid-content {
+      left: 1.25rem;
+      padding: 0;
+    }
+
+    .hero--video h1 {
+      font-size: 2rem;
+    }
+
+    .hero-vid-eyebrow {
+      font-size: 0.7rem;
+    }
+
+    .hero-vid-subtitle {
+      font-size: 0.9rem;
+    }
+
+    .hero-vid-br {
+      display: none;
+    }
+
+    .hero-vid-badge {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.65rem;
+    }
+  }
+
+  /* =============================================
+     IMAGE SLIDESHOW HERO STYLES (kept for swap)
+     ============================================= */
   /* Hero Section */
   .hero {
     width: 100%;
@@ -1457,6 +1901,21 @@ import GoogleMap from '../components/GoogleMap.astro';
   .recent-work {
     background: #f8f9fa;
     padding: 5rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .recent-work-wave {
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 55%;
+    max-width: 700px;
+    opacity: 1.0;
+    pointer-events: none;
+    z-index: -10;
+    rotate: 150deg;
+    scale: 1.1;
   }
 
   .recent-work-header {
@@ -1503,6 +1962,31 @@ import GoogleMap from '../components/GoogleMap.astro';
     overflow: hidden;
   }
 
+  .bento-case-study-btn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 2;
+    padding: 0.35rem 0.85rem;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .bento-case-study-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+  }
+
   /* Row 1: col1 | col2 | col3-4 (wide) */
   .bento-item:nth-child(1) { grid-column: 1; grid-row: 1; }
   .bento-item:nth-child(2) { grid-column: 2; grid-row: 1; }
@@ -1541,9 +2025,73 @@ import GoogleMap from '../components/GoogleMap.astro';
     );
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     padding: 1rem 1.15rem;
     pointer-events: none;
+    transition: background 0.4s ease;
+  }
+
+  .bento-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    transition: margin-top 0.4s ease;
+  }
+
+  .bento-item:hover .bento-overlay {
+    background: rgba(0, 15, 30, 0.82);
+    pointer-events: auto;
+  }
+
+  .bento-item:hover .bento-content {
+    margin-top: 0;
+  }
+
+  .bento-details {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.35s ease 0.1s, max-height 0.35s ease 0.1s;
+  }
+
+  .bento-item:hover .bento-details {
+    opacity: 1;
+    max-height: 250px;
+  }
+
+  .bento-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.6rem 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .bento-details ul li {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    padding-left: 0.85rem;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .bento-details ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.4em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .bento-details p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    line-height: 1.45;
+    font-style: italic;
   }
 
   .bento-kw {
@@ -1570,20 +2118,55 @@ import GoogleMap from '../components/GoogleMap.astro';
 
   @media (max-width: 900px) {
     .bento-grid {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
     }
 
-    .bento-item:nth-child(1) { grid-column: 1; grid-row: 1; }
-    .bento-item:nth-child(2) { grid-column: 2; grid-row: 1; }
-    .bento-item:nth-child(3) { grid-column: 1 / 3; grid-row: 2; }
-    .bento-item:nth-child(4) { grid-column: 1; grid-row: 3; }
-    .bento-item:nth-child(5) { grid-column: 1 / 3; grid-row: 4; }
-    .bento-item:nth-child(6) { grid-column: 2; grid-row: 3; }
+    .bento-item {
+      display: flex;
+      flex-direction: column;
+      border-radius: 0.75rem;
+      overflow: hidden;
+    }
 
-    .bento-wide-top img,
-    .bento-wide-bottom img {
+    .bento-item img,
+    .bento-item video {
       aspect-ratio: 16 / 9;
+      height: auto;
+    }
+
+    .bento-overlay {
+      position: relative;
+      inset: auto;
+      background: #0E2B47;
+      padding: 1rem 1.15rem;
+      pointer-events: auto;
+    }
+
+    .bento-content {
+      margin-top: 0;
+    }
+
+    .bento-details {
+      opacity: 1;
+      max-height: none;
+    }
+
+    .bento-details ul li {
+      font-size: 0.8rem;
+    }
+
+    .bento-details p {
+      font-size: 0.75rem;
+    }
+
+    .bento-case-study-btn {
+      position: relative;
+      top: auto;
+      right: auto;
+      margin-top: 0.75rem;
+      display: inline-block;
     }
 
     .recent-work-header h2 {
@@ -1602,6 +2185,64 @@ import GoogleMap from '../components/GoogleMap.astro';
 
     .bento-kw {
       font-size: 0.6rem;
+    }
+  }
+
+  /* More Examples Toggle */
+  .more-examples-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 2rem auto 0;
+    color: #2061B7;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+  }
+
+  .more-examples-toggle:hover {
+    color: #184A8B;
+  }
+
+  .more-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .more-examples-toggle.is-open .more-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* Extra bento grid - hidden by default */
+  .bento-grid-extra {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    transition: max-height 0.5s ease, opacity 0.4s ease, margin-top 0.4s ease;
+  }
+
+  .bento-grid-extra.is-visible {
+    max-height: 800px;
+    opacity: 1;
+    margin-top: 0.75rem;
+  }
+
+  /* Alt layout: wide-middle first row, wide-right second row */
+  .bento-grid-extra .bento-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .bento-grid-extra .bento-item:nth-child(2) { grid-column: 2 / 4; grid-row: 1; }
+  .bento-grid-extra .bento-item:nth-child(3) { grid-column: 4; grid-row: 1; }
+  .bento-grid-extra .bento-item:nth-child(4) { grid-column: 1 / 3; grid-row: 2; }
+  .bento-grid-extra .bento-item:nth-child(5) { grid-column: 3; grid-row: 2; }
+  .bento-grid-extra .bento-item:nth-child(6) { grid-column: 4; grid-row: 2; }
+
+  @media (max-width: 900px) {
+    .bento-grid-extra.is-visible {
+      max-height: 4000px;
     }
   }
 
@@ -1718,6 +2359,35 @@ import GoogleMap from '../components/GoogleMap.astro';
     }
   }
 </style>
+
+<script>
+  const testimonialsGrid = document.querySelector('.testimonials-accent-grid') as HTMLElement;
+  if (testimonialsGrid) {
+    const tGridObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          testimonialsGrid.classList.add('animate');
+          tGridObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    tGridObserver.observe(testimonialsGrid.closest('.testimonials-wrapper')!);
+  }
+</script>
+
+<script>
+  const moreToggle = document.getElementById('more-examples-toggle');
+  const bentoExtra = document.getElementById('bento-extra');
+  if (moreToggle && bentoExtra) {
+    moreToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = bentoExtra.classList.toggle('is-visible');
+      moreToggle.classList.toggle('is-open', isOpen);
+      const label = moreToggle.childNodes[0] as Text;
+      label.textContent = isOpen ? 'Less Examples ' : 'More Examples ';
+    });
+  }
+</script>
 
 <script>
   const replyObserver = new IntersectionObserver((entries) => {

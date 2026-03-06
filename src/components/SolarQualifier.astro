@@ -21,15 +21,6 @@ const questions = [
     ],
   },
   {
-    id: "ownership",
-    question: "Do you own the property?",
-    options: [
-      { label: "Yes, I own it", value: "own" },
-      { label: "I'm renting", value: "rent" },
-      { label: "Planning to purchase", value: "planning" },
-    ],
-  },
-  {
     id: "goal",
     question: "What's your primary goal with solar?",
     options: [
@@ -54,6 +45,13 @@ const questions = [
 ---
 
 <section class="qualifier" id="solar-qualifier" data-total={questions.length}>
+  <div class="qualifier-accent-grid" aria-hidden="true">
+    {Array.from({ length: 300 }).map((_, i) => (
+      <div class="accent-icon" style={`--delay: ${(i * 0.055).toFixed(3)}s`}>
+        <img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" width="40" height="35" />
+      </div>
+    ))}
+  </div>
   <div class="qualifier-inner">
     <div class="qualifier-header">
       <p class="qualifier-label">Solar Assessment</p>
@@ -111,7 +109,7 @@ const questions = [
         </div>
       ))}
 
-      <!-- Great news screen -->
+      <!-- Great news + progressive contact form -->
       <div class="qualifier-complete" id="qualifier-complete">
         <div class="complete-icon">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="40" height="40">
@@ -119,93 +117,35 @@ const questions = [
           </svg>
         </div>
         <h3>Great news!</h3>
-        <p>Based on your answers, solar could be a great fit for you. Let's get your details so we can discuss your options.</p>
-        <div class="complete-actions">
-          <button class="btn btn-primary" id="complete-continue" type="button">
-            Yes, I'd like a free quote
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-          </button>
-          <button class="btn-reset" id="qualifier-reset" type="button">Start Over</button>
-        </div>
-      </div>
+        <p>Based on your answers, solar could be a great fit. Let's get your details so we can prepare your free quote.</p>
 
-      <!-- Contact form steps -->
-      <div class="form-step" id="form-step-name" style="display:none">
-        <h3 class="question-text">What's your name?</h3>
-        <div class="form-field">
-          <input type="text" id="form-name" class="form-input" placeholder="Your full name" autocomplete="name" />
+        <div class="progressive-form" id="progressive-form">
+          <div class="progressive-field" id="field-name">
+            <label class="progressive-label" for="form-name">Your name</label>
+            <input type="text" id="form-name" class="form-input" placeholder="Full name" autocomplete="name" />
+          </div>
+          <div class="progressive-field progressive-hidden" id="field-phone">
+            <label class="progressive-label" for="form-phone">Phone number</label>
+            <input type="tel" id="form-phone" class="form-input" placeholder="04XX XXX XXX" autocomplete="tel" />
+          </div>
+          <div class="progressive-field progressive-hidden" id="field-email">
+            <label class="progressive-label" for="form-email">Email address</label>
+            <input type="email" id="form-email" class="form-input" placeholder="you@example.com" autocomplete="email" />
+          </div>
+          <div class="progressive-field progressive-hidden" id="field-message">
+            <label class="progressive-label" for="form-message">Anything else? <span style="color: #999; font-weight: 400;">(optional)</span></label>
+            <textarea id="form-message" class="form-input form-textarea" placeholder="Tell us about your property, energy usage, or any questions..." rows="3"></textarea>
+          </div>
+          <div class="progressive-field progressive-hidden" id="field-submit">
+            <button class="form-submit-btn" id="form-submit" type="button">
+              Send Enquiry
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" width="20" height="20">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+              </svg>
+            </button>
+          </div>
         </div>
-        <button class="form-next-btn" id="name-next" type="button">
-          Next
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-          </svg>
-        </button>
-        <button class="back-btn form-back-btn" data-back="complete" type="button">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-          </svg>
-          Back
-        </button>
-      </div>
-
-      <div class="form-step" id="form-step-phone" style="display:none">
-        <h3 class="question-text">What's your phone number?</h3>
-        <div class="form-field">
-          <input type="tel" id="form-phone" class="form-input" placeholder="04XX XXX XXX" autocomplete="tel" />
-        </div>
-        <button class="form-next-btn" id="phone-next" type="button">
-          Next
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-          </svg>
-        </button>
-        <button class="back-btn form-back-btn" data-back="name" type="button">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-          </svg>
-          Back
-        </button>
-      </div>
-
-      <div class="form-step" id="form-step-email" style="display:none">
-        <h3 class="question-text">What's your email address?</h3>
-        <div class="form-field">
-          <input type="email" id="form-email" class="form-input" placeholder="you@example.com" autocomplete="email" />
-        </div>
-        <button class="form-next-btn" id="email-next" type="button">
-          Next
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-          </svg>
-        </button>
-        <button class="back-btn form-back-btn" data-back="phone" type="button">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-          </svg>
-          Back
-        </button>
-      </div>
-
-      <div class="form-step" id="form-step-message" style="display:none">
-        <h3 class="question-text">Any last things to add?</h3>
-        <button class="form-submit-btn" id="form-submit" type="button">
-          Send Enquiry
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" width="20" height="20">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
-          </svg>
-        </button>
-        <div class="form-field" style="margin-top: 1.25rem;">
-          <textarea id="form-message" class="form-input form-textarea" placeholder="Optional — tell us about your property, energy usage, or any questions you have..." rows="4"></textarea>
-        </div>
-        <button class="back-btn form-back-btn" data-back="email" type="button">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="16" height="16">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-          </svg>
-          Back
-        </button>
+        <button class="btn-reset" id="qualifier-reset" type="button" style="margin-top: 1.25rem;">Start Over</button>
       </div>
 
       <!-- Thank you screen -->
@@ -246,6 +186,20 @@ const questions = [
 </section>
 
 <script>
+  // Flip-in animation triggered on scroll — add .animate class so delays compute from now
+  const accentGrid = document.querySelector('.qualifier-accent-grid') as HTMLElement;
+  if (accentGrid) {
+    const gridObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          accentGrid.classList.add('animate');
+          gridObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    gridObserver.observe(accentGrid.closest('.qualifier')!);
+  }
+
   const section = document.getElementById('solar-qualifier') as HTMLElement;
   const total = parseInt(section.dataset.total || '5');
   const steps = section.querySelectorAll<HTMLElement>('.qualifier-step');
@@ -255,17 +209,8 @@ const questions = [
   const progressPct = document.getElementById('progress-pct') as HTMLElement;
   const progressFill = document.getElementById('progress-fill') as HTMLElement;
   const resetBtn = document.getElementById('qualifier-reset') as HTMLElement;
-  const continueBtn = document.getElementById('complete-continue') as HTMLElement;
   const thankyouEl = document.getElementById('qualifier-thankyou') as HTMLElement;
   const thankyouReset = document.getElementById('thankyou-reset') as HTMLElement;
-
-  // Form step elements
-  const formSteps: Record<string, HTMLElement> = {
-    name: document.getElementById('form-step-name') as HTMLElement,
-    phone: document.getElementById('form-step-phone') as HTMLElement,
-    email: document.getElementById('form-step-email') as HTMLElement,
-    message: document.getElementById('form-step-message') as HTMLElement,
-  };
 
   let currentStep = 0;
 
@@ -274,27 +219,6 @@ const questions = [
     progressStep.textContent = `Question ${currentStep + 1} of ${total}`;
     progressPct.textContent = `${pct}%`;
     progressFill.style.width = `${pct}%`;
-  }
-
-  function hideAllFormSteps() {
-    completeEl.style.display = 'none';
-    completeEl.classList.remove('fade-in');
-    thankyouEl.style.display = 'none';
-    Object.values(formSteps).forEach(el => {
-      el.style.display = 'none';
-      el.classList.remove('fade-in');
-    });
-  }
-
-  function showFormStep(id: string) {
-    hideAllFormSteps();
-    const el = id === 'complete' ? completeEl : id === 'thankyou' ? thankyouEl : formSteps[id];
-    if (el) {
-      el.style.display = 'block';
-      el.classList.add('fade-in');
-      const input = el.querySelector('input, textarea') as HTMLElement | null;
-      if (input) setTimeout(() => input.focus(), 350);
-    }
   }
 
   function showStep(index: number, direction: 'forward' | 'back') {
@@ -313,6 +237,8 @@ const questions = [
         completeEl.style.display = 'block';
         completeEl.classList.add('fade-in');
         progressEl.classList.add('hidden');
+        const nameInput = document.getElementById('form-name') as HTMLElement | null;
+        if (nameInput) setTimeout(() => nameInput.focus(), 350);
       } else {
         const next = steps[currentStep];
         next.style.display = 'block';
@@ -339,68 +265,91 @@ const questions = [
     }
   });
 
-  // Continue from "Great news!" to name step
-  continueBtn.addEventListener('click', () => showFormStep('name'));
+  // Progressive form — reveal fields as user types
+  const fieldOrder = ['field-name', 'field-phone', 'field-email', 'field-message', 'field-submit'];
+  const inputMap: Record<string, string> = {
+    'field-name': 'form-name',
+    'field-phone': 'form-phone',
+    'field-email': 'form-email',
+  };
 
-  // Form next buttons
-  const formOrder = ['name', 'phone', 'email', 'message'];
+  function revealNextField(currentFieldId: string) {
+    const idx = fieldOrder.indexOf(currentFieldId);
+    if (idx < 0 || idx >= fieldOrder.length - 1) return;
+    const nextField = document.getElementById(fieldOrder[idx + 1]);
+    if (nextField && nextField.classList.contains('progressive-hidden')) {
+      nextField.classList.remove('progressive-hidden');
+    }
+  }
 
-  document.getElementById('name-next')?.addEventListener('click', () => {
-    const input = document.getElementById('form-name') as HTMLInputElement;
-    if (!input.value.trim()) { input.focus(); return; }
-    showFormStep('phone');
-  });
-
-  document.getElementById('phone-next')?.addEventListener('click', () => {
-    const input = document.getElementById('form-phone') as HTMLInputElement;
-    if (!input.value.trim()) { input.focus(); return; }
-    showFormStep('email');
-  });
-
-  document.getElementById('email-next')?.addEventListener('click', () => {
-    const input = document.getElementById('form-email') as HTMLInputElement;
-    if (!input.value.trim()) { input.focus(); return; }
-    showFormStep('message');
-  });
-
-  // Enter key on inputs advances to next step
-  document.getElementById('form-name')?.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') document.getElementById('name-next')?.click();
-  });
-  document.getElementById('form-phone')?.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') document.getElementById('phone-next')?.click();
-  });
-  document.getElementById('form-email')?.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') document.getElementById('email-next')?.click();
-  });
-
-  // Back buttons in form steps
-  section.querySelectorAll<HTMLButtonElement>('.form-back-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const target = btn.dataset.back || 'complete';
-      showFormStep(target);
+  // Listen for input on each field — reveal next when user starts typing
+  Object.entries(inputMap).forEach(([fieldId, inputId]) => {
+    const input = document.getElementById(inputId) as HTMLInputElement | null;
+    if (!input) return;
+    input.addEventListener('input', () => {
+      if (input.value.trim().length > 0) {
+        revealNextField(fieldId);
+      }
     });
   });
 
+  // When message field gets focus or any input, reveal submit
+  const messageInput = document.getElementById('form-message') as HTMLTextAreaElement | null;
+  if (messageInput) {
+    messageInput.addEventListener('focus', () => {
+      revealNextField('field-message');
+    });
+  }
+
+  // Also reveal submit when email has content (message is optional)
+  const emailInput = document.getElementById('form-email') as HTMLInputElement | null;
+  if (emailInput) {
+    emailInput.addEventListener('input', () => {
+      if (emailInput.value.trim().length > 0) {
+        revealNextField('field-email');
+        // Also reveal submit since message is optional
+        const submitField = document.getElementById('field-submit');
+        if (submitField) submitField.classList.remove('progressive-hidden');
+      }
+    });
+  }
+
   // Submit
   document.getElementById('form-submit')?.addEventListener('click', () => {
-    showFormStep('thankyou');
+    // Validate required fields
+    const name = (document.getElementById('form-name') as HTMLInputElement).value.trim();
+    const phone = (document.getElementById('form-phone') as HTMLInputElement).value.trim();
+    const email = (document.getElementById('form-email') as HTMLInputElement).value.trim();
+    if (!name) { document.getElementById('form-name')?.focus(); return; }
+    if (!phone) { document.getElementById('form-phone')?.focus(); return; }
+    if (!email) { document.getElementById('form-email')?.focus(); return; }
+
+    completeEl.style.display = 'none';
+    completeEl.classList.remove('fade-in');
+    thankyouEl.style.display = 'block';
+    thankyouEl.classList.add('fade-in');
   });
 
   // Reset functions
   function fullReset() {
-    hideAllFormSteps();
+    completeEl.style.display = 'none';
+    completeEl.classList.remove('fade-in');
+    thankyouEl.style.display = 'none';
+    thankyouEl.classList.remove('fade-in');
     progressEl.classList.remove('hidden');
     steps.forEach((s) => { s.style.display = 'none'; s.classList.remove('active'); });
     currentStep = 0;
     steps[0].style.display = 'block';
     steps[0].classList.add('active');
     updateProgress();
-    // Clear form fields
+    // Clear form fields and re-hide progressive fields
     (document.getElementById('form-name') as HTMLInputElement).value = '';
     (document.getElementById('form-phone') as HTMLInputElement).value = '';
     (document.getElementById('form-email') as HTMLInputElement).value = '';
     (document.getElementById('form-message') as HTMLTextAreaElement).value = '';
+    fieldOrder.slice(1).forEach(id => {
+      document.getElementById(id)?.classList.add('progressive-hidden');
+    });
   }
 
   resetBtn.addEventListener('click', fullReset);
@@ -411,6 +360,56 @@ const questions = [
   .qualifier {
     padding: 6rem 1.5rem;
     background: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .qualifier-accent-grid {
+    position: absolute;
+    top: 3%;
+    left: 25rem;
+    display: grid;
+    grid-template-columns: repeat(15, 40px);
+    grid-template-rows: repeat(20, 35px);
+    gap: 1rem;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.08;
+    filter: brightness(0) saturate(100%) invert(15%) sepia(40%) saturate(1500%) hue-rotate(185deg) brightness(90%);
+    transform: rotate(-225deg);
+    transform-origin: top left;
+  }
+
+  .accent-icon {
+    perspective: 400px;
+  }
+
+  .accent-icon img {
+    width: 40px;
+    height: 35px;
+    opacity: 0;
+    transform: rotate(-45deg) rotateY(180deg);
+    transform-origin: center;
+    backface-visibility: hidden;
+  }
+
+  .qualifier-accent-grid.animate .accent-icon img {
+    animation: flipIn 0.6s ease-out both;
+    animation-delay: var(--delay, 0s);
+  }
+
+  @keyframes flipIn {
+    0% {
+      transform: rotate(-45deg) rotateY(180deg);
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(-45deg) rotateY(0deg);
+      opacity: 1;
+    }
   }
 
   .qualifier-inner {
@@ -669,12 +668,6 @@ const questions = [
     align-items: center;
   }
 
-  .complete-actions .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
   .btn-reset {
     padding: 0.75rem 2rem;
     border-radius: 9999px;
@@ -692,20 +685,36 @@ const questions = [
     color: #333;
   }
 
-  @media (min-width: 640px) {
-    .complete-actions {
-      flex-direction: row;
-      justify-content: center;
-    }
+  /* Progressive form */
+  .progressive-form {
+    max-width: 440px;
+    margin: 2rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  /* Form steps */
-  .form-step {
-    text-align: center;
+  .progressive-field {
+    transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease;
+    opacity: 1;
+    max-height: 200px;
   }
 
-  .form-step.fade-in {
-    animation: fadeIn 0.4s ease forwards;
+  .progressive-hidden {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .progressive-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #0E2B47;
+    margin-bottom: 0.4rem;
+    text-align: left;
   }
 
   .form-field {

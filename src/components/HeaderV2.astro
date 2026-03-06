@@ -82,51 +82,51 @@ const navItems = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="header" id="main-header">
-  <nav class="nav">
-    <a href="/" class="logo">
-      <img src="/image/logo/logo_special_navVersion_White.svg" alt="EES Environmental Energy Services" class="logo-img" />
+<header class="header-v2" id="main-header">
+  <nav class="nav-v2">
+    <a href="/" class="logo-v2">
+      <img src="/image/logo/logo_special_navVersion_White.svg" alt="EES Environmental Energy Services" class="logo-img-v2" />
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links-v2">
       {navItems.map((item: any) => (
         item.divider ? (
-          <li class="nav-divider" aria-hidden="true"></li>
+          <li class="nav-divider-v2" aria-hidden="true"></li>
         ) : (
-        <li class:list={['nav-item', { 'has-mega': item.megaMenu }]}>
+        <li class:list={['nav-item-v2', { 'has-mega-v2': item.megaMenu }]}>
           {item.href ? (
             <a
               href={item.href}
-              class:list={['nav-link', { active: currentPath === item.href }]}
+              class:list={['nav-link-v2', { active: currentPath === item.href }]}
             >
               {item.label}
             </a>
           ) : (
             <>
-              <button class="nav-link nav-toggle" type="button">
+              <button class="nav-link-v2 nav-toggle-v2" type="button">
                 {item.label}
-                <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="chevron-v2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="m6 9 6 6 6-6"/>
                 </svg>
               </button>
-              <div class="mega-menu">
-                <div class="mega-menu-inner">
+              <div class="mega-menu-v2">
+                <div class="mega-menu-inner-v2">
                   {item.megaMenu?.map((card: any) => (
-                    <div class="mega-card">
-                      <div class="mega-card-header">
+                    <div class="mega-card-v2">
+                      <div class="mega-card-header-v2">
                         <h3>{card.title}</h3>
                         {!card.hideButton && (
-                          <a href={card.href} class="mega-learn-more">
+                          <a href={card.href} class="mega-learn-more-v2">
                             {card.buttonText || 'Learn More'}
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                           </a>
                         )}
                       </div>
-                      <ul class="mega-card-links">
+                      <ul class="mega-card-links-v2">
                         {card.services.map((svc: any) => (
                           <li>
                             <a href={svc.href}>
                               {svc.label}
-                              <svg class="mega-link-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                              <svg class="mega-link-chevron-v2" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                             </a>
                           </li>
                         ))}
@@ -141,8 +141,8 @@ const currentPath = Astro.url.pathname;
         )
       ))}
     </ul>
-    <a href="#solar-qualifier" class="nav-cta"><svg class="cta-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>Get Your Free Quote</a>
-    <button class="menu-toggle" id="menu-toggle" type="button">Menu</button>
+    <a href="#solar-qualifier" class="nav-cta-v2"><svg class="cta-arrow-v2" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>Get Your Free Quote</a>
+    <button class="menu-toggle-v2" id="menu-toggle" type="button">Menu</button>
   </nav>
 </header>
 
@@ -170,19 +170,18 @@ const currentPath = Astro.url.pathname;
   handleScroll();
 
   // Mega menu interactions
-  const megaItems = document.querySelectorAll('.nav-item.has-mega');
+  const megaItems = document.querySelectorAll('.nav-item-v2.has-mega-v2');
   const megaTimers = new Map<Element, ReturnType<typeof setTimeout>>();
   const isMobile = () => window.innerWidth <= 900;
 
   // Mobile: click toggles on nav-toggle buttons
-  document.querySelectorAll('.nav-toggle').forEach((btn) => {
+  document.querySelectorAll('.nav-toggle-v2').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       if (!isMobile()) return;
       e.preventDefault();
-      const item = btn.closest('.nav-item.has-mega');
+      const item = btn.closest('.nav-item-v2.has-mega-v2');
       if (!item) return;
       const wasOpen = item.classList.contains('mega-open');
-      // Close all others
       megaItems.forEach((other) => other.classList.remove('mega-open'));
       if (!wasOpen) item.classList.add('mega-open');
     });
@@ -228,57 +227,54 @@ const currentPath = Astro.url.pathname;
 </script>
 
 <style>
-  .header {
+  .header-v2 {
     position: fixed;
-    top: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 4rem);
-    max-width: 1200px;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     padding: 0.875rem 2rem;
-    border-radius: 9999px;
   }
 
-  .header::before {
+  .header-v2::before {
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: inherit;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
     z-index: -1;
     transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
   }
 
-  .header.scrolled::before {
+  .header-v2.scrolled::before {
     background: rgba(14, 43, 71, 0.85);
-    border-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
   }
 
-  .nav {
+  .nav-v2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 
-  /* Nav logo - always visible */
-  .logo {
+  .logo-v2 {
     text-decoration: none;
     display: flex;
     align-items: center;
   }
 
-  .logo-img {
+  .logo-img-v2 {
     height: 1.75rem;
     width: auto;
   }
 
-  .nav-links {
+  .nav-links-v2 {
     display: flex;
     gap: 0.25rem;
     list-style: none;
@@ -286,15 +282,15 @@ const currentPath = Astro.url.pathname;
     padding: 0;
   }
 
-  .nav-item {
+  .nav-item-v2 {
     position: relative;
   }
 
-  .nav-item.has-mega {
+  .nav-item-v2.has-mega-v2 {
     position: static;
   }
 
-  .nav-divider {
+  .nav-divider-v2 {
     width: 1px;
     height: 1.25rem;
     background: rgba(255, 255, 255, 0.3);
@@ -303,46 +299,46 @@ const currentPath = Astro.url.pathname;
     list-style: none;
   }
 
-  .nav-link {
+  .nav-link-v2 {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
-    padding: 0.5rem 0.7rem;
+    padding: 0.5rem 1rem;
     text-decoration: none;
     color: #fff;
     font-weight: 500;
-    border-radius: 9999px;
+    border-radius: 8px;
     transition: background 0.2s, color 0.2s;
     background: none;
     border: none;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     cursor: pointer;
     white-space: nowrap;
   }
 
-  .nav-link:hover,
-  .nav-link.active {
+  .nav-link-v2:hover,
+  .nav-link-v2.active {
     background: rgba(255, 255, 255, 0.15);
     color: #fff;
   }
 
-  .nav-toggle .chevron {
+  .nav-toggle-v2 .chevron-v2 {
     transition: transform 0.2s;
   }
 
-  .nav-item.has-mega.mega-open .chevron {
+  .nav-item-v2.has-mega-v2.mega-open .chevron-v2 {
     transform: rotate(180deg);
   }
 
-  .nav-cta {
-    padding: 0.5rem 1.25rem;
+  .nav-cta-v2 {
+    padding: 0.625rem 1.5rem;
     background: #2061B7;
     color: #fff;
     text-decoration: none;
-    border-radius: 9999px;
+    border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     font-weight: 500;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     transition: background 0.2s, transform 0.2s;
     white-space: nowrap;
     display: inline-flex;
@@ -350,32 +346,29 @@ const currentPath = Astro.url.pathname;
     gap: 0.375rem;
   }
 
-  .cta-arrow {
+  .cta-arrow-v2 {
     flex-shrink: 0;
+    animation: arrowBounceV2 2.5s ease-in-out infinite;
   }
 
-  .cta-arrow {
-    animation: arrowBounce 2.5s ease-in-out infinite;
-  }
-
-  .nav-cta:hover {
+  .nav-cta-v2:hover {
     background: #184A8B;
     color: #fff;
   }
 
-  .nav-cta:hover .cta-arrow {
+  .nav-cta-v2:hover .cta-arrow-v2 {
     animation: none;
   }
 
-  @keyframes arrowBounce {
+  @keyframes arrowBounceV2 {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(3px); }
   }
 
   /* Mega Menu */
-  .mega-menu {
+  .mega-menu-v2 {
     position: absolute;
-    top: calc(100% + 1rem);
+    top: calc(100% + 0.5rem);
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     padding-top: 0.5rem;
@@ -385,14 +378,14 @@ const currentPath = Astro.url.pathname;
     pointer-events: none;
   }
 
-  .nav-item.has-mega.mega-open .mega-menu {
+  .nav-item-v2.has-mega-v2.mega-open .mega-menu-v2 {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
     pointer-events: auto;
   }
 
-  .mega-menu-inner {
+  .mega-menu-inner-v2 {
     display: grid;
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
@@ -402,12 +395,12 @@ const currentPath = Astro.url.pathname;
     backdrop-filter: blur(80px) saturate(180%);
     -webkit-backdrop-filter: blur(80px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 1.5rem;
+    border-radius: 1rem;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
     transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
   }
 
-  .header.scrolled .mega-menu-inner {
+  .header-v2.scrolled .mega-menu-inner-v2 {
     background: rgba(14, 43, 71, 0.85);
     backdrop-filter: blur(80px) saturate(180%);
     -webkit-backdrop-filter: blur(80px) saturate(180%);
@@ -415,7 +408,7 @@ const currentPath = Astro.url.pathname;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   }
 
-  .mega-card {
+  .mega-card-v2 {
     display: flex;
     flex-direction: column;
     border-radius: 0.75rem;
@@ -435,7 +428,7 @@ const currentPath = Astro.url.pathname;
     overflow: hidden;
   }
 
-  .mega-card::before {
+  .mega-card-v2::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -446,7 +439,7 @@ const currentPath = Astro.url.pathname;
     pointer-events: none;
   }
 
-  .mega-card:hover {
+  .mega-card-v2:hover {
     background: linear-gradient(135deg, rgba(27, 63, 99, 0.7) 0%, rgba(20, 55, 88, 0.5) 100%);
     border-color: rgba(255, 255, 255, 0.18);
     box-shadow:
@@ -455,7 +448,7 @@ const currentPath = Astro.url.pathname;
       0 8px 24px rgba(0, 0, 0, 0.2);
   }
 
-  .mega-card-header {
+  .mega-card-header-v2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -463,7 +456,7 @@ const currentPath = Astro.url.pathname;
     gap: 0.75rem;
   }
 
-  .mega-card-header h3 {
+  .mega-card-header-v2 h3 {
     font-size: 1.0625rem;
     font-weight: 700;
     margin: 0;
@@ -471,14 +464,14 @@ const currentPath = Astro.url.pathname;
     letter-spacing: 0.01em;
   }
 
-  .mega-learn-more {
+  .mega-learn-more-v2 {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
     padding: 0.3rem 0.75rem;
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 9999px;
+    border-radius: 8px;
     color: #fff;
     text-decoration: none;
     font-size: 0.75rem;
@@ -487,12 +480,12 @@ const currentPath = Astro.url.pathname;
     transition: background 0.2s;
   }
 
-  .mega-learn-more:hover {
+  .mega-learn-more-v2:hover {
     background: rgba(255, 255, 255, 0.25);
     color: #fff;
   }
 
-  .mega-card-links {
+  .mega-card-links-v2 {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -503,7 +496,7 @@ const currentPath = Astro.url.pathname;
     border-left: 1px solid rgba(255, 255, 255, 0.15);
   }
 
-  .mega-card-links a {
+  .mega-card-links-v2 a {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -514,23 +507,23 @@ const currentPath = Astro.url.pathname;
     transition: color 0.15s;
   }
 
-  .mega-card-links a:hover {
+  .mega-card-links-v2 a:hover {
     color: #fff;
   }
 
-  .mega-link-chevron {
+  .mega-link-chevron-v2 {
     opacity: 0.4;
     transition: opacity 0.15s, transform 0.15s;
     flex-shrink: 0;
   }
 
-  .mega-card-links a:hover .mega-link-chevron {
+  .mega-card-links-v2 a:hover .mega-link-chevron-v2 {
     opacity: 1;
     transform: translateX(2px);
   }
 
   /* Menu toggle - hidden on desktop */
-  .menu-toggle {
+  .menu-toggle-v2 {
     display: none;
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -538,57 +531,46 @@ const currentPath = Astro.url.pathname;
     font-weight: 600;
     font-size: 0.875rem;
     padding: 0.5rem 1.25rem;
-    border-radius: 9999px;
+    border-radius: 8px;
     cursor: pointer;
     letter-spacing: 0.03em;
     transition: background 0.2s;
   }
 
-  .menu-toggle:hover {
+  .menu-toggle-v2:hover {
     background: rgba(255, 255, 255, 0.25);
   }
 
   @media (max-width: 900px) {
-    .header {
-      left: 1rem;
-      right: auto;
-      width: calc(100vw - 2rem);
-      max-width: none;
-      transform: none;
-      top: 1rem;
-      border-radius: 9999px;
+    .header-v2 {
       padding: 0.75rem 1.25rem;
     }
 
-    .nav-links,
-    .nav-cta {
+    .nav-links-v2,
+    .nav-cta-v2 {
       display: none;
     }
 
-    .logo-img {
+    .logo-img-v2 {
       height: 1.5rem;
     }
 
-    .menu-toggle {
+    .menu-toggle-v2 {
       display: block;
     }
 
     /* Open state */
-    .header.menu-open {
-      border-radius: 1.5rem;
-    }
-
-    .header.menu-open::before {
+    .header-v2.menu-open::before {
       background: rgba(14, 43, 71, 0.85);
       border-color: rgba(255, 255, 255, 0.15);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
 
-    .header.menu-open .nav {
+    .header-v2.menu-open .nav-v2 {
       flex-wrap: wrap;
     }
 
-    .header.menu-open .nav-links {
+    .header-v2.menu-open .nav-links-v2 {
       display: flex;
       flex-direction: column;
       width: 100%;
@@ -598,11 +580,11 @@ const currentPath = Astro.url.pathname;
       margin-top: 0.75rem;
     }
 
-    .header.menu-open .nav-divider {
+    .header-v2.menu-open .nav-divider-v2 {
       display: none;
     }
 
-    .header.menu-open .nav-cta {
+    .header-v2.menu-open .nav-cta-v2 {
       display: block;
       width: 100%;
       text-align: center;
@@ -610,13 +592,13 @@ const currentPath = Astro.url.pathname;
       margin-bottom: 0.25rem;
     }
 
-    .header.menu-open .nav-link {
+    .header-v2.menu-open .nav-link-v2 {
       padding: 0.625rem 1rem;
       border-radius: 0.75rem;
     }
 
-    /* Mega menu mobile - hidden by default, toggled via .mega-open */
-    .header.menu-open .mega-menu {
+    /* Mega menu mobile */
+    .header-v2.menu-open .mega-menu-v2 {
       position: static;
       transform: none;
       padding-top: 0;
@@ -628,7 +610,7 @@ const currentPath = Astro.url.pathname;
       transition: opacity 0.25s ease, max-height 0.3s ease, visibility 0.25s;
     }
 
-    .header.menu-open .nav-item.has-mega.mega-open .mega-menu {
+    .header-v2.menu-open .nav-item-v2.has-mega-v2.mega-open .mega-menu-v2 {
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
@@ -636,8 +618,7 @@ const currentPath = Astro.url.pathname;
       transform: none;
     }
 
-    /* Simple flat list on mobile - no cards */
-    .header.menu-open .mega-menu-inner {
+    .header-v2.menu-open .mega-menu-inner-v2 {
       display: flex;
       flex-direction: column;
       gap: 0;
@@ -650,7 +631,7 @@ const currentPath = Astro.url.pathname;
       -webkit-backdrop-filter: none;
     }
 
-    .header.menu-open .mega-card {
+    .header-v2.menu-open .mega-card-v2 {
       background: none;
       border: none;
       box-shadow: none;
@@ -660,15 +641,15 @@ const currentPath = Astro.url.pathname;
       border-radius: 0;
     }
 
-    .header.menu-open .mega-card::before {
+    .header-v2.menu-open .mega-card-v2::before {
       display: none;
     }
 
-    .header.menu-open .mega-card-header {
+    .header-v2.menu-open .mega-card-header-v2 {
       margin-bottom: 0.25rem;
     }
 
-    .header.menu-open .mega-card-header h3 {
+    .header-v2.menu-open .mega-card-header-v2 h3 {
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -677,28 +658,28 @@ const currentPath = Astro.url.pathname;
       margin-top: 0.75rem;
     }
 
-    .header.menu-open .mega-learn-more {
+    .header-v2.menu-open .mega-learn-more-v2 {
       display: none;
     }
 
-    .header.menu-open .mega-card-links {
+    .header-v2.menu-open .mega-card-links-v2 {
       border-left: none;
       padding-left: 0;
       gap: 0;
     }
 
-    .header.menu-open .mega-card-links a {
+    .header-v2.menu-open .mega-card-links-v2 a {
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       font-size: 0.9375rem;
       color: rgba(255, 255, 255, 0.85);
     }
 
-    .header.menu-open .mega-card-links a:hover {
+    .header-v2.menu-open .mega-card-links-v2 a:hover {
       background: rgba(255, 255, 255, 0.1);
     }
 
-    .header.menu-open .mega-link-chevron {
+    .header-v2.menu-open .mega-link-chevron-v2 {
       display: none;
     }
   }

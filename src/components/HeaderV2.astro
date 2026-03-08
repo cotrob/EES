@@ -16,6 +16,7 @@ const navItems = [
           { href: '/services/residential/battery-systems', label: 'Battery Systems' },
           { href: '/services/residential/heat-pump-systems', label: 'Heat Pump Systems' },
           { href: '/services/residential/home-automation', label: 'Home Automation' },
+          { href: '/services/residential/virtual-power-plants', label: 'Virtual Power Plants' },
         ],
       },
       {
@@ -37,6 +38,7 @@ const navItems = [
           { href: '/services/consultation', label: 'Free Consultation' },
           { href: '/services/financing', label: 'Financing Options' },
           { href: '/services/faq', label: 'FAQs' },
+          { href: '/services/meet-the-team', label: 'Meet the Team' },
         ],
       },
     ],
@@ -51,6 +53,7 @@ const navItems = [
         href: '/laboratory/facility',
         services: [
           { href: '/laboratory/test-room', label: 'Simulation Room (Test Cell)' },
+          { href: '/laboratory/research-team', label: 'Research Team' },
         ],
       },
       {
@@ -113,7 +116,7 @@ const currentPath = Astro.url.pathname;
                   {item.megaMenu?.map((card: any) => (
                     <div class="mega-card-v2">
                       <div class="mega-card-header-v2">
-                        <h3>{card.title}</h3>
+                        <h3>{card.href ? <a href={card.href} class="mega-title-link-v2">{card.title}</a> : card.title}</h3>
                         {!card.hideButton && (
                           <a href={card.href} class="mega-learn-more-v2">
                             {card.buttonText || 'Learn More'}
@@ -462,6 +465,18 @@ const currentPath = Astro.url.pathname;
     margin: 0;
     color: #fff;
     letter-spacing: 0.01em;
+  }
+
+  .mega-title-link-v2 {
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .mega-title-link-v2:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   .mega-learn-more-v2 {

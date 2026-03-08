@@ -9,6 +9,7 @@ const navItems = [
         title: 'Residential',
         image: '/image/photography/01_Hero_Images_OG/Frontage_1.webp',
         href: '/services/residential',
+        galleryHref: '/examples/residential',
         buttonText: 'See Examples',
         services: [
           { href: '/services/residential/solar-systems', label: 'Solar Systems' },
@@ -23,6 +24,7 @@ const navItems = [
         title: 'Commercial',
         image: '/image/photography/01_Hero_Images_OG/Frontage_5.webp',
         href: '/services/commercial',
+        galleryHref: '/examples/commercial',
         buttonText: 'See Examples',
         services: [
           { href: '/services/commercial/solar-systems', label: 'Solar Systems' },
@@ -118,7 +120,7 @@ const currentPath = Astro.url.pathname;
                       <div class="mega-card-header-v2">
                         <h3>{card.href ? <a href={card.href} class="mega-title-link-v2">{card.title}</a> : card.title}</h3>
                         {!card.hideButton && (
-                          <a href={card.href} class="mega-learn-more-v2">
+                          <a href={card.galleryHref || card.href} class="mega-learn-more-v2">
                             {card.buttonText || 'Learn More'}
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                           </a>
@@ -213,6 +215,30 @@ const currentPath = Astro.url.pathname;
         megaTimers.delete(item);
       }, 2100);
       megaTimers.set(item, timer);
+    });
+  });
+
+  // Close mega menu when hovering over non-mega nav items (Home, About, etc.)
+  document.querySelectorAll('.nav-item-v2:not(.has-mega-v2)').forEach((item) => {
+    item.addEventListener('mouseenter', () => {
+      if (isMobile()) return;
+      megaItems.forEach((mega) => {
+        mega.classList.remove('mega-open');
+        const t = megaTimers.get(mega);
+        if (t) { clearTimeout(t); megaTimers.delete(mega); }
+      });
+    });
+  });
+
+  // Close mega menu when hovering over the CTA button or logo
+  document.querySelectorAll('.nav-cta-v2, .logo-v2').forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+      if (isMobile()) return;
+      megaItems.forEach((mega) => {
+        mega.classList.remove('mega-open');
+        const t = megaTimers.get(mega);
+        if (t) { clearTimeout(t); megaTimers.delete(mega); }
+      });
     });
   });
 

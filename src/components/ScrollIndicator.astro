@@ -1,0 +1,130 @@
+<!-- Scroll Indicator - Trapezoid shape with rounded corners -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <clipPath id="trapezoidClip" clipPathUnits="objectBoundingBox">
+      <path d="
+        M 0.04,0
+        H 0.96
+        Q 1,0 1,0.03
+        L 0.68,0.97
+        Q 0.67,1 0.63,1
+        H 0.37
+        Q 0.33,1 0.32,0.97
+        L 0,0.03
+        Q 0,0 0.04,0
+        Z
+      "/>
+    </clipPath>
+  </defs>
+</svg>
+<div class="scroll-indicator" id="scrollIndicator">
+  <span class="scroll-label">Scroll</span>
+  <div class="scroll-line">
+    <div class="scroll-arrow"></div>
+  </div>
+</div>
+
+<script>
+  const indicator = document.getElementById('scrollIndicator');
+  let scrollCount = 0;
+  let lastScrollY = 0;
+  let hidden = false;
+
+  function handleScroll() {
+    const currentY = window.scrollY;
+
+    if (currentY <= 50) {
+      scrollCount = 0;
+      hidden = false;
+      indicator?.classList.remove('scroll-indicator--hidden');
+      lastScrollY = currentY;
+      return;
+    }
+
+    if (!hidden && currentY > lastScrollY) {
+      scrollCount++;
+      if (scrollCount >= 3) {
+        hidden = true;
+        indicator?.classList.add('scroll-indicator--hidden');
+      }
+    }
+
+    lastScrollY = currentY;
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+</script>
+
+<style>
+  .scroll-indicator {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 50;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    padding: 1.25rem 2rem 1rem;
+    background: rgba(14, 43, 71, 0.07);
+    backdrop-filter: blur(5px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    clip-path: url(#trapezoidClip);
+  }
+
+  .scroll-indicator--hidden {
+    opacity: 0;
+  }
+
+  .scroll-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #0E2B47;
+    font-weight: 600;
+  }
+
+  .scroll-line {
+    width: 2px;
+    height: 96px;
+    background: rgba(14, 43, 71, 0.15);
+    position: relative;
+    overflow: hidden;
+    border-radius: 1px;
+  }
+
+  .scroll-arrow {
+    width: 2px;
+    height: 32px;
+    background: #0E2B47;
+    position: absolute;
+    top: -32px;
+    left: 0;
+    border-radius: 1px;
+    animation: scrollDown 1.8s ease-in-out infinite;
+  }
+
+  @keyframes scrollDown {
+    0% {
+      top: -32px;
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      top: 96px;
+      opacity: 0;
+    }
+  }
+</style>

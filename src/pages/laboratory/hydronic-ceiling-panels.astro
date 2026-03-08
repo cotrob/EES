@@ -1,5 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ScrollIndicator from '../../components/ScrollIndicator.astro';
+import HugeIcon from '../../components/HugeIcon.astro';
+import {
+  Building03Icon,
+  UniversityIcon,
+  Hospital01Icon,
+  Store01Icon,
+  LandmarkIcon,
+  Home01Icon,
+} from '@hugeicons/core-free-icons';
 ---
 
 <BaseLayout
@@ -11,6 +21,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="container">
       <h1>Hydronic Ceiling Panels</h1>
       <p>Heating, cooling, and a finished ceiling in one system.</p>
+    </div>
+  </section>
+
+  <!-- What Are These -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-layout">
+        <div class="intro-text">
+          <p class="section-label">What Are Hydronic Ceiling Panels?</p>
+          <h2>A Complete Replacement for Conventional Heating and Cooling</h2>
+          <p>Hydronic ceiling panels heat and cool your space using water circulated through tiles in your ceiling. They replace traditional systems like split units, ducted air conditioning, radiators, and gas heaters with a single, silent, invisible system.</p>
+          <p>There are no wall-mounted units, no ductwork, no vents, and no fan noise. Just a clean ceiling that keeps every room comfortable year-round.</p>
+        </div>
+        <div class="intro-image">
+          <img src="/image/WIP/TestRoom_Final_webp/639607_7582f9e8760f4b8c8deb96294d92f1c3_mv2_crop.webp" alt="3D render looking up at a suspended ceiling with hydronic panels finished in a variety of architectural surfaces including timber, rendered coating, perforated metal, and mini-orb" />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -96,6 +123,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
               <span class="patent-badge-title">Australian Standard Patent</span>
               <span class="patent-badge-number">2024227462</span>
               <span class="patent-badge-sub">Granted July 2025</span>
+              <a href="/documents/patent-2024227462.pdf" download class="patent-download-btn">Download Patent PDF</a>
             </div>
           </div>
         </div>
@@ -175,6 +203,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           </div>
           <div class="why-image">
             <img src="/image/WIP/TestRoom_Development_webp/mounting.webp" alt="Comparison diagram of four radiant conditioning approaches: floor heating (A), ceiling heating and cooling (B and D), and wall heating (C) showing coverage, distance uniformity, and furniture obstruction" />
+            <img src="/image/WIP/Hydronic_Ceiling_Panels/panel-radiant-comfort-diagram.webp" alt="Diagram showing radiant heat exchange between room surfaces and the human body, illustrating how ceiling, wall and floor panels interact with the occupant" class="why-image-secondary" />
           </div>
         </div>
       </div>
@@ -273,6 +302,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <div class="installed-layout">
         <div class="installed-image">
           <img src="/image/WIP/TestRoom_Development_webp/IMG_7977.webp" alt="Looking up at the installed hydronic ceiling panels from inside the TestCell with blue capillary tubes visible through the grid before finishing surfaces are applied" />
+          <img src="/image/WIP/Hydronic_Ceiling_Panels/panel-perforated-surface-product.webp" alt="Finished hydronic ceiling panel viewed from below showing the white perforated metal surface that conceals the capillary tube system" class="installed-image-secondary" />
         </div>
         <div class="installed-text">
           <p class="section-label">Installation</p>
@@ -311,6 +341,31 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <div class="thermal-info">
             <span class="thermal-mode thermal-mode--cool">Cooling Mode 14.4°C</span>
             <p>Blue thermal signature shows effective, uniform cooling across all panels. No warm spots or condensation risk at these operating temperatures.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="thermal-data">
+        <div class="thermal-data-card">
+          <div class="thermal-img-wrap">
+            <img src="/image/WIP/Hydronic_Ceiling_Panels/panel-test-heat-flux-graph.webp" alt="Heat flux test data showing four sensors reaching 75-100 W/m² steady state output across different panel zones" />
+          </div>
+          <div class="thermal-info">
+            <span class="thermal-mode thermal-mode--data">Heat Flux (W/m²)</span>
+            <p>Each coloured line is a sensor on a different part of the panel. They all climb quickly from zero and flatten out, meaning the panels reach full heating output within about 30 minutes and hold it steady. In practice, this means the room reaches a comfortable temperature quickly and stays there without fluctuations.</p>
+            <h4 class="thermal-technical-heading">Technical Explanation</h4>
+            <p class="thermal-technical">Four calibrated heat flux sensors (FLUX 1-4) positioned across different panel zones record steady-state radiative and convective output of 75-100 W/m². The dashed TC lines represent corresponding thermocouple readings tracking surface temperature at each sensor location. Time to 90% steady state is approximately 20 minutes, with less than 5% variance between zones at plateau, confirming uniform energy distribution across the capillary tube mat.</p>
+          </div>
+        </div>
+        <div class="thermal-data-card">
+          <div class="thermal-img-wrap">
+            <img src="/image/WIP/Hydronic_Ceiling_Panels/panel-test-surface-temp-graph.webp" alt="Surface temperature graph showing four panel zones cooling to 20-25°C while ambient temperature rises to 32°C" />
+          </div>
+          <div class="thermal-info">
+            <span class="thermal-mode thermal-mode--data">Surface Temperature (°C)</span>
+            <p>The thick red line is the outside air temperature rising past 32°C. The other coloured lines are sensors on different panels, all dropping quickly and staying between 20-25°C. The panels keep the surface cool even as the day gets hotter.</p>
+            <h4 class="thermal-technical-heading">Technical Explanation</h4>
+            <p class="thermal-technical">Four thermocouples (TEMP 1-4) measure panel surface temperature during active cooling with a chilled water supply temperature of approximately 16°C. Ambient temperature (red) rises from 26.5°C to 32.5°C over the two-hour test window. Panel surfaces stabilise between 20-25°C within 15 minutes, maintaining a 6-12°C differential below ambient. The spread between sensors reflects variation in finishing surface thermal conductivity across the test panels.</p>
           </div>
         </div>
       </div>
@@ -400,8 +455,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <span class="heatpump-stat-label">More efficient than gas</span>
           </div>
           <div class="heatpump-stat">
-            <span class="heatpump-stat-value">~1/3</span>
-            <span class="heatpump-stat-label">The running cost of conventional systems</span>
+            <span class="heatpump-stat-value">~67%</span>
+            <span class="heatpump-stat-label">Less on your energy bill</span>
           </div>
           <div class="heatpump-stat">
             <span class="heatpump-stat-value">0</span>
@@ -423,26 +478,32 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
       <div class="applications-grid">
         <div class="application-card">
+          <HugeIcon icon={Building03Icon} size={32} class="application-icon" />
           <h3>Offices &amp; Workplaces</h3>
           <p>Silent, draught-free conditioning. No wall units, no ductwork, no ceiling space lost to bulky equipment.</p>
         </div>
         <div class="application-card">
+          <HugeIcon icon={UniversityIcon} size={32} class="application-icon" />
           <h3>Schools &amp; Universities</h3>
           <p>Healthier indoor air with no dust circulation or dry forced-air. Ideal for classrooms and lecture halls with suspended ceilings.</p>
         </div>
         <div class="application-card">
+          <HugeIcon icon={Hospital01Icon} size={32} class="application-icon" />
           <h3>Healthcare Facilities</h3>
           <p>Hygienic radiant conditioning with no moving air. Reduces airborne particle circulation, critical for hospitals and aged care.</p>
         </div>
         <div class="application-card">
+          <HugeIcon icon={Store01Icon} size={32} class="application-icon" />
           <h3>Retail &amp; Hospitality</h3>
           <p>Invisible conditioning that doesn't compete with interior design. Restaurants, shops, and hotels benefit from the silent, even comfort.</p>
         </div>
         <div class="application-card">
+          <HugeIcon icon={LandmarkIcon} size={32} class="application-icon" />
           <h3>Government Buildings</h3>
           <p>Retrofit-friendly for heritage and older buildings with existing suspended ceilings. Meets energy efficiency targets without major structural work.</p>
         </div>
         <div class="application-card">
+          <HugeIcon icon={Home01Icon} size={32} class="application-icon" />
           <h3>Residential</h3>
           <p>Premium whole-home comfort for new builds and renovations. Pairs with heat pump systems to replace gas heating entirely.</p>
         </div>
@@ -561,9 +622,66 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
+
+  <ScrollIndicator />
 </BaseLayout>
 
 <style>
+  /* Intro Section */
+  .intro-section {
+    background: #fff;
+    padding: 5rem 0;
+  }
+
+  .intro-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .intro-text h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #0E2B47;
+    margin-bottom: 1.25rem;
+    line-height: 1.15;
+  }
+
+  .intro-text > p {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .intro-image {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .intro-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .intro-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .intro-text h2 {
+      font-size: 1.75rem;
+    }
+
+    .intro-image {
+      order: -1;
+    }
+  }
+
   /* Product Hero */
   .product-hero {
     background: #f8f9fa;
@@ -794,7 +912,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     width: 20px;
     height: 20px;
     min-width: 20px;
-    color: #4ade80;
+    color: #C0D446;
     margin-top: 0.15rem;
   }
 
@@ -819,6 +937,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     width: 100%;
     height: auto;
     border-radius: 0.5rem;
+  }
+
+  .why-image-secondary {
+    margin-top: 1rem;
   }
 
   @media (max-width: 900px) {
@@ -940,6 +1062,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     display: block;
   }
 
+  .installed-image-secondary {
+    margin-top: 1rem;
+    border-radius: 1rem;
+  }
+
   .installed-text h2 {
     font-size: 2.25rem;
     font-weight: 800;
@@ -1027,6 +1154,56 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     color: #555;
     line-height: 1.6;
     margin: 0;
+  }
+
+  .thermal-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .thermal-data-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #f8f9fa;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .thermal-data-card .thermal-img-wrap img {
+    height: 260px;
+    object-fit: contain;
+    background: #fff;
+    padding: 1rem;
+  }
+
+  .thermal-mode--data {
+    background: rgba(14, 43, 71, 0.08);
+    color: #0E2B47;
+  }
+
+  .thermal-technical-heading {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #999;
+    font-weight: 600;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    margin-bottom: 0.35rem;
+  }
+
+  .thermal-technical {
+    font-size: 0.8rem;
+    color: #888;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 700px) {
+    .thermal-data {
+      grid-template-columns: 1fr;
+    }
   }
 
   .thermal-link {
@@ -1404,7 +1581,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .advantage-card--highlight .advantage-stat {
-    color: #4ade80;
+    color: #C0D446;
   }
 
   @media (max-width: 900px) {
@@ -1524,6 +1701,24 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     color: rgba(255, 255, 255, 0.6);
   }
 
+  .patent-download-btn {
+    display: inline-block;
+    margin-top: 1.25rem;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    background: #2061B7;
+    border-radius: 0.4rem;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.2s ease;
+  }
+
+  .patent-download-btn:hover {
+    background: #1a4f99;
+  }
+
   @media (max-width: 900px) {
     .patent-layout {
       grid-template-columns: 1fr;
@@ -1556,6 +1751,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     background: #fff;
     border-radius: 0.75rem;
     border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .application-card :global(.application-icon) {
+    color: #2061B7;
+    margin-bottom: 0.75rem;
   }
 
   .application-card h3 {

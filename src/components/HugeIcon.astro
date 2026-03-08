@@ -1,0 +1,51 @@
+---
+/**
+ * Renders a Hugeicons icon from @hugeicons/core-free-icons as inline SVG.
+ * Usage: <HugeIcon icon={SomeIcon} size={24} color="currentColor" />
+ */
+interface Props {
+  icon: [string, Record<string, string | number>][];
+  size?: number | string;
+  color?: string;
+  class?: string;
+}
+
+const { icon, size = 24, color = 'currentColor', class: className } = Astro.props;
+
+function toKebab(str: string): string {
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+}
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  width={size}
+  height={size}
+  fill="none"
+  color={color}
+  class={className}
+>
+  {icon.map(([tag, attrs]) => {
+    const htmlAttrs = Object.fromEntries(
+      Object.entries(attrs)
+        .filter(([k]) => k !== 'key')
+        .map(([k, v]) => [toKebab(k), v])
+    );
+    return tag === 'path'
+      ? <path {...htmlAttrs} />
+      : tag === 'circle'
+        ? <circle {...htmlAttrs} />
+        : tag === 'rect'
+          ? <rect {...htmlAttrs} />
+          : tag === 'line'
+            ? <line {...htmlAttrs} />
+            : tag === 'polyline'
+              ? <polyline {...htmlAttrs} />
+              : tag === 'polygon'
+                ? <polygon {...htmlAttrs} />
+                : tag === 'ellipse'
+                  ? <ellipse {...htmlAttrs} />
+                  : null;
+  })}
+</svg>

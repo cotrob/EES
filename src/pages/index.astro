@@ -758,6 +758,14 @@ import GoogleMap from '../components/GoogleMap.astro';
           </div>
         </div>
       </div>
+      <div class="gallery-links">
+        <a href="/examples/residential" class="gallery-link-btn">See All Residential
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+        <a href="/examples/commercial" class="gallery-link-btn">See All Commercial
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+      </div>
     </div>
     <img src="/image/icon/Brand_wave_dots_BlueByGoogleMaps.svg" alt="" class="recent-work-wave" aria-hidden="true" />
   </section>
@@ -2206,6 +2214,50 @@ import GoogleMap from '../components/GoogleMap.astro';
 
   .more-examples-toggle.is-open .more-arrow {
     transform: rotate(180deg);
+  }
+
+  /* Gallery link buttons */
+  .gallery-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .gallery-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #2061B7;
+    text-decoration: none;
+    border: 2px solid #2061B7;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+  }
+
+  .gallery-link-btn:hover {
+    background: #2061B7;
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .gallery-link-btn svg {
+    transition: transform 0.2s;
+  }
+
+  .gallery-link-btn:hover svg {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 550px) {
+    .gallery-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
   }
 
   /* Extra bento grid - hidden by default */

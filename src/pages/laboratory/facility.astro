@@ -5,50 +5,55 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
 
 <BaseLayout
   title="Research Facility | EES"
-  description="Our purpose-built TestCell for real-world thermal comfort and energy efficiency testing, equipped to ASHRAE-55 and ISO 7730 standards."
+  description="Our purpose-built research and testing facility in Geelong, Victoria. Home to the EES simulation test room, open-air test rigs, and panel manufacturing."
 >
-  <section class="page-header">
-    <div class="container">
-      <h1>Research Facility</h1>
-      <p>Purpose-built for real-world thermal comfort and energy testing.</p>
+  <section class="facility-hero">
+    <img src="/image/WIP/TestRoom_webp/testroom-aerial-facility.webp" alt="Aerial view of the EES research facility in Geelong" />
+    <div class="facility-hero__overlay">
+      <div class="container">
+        <h1>Research Facility</h1>
+        <p>Our Geelong workshop and testing laboratory.</p>
+      </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container prose">
-      <h2>The TestCell</h2>
-      <p>
-        We built a full-scale test cell to develop and validate our products under real conditions — not just in theory.
-      </p>
-      <p>
-        Our TestCell is a real room (3.6m × 4.8m × 3.0m high) constructed to Australian Standard specifications with R2.0 batt insulation. It features a 7.5m² clear double-glazed, north-facing glass unit to commercial grade — designed to simulate worst-case solar gain.
-      </p>
-
-      <h2>What We Measure</h2>
-      <p>
-        The TestCell is equipped with professional-grade instrumentation aligned to international comfort and performance standards:
-      </p>
-      <ul>
-        <li><strong>ASHRAE-55 / ISO 7730 Comfort Carts</strong> — measuring operative temperature and thermal comfort</li>
-        <li><strong>Heat Flux Meters</strong> — quantifying radiant and conductive energy transfer through surfaces</li>
-        <li><strong>Air Velocity Metering</strong> — tracking airflow patterns within the space</li>
-        <li><strong>Air Temperature Stratification Strings</strong> — mapping temperature differences from floor to ceiling</li>
-        <li><strong>Ventilation Air Change Rate Monitoring</strong> — verifying fresh air delivery and infiltration</li>
-        <li><strong>Thermal Imaging Cameras</strong> — visualising surface temperatures and identifying heat loss</li>
-      </ul>
-
-      <h2>What We Do</h2>
-      <p>We use the TestCell for:</p>
-      <ul>
-        <li>Full thermal comfort evaluation of our products (heating and cooling)</li>
-        <li>Energy efficiency benchmarking under controlled and real-world conditions</li>
-        <li>Development and tuning of control systems</li>
-        <li>Independent third-party testing for external clients</li>
-      </ul>
-      <p>
-        Interested in third-party testing? <a href="/contact">Contact us</a> for more information.
-      </p>
+      <p>Facility page coming soon. In the meantime, visit our <a href="/laboratory/test-room">Simulation Test Room</a> page to see the TestCell and our testing capabilities.</p>
     </div>
   </section>
+
+  <style>
+    .facility-hero {
+      position: relative;
+      width: 100%;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .facility-hero img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+    .facility-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14, 43, 71, 0.85) 0%, rgba(14, 43, 71, 0.3) 100%);
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 3rem;
+    }
+    .facility-hero__overlay h1 {
+      color: #fff;
+      font-size: 2.8rem;
+      margin: 0 0 0.5rem;
+    }
+    .facility-hero__overlay p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.2rem;
+      margin: 0;
+    }
+  </style>
   <ScrollIndicator />
 </BaseLayout>

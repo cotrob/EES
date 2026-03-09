@@ -31,6 +31,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <li><strong>We build and test our own products</strong> — our hydronic ceiling panels and Environmental Service Pod are designed, manufactured, and tested in-house at our purpose-built <a href="/laboratory/facility">research facility</a> in Geelong</li>
         <li><strong>We do the research</strong> — our TestCell is built to ASHRAE-55 and ISO 7730 standards for real-world thermal comfort and energy efficiency testing</li>
         <li><strong>We install what we design</strong> — our CEC-accredited electricians install every system. No subcontractors, no third-party handoffs</li>
+        <li><strong>We commission and test every system</strong> — we walk you through the monitoring and make sure everything is working correctly before we leave</li>
         <li><strong>We support long-term</strong> — every installation comes with a <strong>10-year workmanship warranty</strong> and ongoing local support</li>
       </ul>
 
@@ -78,4 +79,123 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </p>
     </div>
   </section>
+
+  <section class="team-section">
+    <div class="container">
+      <h2 class="team-heading">The Team</h2>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="/image/photos_team/DrMarkLuther_clean_transparent.png" alt="Mark B. Luther" loading="lazy" />
+          <h3>Mark B. Luther</h3>
+          <p class="team-role">Director (Arch.D. - Architect)</p>
+          <p>Honorary Professor of Deakin University after 27 years of service. He specialises in Architecture Science and Environmental Technology. Inventor of the Environmental Service Pod and the Autonomatic Hydronic Ceiling Panel.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/image/photos_team/LincolnLuther_clean_transparent.png" alt="Lincoln B. Luther" loading="lazy" />
+          <h3>Lincoln B. Luther</h3>
+          <p class="team-role">Manager of Sales</p>
+          <p>Over 4 years industry experience in the renewables energy sector with a background in Economics, Banking and Finance. He specialises in solar, battery and renewable building services.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/image/photos_team/Matthew Ellison_02_clean_transparent.png" alt="Matthew Ellison" loading="lazy" />
+          <h3>Matthew Ellison</h3>
+          <p class="team-role">Manager of Installations</p>
+          <p>Senior electrician experienced in Solar PV and Battery installations in commercial and residential projects. Also involved with electrical research and design on the Environmental Service Pod and Hydronic Control.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/image/photos_team/HungQDo_clean_transparent.png" alt="Hung Q. Do" loading="lazy" />
+          <h3>Hung Q. Do</h3>
+          <p class="team-role">Research Development</p>
+          <p>PhD candidate specialising in hydronic ceiling innovative systems. His research focuses on effective conditioning through hydronic control in commercial buildings.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/image/photos_team/placeholder.svg" alt="Pat Sandall" loading="lazy" />
+          <h3>Pat Sandall</h3>
+          <p class="team-role">Head Electrician, A Grade</p>
+          <p>A Grade electrician leading EES field installations across solar, battery, and integrated energy systems for residential and commercial projects.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/image/photos_team/placeholder.svg" alt="Caleb Nowson" loading="lazy" />
+          <h3>Caleb Nowson</h3>
+          <p class="team-role">Business Development Manager</p>
+          <p>Manages business development and client relationships, connecting homeowners and businesses with the right energy solutions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .team-section {
+    padding: 4rem 0;
+    background: #fff;
+  }
+
+  .team-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0E2B47;
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .team-member {
+    text-align: center;
+  }
+
+  .team-member img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid #e5e7eb;
+    margin: 0 auto 1rem;
+    display: block;
+  }
+
+  .team-member h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0E2B47;
+    margin-bottom: 0.25rem;
+  }
+
+  .team-role {
+    font-size: 0.8rem;
+    color: #2061B7;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .team-member > p:last-child {
+    font-size: 0.875rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 500px) {
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

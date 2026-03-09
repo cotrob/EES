@@ -32,15 +32,15 @@ const navItems = [
         ],
       },
       {
-        title: 'Resources',
+        title: 'Further Info',
         image: '/image/photography/01_Hero_Images_OG/Frontage_3.webp',
         href: '/resources',
         hideButton: true,
+        noCard: true,
         services: [
           { href: '/services/consultation', label: 'Free Consultation' },
           { href: '/services/financing', label: 'Financing Options' },
           { href: '/services/faq', label: 'FAQs' },
-          { href: '/services/meet-the-team', label: 'Meet the Team' },
         ],
       },
     ],
@@ -68,11 +68,12 @@ const navItems = [
         ],
       },
       {
-        title: 'Resources',
+        title: 'Further Info',
         href: '/laboratory/resources',
         hideButton: true,
+        noCard: true,
         services: [
-          { href: '/laboratory/written-papers', label: 'Written Papers' },
+          { href: '/laboratory/written-papers', label: 'Academic Research' },
           { href: '/laboratory/footage', label: 'Testing Videos' },
         ],
       },
@@ -116,7 +117,7 @@ const currentPath = Astro.url.pathname;
               <div class="mega-menu-v2">
                 <div class="mega-menu-inner-v2">
                   {item.megaMenu?.map((card: any) => (
-                    <div class="mega-card-v2">
+                    <div class:list={['mega-card-v2', { 'mega-card-no-bg': card.noCard }]}>
                       <div class="mega-card-header-v2">
                         <h3>{card.href ? <a href={card.href} class="mega-title-link-v2">{card.title}</a> : card.title}</h3>
                         {!card.hideButton && (
@@ -443,7 +444,7 @@ const currentPath = Astro.url.pathname;
     border-radius: 0.75rem;
     padding: 1.25rem;
     min-width: 260px;
-    background: linear-gradient(135deg, rgba(22, 53, 84, 0.6) 0%, rgba(14, 43, 71, 0.4) 100%);
+    background: linear-gradient(135deg, rgba(22, 53, 84, 0.95) 0%, rgba(14, 43, 71, 0.9) 100%);
     backdrop-filter: blur(12px) saturate(150%);
     -webkit-backdrop-filter: blur(12px) saturate(150%);
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -469,12 +470,30 @@ const currentPath = Astro.url.pathname;
   }
 
   .mega-card-v2:hover {
-    background: linear-gradient(135deg, rgba(27, 63, 99, 0.7) 0%, rgba(20, 55, 88, 0.5) 100%);
+    background: linear-gradient(135deg, rgba(27, 63, 99, 0.98) 0%, rgba(20, 55, 88, 0.95) 100%);
     border-color: rgba(255, 255, 255, 0.18);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.15),
       inset 0 0 24px rgba(255, 255, 255, 0.05),
       0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .mega-card-no-bg {
+    background: none;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .mega-card-no-bg::before {
+    display: none;
+  }
+
+  .mega-card-no-bg:hover {
+    background: none;
+    border: none;
+    box-shadow: none;
   }
 
   .mega-card-header-v2 {
@@ -544,7 +563,7 @@ const currentPath = Astro.url.pathname;
     padding: 0.3rem 0;
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     transition: color 0.15s;
   }
 

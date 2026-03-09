@@ -1,207 +1,342 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../components/ScrollIndicator.astro';
+import HugeIcon from '../../components/HugeIcon.astro';
+import {
+  ThermometerIcon,
+  EnergyIcon,
+  GridIcon,
+  CpuSettingsIcon,
+  PipelineIcon,
+  TestTubeIcon,
+} from '@hugeicons/core-free-icons';
 ---
 
 <BaseLayout
   title="Simulation Test Room | EES"
-  description="Our purpose-built TestCell for real-world hydronic ceiling panel testing — designed and constructed in-house to ASHRAE-55 and ISO 7730 standards."
+  description="Our purpose-built TestCell for real-world hydronic ceiling panel testing. Full-scale simulation room with ASHRAE-55 and ISO 7730 instrumentation, built and operated in-house at our Geelong facility."
 >
-  <!-- Page Header -->
-  <section class="page-header">
-    <div class="container">
-      <h1>Simulation Test Room</h1>
-      <p>Purpose-built to prove our hydronic ceiling systems under real-world conditions.</p>
-    </div>
-  </section>
-
-  <!-- Facility Overview -->
-  <section class="facility-hero">
-    <img src="/image/WIP/TestRoom_Development_webp/308748357_831370331371037_4396639554076040798_n.webp" alt="EES simulation test room facility with hydronic system equipment and test cell structure" loading="eager" />
-    <div class="facility-overlay">
+  <!-- Page Header with Hero Image -->
+  <section class="page-header page-header--hero">
+    <img src="/image/WIP/TestRoom_Development_webp/308748357_831370331371037_4396639554076040798_n.webp" alt="EES simulation test room facility with hydronic system equipment and test cell structure" loading="eager" class="page-header__bg" />
+    <div class="page-header__overlay">
       <div class="container">
-        <p class="facility-label">Our Facility</p>
-        <h2>The EES TestCell</h2>
-        <p class="facility-desc">A full-scale, instrumented room built inside our Geelong workshop — designed to test hydronic ceiling panels under controlled, repeatable conditions aligned to ASHRAE-55 and ISO 7730 standards.</p>
-        <div class="facility-specs">
-          <div class="spec">
-            <span class="spec-value">3.6 × 4.8m</span>
-            <span class="spec-label">Floor Area</span>
-          </div>
-          <div class="spec">
-            <span class="spec-value">3.0m</span>
-            <span class="spec-label">Ceiling Height</span>
-          </div>
-          <div class="spec">
-            <span class="spec-value">7.5m²</span>
-            <span class="spec-label">North-Facing Glass</span>
-          </div>
-          <div class="spec">
-            <span class="spec-value">R2.0</span>
-            <span class="spec-label">Wall Insulation</span>
-          </div>
-        </div>
+        <h1>Simulation Test Room</h1>
+        <p>Purpose-built to prove our hydronic ceiling systems under real-world conditions.</p>
       </div>
     </div>
   </section>
 
-  <!-- Video Section — Facility -->
-  <section class="section video-section">
+  <!-- Drone Footage Section -->
+  <section class="section drone-section">
     <div class="container">
-      <div class="video-layout">
-        <div class="video-wrapper">
-          <video autoplay muted loop playsinline preload="auto" poster="/image/WIP/TestRoom_Final_webp/639607_7582f9e8760f4b8c8deb96294d92f1c3_mv2_crop.webp">
-            <source src="/image/WIP/TestRoom_FInal/video.MP4" type="video/mp4" />
+      <div class="drone-layout">
+        <div class="drone-video-wrapper">
+          <video autoplay muted loop playsinline preload="auto" poster="/image/WIP/TestRoom_Development_webp/testroom-aerial-facility.webp">
+            <source src="/image/video/Timeline 1.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
+          <div class="drone-placeholder-badge">
+            <span>Drone footage in production</span>
+          </div>
         </div>
-        <div class="video-text">
-          <p class="video-label">Inside the TestCell</p>
-          <h2>A Real Room Built for Real Testing</h2>
-          <p>What you're looking at is the interior of our purpose-built simulation room — a fully enclosed, instrumented space constructed inside our Geelong workshop to Australian Standard specifications.</p>
-          <p>The room features R2.0 insulated walls, a 7.5m² commercial-grade double-glazed window on the north face, and a suspended ceiling grid fitted with our hydronic panels. It's not a sealed lab — it's designed to behave like a real occupied space, with solar gain, ventilation and thermal mass.</p>
-          <p>Every surface is monitored. Thermal imaging cameras, ASHRAE-55 comfort carts, heat flux meters and air temperature stratification strings capture continuous data throughout each test cycle.</p>
+        <div class="drone-text">
+          <p class="section-label">Facility Overview</p>
+          <h2>Built From the Ground Up</h2>
+          <p>The facility houses our simulation test room, open-air test rigs, panel manufacturing area, hydraulic assembly station, and instrumentation lab. All under one roof.</p>
+          <p>We built this facility because the products we develop don't exist anywhere else. There's no off-the-shelf test lab for hydronic ceiling panels. If we wanted real performance data under real conditions, we had to build the testing infrastructure ourselves.</p>
+          <p>Drone footage of the full facility is currently being captured and will replace this video.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Hydronic Panels in Action -->
-  <section class="section panels-action">
+  <!-- The Workshop -->
+  <section class="section workshop-section">
     <div class="container">
       <div class="section-header">
-        <p class="section-label">Test Footage</p>
-        <h2>Hydronic Ceiling Panels <span class="h2-light">in Action</span></h2>
-        <p class="section-desc">No fans, no ducts, no moving air — just radiant energy delivered silently through the ceiling.</p>
+        <p class="section-label">The Workshop</p>
+        <h2>Where Research <span class="h2-light">Meets Manufacturing</span></h2>
+        <p class="section-desc">The facility operates as both a research laboratory and a production workshop. Products are designed, prototyped, tested, refined, and manufactured in the same space.</p>
       </div>
-      <div class="action-grid">
-        <div class="action-card">
-          <div class="action-icon">
-            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M20 8v4M20 28v4M8 20h4M28 20h4M12.3 12.3l2.8 2.8M24.9 24.9l2.8 2.8M12.3 27.7l2.8-2.8M24.9 15.1l2.8-2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
+
+      <div class="workshop-grid">
+        <div class="workshop-card workshop-card--wide">
+          <div class="workshop-card-text">
+            <h3>Main Workshop Floor</h3>
+            <p>The central workspace houses the Environmental Service Pod, panel assembly stations, and the open-air test rig. Equipment is arranged for rapid iteration between design changes and test runs.</p>
           </div>
-          <h3>Radiant Transfer</h3>
-          <p>The panels exchange energy with the room through radiation — the most effective mechanism for thermal comfort. Surfaces warm or cool evenly without disturbing the air.</p>
+          <img src="/image/WIP/TestRoom_Development_webp/308748357_831370331371037_4396639554076040798_n.webp" alt="Wide view of the EES workshop showing the Environmental Service Pod equipment rack, open-air test rig frame, and thermal imaging station" />
         </div>
-        <div class="action-card">
-          <div class="action-icon">
-            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 30V18l10-8 10 8v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M16 30v-8h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M14 22h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
-            </svg>
+        <div class="workshop-card">
+          <div class="workshop-card-text">
+            <h3>Environmental Service Pod</h3>
+            <p>The full-scale ESP prototype sits on the workshop floor. Water storage, battery modules, heat exchanger, and a canopy-mounted ceiling panel rig for open-air thermal testing.</p>
           </div>
-          <h3>Silent Operation</h3>
-          <p>No compressors, no ductwork, no fans in the conditioned space. The system circulates water through capillary tubes — the only sound is comfortable silence.</p>
+          <img src="/image/WIP/TestRoom_Development_webp/IMG-0997.webp" alt="Environmental Service Pod equipment rack with hot and cold water storage tanks, battery modules, and canopy-mounted ceiling panel frame inside the warehouse" />
         </div>
-        <div class="action-card">
-          <div class="action-icon">
-            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="10" y="10" width="20" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M10 20h20M20 10v20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="15" cy="15" r="1.5" fill="currentColor"/>
-              <circle cx="25" cy="15" r="1.5" fill="currentColor"/>
-              <circle cx="15" cy="25" r="1.5" fill="currentColor"/>
-              <circle cx="25" cy="25" r="1.5" fill="currentColor"/>
-            </svg>
+        <div class="workshop-card">
+          <div class="workshop-card-text">
+            <h3>Open-Air Test Rig</h3>
+            <p>A steel-framed overhead rig holds ceiling panels at working height for thermal testing, flow balancing, and instrumentation calibration before panels move to the enclosed TestCell.</p>
           </div>
-          <h3>Rapid Response</h3>
-          <p>Capillary tube mats have minimal thermal mass — the system reaches target temperature quickly and adjusts in real time to changing loads and conditions.</p>
+          <img src="/image/WIP/Hydronic_Ceiling_Panels_StoryOff/panel-piping-test-equipment.webp" alt="Wider view of the workshop showing the overhead test rig with connected ceiling panels and the ESP equipment rack beneath" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- The Finished Room -->
-  <section class="section finished-room">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">The Completed Room</p>
-        <h2>Multiple Ceiling Surfaces, <span class="h2-light">One System</span></h2>
-        <p class="section-desc">The TestCell ceiling is divided into bays, each fitted with a different architectural finish — all powered by the same hydronic capillary tube system beneath.</p>
-      </div>
-
-      <div class="ceiling-showcase">
-        <img src="/image/WIP/TestRoom_Development_webp/ceiling-panels-labeled.webp" alt="TestCell ceiling showing five different finishing surfaces — adhesive vinyl coated wallpaper, rendered coating, perforated metal panel, mini-orb, and plasterboard with vinyl finish" />
-      </div>
-
-      <div class="panel-grid">
-        <div class="panel-card">
-          <img src="/image/WIP/TestRoom_Final_webp/639607_dee5110879914401aa781f84eeb92cdc_mv2.webp" alt="3D render of hydronic ceiling panel showing capillary tube mat and insulation layers" />
-          <div class="panel-card-text">
-            <h3>Panel Design</h3>
-            <p>Each tile combines insulation, a capillary tube mat and an architectural finish into a single modular unit that drops into standard 600 × 1200mm ceiling grids.</p>
-          </div>
-        </div>
-        <div class="panel-card">
-          <img src="/image/WIP/TestRoom_Final_webp/IMG_0030.webp" alt="Underside of hydronic ceiling panel showing blue capillary tube mat bonded to insulation" />
-          <div class="panel-card-text">
-            <h3>Capillary Tube Mat</h3>
-            <p>Blue polypropylene capillary tubes bonded to the insulation layer. The tight tube spacing ensures uniform heat distribution across the entire panel surface.</p>
-          </div>
-        </div>
-        <div class="panel-card">
-          <img src="/image/WIP/TestRoom_Final_webp/IMG_0041.webp" alt="Finished perforated metal panel face — clean, architectural appearance" />
-          <div class="panel-card-text">
-            <h3>Finished Surface</h3>
-            <p>The room-facing side accepts a range of finishes — perforated metal, plasterboard, rendered coating, mini-orb, or vinyl. The system is invisible to occupants.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Thermal Performance -->
-  <div class="thermal-group">
+  <!-- The TestCell Build Story -->
+  <div class="testcell-group">
     <div class="diagonal-divider" style="background: #fff;">
       <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <polygon points="0,0 0,120 1440,120" fill="#0E2B47" />
       </svg>
     </div>
 
-    <section class="thermal-results">
+    <section class="testcell-section">
+      <div class="container">
+        <div class="testcell-intro">
+          <div class="testcell-intro-text">
+            <p class="section-label section-label--light">The Simulation Test Room</p>
+            <h2>A Real Room Built for Real Testing</h2>
+            <p>The TestCell is a full-scale, instrumented room constructed inside the workshop. It's not a sealed laboratory chamber. It's built to behave like a real occupied space, with solar gain through glass, ventilation, and thermal mass. That's the point: we test under the same conditions our products will face in the field.</p>
+            <p>Every element was designed and constructed in-house: steel framing, insulation, glazing, ceiling grid, plumbing, and instrumentation. The room is aligned to ASHRAE-55 and ISO 7730 testing standards.</p>
+          </div>
+          <div class="testcell-specs">
+            <div class="testcell-spec">
+              <span class="testcell-spec-value">3.6 x 4.8m</span>
+              <span class="testcell-spec-label">Floor Area</span>
+            </div>
+            <div class="testcell-spec">
+              <span class="testcell-spec-value">3.0m</span>
+              <span class="testcell-spec-label">Ceiling Height</span>
+            </div>
+            <div class="testcell-spec">
+              <span class="testcell-spec-value">7.5m²</span>
+              <span class="testcell-spec-label">North-Facing Glass</span>
+            </div>
+            <div class="testcell-spec">
+              <span class="testcell-spec-value">R2.0</span>
+              <span class="testcell-spec-label">Wall Insulation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="diagonal-divider" style="background: #0E2B47;">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="0,0 0,120 1440,120" fill="#fff" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- TestCell Build Timeline -->
+  <section class="section build-story">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">The Build</p>
+        <h2>How We Built <span class="h2-light">the TestCell</span></h2>
+        <p class="section-desc">From steel studs to a fully instrumented simulation room. Every element was designed and constructed in-house.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <span class="timeline-number">1</span>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-images">
+              <img src="/image/WIP/TestRoom_Development_webp/db40c3a0-63a3-484b-ae40-10b1c7887877.webp" alt="Steel stud framing of the TestCell structure inside the EES workshop showing wall and ceiling framework" loading="lazy" />
+            </div>
+            <h3>Steel Frame Construction</h3>
+            <p>The room was framed from steel studs to Australian Standard specifications. A permanent structure with proper wall and ceiling framing, not a temporary enclosure or a tent.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <span class="timeline-number">2</span>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-images timeline-images--double">
+              <img src="/image/WIP/TestRoom_Final_webp/testroom-external-facility.webp" alt="Elevated view of the TestCell wrapped in blue building membrane inside the workshop, with scissor lift and construction materials visible" loading="lazy" />
+              <img src="/image/WIP/TestRoom_Development_webp/testroom-interior-truss-structure.webp" alt="Looking up inside the workshop at the steel truss roof structure and corrugated wall cladding above the TestCell" loading="lazy" />
+            </div>
+            <h3>Envelope and Membrane</h3>
+            <p>Building wrap membrane applied over the full structure. The room sits inside the larger workshop but is thermally isolated from it, behaving as an independent building envelope for testing purposes.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <span class="timeline-number">3</span>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-images timeline-images--double">
+              <img src="/image/WIP/TestRoom_Development_webp/testroom-double-glazed-window.webp" alt="Commercial-grade double-glazed window unit installed in the north wall of the TestCell, showing insulation batts and steel framing" loading="lazy" />
+              <img src="/image/WIP/TestRoom_Development_webp/testroom-window-insulation-detail.webp" alt="Close-up of window frame insulation detail showing fibreglass batts packed around the glazing unit and steel stud framing" loading="lazy" />
+            </div>
+            <h3>Glazing and Insulation</h3>
+            <p>A 7.5m² commercial-grade double-glazed window was installed on the north face to simulate worst-case solar gain. R2.0 batt insulation throughout all walls. The window is the most thermally challenging element in any real building, so we built around one.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <span class="timeline-number">4</span>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-images timeline-images--double">
+              <img src="/image/WIP/TestRoom_Development_webp/269722110_2110682989094831_8008561485059951530_n.webp" alt="Worker installing underfloor hydronic heating mats inside the TestCell, blue capillary tubes visible across the floor" loading="lazy" />
+              <img src="/image/WIP/TestRoom_Development_webp/230776749_2606143206347473_1221053032294569180_n.webp" alt="Underfloor capillary tube mats being laid across the TestCell floor with cardboard protection and worker in high-vis" loading="lazy" />
+            </div>
+            <h3>Underfloor Conditioning</h3>
+            <p>Hydronic capillary tube mats were installed beneath the floor surface. This allows the TestCell to test both ceiling panel and underfloor radiant systems independently, or simultaneously, under identical conditions.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <span class="timeline-number">5</span>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-images timeline-images--double">
+              <img src="/image/WIP/TestRoom_Development_webp/IMG_7797.webp" alt="Hydronic ceiling panels installed in the TestCell suspended ceiling grid with blue capillary tubes visible from below before finishing surfaces are applied" loading="lazy" />
+              <img src="/image/WIP/TestRoom_Development_webp/IMG_7910.webp" alt="Finished ceiling inside the TestCell showing multiple architectural surface finishes including perforated metal, plasterboard, and rendered coating" loading="lazy" />
+            </div>
+            <h3>Ceiling Panel Installation</h3>
+            <p>Hydronic ceiling panels were installed into the standard 600 x 1200mm suspended ceiling grid. The ceiling is divided into bays, each fitted with a different architectural finish, allowing direct comparison of surface performance under identical conditions.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <span class="timeline-number">6</span>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-images timeline-images--triple">
+              <img src="/image/WIP/TestRoom_Development_webp/plumbing-full.webp" alt="Assembled hydronic plumbing manifold with 24V DC pumps, switching actuators, mixing valves, and pressure tanks" loading="lazy" />
+              <img src="/image/WIP/TestRoom_Development_webp/IMG_6357.webp" alt="Hydronic manifold close-up showing individual circuit flow meters, isolation valves, and PPR pipe connections" loading="lazy" />
+              <img src="/image/WIP/TestRoom_Development_webp/1.webp" alt="Multiple ceiling panels plumbed together on a workbench for system-level flow testing before installation" loading="lazy" />
+            </div>
+            <h3>Plumbing and Hydraulics</h3>
+            <p>PPR piping with brass fittings connects each panel to the central manifold. Flow meters on every circuit allow individual panel monitoring and balancing. The entire hydraulic system runs on 24V DC for safety.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <span class="timeline-number">7</span>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-images timeline-images--double">
+              <img src="/image/WIP/TestRoom_Development_webp/IMG_0025.webp" alt="Exterior of the completed TestCell showing blue building membrane, black hydraulic piping, green water tank, and the entrance doorway into the lit interior" loading="lazy" />
+              <img src="/image/WIP/TestRoom_Development_webp/IMG_0027.webp" alt="Looking through the open doorway into the completed TestCell showing finished walls, timber floor, comfort cart, thermal camera on tripod, and instrumentation cabling overhead" loading="lazy" />
+            </div>
+            <h3>Completed and Commissioned</h3>
+            <p>The finished TestCell: a fully enclosed, instrumented room with timber flooring, finished walls, suspended ceiling, and full environmental monitoring. Hydraulic equipment and water storage sit immediately outside the room for short pipe runs and minimal thermal losses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inside the TestCell -->
+  <section class="section interior-section">
+    <div class="container">
+      <div class="interior-layout">
+        <div class="interior-image">
+          <img src="/image/WIP/TestRoom_Development_webp/IMG_7928.webp" alt="Researcher seated inside the TestCell monitoring live data on laptop and desktop screens, with hydronic ceiling panels active overhead and the north-facing window providing natural daylight" />
+        </div>
+        <div class="interior-text">
+          <p class="section-label">Inside the TestCell</p>
+          <h2>A Space Designed to Be Occupied</h2>
+          <p>The TestCell isn't just measured from outside. It's occupied during testing. Researchers sit inside the room while systems run, monitoring live data streams on screens positioned at the desk.</p>
+          <p>This matters because the room was built to replicate real conditions. Sunlight enters through the north-facing glass. Air moves naturally. The floor, walls and ceiling interact thermally, exactly as they would in a real building. The data captured here reflects how people will actually experience the system.</p>
+        </div>
+      </div>
+
+      <div class="interior-detail-grid">
+        <div class="interior-detail">
+          <img src="/image/WIP/TestRoom_Development_webp/IMG_7975.webp" alt="Interior of the TestCell looking toward the north-facing window with roller blinds drawn, desk and chair in position, and ASHRAE comfort cart visible at right" />
+          <span>North-facing window with roller blinds for solar gain control</span>
+        </div>
+        <div class="interior-detail">
+          <img src="/image/WIP/TestRoom_Development_webp/ceiling-panels-labeled.webp" alt="TestCell ceiling divided into bays with five different architectural finishes: adhesive vinyl, rendered coating, perforated metal, mini-orb, and plasterboard" />
+          <span>Ceiling divided into bays with different architectural finishes</span>
+        </div>
+        <div class="interior-detail">
+          <img src="/image/WIP/TestRoom_Final_webp/testroom-aerial-solar-panels.webp" alt="Aerial view of the facility roof showing the solar panel array that powers the TestCell and workshop operations" />
+          <span>Rooftop solar array powers the facility and test systems</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instrumentation -->
+  <div class="instrumentation-group">
+    <div class="diagonal-divider" style="background: #fff;">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="0,0 0,120 1440,120" fill="#0E2B47" />
+      </svg>
+    </div>
+
+    <section class="instrumentation-section">
       <div class="container">
         <div class="section-header section-header--light">
-          <p class="section-label section-label--light">Thermal Imaging</p>
-          <h2>Measured Performance</h2>
-          <p class="section-desc section-desc--light">Thermal imaging confirms uniform surface temperature distribution across the ceiling panels — in both heating and cooling modes.</p>
+          <p class="section-label section-label--light">Instrumentation</p>
+          <h2>What We Measure</h2>
+          <p class="section-desc section-desc--light">Professional-grade environmental monitoring aligned to international thermal comfort and building performance standards.</p>
         </div>
 
-        <div class="thermal-comparison">
-          <div class="thermal-card">
-            <div class="thermal-img-wrap">
-              <img src="/image/WIP/TestRoom_Development_webp/thermal-heating-full.webp" alt="Thermal image of ceiling panels in heating mode — uniform warm surface temperatures shown in red and orange" />
-            </div>
-            <div class="thermal-info">
-              <span class="thermal-mode thermal-mode--heat">Heating Mode</span>
-              <p>Ceiling panels at 27.6°C. Even red/orange distribution confirms uniform heat delivery with no cold spots or thermal bridging at panel joints.</p>
+        <div class="instrument-grid">
+          <div class="instrument-card">
+            <img src="/image/WIP/TestRoom_Final_webp/IMG_7953.webp" alt="Avio thermal imaging camera mounted on a Manfrotto tripod, positioned to capture ceiling panel surface temperature distribution" />
+            <div class="instrument-info">
+              <h3>Thermal Imaging Camera</h3>
+              <p>Avio infrared camera captures real-time surface temperature maps of the ceiling, walls, and floor. Used to verify uniform heat distribution and identify thermal bridging.</p>
             </div>
           </div>
-          <div class="thermal-card">
-            <div class="thermal-img-wrap">
-              <img src="/image/WIP/TestRoom_Development_webp/thermal-cooling-full.webp" alt="Thermal image of ceiling panels in cooling mode — uniform cool surface temperatures shown in blue and green" />
+          <div class="instrument-card">
+            <img src="/image/WIP/TestRoom_Development_webp/278089988_1024252955112112_2213671243500220494_n.webp" alt="ASHRAE-55 thermal comfort cart with vertical sensor array measuring air temperature at multiple heights from floor to ceiling" />
+            <div class="instrument-info">
+              <h3>ASHRAE-55 Comfort Cart</h3>
+              <p>Measures operative temperature and air temperature stratification at multiple heights. The standard method for evaluating whether a space meets human thermal comfort requirements.</p>
             </div>
-            <div class="thermal-info">
-              <span class="thermal-mode thermal-mode--cool">Cooling Mode</span>
-              <p>Ceiling panels at 14.4°C. Blue thermal signature shows effective cooling across all panel surfaces — no warm spots or condensation risk.</p>
+          </div>
+          <div class="instrument-card">
+            <img src="/image/WIP/TestRoom_Development_webp/sensor-.webp" alt="Environmental sensor array with probes for air temperature, humidity, and velocity measurement positioned inside the TestCell" />
+            <div class="instrument-info">
+              <h3>Environmental Sensors</h3>
+              <p>Air temperature, humidity, and velocity probes distributed throughout the room. Continuous logging captures how conditions change over time and respond to system inputs.</p>
+            </div>
+          </div>
+          <div class="instrument-card">
+            <img src="/image/WIP/TestRoom_Development_webp/IMG_7223.webp" alt="Heat flux sensors, thermocouples, and data logger on a workbench showing the calibration and wiring process for surface energy measurement" />
+            <div class="instrument-info">
+              <h3>Heat Flux Sensors</h3>
+              <p>Calibrated sensors bonded to panel surfaces quantify radiative and conductive energy transfer in W/m². This is how we measure actual thermal output, not just temperature.</p>
             </div>
           </div>
         </div>
 
-        <div class="thermal-equipment">
-          <div class="equipment-item">
-            <img src="/image/WIP/TestRoom_Final_webp/IMG_7953.webp" alt="Avio thermal imaging camera on Manfrotto tripod used for ceiling surface temperature measurement" />
-            <span>Thermal Imaging Camera</span>
+        <div class="standards-bar">
+          <div class="standard-item">
+            <span class="standard-name">ASHRAE Standard 55</span>
+            <span class="standard-desc">Thermal Environmental Conditions for Human Occupancy</span>
           </div>
-          <div class="equipment-item">
-            <img src="/image/WIP/TestRoom_Development_webp/278089988_1024252955112112_2213671243500220494_n.webp" alt="ASHRAE-55 thermal comfort cart with sensors for air temperature stratification and operative temperature measurement" />
-            <span>ASHRAE-55 Comfort Cart</span>
-          </div>
-          <div class="equipment-item">
-            <img src="/image/WIP/TestRoom_Development_webp/sensor-.webp" alt="Environmental sensor array used for monitoring air temperature, humidity and velocity in the test room" />
-            <span>Environmental Sensors</span>
+          <div class="standard-item">
+            <span class="standard-name">ISO 7730</span>
+            <span class="standard-desc">Ergonomics of the Thermal Environment</span>
           </div>
         </div>
       </div>
@@ -214,153 +349,109 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
     </div>
   </div>
 
-  <!-- System Design -->
-  <section class="section system-design">
+  <!-- Thermal Results Preview -->
+  <section class="section thermal-preview">
     <div class="container">
       <div class="section-header">
-        <p class="section-label">System Architecture</p>
-        <h2>How It <span class="h2-light">All Connects</span></h2>
-        <p class="section-desc">The hydronic system uses low-voltage pumps, mixing valves and a heat pump to circulate temperature-controlled water through the ceiling panels.</p>
+        <p class="section-label">Measured Results</p>
+        <h2>Thermal Imaging <span class="h2-light">From the TestCell</span></h2>
+        <p class="section-desc">Infrared imaging confirms uniform surface temperature distribution across ceiling panels in both heating and cooling modes.</p>
       </div>
 
-      <div class="system-grid">
-        <div class="system-card system-card--wide">
-          <img src="/image/WIP/TestRoom_Final_webp/test-hydronic-2-230616.webp" alt="3D isometric view of the complete hydronic ceiling system showing ceiling panels, piping runs, mixing station and equipment cabinet" />
-          <div class="system-card-text">
-            <h3>Complete System Overview</h3>
-            <p>Hot and cold water loops feed through a mixing station into the ceiling grid. Each panel connects independently, allowing zone-by-zone control across the room.</p>
+      <div class="thermal-grid">
+        <div class="thermal-card">
+          <div class="thermal-img-wrap">
+            <img src="/image/WIP/TestRoom_Development_webp/thermal-heating-full.webp" alt="Thermal image of ceiling panels in heating mode showing uniform warm surface temperatures at 27.6 degrees in red and orange tones" />
+          </div>
+          <div class="thermal-info">
+            <span class="thermal-mode thermal-mode--heat">Heating Mode 27.6°C</span>
+            <p>Even red/orange distribution confirms uniform heat delivery with no cold spots at joints or edges.</p>
           </div>
         </div>
-        <div class="system-card">
-          <img src="/image/WIP/TestRoom_Development_webp/diagram.webp" alt="System schematic showing heat pump, water tank, pressure tank, vacuum relief valve, water pump and capillary tube mat connections" />
-          <div class="system-card-text">
-            <h3>System Schematic</h3>
-            <p>Heat pump drives water through the heat exchanger and into the capillary tube mats via the circulation pump. Pressure tanks and vacuum relief valves ensure stable, safe operation.</p>
+        <div class="thermal-card">
+          <div class="thermal-img-wrap">
+            <img src="/image/WIP/TestRoom_Development_webp/thermal-cooling-full.webp" alt="Thermal image of ceiling panels in cooling mode showing uniform cool surface temperatures at 14.4 degrees in blue and green tones" />
+          </div>
+          <div class="thermal-info">
+            <span class="thermal-mode thermal-mode--cool">Cooling Mode 14.4°C</span>
+            <p>Blue thermal signature shows effective cooling across all panel surfaces with no warm spots or condensation risk.</p>
           </div>
         </div>
-        <div class="system-card">
-          <img src="/image/WIP/TestRoom_Final_webp/plumbing-2.webp" alt="Detailed plumbing schematic showing water tank, valves, pump and capillary tube mat connections" />
-          <div class="system-card-text">
-            <h3>Plumbing Detail</h3>
-            <p>Modular PPR piping with brass fittings, 24V DC circulation pumps and switching actuators. Each component is low-voltage for safety and efficiency.</p>
-          </div>
+      </div>
+
+      <div class="thermal-monitor-layout">
+        <div class="thermal-monitor-image">
+          <img src="/image/WIP/Hydronic_Ceiling_Panels/panel-thermal-imaging-monitor.webp" alt="Monitor displaying live Avio thermal camera feed showing green and blue heat map of ceiling panel surface temperatures during a cooling test" />
+        </div>
+        <div class="thermal-monitor-image">
+          <img src="/image/WIP/Hydronic_Ceiling_Panels_StoryOff/panel-thermal-comparison-abc.webp" alt="Three-panel thermal comparison labeled A, B, and C from the Avio camera showing different ceiling panel configurations under heating test conditions" />
+        </div>
+      </div>
+
+      <div class="thermal-link">
+        <p>Detailed performance data, heat flux graphs, and surface temperature results are documented on our <a href="/laboratory/hydronic-ceiling-panels">Hydronic Ceiling Panels</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open-Air Test Rig -->
+  <section class="section testrig-section">
+    <div class="container">
+      <div class="testrig-layout">
+        <div class="testrig-text">
+          <p class="section-label">Open-Air Testing</p>
+          <h2>The Overhead Test Rig</h2>
+          <p>Before panels enter the TestCell, they go through the open-air test rig, a steel-framed platform suspended at ceiling height in the main workshop.</p>
+          <p>This rig is used for pressure testing, flow balancing, leak detection, and preliminary thermal output measurement. Panels are connected to the full hydraulic system and run under load before any instrumented room testing begins.</p>
+          <p>It's also where we test new panel configurations, finishing surfaces, and connection methods at full scale without disrupting a controlled test cycle in the TestCell.</p>
+        </div>
+        <div class="testrig-images">
+          <img src="/image/WIP/Hydronic_Ceiling_Panels_StoryOff/panel-test-rig-warehouse.webp" alt="Overhead test rig in the EES workshop showing ceiling panels mounted on a steel frame at height with blue capillary tube connections and the warehouse roof structure above" />
+          <img src="/image/WIP/Hydronic_Ceiling_Panels_StoryOff/panel-overhead-thermal-camera-setup.webp" alt="Thermal imaging camera on tripod pointed upward at ceiling panels mounted in the test rig, capturing surface temperature data during an active heating test" class="testrig-image-secondary" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Development Story -->
-  <section class="section dev-story">
+  <!-- What We Test -->
+  <section class="section capabilities-section">
     <div class="container">
       <div class="section-header">
-        <p class="section-label">The Build</p>
-        <h2>How We Built <span class="h2-light">the TestCell</span></h2>
-        <p class="section-desc">From steel framing to a fully instrumented simulation room — every element was designed and constructed in-house at our Geelong facility.</p>
+        <p class="section-label">Capabilities</p>
+        <h2>What We Test <span class="h2-light">Here</span></h2>
+        <p class="section-desc">The facility supports the full development cycle, from early prototyping through to validated performance data ready for publication.</p>
       </div>
 
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <span class="timeline-number">1</span>
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-images">
-              <img src="/image/WIP/TestRoom_Development_webp/db40c3a0-63a3-484b-ae40-10b1c7887877.webp" alt="Steel stud framing of the test room structure inside the EES workshop" loading="lazy" />
-            </div>
-            <h3>Steel Frame Construction</h3>
-            <p>The room structure was built from steel studs to Australian Standard specifications — a real room with proper wall framing, not a temporary enclosure.</p>
-          </div>
+      <div class="capabilities-grid">
+        <div class="capability-card">
+          <HugeIcon icon={ThermometerIcon} size={32} class="capability-icon" />
+          <h3>Thermal Comfort Evaluation</h3>
+          <p>Full ASHRAE-55 comfort assessment in heating and cooling modes. Operative temperature, air stratification, and radiant asymmetry measured continuously throughout each test cycle.</p>
         </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <span class="timeline-number">2</span>
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-images timeline-images--double">
-              <img src="/image/WIP/TestRoom_Final_webp/278aed21-6bc8-479a-863c-9ad2c72bb524.webp" alt="Aerial view of the test room wrapped in building membrane during construction" loading="lazy" />
-              <img src="/image/WIP/TestRoom_Development_webp/testroom-double-glazed-window.webp" alt="Double-glazed north-facing window installed in the test room wall" loading="lazy" />
-            </div>
-            <h3>Insulation &amp; Glazing</h3>
-            <p>R2.0 batt insulation throughout, building wrap membrane, and a 7.5m² commercial-grade double-glazed window on the north face — designed to simulate worst-case solar gain conditions.</p>
-          </div>
+        <div class="capability-card">
+          <HugeIcon icon={EnergyIcon} size={32} class="capability-icon" />
+          <h3>Energy Performance</h3>
+          <p>Heat flux measurement, system COP tracking, and energy consumption logging under controlled and real-world conditions. Data is used to benchmark our products against published performance standards.</p>
         </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <span class="timeline-number">3</span>
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-images timeline-images--triple">
-              <img src="/image/WIP/TestRoom_Development_webp/IMG_7483.webp" alt="Blue capillary tube mat laid out on insulation panel before assembly" loading="lazy" />
-              <img src="/image/WIP/TestRoom_Development_webp/IMG_0046.webp" alt="Completed ceiling panel showing capillary tubes bonded to foil-faced insulation" loading="lazy" />
-              <img src="/image/WIP/TestRoom_Development_webp/IMG_0048.webp" alt="Ceiling panel standing in the workshop showing tube mat and insulation layers" loading="lazy" />
-            </div>
-            <h3>Panel Manufacturing</h3>
-            <p>Capillary tube mats were bonded to insulation panels and fitted with architectural finishes. Each panel was built and pressure-tested in-house before installation.</p>
-          </div>
+        <div class="capability-card">
+          <HugeIcon icon={GridIcon} size={32} class="capability-icon" />
+          <h3>Panel Surface Comparison</h3>
+          <p>Side-by-side comparison of different architectural finishes under identical conditions. The TestCell ceiling is divided into bays, each with a different surface, allowing direct thermal output comparison.</p>
         </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <span class="timeline-number">4</span>
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-images timeline-images--double">
-              <img src="/image/WIP/TestRoom_Development_webp/191330305_1530368173988011_309953162325682046_n.webp" alt="Close-up of blue capillary tube mat being installed on a ceiling panel" loading="lazy" />
-              <img src="/image/WIP/TestRoom_Development_webp/Mats.webp" alt="Capillary tube mats prepared and ready for bonding to ceiling panels" loading="lazy" />
-            </div>
-            <h3>Capillary Tube Installation</h3>
-            <p>Polypropylene capillary tubes installed at tight spacing to ensure uniform heat distribution. The mats are lightweight, flexible and deliver rapid thermal response times.</p>
-          </div>
+        <div class="capability-card">
+          <HugeIcon icon={CpuSettingsIcon} size={32} class="capability-icon" />
+          <h3>Control System Development</h3>
+          <p>Real-time tuning of control algorithms using live sensor data. The facility allows rapid iteration between software changes and measured comfort outcomes.</p>
         </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <span class="timeline-number">5</span>
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-images timeline-images--triple">
-              <img src="/image/WIP/TestRoom_Development_webp/plumbing-full.webp" alt="Assembled hydronic plumbing manifold with pumps, valves and pressure tanks" loading="lazy" />
-              <img src="/image/WIP/TestRoom_Development_webp/IMG_6357.webp" alt="Hydronic manifold with flow meters and individual circuit valves" loading="lazy" />
-              <img src="/image/WIP/TestRoom_Development_webp/1.webp" alt="Ceiling panels plumbed and connected on the workbench before installation" loading="lazy" />
-            </div>
-            <h3>Plumbing &amp; Hydraulics</h3>
-            <p>PPR piping with brass fittings connects each panel to the central manifold. Flow meters on each circuit allow individual panel monitoring and balancing. The system uses 24V DC pumps and actuators.</p>
-          </div>
+        <div class="capability-card">
+          <HugeIcon icon={PipelineIcon} size={32} class="capability-icon" />
+          <h3>Hydraulic System Validation</h3>
+          <p>Flow balancing, pressure testing, and leak detection across complete plumbing assemblies. Every manifold, actuator, and circuit is validated before it leaves the workshop.</p>
         </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <span class="timeline-number">6</span>
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-images timeline-images--double">
-              <img src="/image/WIP/TestRoom_Development_webp/260922725_615362759662446_7108777509642017868_n.webp" alt="Early prototype water tank with pressure gauge, copper piping and expansion vessel" loading="lazy" />
-              <img src="/image/WIP/TestRoom_Development_webp/IMG_6445.webp" alt="Water tank plumbing connections and expansion vessel during system assembly" loading="lazy" />
-            </div>
-            <h3>Water Storage &amp; Heat Exchange</h3>
-            <p>Hot and cold water tanks with heat exchangers, expansion vessels and pressure gauges. The system can switch between heating and cooling modes via 24V DC actuated valves.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-marker">
-            <span class="timeline-number">7</span>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-images">
-              <img src="/image/WIP/TestRoom_Development_webp/269722110_2110682989094831_8008561485059951530_n.webp" alt="Worker installing underfloor heating mats inside the test room during final fit-out" loading="lazy" />
-            </div>
-            <h3>Final Fit-Out &amp; Commissioning</h3>
-            <p>Ceiling panels installed, underfloor heating mats laid, instrumentation positioned and the full system commissioned. The TestCell was ready for its first controlled test run.</p>
-          </div>
+        <div class="capability-card">
+          <HugeIcon icon={TestTubeIcon} size={32} class="capability-icon" />
+          <h3>Third-Party Testing</h3>
+          <p>The facility is available for independent testing of external products and systems. If you need thermal performance data in a controlled, instrumented environment, we can accommodate your requirements.</p>
         </div>
       </div>
     </div>
@@ -370,24 +461,26 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
   <section class="section cta-section">
     <div class="container">
       <div class="cta-box">
-        <h2>Interested in our research?</h2>
-        <p>We offer third-party testing in our facility and are happy to discuss our hydronic ceiling panel technology with architects, engineers and building professionals.</p>
+        <h2>Want to see the facility?</h2>
+        <p>We welcome visits from architects, engineers, researchers, and building professionals. We also offer third-party testing services for products that require thermal performance validation.</p>
         <a href="/contact" class="btn btn-primary">Get in Touch</a>
       </div>
     </div>
   </section>
+
+  <ScrollIndicator />
 </BaseLayout>
 
 <style>
-  /* Facility Hero */
-  .facility-hero {
+  /* Page Header Hero */
+  .page-header--hero {
     position: relative;
-    width: 100%;
-    min-height: 520px;
+    min-height: 480px;
     overflow: hidden;
+    padding: 0;
   }
 
-  .facility-hero > img {
+  .page-header__bg {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -395,140 +488,97 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
     object-fit: cover;
   }
 
-  .facility-overlay {
+  .page-header__overlay {
     position: relative;
     z-index: 2;
-    min-height: 520px;
+    min-height: 480px;
     display: flex;
     align-items: flex-end;
     padding: 3rem 0;
     background: linear-gradient(
       to top,
       rgba(14, 43, 71, 0.92) 0%,
-      rgba(14, 43, 71, 0.7) 40%,
-      rgba(14, 43, 71, 0.3) 70%,
-      transparent 100%
+      rgba(14, 43, 71, 0.6) 50%,
+      rgba(14, 43, 71, 0.25) 100%
     );
   }
 
-  .facility-label {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .facility-overlay h2 {
+  .page-header--hero h1 {
     font-size: 2.75rem;
     font-weight: 800;
     color: #fff;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     line-height: 1.1;
   }
 
-  .facility-desc {
-    font-size: 1.05rem;
+  .page-header--hero p {
+    font-size: 1.15rem;
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.6;
     max-width: 620px;
-    margin-bottom: 2rem;
-  }
-
-  .facility-specs {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .spec {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding: 1rem 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 0.75rem;
-  }
-
-  .spec-value {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #fff;
-    line-height: 1.2;
-  }
-
-  .spec-label {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.65);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
   }
 
   @media (max-width: 700px) {
-    .facility-hero,
-    .facility-overlay {
-      min-height: 420px;
+    .page-header--hero,
+    .page-header__overlay {
+      min-height: 360px;
     }
 
-    .facility-overlay h2 {
+    .page-header--hero h1 {
       font-size: 2rem;
-    }
-
-    .facility-specs {
-      gap: 0.75rem;
-    }
-
-    .spec {
-      padding: 0.75rem 1rem;
-    }
-
-    .spec-value {
-      font-size: 1.2rem;
     }
   }
 
-  /* Video Section */
-  .video-section {
+  /* Drone Video Section */
+  .drone-section {
     background: #fff;
     padding: 5rem 0;
   }
 
-  .video-layout {
+  .drone-layout {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 3rem;
     align-items: stretch;
   }
 
-  .video-wrapper {
+  .drone-video-wrapper {
+    position: relative;
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     height: 100%;
+    min-height: 360px;
   }
 
-  .video-wrapper video {
+  .drone-video-wrapper video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
 
-  .video-label {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #2061B7;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
+  .drone-placeholder-badge {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: rgba(14, 43, 71, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
   }
 
-  .video-text h2 {
+  .drone-placeholder-badge span {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .drone-text h2 {
     font-size: 2.25rem;
     font-weight: 800;
     color: #0E2B47;
@@ -536,7 +586,7 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
     line-height: 1.15;
   }
 
-  .video-text p {
+  .drone-text p {
     font-size: 1rem;
     color: #444;
     line-height: 1.7;
@@ -544,17 +594,185 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
   }
 
   @media (max-width: 900px) {
-    .video-layout {
+    .drone-layout {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
 
-    .video-text h2 {
+    .drone-video-wrapper {
+      min-height: 280px;
+    }
+
+    .drone-text h2 {
       font-size: 1.75rem;
     }
   }
 
-  /* Section Headers (reusable) */
+  /* Workshop Section */
+  .workshop-section {
+    background: #f8f9fa;
+    padding: 5rem 0;
+  }
+
+  .workshop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .workshop-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .workshop-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .workshop-card--wide {
+    grid-column: 1 / -1;
+  }
+
+  .workshop-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .workshop-card--wide img {
+    height: 400px;
+  }
+
+  .workshop-card-text {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .workshop-card-text h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #0E2B47;
+    margin-bottom: 0.5rem;
+  }
+
+  .workshop-card-text p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 700px) {
+    .workshop-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .workshop-card img {
+      height: 240px;
+    }
+
+    .workshop-card--wide img {
+      height: 260px;
+    }
+  }
+
+  /* TestCell Dark Section */
+  .testcell-group {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .diagonal-divider {
+    line-height: 0;
+  }
+
+  .diagonal-divider svg {
+    display: block;
+    width: 100%;
+    height: 80px;
+    margin-bottom: -1px;
+  }
+
+  .testcell-section {
+    background: #0E2B47;
+    padding: 5rem 0;
+  }
+
+  .testcell-intro {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .testcell-intro-text h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1.25rem;
+    line-height: 1.15;
+  }
+
+  .testcell-intro-text > p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .testcell-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .testcell-spec {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.75rem;
+  }
+
+  .testcell-spec-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .testcell-spec-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 900px) {
+    .testcell-intro {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .testcell-intro-text h2 {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .testcell-specs {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Section Headers */
   .section-header {
     text-align: center;
     margin-bottom: 3rem;
@@ -600,331 +818,8 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
     color: rgba(255, 255, 255, 0.7);
   }
 
-  /* Panels in Action */
-  .panels-action {
-    background: #f8f9fa;
-    padding: 5rem 0;
-  }
-
-  .action-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-
-  .action-card {
-    padding: 2rem;
-    background: #fff;
-    border-radius: 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-  }
-
-  .action-icon {
-    width: 52px;
-    height: 52px;
-    background: rgba(32, 97, 183, 0.08);
-    border-radius: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #2061B7;
-    margin-bottom: 1.25rem;
-  }
-
-  .action-icon svg {
-    width: 28px;
-    height: 28px;
-  }
-
-  .action-card h3 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #0E2B47;
-    margin-bottom: 0.5rem;
-  }
-
-  .action-card p {
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  @media (max-width: 900px) {
-    .action-grid {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-  }
-
-  /* Finished Room */
-  .finished-room {
-    background: #fff;
-    padding: 5rem 0;
-  }
-
-  .ceiling-showcase {
-    margin-bottom: 3rem;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  }
-
-  .ceiling-showcase img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .panel-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .panel-card {
-    border-radius: 1rem;
-    overflow: hidden;
-    background: #f8f9fa;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .panel-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  }
-
-  .panel-card img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-  }
-
-  .panel-card-text {
-    padding: 1.5rem;
-  }
-
-  .panel-card-text h3 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #0E2B47;
-    margin-bottom: 0.5rem;
-  }
-
-  .panel-card-text p {
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  @media (max-width: 900px) {
-    .panel-grid {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-
-    .panel-card img {
-      height: 220px;
-    }
-  }
-
-  /* Thermal Results */
-  .thermal-group {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .diagonal-divider {
-    line-height: 0;
-  }
-
-  .diagonal-divider svg {
-    display: block;
-    width: 100%;
-    height: 80px;
-    margin-bottom: -1px;
-  }
-
-  .thermal-results {
-    background: #0E2B47;
-    padding: 5rem 0;
-  }
-
-  .thermal-comparison {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 3rem;
-  }
-
-  .thermal-card {
-    border-radius: 1rem;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .thermal-img-wrap {
-    overflow: hidden;
-  }
-
-  .thermal-img-wrap img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .thermal-info {
-    padding: 1.25rem 1.5rem;
-  }
-
-  .thermal-mode {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding: 0.3rem 0.75rem;
-    border-radius: 4px;
-    margin-bottom: 0.75rem;
-  }
-
-  .thermal-mode--heat {
-    background: rgba(239, 68, 68, 0.2);
-    color: #fca5a5;
-  }
-
-  .thermal-mode--cool {
-    background: rgba(59, 130, 246, 0.2);
-    color: #93c5fd;
-  }
-
-  .thermal-info p {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .thermal-equipment {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .equipment-item {
-    text-align: center;
-  }
-
-  .equipment-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 0.75rem;
-    margin-bottom: 0.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .equipment-item span {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 500;
-  }
-
-  @media (max-width: 900px) {
-    .thermal-comparison {
-      grid-template-columns: 1fr;
-    }
-
-    .thermal-equipment {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-
-    .thermal-img-wrap img {
-      height: 220px;
-    }
-  }
-
-  /* System Design */
-  .system-design {
-    background: #f8f9fa;
-    padding: 5rem 0;
-  }
-
-  .system-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .system-card {
-    border-radius: 1rem;
-    overflow: hidden;
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .system-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  }
-
-  .system-card--wide {
-    grid-column: 1 / -1;
-  }
-
-  .system-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-    background: #fff;
-    padding: 1rem;
-  }
-
-  .system-card--wide img {
-    height: 380px;
-  }
-
-  .system-card-text {
-    padding: 1.5rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-  }
-
-  .system-card-text h3 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #0E2B47;
-    margin-bottom: 0.5rem;
-  }
-
-  .system-card-text p {
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  @media (max-width: 700px) {
-    .system-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .system-card img {
-      height: 240px;
-    }
-
-    .system-card--wide img {
-      height: 260px;
-    }
-  }
-
-  /* Development Story Timeline */
-  .dev-story {
+  /* Build Story Timeline */
+  .build-story {
     background: #fff;
     padding: 5rem 0;
   }
@@ -932,7 +827,6 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
   .timeline {
     max-width: 900px;
     margin: 0 auto;
-    position: relative;
   }
 
   .timeline-item {
@@ -1069,9 +963,398 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
     }
   }
 
-  /* CTA Section */
-  .cta-section {
+  /* Interior Section */
+  .interior-section {
     background: #f8f9fa;
+    padding: 5rem 0;
+  }
+
+  .interior-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .interior-image {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .interior-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .interior-text h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #0E2B47;
+    margin-bottom: 1.25rem;
+    line-height: 1.15;
+  }
+
+  .interior-text p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .interior-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .interior-detail {
+    text-align: center;
+  }
+
+  .interior-detail img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .interior-detail span {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 900px) {
+    .interior-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .interior-text h2 {
+      font-size: 1.75rem;
+    }
+
+    .interior-detail-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  /* Instrumentation Section */
+  .instrumentation-group {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .instrumentation-section {
+    background: #0E2B47;
+    padding: 5rem 0;
+  }
+
+  .instrument-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .instrument-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .instrument-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  .instrument-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .instrument-info {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .instrument-info h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+
+  .instrument-info p {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .standards-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .standard-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    text-align: center;
+  }
+
+  .standard-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .standard-desc {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 700px) {
+    .instrument-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .standards-bar {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Thermal Preview */
+  .thermal-preview {
+    background: #f8f9fa;
+    padding: 5rem 0;
+  }
+
+  .thermal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .thermal-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .thermal-img-wrap img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .thermal-info {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .thermal-mode {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+  }
+
+  .thermal-mode--heat {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+  }
+
+  .thermal-mode--cool {
+    background: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+  }
+
+  .thermal-info p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .thermal-monitor-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .thermal-monitor-image {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .thermal-monitor-image img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .thermal-link {
+    text-align: center;
+  }
+
+  .thermal-link p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  .thermal-link a {
+    color: #2061B7;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .thermal-link a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 700px) {
+    .thermal-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .thermal-monitor-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Test Rig Section */
+  .testrig-section {
+    background: #fff;
+    padding: 5rem 0;
+  }
+
+  .testrig-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .testrig-text h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #0E2B47;
+    margin-bottom: 1.25rem;
+    line-height: 1.15;
+  }
+
+  .testrig-text p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .testrig-images {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .testrig-images img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .testrig-image-secondary {
+    margin-top: 1rem;
+    border-radius: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .testrig-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .testrig-text h2 {
+      font-size: 1.75rem;
+    }
+
+    .testrig-images {
+      order: -1;
+    }
+  }
+
+  /* Capabilities Section */
+  .capabilities-section {
+    background: #f8f9fa;
+    padding: 5rem 0;
+  }
+
+  .capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .capability-card {
+    padding: 2rem;
+    background: #fff;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .capability-card :global(.capability-icon) {
+    color: #2061B7;
+    margin-bottom: 0.75rem;
+  }
+
+  .capability-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0E2B47;
+    margin-bottom: 0.5rem;
+  }
+
+  .capability-card p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .capabilities-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* CTA */
+  .cta-section {
+    background: #fff;
     padding: 5rem 0;
   }
 

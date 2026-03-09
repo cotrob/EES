@@ -4,35 +4,198 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
 ---
 
 <BaseLayout
-  title="Research Papers | EES"
-  description="Published findings from our thermal comfort, radiant conditioning, and energy efficiency research."
+  title="Academic Research | EES"
+  description="Peer-reviewed research papers on radiant conditioning, thermal comfort, heat pumps, and renewable energy from the EES research team."
 >
   <section class="page-header">
     <div class="container">
-      <h1>Research Papers</h1>
-      <p>Published findings from our thermal comfort and energy research.</p>
+      <h1>Academic Research</h1>
+      <p>Peer-reviewed papers from our research into radiant conditioning, thermal comfort, and renewable energy systems.</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
-      <h2>Our Research</h2>
-      <p>
-        Our research focuses on radiant conditioning, thermal comfort, hydronic systems, and net-zero building strategies. We publish our findings to contribute to industry knowledge and validate our product development.
-      </p>
+  <section class="section papers-section">
+    <div class="container">
+      <div class="papers-list">
 
-      <h3>Research Areas</h3>
-      <ul>
-        <li>Thermal comfort evaluation (ASHRAE-55 / ISO 7730)</li>
-        <li>Radiant ceiling panel performance</li>
-        <li>Polyvalent heat pump efficiency</li>
-        <li>Renewable energy integration for grid independence</li>
-        <li>Staged approaches to net-zero buildings</li>
-      </ul>
+        <div class="paper-card">
+          <span class="paper-journal">Energy and Buildings, 2025</span>
+          <h2>Radiant Ceiling Panels: An Evaluation of Thermal Performance</h2>
+          <p>Tests prefabricated, modular hydronic panel design variants and shows how small changes in construction methods can notably increase thermal capacity and reduce response time.</p>
+          <div class="paper-actions">
+            <a href="/image/research_pdfs/Radiant-Ceiling-Panels-An-Evaluation-of-Thermal-Performance.pdf" download class="paper-btn paper-btn--download">Download PDF</a>
+            <a href="https://www.sciencedirect.com/science/article/pii/S0378778825006966" target="_blank" rel="noopener noreferrer" class="paper-btn paper-btn--link">View Article</a>
+          </div>
+        </div>
 
-      <h2>Papers &amp; Publications</h2>
-      <p><em>Papers and publications will be listed here. Please check back soon or <a href="/contact">contact us</a> for direct access to our research.</em></p>
+        <div class="paper-card">
+          <span class="paper-journal">Renewable Energy, 2025</span>
+          <h2>Technical and Economic Analyses of Grid-Connected Residential PV Considering Batteries and Peer-to-Peer Energy Sharing</h2>
+          <p>Evaluates grid-connected residential solar PV with battery storage and peer-to-peer energy trading, analysing the economic viability and energy self-sufficiency potential.</p>
+          <div class="paper-actions">
+            <a href="/image/research_pdfs/Renewable-Energy-Wang.pdf" download class="paper-btn paper-btn--download">Download PDF</a>
+          </div>
+        </div>
+
+        <div class="paper-card">
+          <span class="paper-journal">Architectural Science Review, 2024</span>
+          <h2>Development and Thermal Performance Testing of Radiant Conditioning Ceiling Panels</h2>
+          <p>Documents the advancement from heavyweight radiant floors to lightweight ceiling systems and presents comprehensive thermal performance data to inform designers and engineers.</p>
+          <div class="paper-actions">
+            <a href="/image/research_pdfs/Development-and-thermal-performance-testing-of-radiant-conditioning-ceiling-panels.pdf" download class="paper-btn paper-btn--download">Download PDF</a>
+            <a href="https://www.tandfonline.com/doi/full/10.1080/00038628.2024.2381715" target="_blank" rel="noopener noreferrer" class="paper-btn paper-btn--link">View Article</a>
+          </div>
+        </div>
+
+        <div class="paper-card">
+          <span class="paper-journal">Journal of Building Engineering, 2024</span>
+          <h2>Performance Investigation of Transitioning Building Services System in Photovoltaic Homes</h2>
+          <p>Investigates how building services in residential homes can transition to photovoltaic-powered systems, analysing real-world performance data from an instrumented test house.</p>
+          <div class="paper-actions">
+            <a href="/image/research_pdfs/J-of-Building-Eng-Wang.pdf" download class="paper-btn paper-btn--download">Download PDF</a>
+          </div>
+        </div>
+
+        <div class="paper-card">
+          <span class="paper-journal">Solar Energy, 2024</span>
+          <h2>Technical and Economic Analyses of PV Battery Systems Considering Two Different Tariff Policies</h2>
+          <p>Compares the technical and economic performance of residential PV battery systems under two different electricity tariff structures to identify optimal sizing and payback periods.</p>
+          <div class="paper-actions">
+            <a href="/image/research_pdfs/Solar-Energy-Wang.pdf" download class="paper-btn paper-btn--download">Download PDF</a>
+          </div>
+        </div>
+
+        <div class="paper-card">
+          <span class="paper-journal">Architectural Science Review, 2023</span>
+          <h2>Development and Performance Testing of a Polyvalent Heat Pump for Hot and Cold Water Production</h2>
+          <p>Investigates a solar PV-driven polyvalent heat pump that simultaneously produces hot and cold water using natural refrigerants, achieving a COP of 3.8 in simultaneous mode.</p>
+          <div class="paper-actions">
+            <a href="/image/research_pdfs/Development-and-performance-testing-of-a-polyvalent-heat-pump.pdf" download class="paper-btn paper-btn--download">Download PDF</a>
+            <a href="https://www.tandfonline.com/doi/full/10.1080/00038628.2023.2273836" target="_blank" rel="noopener noreferrer" class="paper-btn paper-btn--link">View Article</a>
+          </div>
+        </div>
+
+        <div class="paper-card">
+          <span class="paper-journal">Energies, 2022</span>
+          <h2>Radiant Conditioning Retrofitting for Residential Buildings</h2>
+          <p>Examines how capillary tube mats and lightweight radiant panels can retrofit existing homes for heating and cooling, replacing conventional systems with a total thickness of just 40-50 mm.</p>
+          <div class="paper-actions">
+            <a href="/image/research_pdfs/Radiant-conditioning-retrofitting-for-residential-buildings.pdf" download class="paper-btn paper-btn--download">Download PDF</a>
+            <a href="https://www.mdpi.com/1996-1073/15/2/449" target="_blank" rel="noopener noreferrer" class="paper-btn paper-btn--link">View Article</a>
+          </div>
+        </div>
+
+        <div class="paper-card">
+          <span class="paper-journal">Architectural Science Review, 2020</span>
+          <h2>Applying a Comfort Model to Building Performance Analysis</h2>
+          <p>Presents a measurement and analytical process for examining and commissioning cooling systems for thermal comfort, with field studies in Australian residential and office environments.</p>
+          <div class="paper-actions">
+            <a href="/image/research_pdfs/Applying-a-comfort-model-to-building-performance-analysis.pdf" download class="paper-btn paper-btn--download">Download PDF</a>
+            <a href="https://www.tandfonline.com/doi/full/10.1080/00038628.2020.1742645" target="_blank" rel="noopener noreferrer" class="paper-btn paper-btn--link">View Article</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
+
   <ScrollIndicator />
 </BaseLayout>
+
+<style>
+  .papers-section {
+    background: #fff;
+    padding: 4rem 0;
+  }
+
+  .papers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .paper-card {
+    padding: 1.75rem 2rem;
+    background: #f8f9fa;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .paper-journal {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #2061B7;
+    margin-bottom: 0.5rem;
+  }
+
+  .paper-card h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0E2B47;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+  }
+
+  .paper-card > p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0 0 1.25rem 0;
+  }
+
+  .paper-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .paper-btn {
+    display: inline-block;
+    padding: 0.5rem 1.1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 0.4rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .paper-btn--download {
+    color: #fff;
+    background: #0E2B47;
+  }
+
+  .paper-btn--download:hover {
+    background: #163a5c;
+  }
+
+  .paper-btn--link {
+    color: #2061B7;
+    background: rgba(32, 97, 183, 0.08);
+    border: 1px solid rgba(32, 97, 183, 0.2);
+  }
+
+  .paper-btn--link:hover {
+    background: #2061B7;
+    color: #fff;
+  }
+
+  @media (max-width: 600px) {
+    .paper-card {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .paper-actions {
+      flex-direction: column;
+    }
+
+    .paper-btn {
+      text-align: center;
+    }
+  }
+</style>

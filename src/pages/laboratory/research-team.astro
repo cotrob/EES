@@ -41,8 +41,6 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
         Our research has been documented in <a href="/laboratory/written-papers">published papers</a> and is available for review.
       </p>
 
-      <p><em>Team profiles will be added as they are finalised.</em></p>
-
       <h3>Related</h3>
       <ul>
         <li><a href="/laboratory/facility">Research facility &rarr;</a></li>
@@ -52,5 +50,131 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
       </ul>
     </div>
   </section>
+
+  <section class="team-section">
+    <div class="container">
+      <h2 class="team-heading">The Research Team</h2>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="/image/photos_team/DrMarkLuther_clean_transparent.png" alt="Mark B. Luther" loading="lazy" />
+          <h3>Mark B. Luther</h3>
+          <p class="team-role">Director (Arch.D. - Architect)</p>
+          <p>Honorary Professor of Deakin University after 27 years of service. He specialises in Architecture Science and Environmental Technology. Inventor of the Environmental Service Pod and the Autonomatic Hydronic Ceiling Panel.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/image/photos_team/HungQDo_clean_transparent.png" alt="Hung Q. Do" loading="lazy" />
+          <h3>Hung Q. Do</h3>
+          <p class="team-role">Research Development</p>
+          <p>PhD candidate specialising in hydronic ceiling innovative systems. His research focuses on effective conditioning through hydronic control in commercial buildings.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/image/photos_team/ZhengWang_clean_transparent.png" alt="Dr. Zheng Wang" loading="lazy" />
+          <h3>Dr. Zheng Wang</h3>
+          <p class="team-role">Product Development</p>
+          <p>PhD in electrification and decarbonisation of residential buildings. Involved in sizing of off-grid systems for residential projects and product development.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/image/photos_team/placeholder.svg" alt="Dr. Murray Herron" loading="lazy" />
+          <h3>Dr. Murray Herron</h3>
+          <p class="team-role">Director</p>
+          <p>PhD(2), MUD, MUP, M.Com, GDip GIS, GDip Policy, DE. Brings extensive academic and policy expertise to the research team's strategic direction.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/image/photos_team/placeholder.svg" alt="Dr. Jeffrey Godfredson AFSA" loading="lazy" />
+          <h3>Dr. Jeffrey Godfredson AFSA</h3>
+          <p class="team-role">Director</p>
+          <p>DBA, MPPM. Contributes leadership and business management expertise to research operations and commercial development.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/image/photos_team/LincolnLuther_clean_transparent.png" alt="Lincoln B. Luther" loading="lazy" />
+          <h3>Lincoln B. Luther</h3>
+          <p class="team-role">Manager of Sales</p>
+          <p>Over 4 years industry experience in the renewables energy sector with a background in Economics, Banking and Finance. He specialises in solar, battery and renewable building services.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/image/photos_team/Matthew Ellison_02_clean_transparent.png" alt="Matthew Ellison" loading="lazy" />
+          <h3>Matthew Ellison</h3>
+          <p class="team-role">Manager of Installations</p>
+          <p>Senior electrician experienced in Solar PV and Battery installations in commercial and residential projects. Also involved with electrical research and design on the Environmental Service Pod and Hydronic Control.</p>
+        </div>
+      </div>
+    </div>
+  </section>
   <ScrollIndicator />
 </BaseLayout>
+
+<style>
+  .team-section {
+    padding: 4rem 0;
+    background: #fff;
+  }
+
+  .team-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0E2B47;
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .team-member {
+    text-align: center;
+  }
+
+  .team-member img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid #e5e7eb;
+    margin: 0 auto 1rem;
+    display: block;
+  }
+
+  .team-member h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0E2B47;
+    margin-bottom: 0.25rem;
+  }
+
+  .team-role {
+    font-size: 0.8rem;
+    color: #2061B7;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .team-member > p:last-child {
+    font-size: 0.875rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 500px) {
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

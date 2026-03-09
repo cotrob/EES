@@ -1,0 +1,49 @@
+---
+interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  label?: string;
+  heading?: string;
+  description?: string;
+  features: Feature[];
+  columns?: 2 | 3;
+  bg?: 'white' | 'light' | 'cream';
+}
+
+const { label, heading, description, features, columns = 3, bg = 'white' } = Astro.props;
+
+const bgMap = {
+  white: '#fff',
+  light: '#f8f9fa',
+  cream: 'rgba(240, 238, 217, 0.25)',
+};
+---
+
+<section class="icon-features" style={`background: ${bgMap[bg]};`}>
+  <div class="container">
+    {(label || heading) && (
+      <div class="icon-features-header">
+        {label && <p class="section-label">{label}</p>}
+        {heading && <h2>{heading}</h2>}
+        {description && <p class="icon-features-desc">{description}</p>}
+      </div>
+    )}
+    <div class={`icon-feature-grid icon-feature-grid--${columns}col`}>
+      {features.map((feature) => (
+        <div class="icon-feature">
+          <div class="icon-feature-icon">
+            <span set:html={feature.icon} />
+          </div>
+          <div class="icon-feature-text">
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

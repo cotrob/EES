@@ -1,0 +1,45 @@
+---
+interface Question {
+  q: string;
+  a: string;
+}
+
+interface Group {
+  label: string;
+  questions: Question[];
+}
+
+interface Props {
+  heading?: string;
+  description?: string;
+  groups: Group[];
+}
+
+const { heading, description, groups } = Astro.props;
+---
+
+<section class="faq-section">
+  <div class="container">
+    {(heading) && (
+      <div class="faq-header">
+        <h2>{heading}</h2>
+        {description && <p class="faq-desc">{description}</p>}
+      </div>
+    )}
+    {groups.map((group) => (
+      <div class="faq-group">
+        <p class="section-label">{group.label}</p>
+        <div class="faq-list">
+          {group.questions.map((item) => (
+            <details class="faq-item">
+              <summary class="faq-question">{item.q}</summary>
+              <div class="faq-answer">
+                <p>{item.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

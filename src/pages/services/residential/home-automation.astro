@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../../components/ScrollIndicator.astro';
+import SplitFeature from '../../../components/sections/SplitFeature.astro';
+import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
+import RelatedNav from '../../../components/sections/RelatedNav.astro';
 ---
 
 <BaseLayout
@@ -14,59 +17,93 @@ import ScrollIndicator from '../../../components/ScrollIndicator.astro';
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
-      <h2>Why Energy Management Matters</h2>
-      <p>
-        Solar panels generate power. Batteries store it. Heat pumps use it. But without intelligent control, these systems operate independently — each one making decisions without knowing what the others are doing.
-      </p>
-      <p>
-        A home energy management system (HEMS) connects everything together. It decides when to charge the battery, when to run the heat pump, when to export to the grid, and when to hold energy in reserve — all based on real-time data.
-      </p>
-      <p>
-        The result is <strong>less wasted energy, lower bills, and a home that runs more efficiently</strong> without you having to think about it.
-      </p>
+  <SplitFeature image="/image/WIP/environmental-service-pod/esp-electrical-controls-interior.webp" alt="EES home energy management system electrical controls interior">
+    <p class="section-label">The Foundation</p>
+    <h2>Why Energy Management Matters</h2>
+    <p>
+      Solar panels generate power. Batteries store it. Heat pumps use it. But without intelligent control, these systems operate independently — each one making decisions without knowing what the others are doing.
+    </p>
+    <p>
+      A home energy management system (HEMS) connects everything together. It decides when to charge the battery, when to run the heat pump, when to export to the grid, and when to hold energy in reserve — all based on real-time data.
+    </p>
+    <p>
+      The result is <strong>less wasted energy, lower bills, and a home that runs more efficiently</strong> without you having to think about it.
+    </p>
+  </SplitFeature>
 
-      <h2>What We Integrate</h2>
-      <p>
-        Our automation systems are built around energy — not consumer gadgets. We focus on the systems that actually affect your energy consumption and comfort:
-      </p>
-      <ul>
-        <li><strong>Solar and battery monitoring</strong> — real-time visibility of generation, consumption, and storage</li>
-        <li><strong>Heat pump scheduling</strong> — run the heat pump when solar is generating, not when electricity is expensive</li>
-        <li><strong>Hydronic heating control</strong> — zone-by-zone temperature management via our ceiling panel system</li>
-        <li><strong>Load shifting</strong> — automatically move high-draw appliances (hot water, EV charging) to off-peak or solar-generating hours</li>
-        <li><strong>Grid export optimisation</strong> — hold energy when feed-in tariffs are low, export when they're high</li>
-      </ul>
+  <IconFeatureGrid
+    bg="light"
+    label="Energy-Focused Integration"
+    heading="What We Integrate"
+    description="Our automation systems are built around energy — not consumer gadgets. We focus on the systems that actually affect your energy consumption and comfort."
+    columns={2}
+    features={[
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>',
+        title: 'Solar & battery monitoring',
+        description: 'Real-time visibility of generation, consumption, and storage.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/><path d="M12 16v4"/></svg>',
+        title: 'Heat pump scheduling',
+        description: 'Run the heat pump when solar is generating, not when electricity is expensive.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8l4 4"/><circle cx="12" cy="14" r="8"/></svg>',
+        title: 'Hydronic heating control',
+        description: 'Zone-by-zone temperature management via our ceiling panel system.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>',
+        title: 'Load shifting',
+        description: 'Automatically move high-draw appliances (hot water, EV charging) to off-peak or solar-generating hours.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
+        title: 'Grid export optimisation',
+        description: 'Hold energy when feed-in tariffs are low, export when they are high.'
+      },
+    ]}
+  />
 
-      <h2>How It Works</h2>
-      <p>
-        Our systems use MODBUS and other open protocols to communicate between components. A central controller monitors inputs from solar, battery, heat pump, and environmental sensors, then makes decisions based on rules tailored to your household.
-      </p>
-      <p>
-        You can view and adjust settings from your phone or a local display. The system learns your patterns over time and adapts — but you always have manual override.
-      </p>
+  <SplitFeature reverse image="/image/WIP/environmental-service-pod/esp-complete-unit-photo.webp" alt="EES MODBUS control system for home energy management">
+    <p class="section-label">Open Protocols</p>
+    <h2>How It Works</h2>
+    <p>
+      Our systems use MODBUS and other open protocols to communicate between components. A central controller monitors inputs from solar, battery, heat pump, and environmental sensors, then makes decisions based on rules tailored to your household.
+    </p>
+    <p>
+      You can view and adjust settings from your phone or a local display. The system learns your patterns over time and adapts — but you always have manual override.
+    </p>
+  </SplitFeature>
 
-      <h2>Part of a Complete System</h2>
-      <p>
-        Home automation works best when it's designed alongside the energy systems it controls. That's why we integrate it from the start — not bolt it on afterwards.
-      </p>
-      <p>
-        Our <a href="/laboratory/environmental-service-pod">Environmental Service Pod</a> includes a MODBUS control module as standard, providing centralised management of heat pump, battery, and thermal storage from a single point.
-      </p>
+  <SplitFeature image="/image/WIP/environmental-service-pod/esp-full-system-rendering.webp" alt="EES Environmental Service Pod complete integrated energy system" bg="cream">
+    <p class="section-label">Integrated by Design</p>
+    <h2>Part of a Complete System</h2>
+    <p>
+      Home automation works best when it's designed alongside the energy systems it controls. That's why we integrate it from the start — not bolt it on afterwards.
+    </p>
+    <p>
+      Our <a href="/laboratory/environmental-service-pod">Environmental Service Pod</a> includes a MODBUS control module as standard, providing centralised management of heat pump, battery, and thermal storage from a single point.
+    </p>
+  </SplitFeature>
 
-      <h3>Related</h3>
-      <ul>
-        <li><a href="/services/residential/battery-systems">Battery storage systems &rarr;</a></li>
-        <li><a href="/services/residential/heat-pump-systems">Heat pump systems &rarr;</a></li>
-        <li><a href="/services/residential/comfort-conditioning">Hydronic comfort conditioning &rarr;</a></li>
-        <li><a href="/laboratory/environmental-service-pod">Environmental Service Pod &rarr;</a></li>
-      </ul>
+  <RelatedNav
+    heading="Related Services"
+    links={[
+      { href: '/services/residential/battery-systems', title: 'Battery Storage', description: 'Store your solar energy and use it after sunset' },
+      { href: '/services/residential/heat-pump-systems', title: 'Heat Pump Systems', description: 'Efficient hot water and climate control powered by solar' },
+      { href: '/services/residential/comfort-conditioning', title: 'Hydronic Comfort Conditioning', description: 'Radiant ceiling panels for heating and cooling' },
+      { href: '/laboratory/environmental-service-pod', title: 'Environmental Service Pod', description: 'Solar, battery, heat pump, and controls in one integrated unit' },
+    ]}
+  />
 
-      <p>
-        <a href="/services/consultation">Book a free consultation</a> to discuss energy management for your home.
-      </p>
+  <section class="cta-section">
+    <div class="container">
+      <p>Ready to discuss energy management for your home?</p>
+      <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
     </div>
   </section>
+
   <ScrollIndicator />
 </BaseLayout>

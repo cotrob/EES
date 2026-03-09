@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../../components/ScrollIndicator.astro';
+import SplitFeature from '../../../components/sections/SplitFeature.astro';
+import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
+import SpecCards from '../../../components/sections/SpecCards.astro';
+import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
+import RelatedNav from '../../../components/sections/RelatedNav.astro';
 ---
 
 <BaseLayout
@@ -14,112 +19,152 @@ import ScrollIndicator from '../../../components/ScrollIndicator.astro';
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
-      <h2>What Is a Virtual Power Plant?</h2>
-      <p>
-        A Virtual Power Plant (VPP) connects hundreds or thousands of home battery systems into a single coordinated network. When the electricity grid needs extra power — during peak demand, heatwaves, or supply shortfalls — your battery discharges stored energy back to the grid. In return, you get paid.
-      </p>
-      <p>
-        You're not building a power plant. You already have one — your solar panels and battery. A VPP lets you trade that stored energy when it's most valuable, and earn money for doing it.
-      </p>
+  <SplitFeature image="/image/WIP/environmental-service-pod/esp-complete-system-3d-exploded.webp" alt="Virtual Power Plant network connecting home battery systems">
+    <p class="section-label">The Concept</p>
+    <h2>What Is a Virtual Power Plant?</h2>
+    <p>
+      A Virtual Power Plant (VPP) connects hundreds or thousands of home battery systems into a single coordinated network. When the electricity grid needs extra power — during peak demand, heatwaves, or supply shortfalls — your battery discharges stored energy back to the grid. In return, you get paid.
+    </p>
+    <p>
+      You're not building a power plant. You already have one — your solar panels and battery. A VPP lets you trade that stored energy when it's most valuable, and earn money for doing it.
+    </p>
+  </SplitFeature>
 
-      <h2>The Problem With Most VPP Programs</h2>
-      <p>
-        Most VPP programs are run by your electricity retailer. That means <strong>they</strong> decide when to charge and discharge your battery — and they do it to suit themselves, not you. Retailers buy and sell energy on the wholesale market, and when they control your battery, they can capitalise on price swings at your expense.
-      </p>
-      <p>
-        You signed up thinking you'd earn extra from your battery. Instead, your retailer is using it as their own trading asset.
-      </p>
+  <SplitFeature reverse bg="light" image="/image/photography/01_Hero_Images_OG/Frontage_17_TopCut_.webp" alt="Residential home with solar and battery system">
+    <p class="section-label">The Problem</p>
+    <h2>The Problem With Most VPP Programs</h2>
+    <p>
+      Most VPP programs are run by your electricity retailer. That means <strong>they</strong> decide when to charge and discharge your battery — and they do it to suit themselves, not you. Retailers buy and sell energy on the wholesale market, and when they control your battery, they can capitalise on price swings at your expense.
+    </p>
+    <p>
+      You signed up thinking you'd earn extra from your battery. Instead, your retailer is using it as their own trading asset.
+    </p>
+  </SplitFeature>
 
-      <h2>Powston VPP Self-Control</h2>
-      <p>
-        We integrate <strong>Powston</strong> — a VPP platform that puts you back in control. With Powston, your battery trades on the wholesale energy market according to <strong>your best interests</strong>, not your retailer's. There's no conflict of interest. No one else is deciding when to charge or discharge your battery to pad their own margins.
-      </p>
-      <p>
-        Powston works across major Australian electricity retailers including Red Energy, Origin, Alinta Energy, Tango Energy, Energy Australia, GloBird Energy, Powershop, Amber Electric, Engie, and 1st Energy — so you're not locked into a single provider.
-      </p>
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_18_TopCut_.webp" alt="EES Powston VPP self-control battery system installation">
+    <p class="section-label">Our Solution</p>
+    <h2>Powston VPP Self-Control</h2>
+    <p>
+      We integrate <strong>Powston</strong> — a VPP platform that puts you back in control. With Powston, your battery trades on the wholesale energy market according to <strong>your best interests</strong>, not your retailer's. There's no conflict of interest. No one else is deciding when to charge or discharge your battery to pad their own margins.
+    </p>
+    <p>
+      Powston works across major Australian electricity retailers including Red Energy, Origin, Alinta Energy, Tango Energy, Energy Australia, GloBird Energy, Powershop, Amber Electric, Engie, and 1st Energy — so you're not locked into a single provider.
+    </p>
+  </SplitFeature>
 
-      <h2>How It Works</h2>
-      <ol>
-        <li><strong>Solar charges your battery</strong> — during the day, your solar panels generate electricity and charge your home battery as normal</li>
-        <li><strong>You use what you need</strong> — your home draws from the battery first, reducing what you buy from the grid</li>
-        <li><strong>Powston trades on your behalf</strong> — when wholesale prices spike, Powston automatically exports your stored energy at the best available rate</li>
-        <li><strong>You earn the difference</strong> — you receive payments based on the actual wholesale price, not a fixed feed-in tariff set by your retailer</li>
-      </ol>
-      <p>
-        The entire process is automated. You don't need to watch the market or make decisions — Powston handles the trading, and your battery recharges from solar the next day.
-      </p>
+  <ProcessTimeline
+    label="The Process"
+    heading="How It Works"
+    steps={[
+      { title: 'Solar charges your battery', description: 'During the day, your solar panels generate electricity and charge your home battery as normal.' },
+      { title: 'You use what you need', description: 'Your home draws from the battery first, reducing what you buy from the grid.' },
+      { title: 'Powston trades on your behalf', description: 'When wholesale prices spike, Powston automatically exports your stored energy at the best available rate.' },
+      { title: 'You earn the difference', description: 'You receive payments based on the actual wholesale price, not a fixed feed-in tariff set by your retailer. The entire process is automated. You don\'t need to watch the market or make decisions — Powston handles the trading, and your battery recharges from solar the next day.' },
+    ]}
+  />
 
-      <h2>Intelligent Load Shifting</h2>
-      <p>
-        Alongside VPP trading, we configure intelligent load shifting through the <strong>Sigenergy app</strong>. This automatically runs your appliances at the right time using the cheapest available energy — so you use more of your own solar, reduce what you buy from the grid, and keep more energy available for VPP trading when prices are high.
-      </p>
-      <p>
-        Each automation can be set to one of three operating modes:
-      </p>
-      <ul>
-        <li>
-          <strong>Surplus PV Only</strong> — the appliance only runs when there's excess solar production. For example, your electric hot water service turns on when solar excess is greater than 2 kW. If solar dips during startup, Battery Boost temporarily supplements from the battery to keep the appliance running
-        </li>
-        <li>
-          <strong>Ready by Period</strong> — you set a run time and a deadline, and the system schedules the appliance to finish on time using the cheapest energy available. For example, the dishwasher runs for a minimum of 2 hours and finishes before 3:00 PM
-        </li>
-        <li>
-          <strong>Battery Level Control</strong> — the appliance runs based on your battery's state of charge. For example, your air conditioner turns on when the battery is above 95% and turns off when it drops to 70% — using energy that would otherwise be exported at a low feed-in rate
-        </li>
-      </ul>
-      <p>
-        The result: your home uses solar energy first, your battery stays charged for high-value VPP events, and your appliances run without you having to think about it.
-      </p>
+  <SpecCards
+    label="Smart Automation"
+    heading="Intelligent Load Shifting"
+    cards={[
+      {
+        title: 'Surplus PV Only',
+        body: 'The appliance only runs when there is excess solar production. For example, your electric hot water service turns on when solar excess is greater than 2 kW. If solar dips during startup, Battery Boost temporarily supplements from the battery to keep the appliance running.',
+        footer: 'Best for: hot water, pool pumps'
+      },
+      {
+        title: 'Ready by Period',
+        body: 'You set a run time and a deadline, and the system schedules the appliance to finish on time using the cheapest energy available. For example, the dishwasher runs for a minimum of 2 hours and finishes before 3:00 PM.',
+        footer: 'Best for: dishwashers, washing machines'
+      },
+      {
+        title: 'Battery Level Control',
+        body: 'The appliance runs based on your battery\'s state of charge. For example, your air conditioner turns on when the battery is above 95% and turns off when it drops to 70% — using energy that would otherwise be exported at a low feed-in rate.',
+        footer: 'Best for: air conditioning, EV charging'
+      },
+    ]}
+  />
 
-      <h2>What You Earn</h2>
-      <p>
-        VPP earnings depend on market conditions, but the advantage of Powston is that you trade at <strong>wholesale rates</strong> — which spike well above standard feed-in tariffs during peak demand. Typical returns include:
-      </p>
-      <ul>
-        <li><strong>Wholesale energy payments</strong> — you're paid the actual market rate for each kWh exported, not a flat feed-in tariff</li>
-        <li><strong>Peak event bonuses</strong> — during extreme demand events (heatwaves, grid shortfalls), wholesale prices can spike dramatically, and your battery exports at those rates</li>
-        <li><strong>Reduced grid purchases</strong> — intelligent load shifting means you buy less from the grid, compounding your savings</li>
-      </ul>
-      <p>
-        Combined with solar self-consumption and smart load shifting, VPP participation can significantly shorten your battery payback period.
-      </p>
+  <p style="max-width: 720px; margin: -1rem auto 2rem; padding: 0 1.5rem; text-align: center; color: #555;">
+    Alongside VPP trading, we configure intelligent load shifting through the <strong>Sigenergy app</strong>. This automatically runs your appliances at the right time using the cheapest available energy — so you use more of your own solar, reduce what you buy from the grid, and keep more energy available for VPP trading when prices are high. The result: your home uses solar energy first, your battery stays charged for high-value VPP events, and your appliances run without you having to think about it.
+  </p>
 
-      <h2>Who Can Join?</h2>
-      <p>
-        If you have a solar and battery system (or are getting one installed), you're likely eligible. The main requirements are:
-      </p>
-      <ul>
-        <li>A compatible home battery system (we install VPP-ready systems as standard)</li>
-        <li>Internet connection for the battery to communicate with the Powston platform</li>
-        <li>An electricity retailer supported by Powston (most major retailers are covered)</li>
-      </ul>
-      <p>
-        Victorian homeowners are well-positioned for VPPs — the state's grid demand peaks align with when home batteries have the most stored energy. Geelong, the Surf Coast, and Bellarine Peninsula all have strong solar generation profiles that make VPP participation worthwhile.
-      </p>
+  <IconFeatureGrid
+    bg="light"
+    label="Revenue"
+    heading="What You Earn"
+    description="VPP earnings depend on market conditions, but the advantage of Powston is that you trade at wholesale rates — which spike well above standard feed-in tariffs during peak demand. Combined with solar self-consumption and smart load shifting, VPP participation can significantly shorten your battery payback period."
+    features={[
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+        title: 'Wholesale energy payments',
+        description: 'You are paid the actual market rate for each kWh exported, not a flat feed-in tariff.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
+        title: 'Peak event bonuses',
+        description: 'During extreme demand events (heatwaves, grid shortfalls), wholesale prices can spike dramatically, and your battery exports at those rates.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
+        title: 'Reduced grid purchases',
+        description: 'Intelligent load shifting means you buy less from the grid, compounding your savings.'
+      },
+    ]}
+  />
 
-      <h2>VPPs and Your Home Energy System</h2>
-      <p>
-        A VPP works best as part of an integrated energy system. When your solar, battery, and <a href="/services/residential/home-automation">home automation</a> are managed together, the system can optimise when to store, when to use, and when to export — maximising both your savings and your VPP earnings.
-      </p>
-      <p>
-        Our <a href="/laboratory/environmental-service-pod">Environmental Service Pod (ESP)</a> is designed for exactly this kind of coordinated operation — solar, battery, heat pump, and smart controls all working as one system, with VPP and load shifting built in.
-      </p>
+  <IconFeatureGrid
+    label="Eligibility"
+    heading="Who Can Join?"
+    description="If you have a solar and battery system (or are getting one installed), you are likely eligible. Victorian homeowners are well-positioned for VPPs — the state's grid demand peaks align with when home batteries have the most stored energy. Geelong, the Surf Coast, and Bellarine Peninsula all have strong solar generation profiles that make VPP participation worthwhile."
+    features={[
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 0 0-8 0v2"/></svg>',
+        title: 'Compatible battery',
+        description: 'A compatible home battery system — we install VPP-ready systems as standard.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>',
+        title: 'Internet connection',
+        description: 'Internet connection for the battery to communicate with the Powston platform.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+        title: 'Supported retailer',
+        description: 'An electricity retailer supported by Powston — most major retailers are covered.'
+      },
+    ]}
+  />
 
-      <h3>Related</h3>
-      <ul>
-        <li><a href="/services/residential/battery-systems">Home battery storage &rarr;</a></li>
-        <li><a href="/services/residential/solar-systems">Residential solar systems &rarr;</a></li>
-        <li><a href="/services/residential/home-automation">Home automation &rarr;</a></li>
-        <li><a href="/laboratory/environmental-service-pod">Environmental Service Pod &rarr;</a></li>
-        <li><a href="/services/faq">Frequently asked questions &rarr;</a></li>
-      </ul>
+  <SplitFeature reverse bg="cream" image="/image/WIP/environmental-service-pod/esp-full-system-rendering.webp" alt="EES integrated home energy system with VPP capability">
+    <p class="section-label">Integrated Energy</p>
+    <h2>VPPs and Your Home Energy System</h2>
+    <p>
+      A VPP works best as part of an integrated energy system. When your solar, battery, and <a href="/services/residential/home-automation">home automation</a> are managed together, the system can optimise when to store, when to use, and when to export — maximising both your savings and your VPP earnings.
+    </p>
+    <p>
+      Our <a href="/laboratory/environmental-service-pod">Environmental Service Pod (ESP)</a> is designed for exactly this kind of coordinated operation — solar, battery, heat pump, and smart controls all working as one system, with VPP and load shifting built in.
+    </p>
+  </SplitFeature>
 
-      <p>
-        <a href="/services/consultation">Book a free consultation</a> to find out how Powston VPP can work with your system, or call us on <a href="tel:0427664827">0427 664 827</a>.
-      </p>
+  <RelatedNav
+    heading="Related Services"
+    links={[
+      { href: '/services/residential/battery-systems', title: 'Home Battery Storage', description: 'Store your solar energy and use it when you need it' },
+      { href: '/services/residential/solar-systems', title: 'Residential Solar Systems', description: 'Rooftop solar designed around your energy profile' },
+      { href: '/services/residential/home-automation', title: 'Home Automation', description: 'Intelligent control of your home energy systems' },
+      { href: '/laboratory/environmental-service-pod', title: 'Environmental Service Pod', description: 'Solar, battery, heat pump, and controls in one unit' },
+      { href: '/services/faq', title: 'Frequently Asked Questions', description: 'Common questions about solar, batteries, and energy systems' },
+    ]}
+  />
+
+  <section class="cta-section">
+    <div class="container">
+      <p>Find out how Powston VPP can work with your system.</p>
+      <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
+      <p style="margin-top: 0.75rem; font-size: 0.95rem;">Or call us on <a href="tel:0427664827">0427 664 827</a></p>
     </div>
   </section>
+
   <ScrollIndicator />
 </BaseLayout>

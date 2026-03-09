@@ -1,0 +1,29 @@
+---
+interface Props {
+  image: string;
+  alt: string;
+  reverse?: boolean;
+  bg?: 'white' | 'light' | 'cream';
+}
+
+const { image, alt, reverse = false, bg = 'white' } = Astro.props;
+
+const bgMap = {
+  white: '#fff',
+  light: '#f8f9fa',
+  cream: 'rgba(240, 238, 217, 0.25)',
+};
+---
+
+<section class={`split-feature ${reverse ? 'split-feature--reverse' : ''}`} style={`background: ${bgMap[bg]};`}>
+  <div class="container">
+    <div class="split-layout">
+      <div class="split-text">
+        <slot />
+      </div>
+      <div class="split-image">
+        <img src={image} alt={alt} loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,6 +1,12 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../../components/ScrollIndicator.astro';
+import SplitFeature from '../../../components/sections/SplitFeature.astro';
+import SpecCards from '../../../components/sections/SpecCards.astro';
+import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
+import StatBar from '../../../components/sections/StatBar.astro';
+import RelatedNav from '../../../components/sections/RelatedNav.astro';
+import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
 ---
 
 <BaseLayout
@@ -14,81 +20,124 @@ import ScrollIndicator from '../../../components/ScrollIndicator.astro';
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
-      <h2>Solar Designed for Your Home</h2>
-      <p>
-        Every home is different — roof orientation, shading, energy usage, and future plans all affect what solar system will perform best. We design each system around your specific property, not a generic template.
-      </p>
-      <p>
-        Our process starts with a detailed assessment of your roof, energy bills, and goals. From there, we design a system that maximises self-consumption and delivers the best return on your investment.
-      </p>
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_14_TopCut_.webp" alt="EES residential solar installation on a home in Geelong" bg="white">
+    <p class="section-label">Our Approach</p>
+    <h2>Solar Designed for Your Home</h2>
+    <p>
+      Every home is different — roof orientation, shading, energy usage, and future plans all affect what solar system will perform best. We design each system around your specific property, not a generic template.
+    </p>
+    <p>
+      Our process starts with a detailed assessment of your roof, energy bills, and goals. From there, we design a system that maximises self-consumption and delivers the best return on your investment.
+    </p>
+  </SplitFeature>
 
-      <h2>What We Install</h2>
-      <p>
-        We use high-quality panels and inverters from manufacturers with strong warranties and proven performance in Australian conditions. Every component is selected for long-term reliability, not just the lowest price.
-      </p>
-      <ul>
-        <li><strong>Tier 1 solar panels</strong> — independently tested and rated for Australian conditions</li>
-        <li><strong>Quality inverters</strong> — the component that converts DC power from your panels to AC power for your home</li>
-        <li><strong>Optimised design</strong> — panel placement and string configuration designed for your specific roof</li>
-        <li><strong>Full monitoring</strong> — see your generation and consumption in real time from your phone</li>
-      </ul>
+  <IconFeatureGrid
+    label="What We Install"
+    heading="Quality Components, Long-Term Reliability"
+    bg="light"
+    features={[
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/></svg>',
+        title: 'Tier 1 Solar Panels',
+        description: 'Independently tested and rated for Australian conditions with 25-year warranties.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+        title: 'Quality Inverters',
+        description: 'The component that converts DC power from your panels to AC power for your home.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>',
+        title: 'Optimised Design',
+        description: 'Panel placement and string configuration designed for your specific roof.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>',
+        title: 'Full Monitoring',
+        description: 'See your generation and consumption in real time from your phone.'
+      },
+    ]}
+  />
 
-      <h2>System Sizes</h2>
-      <p>
-        The right system size depends on your energy consumption, roof space, and whether you plan to add a battery later.
-      </p>
-      <ul>
-        <li><strong>6.6 kW</strong> — suits smaller households with moderate energy use</li>
-        <li><strong>10 kW</strong> — the most common size for a family home, maximises the federal STC rebate</li>
-        <li><strong>13–15 kW</strong> — for larger homes, homes with pools, or households planning to add a battery, heat pump, or EV charger</li>
-      </ul>
-      <p>
-        We'll recommend the right size during your consultation based on your actual usage data.
-      </p>
+  <SpecCards
+    label="System Sizes"
+    heading="The Right Size for Your Home"
+    cards={[
+      {
+        title: '6.6 kW',
+        body: 'Suits smaller households with moderate energy use. A cost-effective entry point with strong returns.',
+        footer: 'Best for: 1-2 person households'
+      },
+      {
+        title: '10 kW',
+        body: 'The most common size for a family home. Maximises the federal STC rebate and covers most daytime usage.',
+        footer: 'Best for: Family homes'
+      },
+      {
+        title: '13-15 kW',
+        body: 'For larger homes, homes with pools, or households planning to add a battery, heat pump, or EV charger.',
+        footer: 'Best for: Large homes & future-proofing'
+      },
+    ]}
+  />
 
-      <h2>Rebates and Incentives</h2>
-      <p>
-        The federal government provides an upfront discount on solar installations through Small-scale Technology Certificates (STCs). This is applied as a point-of-sale discount — you don't need to claim it separately.
-      </p>
-      <p>
-        Additional Victorian Government rebates may be available depending on your property and household income. As a Solar Victoria approved retailer, we can confirm your eligibility and handle the application process.
-      </p>
+  <StatBar
+    stats={[
+      { value: '70-90%', label: 'Average bill reduction' },
+      { value: '10yr', label: 'Workmanship warranty' },
+      { value: '25yr', label: 'Panel warranty' },
+      { value: '1 day', label: 'Typical install time' },
+    ]}
+  />
 
-      <h2>Installation Process</h2>
-      <ol>
-        <li><strong>Consultation</strong> — we assess your property, review your bills, and discuss your goals</li>
-        <li><strong>Design</strong> — we design a system tailored to your roof and energy profile</li>
-        <li><strong>Paperwork</strong> — we handle the rebate application, grid connection approval, and permits</li>
-        <li><strong>Installation</strong> — our CEC-accredited electricians install the system, typically in one day</li>
-        <li><strong>Commissioning</strong> — we test everything, connect monitoring, and walk you through the system</li>
-      </ol>
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_21_TopCut_.webp" alt="EES solar panels installed on residential roof" reverse bg="white">
+    <p class="section-label">Rebates & Incentives</p>
+    <h2>Government Support to Lower Your Costs</h2>
+    <p>
+      The federal government provides an upfront discount on solar installations through Small-scale Technology Certificates (STCs). This is applied as a point-of-sale discount — you don't need to claim it separately.
+    </p>
+    <p>
+      Additional Victorian Government rebates may be available depending on your property and household income. As a Solar Victoria approved retailer, we confirm your eligibility and handle the application process.
+    </p>
+  </SplitFeature>
 
-      <h2>Warranty and Support</h2>
-      <p>
-        Every installation comes with our <strong>10-year workmanship warranty</strong>, covering the installation itself — not just the products. If something goes wrong with how the system was installed, we fix it.
-      </p>
-      <p>
-        Panel and inverter manufacturer warranties apply on top of this, typically 25 years for panels and 10–15 years for inverters.
-      </p>
+  <ProcessTimeline
+    label="How It Works"
+    heading="From Enquiry to Savings"
+    steps={[
+      { title: 'Consultation', description: 'We assess your property, review your bills, and discuss your goals.' },
+      { title: 'Design', description: 'We design a system tailored to your roof and energy profile.' },
+      { title: 'Paperwork', description: 'We handle the rebate application, grid connection approval, and permits.' },
+      { title: 'Installation', description: 'Our CEC-accredited electricians install the system, typically in one day.' },
+      { title: 'Commissioning', description: 'We test everything, connect monitoring, and walk you through the system.' },
+    ]}
+  />
 
-      <h2>Servicing Geelong, Torquay and the Surf Coast</h2>
-      <p>
-        We're a local team based in Moolap. We service Greater Geelong, Torquay, the Surf Coast, Bellarine Peninsula, Golden Plains, and wider regional Victoria. Because we're local, we're here for the long term — not a fly-in-fly-out installer.
-      </p>
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_19_TopCut_.webp" alt="EES headquarters in Moolap, Geelong" bg="light">
+    <p class="section-label">Warranty & Support</p>
+    <h2>We Stand Behind Every Install</h2>
+    <p>
+      Every installation comes with our <strong>10-year workmanship warranty</strong>, covering the installation itself — not just the products. If something goes wrong with how the system was installed, we fix it.
+    </p>
+    <p>
+      Panel and inverter manufacturer warranties apply on top of this, typically 25 years for panels and 10-15 years for inverters. We're a local team based in Moolap — here for the long term, not a fly-in-fly-out installer.
+    </p>
+  </SplitFeature>
 
-      <h3>Related</h3>
-      <ul>
-        <li><a href="/services/residential/battery-systems">Add battery storage &rarr;</a></li>
-        <li><a href="/services/residential/heat-pump-systems">Heat pump hot water systems &rarr;</a></li>
-        <li><a href="/services/financing">Financing options &amp; rebates &rarr;</a></li>
-      </ul>
+  <RelatedNav
+    links={[
+      { href: '/services/residential/battery-systems', title: 'Battery Storage', description: 'Store solar energy for use after dark' },
+      { href: '/services/residential/heat-pump-systems', title: 'Heat Pump Systems', description: 'Efficient hot water and climate control' },
+      { href: '/services/financing', title: 'Financing & Rebates', description: 'Payment plans and government incentives' },
+    ]}
+  />
 
-      <p>
-        <a href="/services/consultation">Book a free consultation</a> to get a solar system designed for your home.
-      </p>
+  <section class="cta-section">
+    <div class="container">
+      <p>Ready to get a solar system designed for your home?</p>
+      <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
     </div>
   </section>
+
   <ScrollIndicator />
 </BaseLayout>

@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../../components/ScrollIndicator.astro';
+import SplitFeature from '../../../components/sections/SplitFeature.astro';
+import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
+import SpecCards from '../../../components/sections/SpecCards.astro';
+import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
+import RelatedNav from '../../../components/sections/RelatedNav.astro';
 ---
 
 <BaseLayout
@@ -14,53 +19,103 @@ import ScrollIndicator from '../../../components/ScrollIndicator.astro';
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
-      <h2>Solar for Business</h2>
-      <p>
-        Commercial electricity rates are high and rising. A well-designed solar system offsets a significant portion of your daytime energy consumption — the hours when most businesses are running at full capacity and electricity costs the most.
-      </p>
-      <p>
-        Unlike residential systems, commercial solar is designed around your business's load profile, roof or ground-mount availability, and operational hours. We design systems that maximise self-consumption, not just generation.
-      </p>
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_10.webp" alt="Commercial rooftop solar installation" bg="white">
+    <p class="section-label">Solar for Business</p>
+    <h2>Built for Commercial Energy Demands</h2>
+    <p>
+      Commercial electricity rates are high and rising. A well-designed solar system offsets a significant portion of your daytime energy consumption — the hours when most businesses are running at full capacity and electricity costs the most.
+    </p>
+    <p>
+      Unlike residential systems, commercial solar is designed around your business's load profile, roof or ground-mount availability, and operational hours. We design systems that maximise self-consumption, not just generation.
+    </p>
+  </SplitFeature>
 
-      <h2>What We Design and Install</h2>
-      <ul>
-        <li><strong>Rooftop systems</strong> — from 10 kW to 100+ kW, designed for flat or pitched commercial roofs</li>
-        <li><strong>Ground-mount systems</strong> — for properties with available land and unsuitable roofs</li>
-        <li><strong>Three-phase systems</strong> — for commercial and industrial electrical configurations</li>
-        <li><strong>Monitoring and reporting</strong> — real-time performance data for energy management and reporting</li>
-      </ul>
+  <SpecCards
+    label="System Types"
+    heading="What We Design and Install"
+    cards={[
+      {
+        title: 'Rooftop Systems',
+        body: 'From 10 kW to 100+ kW, designed for flat or pitched commercial roofs. Optimised for your building\'s specific layout and shading profile.',
+        footer: '10-100+ kW capacity'
+      },
+      {
+        title: 'Ground-Mount',
+        body: 'For properties with available land and unsuitable roofs. Engineered mounting systems with optimal tilt and orientation.',
+        footer: 'Where roof isn\'t suitable'
+      },
+      {
+        title: 'Three-Phase',
+        body: 'Designed for commercial and industrial electrical configurations. Full monitoring and reporting for energy management.',
+        footer: 'Commercial & industrial'
+      },
+    ]}
+  />
 
-      <h2>Financial Benefits</h2>
-      <p>
-        Commercial solar offers strong returns:
-      </p>
-      <ul>
-        <li><strong>Reduced electricity bills</strong> — offset daytime energy consumption directly</li>
-        <li><strong>Federal STC rebate</strong> — applied as a point-of-sale discount, reducing upfront cost</li>
-        <li><strong>Tax depreciation</strong> — commercial solar systems can be depreciated as a business asset</li>
-        <li><strong>Sustainability credentials</strong> — meet reporting requirements and demonstrate environmental commitment</li>
-      </ul>
+  <IconFeatureGrid
+    label="Returns"
+    heading="Financial Benefits"
+    bg="light"
+    columns={2}
+    features={[
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+        title: 'Reduced Electricity Bills',
+        description: 'Offset daytime energy consumption directly at retail rates.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>',
+        title: 'Federal STC Rebate',
+        description: 'Applied as a point-of-sale discount, reducing upfront cost.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
+        title: 'Tax Depreciation',
+        description: 'Commercial solar systems can be depreciated as a business asset under Division 40.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+        title: 'Sustainability Credentials',
+        description: 'Meet reporting requirements and demonstrate environmental commitment.'
+      },
+    ]}
+  />
 
-      <h2>Our Process</h2>
-      <ol>
-        <li><strong>Site assessment</strong> — we evaluate your property, energy usage, and electrical infrastructure</li>
-        <li><strong>System design</strong> — engineered for your specific load profile and roof</li>
-        <li><strong>Approvals</strong> — we handle grid connection applications, permits, and rebate paperwork</li>
-        <li><strong>Installation</strong> — scheduled around your operations to minimise disruption</li>
-        <li><strong>Commissioning</strong> — full testing, monitoring setup, and handover</li>
-      </ol>
+  <ProcessTimeline
+    label="Our Process"
+    heading="From Assessment to Savings"
+    steps={[
+      { title: 'Site Assessment', description: 'We evaluate your property, energy usage, and electrical infrastructure.' },
+      { title: 'System Design', description: 'Engineered for your specific load profile and roof layout.' },
+      { title: 'Approvals', description: 'We handle grid connection applications, permits, and rebate paperwork.' },
+      { title: 'Installation', description: 'Scheduled around your operations to minimise disruption.' },
+      { title: 'Commissioning', description: 'Full testing, monitoring setup, and handover.' },
+    ]}
+  />
 
-      <h2>Add Battery Storage</h2>
-      <p>
-        Solar and battery together can further reduce your electricity costs by storing excess generation for use during peak tariff periods and reducing demand charges. See our <a href="/services/commercial/battery-systems">commercial battery systems</a> page for more detail.
-      </p>
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/comerical_V1.webp" alt="Large commercial solar array" reverse bg="light">
+    <p class="section-label">Maximise Your Investment</p>
+    <h2>Add Battery Storage</h2>
+    <p>
+      Solar and battery together can further reduce your electricity costs by storing excess generation for use during peak tariff periods and reducing demand charges. Batteries extend your solar savings beyond daylight hours.
+    </p>
+    <a href="/services/commercial/battery-systems" class="btn btn-primary">Learn About Battery Storage</a>
+  </SplitFeature>
 
-      <p>
-        <a href="/services/consultation">Book a free consultation</a> to get a commercial solar assessment for your business.
-      </p>
+  <RelatedNav
+    links={[
+      { href: '/services/commercial/battery-systems', title: 'Battery Storage', description: 'Peak shaving and demand management' },
+      { href: '/services/commercial', title: 'Commercial Overview', description: 'All commercial energy solutions' },
+      { href: '/services/consultation', title: 'Free Consultation', description: 'Get a commercial solar assessment' },
+    ]}
+  />
+
+  <section class="cta-section">
+    <div class="container">
+      <p>Ready to get a commercial solar assessment for your business?</p>
+      <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
     </div>
   </section>
+
   <ScrollIndicator />
 </BaseLayout>

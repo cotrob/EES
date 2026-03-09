@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../components/ScrollIndicator.astro';
+import RelatedNav from '../../components/sections/RelatedNav.astro';
 ---
 
 <BaseLayout
@@ -14,31 +15,21 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
-      <h2>Resources</h2>
-      <p>
-        Access our published research, testing videos, and technical documentation from our laboratory and field installations.
-      </p>
+  <RelatedNav
+    heading="Browse Our Resources"
+    links={[
+      { href: '/laboratory/written-papers', title: 'Academic Research', description: 'Peer-reviewed publications on thermal comfort, radiant ceilings, heat pumps, and renewable energy' },
+      { href: '/laboratory/footage', title: 'Testing Videos', description: 'Video from our test facility and real-world installations' },
+      { href: '/laboratory/products', title: 'Products', description: 'Technical details on products developed and tested in our facility' },
+    ]}
+  />
 
-      <h3>Academic Research</h3>
-      <p>
-        Peer-reviewed publications covering thermal comfort, radiant ceiling systems, heat pumps, and renewable energy integration.
-      </p>
-      <p><a href="/laboratory/written-papers">View research papers &rarr;</a></p>
-
-      <h3>Testing Videos</h3>
-      <p>
-        Video from our test facility and real-world installations.
-      </p>
-      <p><a href="/laboratory/footage">View testing videos &rarr;</a></p>
-
-      <h3>Products</h3>
-      <p>
-        Technical details on products developed and tested in our facility.
-      </p>
-      <p><a href="/laboratory/products">View products &rarr;</a></p>
+  <section class="cta-section">
+    <div class="container">
+      <p>Interested in our research or want to collaborate?</p>
+      <a href="/contact" class="btn btn-primary">Get in Touch</a>
     </div>
   </section>
+
   <ScrollIndicator />
 </BaseLayout>

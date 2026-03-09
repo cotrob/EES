@@ -1,0 +1,46 @@
+---
+interface Step {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  label?: string;
+  heading?: string;
+  steps: Step[];
+  bg?: 'white' | 'light' | 'cream';
+}
+
+const { label, heading, steps, bg = 'cream' } = Astro.props;
+
+const bgMap = {
+  white: '#fff',
+  light: '#f8f9fa',
+  cream: 'rgba(240, 238, 217, 0.25)',
+};
+---
+
+<section class="process-timeline" style={`background: ${bgMap[bg]};`}>
+  <div class="container">
+    {(label || heading) && (
+      <div class="process-timeline-header">
+        {label && <p class="section-label">{label}</p>}
+        {heading && <h2>{heading}</h2>}
+      </div>
+    )}
+    <div class="steps-timeline">
+      {steps.map((step, i) => (
+        <div class="step">
+          <div class="step-marker">
+            <span class="step-number">{i + 1}</span>
+            {i < steps.length - 1 && <div class="step-line"></div>}
+          </div>
+          <div class="step-content">
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../../components/ScrollIndicator.astro';
+import SplitFeature from '../../../components/sections/SplitFeature.astro';
+import StatBar from '../../../components/sections/StatBar.astro';
+import RelatedNav from '../../../components/sections/RelatedNav.astro';
+import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
 ---
 
 <BaseLayout
@@ -14,41 +18,73 @@ import ScrollIndicator from '../../../components/ScrollIndicator.astro';
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
-      <h2>The Polyvalent Heat Pump</h2>
-      <p>
-        Our heat pump is different from conventional units. It is <strong>polyvalent</strong> — meaning it produces heating and cooling simultaneously, rather than one or the other.
-      </p>
-      <p>
-        For every 1 kW of electricity consumed, the heat pump delivers an average of <strong>4 kW of thermal output</strong> (a COP of 4:1). But because it generates hot and cold water at the same time, the real-world effective performance is closer to <strong>7:1</strong> — making it exceptionally efficient.
-      </p>
+  <SplitFeature image="/image/WIP/environmental-service-pod/esp-complete-system-front-photo.webp" alt="EES polyvalent heat pump system" bg="white">
+    <p class="section-label">Core Technology</p>
+    <h2>The Polyvalent Heat Pump</h2>
+    <p>
+      Our heat pump is different from conventional units. It is <strong>polyvalent</strong> — meaning it produces heating and cooling simultaneously, rather than one or the other.
+    </p>
+    <p>
+      For every 1 kW of electricity consumed, the heat pump delivers an average of <strong>4 kW of thermal output</strong> (a COP of 4:1). But because it generates hot and cold water at the same time, the real-world effective performance is closer to <strong>7:1</strong> — making it exceptionally efficient.
+    </p>
+  </SplitFeature>
 
-      <h2>What It Powers</h2>
-      <p>The heat pump is the core of our Environmental Service Pod and provides:</p>
-      <ul>
-        <li><strong>Space heating</strong> — via our hydronic ceiling panels</li>
-        <li><strong>Space cooling</strong> — via the same ceiling panels</li>
-        <li><strong>Domestic hot water</strong> — stored in a 220L insulated tank</li>
-      </ul>
-      <p>All from one compact, 48V DC unit.</p>
+  <StatBar
+    dark
+    stats={[
+      { value: '4:1', label: 'Standard COP' },
+      { value: '7:1', label: 'Effective COP' },
+      { value: '48V', label: 'DC Operation' },
+      { value: '220L', label: 'Hot Water Storage' },
+    ]}
+  />
 
-      <h2>How It Fits Into Your Home</h2>
-      <p>
-        The heat pump connects to two thermal storage tanks (hot and cold) and is managed by an intelligent MODBUS control system. Combined with solar PV and battery storage, it forms a complete home energy system that can operate independently of the grid.
-      </p>
+  <IconFeatureGrid
+    label="Capabilities"
+    heading="What It Powers"
+    description="The heat pump is the core of our Environmental Service Pod and provides all climate and hot water services from one compact, 48V DC unit."
+    bg="light"
+    features={[
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>',
+        title: 'Space Heating',
+        description: 'Warm water circulated through our hydronic ceiling panels provides even, radiant heating throughout your home.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>',
+        title: 'Space Cooling',
+        description: 'The same ceiling panels deliver cooling by circulating chilled water — no separate air conditioning system required.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6l3 3"/><circle cx="12" cy="14" r="8"/><path d="M8 14h8"/></svg>',
+        title: 'Hot Water',
+        description: 'Domestic hot water stored in a 220L insulated tank, heated efficiently by the same heat pump unit.'
+      },
+    ]}
+  />
 
-      <h3>Related</h3>
-      <ul>
-        <li><a href="/laboratory/environmental-service-pod">Learn about the Environmental Service Pod &rarr;</a></li>
-        <li><a href="/services/residential/comfort-conditioning">Learn about comfort conditioning &rarr;</a></li>
-        <li><a href="/services/residential/solar-systems">Learn about solar systems &rarr;</a></li>
-      </ul>
+  <SplitFeature image="/image/WIP/environmental-service-pod/esp-modular-layout-schematic.webp" alt="Heat pump integration schematic showing connection to thermal storage and home systems" reverse bg="white">
+    <p class="section-label">System Integration</p>
+    <h2>How It Fits Into Your Home</h2>
+    <p>
+      The heat pump connects to two thermal storage tanks (hot and cold) and is managed by an intelligent MODBUS control system. Combined with solar PV and battery storage, it forms a complete home energy system that can operate independently of the grid.
+    </p>
+  </SplitFeature>
 
-      <p>
-        <a href="/contact">Request a free consultation</a> to find out if a polyvalent heat pump is right for your home.
-      </p>
+  <RelatedNav
+    links={[
+      { href: '/laboratory/environmental-service-pod', title: 'Environmental Service Pod', description: 'Learn about our integrated energy system' },
+      { href: '/services/residential/comfort-conditioning', title: 'Comfort Conditioning', description: 'Hydronic radiant ceiling panels for heating and cooling' },
+      { href: '/services/residential/solar-systems', title: 'Solar Systems', description: 'Solar panel installation designed for your home' },
+    ]}
+  />
+
+  <section class="cta-section">
+    <div class="container">
+      <p>Ready to find out if a polyvalent heat pump is right for your home?</p>
+      <a href="/contact" class="btn btn-primary">Request a Free Consultation</a>
     </div>
   </section>
+
   <ScrollIndicator />
 </BaseLayout>

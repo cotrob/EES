@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../../components/ScrollIndicator.astro';
+import SplitFeature from '../../../components/sections/SplitFeature.astro';
+import SpecCards from '../../../components/sections/SpecCards.astro';
+import StatBar from '../../../components/sections/StatBar.astro';
+import RelatedNav from '../../../components/sections/RelatedNav.astro';
+import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
 ---
 
 <BaseLayout
@@ -14,82 +19,128 @@ import ScrollIndicator from '../../../components/ScrollIndicator.astro';
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
-      <h2>Why Add a Battery?</h2>
-      <p>
-        Solar panels generate electricity during the day, but most households use the bulk of their energy in the evening. Without storage, that daytime solar is exported to the grid for a fraction of what you pay to buy it back at night.
-      </p>
-      <p>
-        A home battery stores your excess solar generation and releases it when you need it — after dark, during peak tariff periods, or during a grid outage. The result is <strong>less energy purchased from the grid</strong> and more value from every panel on your roof.
-      </p>
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_15_TopCut_.webp" alt="Home battery storage installation by EES in Geelong" bg="white">
+    <p class="section-label">Energy Independence</p>
+    <h2>Why Add a Battery?</h2>
+    <p>
+      Solar panels generate electricity during the day, but most households use the bulk of their energy in the evening. Without storage, that daytime solar is exported to the grid for a fraction of what you pay to buy it back at night.
+    </p>
+    <p>
+      A home battery stores your excess solar generation and releases it when you need it — after dark, during peak tariff periods, or during a grid outage. The result is <strong>less energy purchased from the grid</strong> and more value from every panel on your roof.
+    </p>
+  </SplitFeature>
 
-      <h2>How It Works</h2>
-      <p>
-        Your solar panels charge the battery during the day. When the battery is full, any remaining excess is exported to the grid. In the evening, your home draws from the battery first, only pulling from the grid once the battery is depleted.
-      </p>
-      <p>
-        Modern battery systems are managed by a built-in battery management system (BMS) that handles charge cycles, temperature, and cell balancing automatically. You monitor everything from an app on your phone.
-      </p>
+  <IconFeatureGrid
+    label="The Basics"
+    heading="How It Works"
+    bg="light"
+    features={[
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>',
+        title: 'Solar Charges Battery',
+        description: 'Your solar panels charge the battery during the day. When the battery is full, any remaining excess is exported to the grid.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="7" width="12" height="10" rx="1"/><line x1="10" y1="7" x2="10" y2="17"/><line x1="14" y1="7" x2="14" y2="17"/><line x1="4" y1="10" x2="4" y2="14"/><line x1="4" y1="10" x2="6" y2="10"/><line x1="4" y1="14" x2="6" y2="14"/><line x1="18" y1="10" x2="20" y2="10"/><line x1="18" y1="14" x2="20" y2="14"/></svg>',
+        title: 'Battery Powers Home',
+        description: 'In the evening, your home draws from the battery first, only pulling from the grid once the battery is depleted.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/><path d="M9 8h6M9 12h4"/></svg>',
+        title: 'App Monitors Everything',
+        description: 'Modern battery systems are managed by a built-in BMS that handles charge cycles, temperature, and cell balancing automatically. You monitor everything from an app on your phone.'
+      },
+    ]}
+  />
 
-      <h2>What Size Battery Do You Need?</h2>
-      <p>
-        The right battery size depends on your household energy profile — how much solar you generate, when you use energy, and what you want the battery to cover.
-      </p>
-      <ul>
-        <li><strong>5 kWh</strong> — suits smaller households or those wanting to offset evening peak usage</li>
-        <li><strong>10 kWh</strong> — covers most of the overnight consumption for an average home</li>
-        <li><strong>13–15 kWh</strong> — for larger homes or those aiming for near grid independence</li>
-      </ul>
-      <p>
-        We design every system around your actual energy data — not a one-size-fits-all estimate. During your consultation, we'll review your bills, usage patterns, and solar generation to recommend the right capacity.
-      </p>
+  <SpecCards
+    label="Sizing Guide"
+    heading="What Size Battery Do You Need?"
+    cards={[
+      {
+        title: '5 kWh',
+        body: 'Suits smaller households or those wanting to offset evening peak usage. A cost-effective entry point into battery storage.',
+        footer: 'Best for: Small households & peak offset'
+      },
+      {
+        title: '10 kWh',
+        body: 'Covers most of the overnight consumption for an average home. The most common choice for families with solar.',
+        footer: 'Best for: Average family homes'
+      },
+      {
+        title: '13-15 kWh',
+        body: 'For larger homes or those aiming for near grid independence. Ideal when paired with a larger solar system.',
+        footer: 'Best for: Large homes & grid independence'
+      },
+    ]}
+  />
 
-      <h2>Victorian Battery Rebate</h2>
-      <p>
-        The Victorian Government offers a rebate on home battery installations through the Solar Victoria program. Eligibility depends on your property type, household income, and whether you already have solar installed.
-      </p>
-      <p>
-        As a Solar Victoria approved retailer, we handle the rebate application as part of your installation — you don't need to apply separately.
-      </p>
-      <p>
-        Additional federal incentives through Small-scale Technology Certificates (STCs) also reduce the upfront cost of qualifying systems.
-      </p>
+  <StatBar
+    stats={[
+      { value: '10yr+', label: 'Battery lifespan' },
+      { value: '80%+', label: 'Grid independence' },
+      { value: '$0.30+', label: 'Per kWh saved vs grid' },
+      { value: '24/7', label: 'App monitoring' },
+    ]}
+  />
 
-      <h2>What Affects the Cost?</h2>
-      <p>
-        Battery pricing depends on several factors:
-      </p>
-      <ul>
-        <li><strong>Capacity</strong> — larger batteries cost more but store more energy</li>
-        <li><strong>Chemistry</strong> — lithium iron phosphate (LiFePO4) costs more upfront but lasts longer and is safer than other lithium chemistries</li>
-        <li><strong>Hybrid vs retrofit</strong> — installing a battery alongside a new solar system is typically more cost-effective than retrofitting an existing system</li>
-        <li><strong>Backup capability</strong> — full home backup during outages requires additional switchgear</li>
-      </ul>
-      <p>
-        We provide a detailed, itemised quote after your consultation — no hidden costs or vague estimates.
-      </p>
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_20_TopCut_.webp" alt="Victorian battery rebate eligible installation by EES" reverse bg="white">
+    <p class="section-label">Rebates & Incentives</p>
+    <h2>Victorian Battery Rebate</h2>
+    <p>
+      The Victorian Government offers a rebate on home battery installations through the Solar Victoria program. Eligibility depends on your property type, household income, and whether you already have solar installed.
+    </p>
+    <p>
+      As a Solar Victoria approved retailer, we handle the rebate application as part of your installation — you don't need to apply separately.
+    </p>
+    <p>
+      Additional federal incentives through Small-scale Technology Certificates (STCs) also reduce the upfront cost of qualifying systems.
+    </p>
+  </SplitFeature>
 
-      <h2>Battery Backup and Off-Grid</h2>
-      <p>
-        A standard grid-connected battery will not power your home during a blackout unless it's configured for backup. We offer full backup solutions that keep your essential circuits running when the grid goes down.
-      </p>
-      <p>
-        For properties suited to it, we also design off-grid and hybrid systems that can operate independently of the grid entirely. Our <a href="/laboratory/environmental-service-pod">Environmental Service Pod</a> integrates battery storage with solar, heat pump, and heating/cooling in a single modular system designed for grid independence.
-      </p>
+  <IconFeatureGrid
+    label="Pricing Factors"
+    heading="What Affects the Cost?"
+    features={[
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="1"/><line x1="10" y1="4" x2="10" y2="20"/><line x1="14" y1="4" x2="14" y2="20"/><line x1="6" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="6" y1="16" x2="18" y2="16"/></svg>',
+        title: 'Capacity',
+        description: 'Larger batteries cost more but store more energy. The right size depends on your household consumption and solar generation.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>',
+        title: 'Chemistry',
+        description: 'Lithium iron phosphate (LiFePO4) costs more upfront but lasts longer and is safer than other lithium chemistries.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+        title: 'Hybrid vs Retrofit',
+        description: 'Installing a battery alongside a new solar system is typically more cost-effective than retrofitting an existing system.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+        title: 'Backup Capability',
+        description: 'Full home backup during outages requires additional switchgear. Standard grid-connected batteries will not power your home during a blackout unless configured for backup.'
+      },
+    ]}
+    columns={2}
+  />
 
-      <h3>Related</h3>
-      <ul>
-        <li><a href="/services/residential/solar-systems">Residential solar systems &rarr;</a></li>
-        <li><a href="/services/residential/home-automation">Home automation &amp; energy management &rarr;</a></li>
-        <li><a href="/services/financing">Financing options &amp; rebates &rarr;</a></li>
-        <li><a href="/laboratory/environmental-service-pod">Environmental Service Pod &rarr;</a></li>
-      </ul>
+  <RelatedNav
+    links={[
+      { href: '/services/residential/solar-systems', title: 'Residential Solar Systems', description: 'Solar panel installation designed for your home' },
+      { href: '/services/residential/home-automation', title: 'Home Automation', description: 'Smart energy management for your home' },
+      { href: '/services/financing', title: 'Financing & Rebates', description: 'Payment plans and government incentives' },
+      { href: '/laboratory/environmental-service-pod', title: 'Environmental Service Pod', description: 'Integrated solar, battery, heat pump, and conditioning in one system' },
+    ]}
+  />
 
-      <p>
-        <a href="/services/consultation">Book a free consultation</a> to find out what battery system is right for your home.
-      </p>
+  <section class="cta-section">
+    <div class="container">
+      <p>Ready to find out what battery system is right for your home?</p>
+      <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
     </div>
   </section>
+
   <ScrollIndicator />
 </BaseLayout>

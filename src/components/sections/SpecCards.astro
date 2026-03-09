@@ -1,0 +1,43 @@
+---
+interface Card {
+  title: string;
+  body: string;
+  footer?: string;
+}
+
+interface Props {
+  label?: string;
+  heading?: string;
+  cards: Card[];
+}
+
+const { label, heading, cards } = Astro.props;
+---
+
+<section class="spec-cards-section">
+  <div class="container">
+    {(label || heading) && (
+      <div class="spec-cards-header">
+        {label && <p class="section-label">{label}</p>}
+        {heading && <h2>{heading}</h2>}
+      </div>
+    )}
+    <div class="spec-grid">
+      {cards.map((card) => (
+        <div class="spec-card">
+          <div class="spec-card-header">
+            <h3>{card.title}</h3>
+          </div>
+          <div class="spec-card-body">
+            <p>{card.body}</p>
+          </div>
+          {card.footer && (
+            <div class="spec-card-footer">
+              <span>{card.footer}</span>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

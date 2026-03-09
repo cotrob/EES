@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../components/ScrollIndicator.astro';
+import SplitFeature from '../../components/sections/SplitFeature.astro';
+import ProcessTimeline from '../../components/sections/ProcessTimeline.astro';
+import IconFeatureGrid from '../../components/sections/IconFeatureGrid.astro';
+import RelatedNav from '../../components/sections/RelatedNav.astro';
 ---
 
 <BaseLayout
@@ -14,58 +18,95 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
-      <h2>What Happens During a Consultation</h2>
-      <p>
-        We visit your property and carry out a detailed assessment. This isn't a sales pitch — it's an engineering assessment to determine what system will actually work best for your situation.
-      </p>
-      <p>During the visit, we'll:</p>
-      <ul>
-        <li><strong>Assess your roof</strong> — orientation, pitch, shading, and available space for solar panels</li>
-        <li><strong>Review your energy bills</strong> — understand how much you use, when you use it, and what you're paying</li>
-        <li><strong>Discuss your goals</strong> — whether that's reducing bills, going off-grid, replacing gas, adding a battery, or all of the above</li>
-        <li><strong>Evaluate your electrical setup</strong> — switchboard capacity, existing wiring, and what's needed for installation</li>
-        <li><strong>Recommend a system</strong> — based on your property, not a generic package</li>
-      </ul>
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_18_TopCut_.webp" alt="EES team conducting a property energy assessment" bg="white">
+    <p class="section-label">What to Expect</p>
+    <h2>A Proper Engineering Assessment</h2>
+    <p>
+      We visit your property and carry out a detailed assessment. This isn't a sales pitch — it's an engineering assessment to determine what system will actually work best for your situation.
+    </p>
+    <p>
+      Every consultation is conducted by a qualified member of our team — not a subcontractor or third-party sales agent.
+    </p>
+  </SplitFeature>
 
-      <h2>What You'll Receive</h2>
-      <p>
-        After your consultation, we provide a detailed proposal that includes:
-      </p>
-      <ul>
-        <li>System design and component specifications</li>
-        <li>Expected energy generation and savings</li>
-        <li>Applicable rebates (STC, Victorian Government rebates)</li>
-        <li>Itemised pricing — no hidden costs</li>
-        <li>Financing options if needed</li>
-      </ul>
-      <p>
-        There's no obligation and no pressure. If you decide to proceed, we handle everything from paperwork to installation. If not, you keep the assessment.
-      </p>
+  <ProcessTimeline
+    label="During Your Visit"
+    heading="What Happens During a Consultation"
+    steps={[
+      { title: 'Assess Your Roof', description: 'Orientation, pitch, shading, and available space for solar panels.' },
+      { title: 'Review Your Energy Bills', description: 'Understand how much you use, when you use it, and what you\'re paying.' },
+      { title: 'Discuss Your Goals', description: 'Whether that\'s reducing bills, going off-grid, replacing gas, adding a battery, or all of the above.' },
+      { title: 'Evaluate Your Electrical Setup', description: 'Switchboard capacity, existing wiring, and what\'s needed for installation.' },
+      { title: 'Recommend a System', description: 'Based on your property and energy profile, not a generic package.' },
+    ]}
+  />
 
-      <h2>Our Credentials</h2>
-      <p>
-        EES is a CEC-accredited installer and Solar Victoria approved retailer. Every consultation is conducted by a qualified member of our team — not a subcontractor or third-party sales agent.
-      </p>
+  <IconFeatureGrid
+    label="Your Proposal"
+    heading="What You'll Receive"
+    bg="light"
+    columns={3}
+    features={[
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>',
+        title: 'System Design',
+        description: 'Detailed design and component specifications tailored to your property.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>',
+        title: 'Savings Estimate',
+        description: 'Expected energy generation and realistic, conservative savings projections.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+        title: 'Applicable Rebates',
+        description: 'STC discount, Victorian Government rebates, and any other incentives you qualify for.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>',
+        title: 'Itemised Pricing',
+        description: 'Full cost breakdown with no hidden charges or surprise fees.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>',
+        title: 'Financing Options',
+        description: 'Interest-free plans, green loans, and buy-now-pay-later if needed.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6"/><path d="M23 11h-6"/></svg>',
+        title: 'No Obligation',
+        description: 'There\'s no pressure. If you decide not to proceed, you keep the assessment.'
+      },
+    ]}
+  />
 
-      <h2>Service Area</h2>
-      <p>
-        We service Greater Geelong, Torquay, the Surf Coast, Bellarine Peninsula, Golden Plains, and wider regional Victoria. Based in Moolap, we're a local team with local knowledge.
-      </p>
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_19_TopCut_.webp" alt="EES headquarters in Moolap, Geelong" reverse bg="cream">
+    <p class="section-label">Service Area</p>
+    <h2>Local Geelong Team</h2>
+    <p>
+      We service Greater Geelong, Torquay, the Surf Coast, Bellarine Peninsula, Golden Plains, and wider regional Victoria. Based in Moolap, we're a local team with local knowledge.
+    </p>
+    <p>
+      EES is a CEC-accredited installer and Solar Victoria approved retailer. Every consultation is conducted by a qualified member of our team.
+    </p>
+    <p><strong>Phone:</strong> <a href="tel:0427664827">0427 664 827</a></p>
+    <p><strong>Email:</strong> <a href="mailto:support@eeservices.io">support@eeservices.io</a></p>
+  </SplitFeature>
 
-      <h2>Book Your Consultation</h2>
-      <p>
-        Ready to find out what's possible for your property? Get in touch and we'll arrange a time that works for you.
-      </p>
-      <ul>
-        <li><strong>Phone:</strong> <a href="tel:0427664827">0427 664 827</a></li>
-        <li><strong>Email:</strong> <a href="mailto:support@eeservices.io">support@eeservices.io</a></li>
-      </ul>
-      <p>
-        Or use the <a href="#solar-qualifier">energy assessment tool</a> at the bottom of this page to get started online.
-      </p>
+  <RelatedNav
+    links={[
+      { href: '/services/residential', title: 'Residential Systems', description: 'Solar, battery, heat pump solutions' },
+      { href: '/services/commercial', title: 'Commercial Systems', description: 'Solar and battery for business' },
+      { href: '/services/financing', title: 'Financing & Rebates', description: 'Payment plans and government incentives' },
+    ]}
+  />
+
+  <section class="cta-section">
+    <div class="container">
+      <p>Ready to find out what's possible for your property?</p>
+      <a href="#solar-qualifier" class="btn btn-primary">Start Your Energy Assessment</a>
     </div>
   </section>
+
   <ScrollIndicator />
 </BaseLayout>

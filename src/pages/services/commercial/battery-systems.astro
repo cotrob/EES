@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../../components/ScrollIndicator.astro';
+import SplitFeature from '../../../components/sections/SplitFeature.astro';
+import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
+import StatBar from '../../../components/sections/StatBar.astro';
+import RelatedNav from '../../../components/sections/RelatedNav.astro';
 ---
 
 <BaseLayout
@@ -14,47 +18,98 @@ import ScrollIndicator from '../../../components/ScrollIndicator.astro';
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
-      <h2>Why Commercial Battery Storage?</h2>
-      <p>
-        For many businesses, the highest cost on the electricity bill isn't total consumption — it's <strong>peak demand charges</strong>. These charges are based on the highest power draw recorded during a billing period, even if it only lasts 15–30 minutes.
-      </p>
-      <p>
-        A battery system reduces peak demand by discharging stored energy during high-draw periods, keeping your maximum grid draw below the threshold. This is called <strong>peak shaving</strong>, and it can deliver significant savings — especially for businesses with variable loads.
-      </p>
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_20_TopCut_.webp" alt="Commercial building with solar and battery system" bg="white">
+    <p class="section-label">Peak Demand Management</p>
+    <h2>Why Commercial Battery Storage?</h2>
+    <p>
+      For many businesses, the highest cost on the electricity bill isn't total consumption — it's <strong>peak demand charges</strong>. These charges are based on the highest power draw recorded during a billing period, even if it only lasts 15-30 minutes.
+    </p>
+    <p>
+      A battery system reduces peak demand by discharging stored energy during high-draw periods, keeping your maximum grid draw below the threshold. This is called <strong>peak shaving</strong>, and it can deliver significant savings — especially for businesses with variable loads.
+    </p>
+  </SplitFeature>
 
-      <h2>How It Works</h2>
-      <p>
-        The battery charges from your solar system during the day (or from the grid during off-peak hours). When your building's energy demand spikes, the battery discharges to supplement grid power, keeping the total grid draw below a set limit.
-      </p>
-      <p>
-        The system is managed by intelligent controls that monitor your load in real time and respond automatically — no manual intervention required.
-      </p>
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/comerical_V1.webp" alt="Commercial solar array paired with battery" reverse bg="light">
+    <p class="section-label">How It Works</p>
+    <h2>Intelligent Load Management</h2>
+    <p>
+      The battery charges from your solar system during the day (or from the grid during off-peak hours). When your building's energy demand spikes, the battery discharges to supplement grid power, keeping the total grid draw below a set limit.
+    </p>
+    <p>
+      The system is managed by intelligent controls that monitor your load in real time and respond automatically — no manual intervention required.
+    </p>
+  </SplitFeature>
 
-      <h2>Key Benefits</h2>
-      <ul>
-        <li><strong>Peak demand reduction</strong> — lower the demand charges that make up a significant portion of commercial electricity bills</li>
-        <li><strong>Solar self-consumption</strong> — store excess solar generation instead of exporting it at low feed-in rates</li>
-        <li><strong>Backup power</strong> — maintain operations during grid outages for critical loads</li>
-        <li><strong>Energy arbitrage</strong> — charge during cheap off-peak periods, discharge during expensive peak periods</li>
-        <li><strong>Future-proofing</strong> — as grid costs rise and tariff structures change, battery flexibility becomes more valuable</li>
-      </ul>
+  <IconFeatureGrid
+    label="Advantages"
+    heading="Key Benefits"
+    bg="white"
+    columns={3}
+    features={[
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+        title: 'Peak Demand Reduction',
+        description: 'Lower the demand charges that make up a significant portion of commercial electricity bills.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>',
+        title: 'Solar Self-Consumption',
+        description: 'Store excess solar generation instead of exporting it at low feed-in rates.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+        title: 'Backup Power',
+        description: 'Maintain operations during grid outages for critical loads.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
+        title: 'Energy Arbitrage',
+        description: 'Charge during cheap off-peak periods, discharge during expensive peak periods.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+        title: 'Future-Proofing',
+        description: 'As grid costs rise and tariff structures change, battery flexibility becomes more valuable.'
+      },
+    ]}
+  />
 
-      <h2>Behind-the-Meter Installation</h2>
-      <p>
-        Our commercial batteries are installed behind the meter — meaning they sit between the grid connection and your building's switchboard. The system is invisible to the grid operator and doesn't require complex export agreements.
-      </p>
+  <StatBar
+    dark
+    stats={[
+      { value: '15-30min', label: 'Peak demand window' },
+      { value: '30-50%', label: 'Potential demand charge savings' },
+      { value: '24/7', label: 'Automated monitoring' },
+      { value: '10yr', label: 'Workmanship warranty' },
+    ]}
+  />
 
-      <h2>Paired With Solar</h2>
-      <p>
-        Battery storage delivers the best return when paired with an appropriately sized <a href="/services/commercial/solar-systems">commercial solar system</a>. Solar provides free daytime energy to charge the battery, and the battery extends those savings into evening and peak periods.
-      </p>
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_10.webp" alt="Commercial building with rooftop solar" bg="white">
+    <p class="section-label">Better Together</p>
+    <h2>Paired With Solar</h2>
+    <p>
+      Battery storage delivers the best return when paired with an appropriately sized commercial solar system. Solar provides free daytime energy to charge the battery, and the battery extends those savings into evening and peak periods.
+    </p>
+    <p>
+      Our batteries are installed behind the meter — sitting between the grid connection and your building's switchboard. The system is invisible to the grid operator and doesn't require complex export agreements.
+    </p>
+    <a href="/services/commercial/solar-systems" class="btn btn-primary">Learn About Commercial Solar</a>
+  </SplitFeature>
 
-      <p>
-        <a href="/services/consultation">Book a free consultation</a> to assess battery storage for your business.
-      </p>
+  <RelatedNav
+    links={[
+      { href: '/services/commercial/solar-systems', title: 'Commercial Solar', description: 'Rooftop and ground-mount systems' },
+      { href: '/services/commercial', title: 'Commercial Overview', description: 'All commercial energy solutions' },
+      { href: '/services/consultation', title: 'Free Consultation', description: 'Get a battery storage assessment' },
+    ]}
+  />
+
+  <section class="cta-section">
+    <div class="container">
+      <p>Ready to assess battery storage for your business?</p>
+      <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
     </div>
   </section>
+
   <ScrollIndicator />
 </BaseLayout>

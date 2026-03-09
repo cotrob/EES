@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../../components/ScrollIndicator.astro';
+import SplitFeature from '../../../components/sections/SplitFeature.astro';
+import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
+import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
+import RelatedNav from '../../../components/sections/RelatedNav.astro';
 ---
 
 <BaseLayout
@@ -14,85 +18,130 @@ import ScrollIndicator from '../../../components/ScrollIndicator.astro';
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
-      <h2>A Whole-of-Home Approach to Energy</h2>
-      <p>
-        Most energy companies sell one product. A solar company sells panels. A plumber installs a heat pump. An electrician wires a smart switch. None of them talk to each other, and the result is a collection of products that don't work together.
-      </p>
-      <p>
-        We take a different approach. EES designs integrated energy systems where solar, battery storage, hot water, heating and cooling, and automation all work as a single managed system. The result is lower energy bills, better comfort, and a home that runs on clean energy — not grid electricity and gas.
-      </p>
+  <SplitFeature image="/image/WIP/environmental-service-pod/esp-full-system-rendering.webp" alt="EES integrated whole-of-home energy system rendering">
+    <p class="section-label">Our Philosophy</p>
+    <h2>A Whole-of-Home Approach to Energy</h2>
+    <p>
+      Most energy companies sell one product. A solar company sells panels. A plumber installs a heat pump. An electrician wires a smart switch. None of them talk to each other, and the result is a collection of products that don't work together.
+    </p>
+    <p>
+      We take a different approach. EES designs integrated energy systems where solar, battery storage, hot water, heating and cooling, and automation all work as a single managed system. The result is lower energy bills, better comfort, and a home that runs on clean energy — not grid electricity and gas.
+    </p>
+  </SplitFeature>
 
-      <h2>What We Install</h2>
+  <IconFeatureGrid
+    bg="light"
+    label="Services"
+    heading="What We Install"
+    columns={2}
+    features={[
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>',
+        title: 'Solar Panel Systems',
+        description: 'Rooftop solar designed around your energy profile — from 6.6 kW starter systems to 13+ kW for larger homes, installed by CEC-accredited electricians with a 10-year workmanship warranty.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="23" y1="10" x2="23" y2="14"/></svg>',
+        title: 'Battery Storage',
+        description: 'Store your solar energy and use it after sunset — 5 kWh to 15+ kWh systems including Tesla Powerwall, Enphase, and BYD, with backup and off-grid options.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M6.8 15a6 6 0 1 1 10.4 0"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg>',
+        title: 'Heat Pump Hot Water',
+        description: 'Polyvalent heat pump systems producing heating, cooling, and hot water simultaneously with an effective COP of up to 7:1 — powered by your solar, with running cost close to zero.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>',
+        title: 'Hydronic Heating & Cooling',
+        description: 'Radiant hydronic ceiling panels heat and cool your home using circulated water — no fans, no dust, no noise, with even temperature distribution across every room.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+        title: 'Home Automation & Energy Management',
+        description: 'A HEMS ties everything together — solar monitoring, battery scheduling, heat pump control, load shifting, and smart export management, all optimised automatically.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
+        title: 'Virtual Power Plants (VPPs)',
+        description: 'Turn your battery into a revenue stream — connect to a coordinated network, discharge stored energy during peak demand, and get paid at wholesale rates.'
+      },
+    ]}
+  />
 
-      <h3><a href="/services/residential/solar-systems">Solar Panel Systems</a></h3>
-      <p>
-        Rooftop solar designed around your energy profile — not a one-size-fits-all package off a truck. We install Tier 1 panels and quality inverters, sized from 6.6 kW starter systems to 13+ kW for larger homes and EV charging. Every system is designed by a CEC-accredited installer and backed by a <strong>10-year workmanship warranty</strong>.
-      </p>
+  <IconFeatureGrid
+    label="The EES Difference"
+    heading="Why Choose EES"
+    features={[
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+        title: 'CEC-accredited installer',
+        description: 'Clean Energy Council accredited for solar design and installation.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+        title: 'Solar Victoria approved retailer',
+        description: 'Authorised to process Victorian Government solar and battery rebates.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+        title: 'We design and install everything',
+        description: 'No subcontractors, no third-party handoffs.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+        title: 'We build and test our own products',
+        description: 'Hydronic ceiling panels and our Environmental Service Pod are designed and tested in our research facility.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+        title: '10-year workmanship warranty',
+        description: 'On every residential installation.'
+      },
+      {
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+        title: 'Local Geelong team',
+        description: 'Based in Moolap, servicing Greater Geelong, Torquay, Surf Coast, Bellarine Peninsula, and Golden Plains.'
+      },
+    ]}
+  />
 
-      <h3><a href="/services/residential/battery-systems">Battery Storage</a></h3>
-      <p>
-        Store your solar energy and use it after sunset. We install home battery systems from 5 kWh to 15+ kWh, including Tesla Powerwall, Enphase, BYD, and other leading brands. Batteries reduce your grid dependence, provide backup during outages, and can be paired with off-grid or hybrid configurations. Victorian battery rebates may apply.
-      </p>
+  <ProcessTimeline
+    label="Getting Started"
+    heading="How It Works"
+    steps={[
+      { title: 'Free consultation', description: 'We visit your property, assess your roof, review your energy usage, and understand your goals.' },
+      { title: 'System design', description: 'We design an integrated system tailored to your home, not a generic package.' },
+      { title: 'Proposal and rebates', description: 'You receive a detailed proposal with pricing, expected savings, and applicable rebates.' },
+      { title: 'Installation', description: 'Our CEC-accredited electricians install everything, typically in one to two days for solar.' },
+      { title: 'Commissioning and support', description: 'We commission the system, walk you through the monitoring, and provide ongoing local support.' },
+    ]}
+  />
 
-      <h3><a href="/services/residential/heat-pump-systems">Heat Pump Hot Water</a></h3>
-      <p>
-        Our polyvalent heat pump systems produce heating, cooling, and hot water simultaneously — delivering an effective COP of up to 7:1. That means for every 1 kW of electricity in, you get up to 7 kW of useful energy out. Powered by your solar, the running cost is close to zero. No gas connection required.
-      </p>
+  <SplitFeature reverse image="/image/photography/01_Hero_Images_OG/Frontage_16_TopCut_.webp" alt="Residential home in Geelong with EES solar and energy system">
+    <p class="section-label">Savings</p>
+    <h2>Rebates and Financing</h2>
+    <p>
+      Victorian homeowners may be eligible for solar panel rebates, battery rebates, and Small-scale Technology Certificates (STCs) that reduce upfront costs. We also offer <a href="/services/financing">interest-free payment plans</a> and flexible financing options so you can start saving without a large upfront outlay.
+    </p>
+  </SplitFeature>
 
-      <h3><a href="/services/residential/comfort-conditioning">Hydronic Heating & Cooling</a></h3>
-      <p>
-        Radiant hydronic ceiling panels heat and cool your home using circulated water — no fans, no dust, no noise. Paired with our heat pump, the entire system runs on solar electricity. Hydronic radiant heating is more comfortable and more efficient than ducted air or split systems, with even temperature distribution across every room.
-      </p>
+  <RelatedNav
+    heading="Continue Exploring"
+    links={[
+      { href: '/services/commercial', title: 'Commercial Energy Systems', description: 'Energy solutions for businesses and commercial properties' },
+      { href: '/services/consultation', title: 'Book a Free Consultation', description: 'Discuss your home energy goals with our team' },
+      { href: '/services/financing', title: 'Financing & Payment Plans', description: 'Interest-free plans and government rebate information' },
+      { href: '/services/faq', title: 'Frequently Asked Questions', description: 'Common questions about solar, batteries, and energy systems' },
+    ]}
+  />
 
-      <h3><a href="/services/residential/home-automation">Home Automation & Energy Management</a></h3>
-      <p>
-        A home energy management system (HEMS) ties everything together — solar monitoring, battery scheduling, heat pump control, load shifting, and smart export management. You get real-time visibility of your energy production and consumption, and the system optimises automatically so you use the least amount of grid power possible.
-      </p>
-
-      <h3><a href="/services/residential/virtual-power-plants">Virtual Power Plants (VPPs)</a></h3>
-      <p>
-        Turn your battery into a revenue stream. A Virtual Power Plant connects your home battery to a coordinated network — when the grid needs extra power during peak demand, your battery discharges stored energy and you get paid. We install VPP-ready battery systems and handle enrolment so you can start earning from day one.
-      </p>
-
-      <h2>Why Choose EES</h2>
-      <ul>
-        <li><strong>CEC-accredited installer</strong> — Clean Energy Council accredited for solar design and installation</li>
-        <li><strong>Solar Victoria approved retailer</strong> — authorised to process Victorian Government solar and battery rebates</li>
-        <li><strong>We design and install everything</strong> — no subcontractors, no third-party handoffs</li>
-        <li><strong>We build and test our own products</strong> — hydronic ceiling panels and our Environmental Service Pod are designed and tested in our <a href="/laboratory/facility">research facility</a></li>
-        <li><strong>10-year workmanship warranty</strong> — on every residential installation</li>
-        <li><strong>Local Geelong team</strong> — we're based in Moolap and service Greater Geelong, Torquay, Surf Coast, Bellarine Peninsula, and Golden Plains</li>
-      </ul>
-
-      <h2>How It Works</h2>
-      <ol>
-        <li><strong>Free consultation</strong> — we visit your property, assess your roof, review your energy usage, and understand your goals</li>
-        <li><strong>System design</strong> — we design an integrated system tailored to your home, not a generic package</li>
-        <li><strong>Proposal and rebates</strong> — you receive a detailed proposal with pricing, expected savings, and applicable rebates</li>
-        <li><strong>Installation</strong> — our CEC-accredited electricians install everything, typically in one to two days for solar</li>
-        <li><strong>Commissioning and support</strong> — we commission the system, walk you through the monitoring, and provide ongoing local support</li>
-      </ol>
-
-      <h2>Rebates and Financing</h2>
-      <p>
-        Victorian homeowners may be eligible for solar panel rebates, battery rebates, and Small-scale Technology Certificates (STCs) that reduce upfront costs. We also offer <a href="/services/financing">interest-free payment plans</a> and flexible financing options so you can start saving without a large upfront outlay.
-      </p>
-
-      <h3>Related</h3>
-      <ul>
-        <li><a href="/services/commercial">Commercial energy systems &rarr;</a></li>
-        <li><a href="/services/consultation">Book a free consultation &rarr;</a></li>
-        <li><a href="/services/financing">Financing and payment plans &rarr;</a></li>
-        <li><a href="/services/faq">Frequently asked questions &rarr;</a></li>
-        <li><a href="/laboratory/environmental-service-pod">Environmental Service Pod &rarr;</a></li>
-      </ul>
-
-      <p>
-        <a href="/services/consultation">Book a free consultation</a> or call us on <a href="tel:0427664827">0427 664 827</a>.
-      </p>
+  <section class="cta-section">
+    <div class="container">
+      <p>Ready to design a complete energy system for your home?</p>
+      <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
+      <p style="margin-top: 0.75rem; font-size: 0.95rem;">Or call us on <a href="tel:0427664827">0427 664 827</a></p>
     </div>
   </section>
+
   <ScrollIndicator />
 </BaseLayout>

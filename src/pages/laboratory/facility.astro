@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../components/ScrollIndicator.astro';
+import SplitFeature from '../../components/sections/SplitFeature.astro';
+import IconFeatureGrid from '../../components/sections/IconFeatureGrid.astro';
+import RelatedNav from '../../components/sections/RelatedNav.astro';
 ---
 
 <BaseLayout
@@ -17,43 +20,87 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
     </div>
   </section>
 
-  <section class="section">
-    <div class="container prose">
-      <p>Facility page coming soon. In the meantime, visit our <a href="/laboratory/test-room">Simulation Test Room</a> page to see the TestCell and our testing capabilities.</p>
-    </div>
-  </section>
+  <SplitFeature image="/image/WIP/TestRoom_webp/testroom-aerial-facility-close.webp" alt="EES research facility close-up aerial view" bg="white">
+    <p class="section-label">Our Facility</p>
+    <h2>Purpose-Built for Energy Research</h2>
+    <p>
+      Located at 13 Nobility Street, Moolap, our facility houses the design, manufacturing, and testing operations for EES's integrated energy systems. From prototyping hydronic ceiling panels to testing complete Environmental Service Pod assemblies, everything happens under one roof.
+    </p>
+  </SplitFeature>
 
-  <style>
-    .facility-hero {
-      position: relative;
-      width: 100%;
-      max-height: 500px;
-      overflow: hidden;
-    }
-    .facility-hero img {
-      width: 100%;
-      height: 500px;
-      object-fit: cover;
-      display: block;
-    }
-    .facility-hero__overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(14, 43, 71, 0.85) 0%, rgba(14, 43, 71, 0.3) 100%);
-      display: flex;
-      align-items: flex-end;
-      padding-bottom: 3rem;
-    }
-    .facility-hero__overlay h1 {
-      color: #fff;
-      font-size: 2.8rem;
-      margin: 0 0 0.5rem;
-    }
-    .facility-hero__overlay p {
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 1.2rem;
-      margin: 0;
-    }
-  </style>
+  <IconFeatureGrid
+    label="Capabilities"
+    heading="What We Do Here"
+    bg="light"
+    columns={3}
+    features={[
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+        title: 'Simulation Test Room',
+        description: 'Full-scale TestCell built to ASHRAE-55 and ISO 7730 standards for thermal comfort and energy testing.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+        title: 'Panel Manufacturing',
+        description: 'Hydronic radiant ceiling panels designed, assembled, and quality-tested in our workshop.'
+      },
+      {
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>',
+        title: 'Performance Testing',
+        description: 'Thermal imaging, heat flux measurement, and real-world performance validation of every product.'
+      },
+    ]}
+  />
+
+  <SplitFeature image="/image/WIP/TestRoom_webp/testroom-solar-panels-roof.webp" alt="Solar panels on the EES facility roof" reverse bg="white">
+    <p class="section-label">Explore Further</p>
+    <h2>See Our Testing in Action</h2>
+    <p>
+      Our Simulation Test Room page shows the TestCell in detail — including construction, instrumentation, and real testing results. See how we validate products before they go into homes.
+    </p>
+    <a href="/laboratory/test-room" class="btn btn-primary">Visit the Test Room</a>
+  </SplitFeature>
+
+  <RelatedNav
+    links={[
+      { href: '/laboratory/test-room', title: 'Simulation Test Room', description: 'See the TestCell and testing capabilities' },
+      { href: '/laboratory/written-papers', title: 'Research Papers', description: 'Published academic research' },
+      { href: '/laboratory/products', title: 'Products', description: 'Products developed in our facility' },
+    ]}
+  />
+
   <ScrollIndicator />
 </BaseLayout>
+
+<style>
+  .facility-hero {
+    position: relative;
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+  }
+  .facility-hero img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+  }
+  .facility-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(14, 43, 71, 0.85) 0%, rgba(14, 43, 71, 0.3) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 3rem;
+  }
+  .facility-hero__overlay h1 {
+    color: #fff;
+    font-size: 2.8rem;
+    margin: 0 0 0.5rem;
+  }
+  .facility-hero__overlay p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.2rem;
+    margin: 0;
+  }
+</style>

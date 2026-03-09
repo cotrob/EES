@@ -141,7 +141,10 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
     object-position: top center;
     border-radius: 50%;
     background: #fff;
-    border: 3px solid #e5e7eb;
+    border: 3px solid transparent;
+    background-image: linear-gradient(#fff, #fff), linear-gradient(135deg, #2061B7 0%, #e5e7eb 30%, #e5e7eb 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     margin: 0 auto 1rem;
     display: block;
   }

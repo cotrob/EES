@@ -595,12 +595,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     transition: margin-top 0.4s ease;
   }
 
-  .bento-item:hover .bento-overlay {
+  .bento-item:hover .bento-overlay,
+  .bento-item.is-active .bento-overlay {
     background: rgba(0, 15, 30, 0.82);
     pointer-events: auto;
   }
 
-  .bento-item:hover .bento-content {
+  .bento-item:hover .bento-content,
+  .bento-item.is-active .bento-content {
     margin-top: 0;
   }
 
@@ -611,7 +613,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     transition: opacity 0.35s ease 0.1s, max-height 0.35s ease 0.1s;
   }
 
-  .bento-item:hover .bento-details {
+  .bento-item:hover .bento-details,
+  .bento-item.is-active .bento-details {
     opacity: 1;
     max-height: 250px;
   }
@@ -836,6 +839,41 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 </style>
 
 <script>
+  // Click-to-stick: clicking a card keeps overlay visible until another card is clicked,
+  // clicking elsewhere on the page, or after 3.5s timeout
+  (() => {
+    let activeItem: HTMLElement | null = null;
+    let timeout: ReturnType<typeof setTimeout> | null = null;
+
+    function clearActive() {
+      if (activeItem) {
+        activeItem.classList.remove('is-active');
+        activeItem = null;
+      }
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+    }
+
+    document.querySelectorAll('.bento-item').forEach((item) => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const el = item as HTMLElement;
+        if (el === activeItem) {
+          clearActive();
+          return;
+        }
+        clearActive();
+        el.classList.add('is-active');
+        activeItem = el;
+        timeout = setTimeout(clearActive, 3500);
+      });
+    });
+
+    document.addEventListener('click', clearActive);
+  })();
+
   const moreToggle = document.getElementById('more-examples-toggle');
   const bentoExtra = document.getElementById('bento-extra');
   if (moreToggle && bentoExtra) {

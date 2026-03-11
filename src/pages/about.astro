@@ -1,104 +1,62 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ScrollIndicator from '../components/ScrollIndicator.astro';
-import SplitFeature from '../components/sections/SplitFeature.astro';
-import IconFeatureGrid from '../components/sections/IconFeatureGrid.astro';
-import RelatedNav from '../components/sections/RelatedNav.astro';
 ---
 
 <BaseLayout
   title="About EES | CEC Accredited Solar & Energy Installer Geelong"
-  description="EES is a CEC-accredited solar and energy services company in Geelong, specialising in solar, batteries, heat pumps, hydronic heating, and home automation."
+  description="EES is a CEC accredited solar company in Geelong. We design, install, and support solar, battery, heat pump, and hydronic heating systems from our research facility in Moolap."
 >
-  <section class="page-header">
+  <!-- ── Top texture banner ── -->
+  <div class="about-texture">
+    <img src="/image/textures/aboutus_top%20texture.svg" alt="" aria-hidden="true" />
+  </div>
+
+  <!-- ── Row 1: Hero + Photos ── -->
+  <section class="about-row">
     <div class="container">
-      <h1>About EES</h1>
-      <p>Local energy experts based in Geelong.</p>
-    </div>
-  </section>
-
-  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_19_TopCut_.webp" alt="EES headquarters in Moolap, Geelong" bg="white">
-    <p class="section-label">Who We Are</p>
-    <h2>More Than a Solar Installer</h2>
-    <p>
-      Environmental Energy Services (EES) is a Geelong-based energy company that designs, installs, and supports complete home and commercial energy systems — solar, batteries, heat pumps, hydronic heating and cooling, and smart automation.
-    </p>
-    <p>
-      We take a whole-of-home approach to energy, designing systems where every component works together — not in isolation. Our goal is to reduce your energy costs, improve your comfort, and move your property toward energy independence.
-    </p>
-  </SplitFeature>
-
-  <IconFeatureGrid
-    label="Our Difference"
-    heading="What Makes Us Different"
-    bg="light"
-    columns={3}
-    features={[
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
-        title: 'We Build Our Own Products',
-        description: 'Hydronic ceiling panels and the Environmental Service Pod are designed, manufactured, and tested in-house at our research facility.'
-      },
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
-        title: 'We Do the Research',
-        description: 'Our TestCell is built to ASHRAE-55 and ISO 7730 standards for real-world thermal comfort and energy efficiency testing.'
-      },
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>',
-        title: 'We Install What We Design',
-        description: 'CEC-accredited electricians install every system. No subcontractors, no third-party handoffs.'
-      },
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
-        title: 'Commission & Test Every System',
-        description: 'We walk you through the monitoring and make sure everything is working correctly before we leave.'
-      },
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-        title: '10-Year Workmanship Warranty',
-        description: 'Every installation is backed by our warranty and ongoing local support. We\'re here for the long term.'
-      },
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
-        title: 'Local Geelong Team',
-        description: 'Based in Moolap, servicing Greater Geelong, Torquay, Surf Coast, Bellarine, and Golden Plains.'
-      },
-    ]}
-  />
-
-  <section class="accreditations-inline">
-    <div class="container">
-      <p class="section-label" style="text-align: center;">Accreditations</p>
-      <h2 style="text-align: center; font-size: 2.25rem; font-weight: 700; color: #0E2B47; margin-bottom: 2rem;">Our Credentials</h2>
-      <div class="accreditations-logos">
-        <div class="accreditation-logo"><img src="/image/_logos_partners/clean-energy-council-member.webp" alt="Clean Energy Council Member" /></div>
-        <div class="accreditation-logo"><img src="/image/_logos_partners/cec-approved-seller.webp" alt="CEC Approved Seller" /></div>
-        <div class="accreditation-logo"><img src="/image/_logos_partners/solar-accreditation-australia.webp" alt="Solar Accreditation Australia" /></div>
-        <div class="accreditation-logo"><img src="/image/_logos_partners/smart-energy-council.webp" alt="Smart Energy Council" /></div>
-        <div class="accreditation-logo"><img src="/image/_logos_partners/tesla-energy-certified.webp" alt="Tesla Energy Certified Installer" /></div>
-        <div class="accreditation-logo"><img src="/image/_logos_partners/energy-safe-victoria.webp" alt="Energy Safe Victoria" /></div>
-        <div class="accreditation-logo"><img src="/image/_logos_partners/solar-victoria.webp" alt="Solar Victoria" /></div>
-        <div class="accreditation-logo accreditation-logo--large"><img src="/image/_logos_partners/enphase.webp" alt="Enphase Silver Installer" /></div>
-        <div class="accreditation-logo accreditation-logo--large"><img src="/image/_logos_partners/newenergytech_approvaed seller.webp" alt="New Energy Tech Approved Seller" /></div>
-        <div class="accreditation-logo accreditation-logo--medium"><img src="/image/_logos_partners/sigenergy-certified-installer.webp" alt="Sigenergy Certified Installer" /></div>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p class="section-label">About EES</p>
+          <h1><strong>About us, our people</strong><br/>and our commitment to<br/>healthy and affordable living</h1>
+        </div>
+        <p class="about-intro">Where it all started in Moolap, Geelong and why we're focused on the south coast of Victoria</p>
+        <div class="about-photo about-photo--main">
+          <img src="/image/photos_EESshed/Group%20131%20(1).png" alt="EES team members outside the Moolap facility" />
+        </div>
+        <div class="about-photo about-photo--secondary">
+          <img src="/image/photos_EESshed/Group%20132.png" alt="EES headquarters exterior in Moolap, Geelong" />
+        </div>
       </div>
     </div>
   </section>
 
-  <SplitFeature image="/image/WIP/TestRoom_webp/testroom-aerial-facility-close.webp" alt="EES research facility aerial view" reverse bg="light">
-    <p class="section-label">Research & Development</p>
-    <h2>Purpose-Built Research Facility</h2>
-    <p>
-      We operate a purpose-built research facility with a full-scale TestCell for thermal comfort and energy efficiency testing. This facility allows us to test products under controlled, measurable conditions before they go into homes.
-    </p>
-    <p>Products developed in our facility include:</p>
-    <ul>
-      <li><a href="/laboratory/hydronic-ceiling-panels">Hydronic ceiling panels</a> — suspended radiant panels for heating and cooling</li>
-      <li><a href="/laboratory/environmental-service-pod">Environmental Service Pod</a> — an integrated modular system combining solar, battery, heat pump, and thermal storage</li>
-    </ul>
-  </SplitFeature>
+  <!-- ── Row 2: Our Story ── -->
+  <section class="story-row">
+    <div class="container">
+      <div class="story-flex">
+        <div class="story-left">
+          <h2 class="story-script">Our Story &#8601;</h2>
+        </div>
+        <div class="story-right">
+          <p>
+            What if a home could heat, cool, and power itself using a single integrated system? That question led to the founding of Environmental Energy Services in Moolap, Geelong. What began as a research project has grown into a full service energy company with its own laboratory, its own products, and a team of qualified electricians and researchers working under one roof.
+          </p>
+          <p>
+            We're not a marketing company that outsources installations. We hold our own REC Electrical Licence. Our team designs, installs, and supports every system we put in. Your warranty sits with a real brick and mortar business here in Geelong, not a call centre somewhere else.
+          </p>
+          <p>
+            We're not a marketing company that outsources installations. We hold our own REC Electrical Licence. Our team <strong>designs, installs, and supports every system we put in. Your warranty</strong> sits with a real brick and mortar business here in Geelong, not a call centre somewhere else.
+          </p>
+          <div class="about-photo about-photo--bottom">
+            <img src="/image/photos_EESshed/Aboutus_exterior.webp" alt="EES facility and team in Moolap, Geelong" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ── Team ── -->
   <section class="team-section">
     <div class="container">
       <h2 class="team-heading">The Team</h2>
@@ -107,19 +65,19 @@ import RelatedNav from '../components/sections/RelatedNav.astro';
           <img src="/image/photos_team/DrMarkLuther_clean_transparent.png" alt="Mark B. Luther" loading="lazy" />
           <h3>Mark B. Luther</h3>
           <p class="team-role">Director (Arch.D. - Architect)</p>
-          <p>Honorary Professor of Deakin University after 27 years of service. He specialises in Architecture Science and Environmental Technology. Inventor of the Environmental Service Pod and the Autonomatic Hydronic Ceiling Panel.</p>
+          <p>Honorary Professor of Deakin University after 27 years of service. Specialises in Architecture Science and Environmental Technology. Inventor of the Environmental Service Pod and the Autonomatic Hydronic Ceiling Panel.</p>
         </div>
         <div class="team-member">
           <img src="/image/photos_team/LincolnLuther_clean_transparent.png" alt="Lincoln B. Luther" loading="lazy" />
           <h3>Lincoln B. Luther</h3>
           <p class="team-role">Manager of Sales</p>
-          <p>Over 4 years industry experience in the renewables energy sector with a background in Economics, Banking and Finance. He specialises in solar, battery and renewable building services.</p>
+          <p>Over 4 years industry experience in renewables with a background in Economics, Banking and Finance. Specialises in solar, battery and renewable building services.</p>
         </div>
         <div class="team-member">
           <img src="/image/photos_team/Matthew Ellison_02_clean_transparent.png" alt="Matthew Ellison" loading="lazy" />
           <h3>Matthew Ellison</h3>
           <p class="team-role">Manager of Installations</p>
-          <p>Senior electrician experienced in Solar PV and Battery installations in commercial and residential projects. Also involved with electrical research and design on the Environmental Service Pod and Hydronic Control.</p>
+          <p>Senior electrician experienced in Solar PV and Battery installations in commercial and residential projects. Also involved with electrical research and design on the Environmental Service Pod.</p>
         </div>
         <div class="team-member">
           <img src="/image/photos_team/HungQDo_clean_transparent.png" alt="Hung Q. Do" loading="lazy" />
@@ -143,17 +101,30 @@ import RelatedNav from '../components/sections/RelatedNav.astro';
     </div>
   </section>
 
-  <RelatedNav
-    links={[
-      { href: '/services/residential', title: 'Residential Systems', description: 'Solar, battery, heat pump solutions' },
-      { href: '/services/commercial', title: 'Commercial Systems', description: 'Solar and battery for business' },
-      { href: '/services/consultation', title: 'Free Consultation', description: 'Book a no-obligation assessment' },
-    ]}
-  />
+  <!-- ── Accreditations ── -->
+  <section class="accreditations-section">
+    <div class="container">
+      <p class="section-label" style="text-align: center;">Accreditations</p>
+      <h2 class="accreditations-heading">Our Credentials</h2>
+      <div class="accreditations-logos">
+        <div class="accreditation-logo"><img src="/image/_logos_partners/clean-energy-council-member.webp" alt="Clean Energy Council Member" /></div>
+        <div class="accreditation-logo"><img src="/image/_logos_partners/cec-approved-seller.webp" alt="CEC Approved Seller" /></div>
+        <div class="accreditation-logo"><img src="/image/_logos_partners/solar-accreditation-australia.webp" alt="Solar Accreditation Australia" /></div>
+        <div class="accreditation-logo"><img src="/image/_logos_partners/smart-energy-council.webp" alt="Smart Energy Council" /></div>
+        <div class="accreditation-logo"><img src="/image/_logos_partners/tesla-energy-certified.webp" alt="Tesla Energy Certified Installer" /></div>
+        <div class="accreditation-logo"><img src="/image/_logos_partners/energy-safe-victoria.webp" alt="Energy Safe Victoria" /></div>
+        <div class="accreditation-logo"><img src="/image/_logos_partners/solar-victoria.webp" alt="Solar Victoria" /></div>
+        <div class="accreditation-logo accreditation-logo--large"><img src="/image/_logos_partners/enphase.webp" alt="Enphase Silver Installer" /></div>
+        <div class="accreditation-logo accreditation-logo--large"><img src="/image/_logos_partners/newenergytech_approvaed seller.webp" alt="New Energy Tech Approved Seller" /></div>
+        <div class="accreditation-logo accreditation-logo--medium"><img src="/image/_logos_partners/sigenergy-certified-installer.webp" alt="Sigenergy Certified Installer" /></div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ── CTA ── -->
   <section class="cta-section">
     <div class="container">
-      <p>Ready to work with a local team that designs, installs, and supports?</p>
+      <p>We'd love to show you how we could help with your home or business. Let's have a conversation.</p>
       <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
     </div>
   </section>
@@ -162,9 +133,176 @@ import RelatedNav from '../components/sections/RelatedNav.astro';
 </BaseLayout>
 
 <style>
-  .team-section {
+  /* ── Force solid dark nav on white page ── */
+  :global(.header-v2::before) {
+    background: rgba(14, 43, 71, 0.95) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* ── Top texture banner ── */
+  .about-texture {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    background: #fff;
+  }
+
+  .about-texture img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* ── Row 1: Hero + Photos (2fr / 1fr) ── */
+  .about-row {
+    padding: 3rem 0 0;
+    background: #fff;
+    background-image: url('/image/icon/Brand_wave_dots_darkblue.svg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 50% auto;
+    opacity: 1;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "heading intro"
+      "photo-main photo-secondary";
+    gap: 1.5rem 2rem;
+  }
+
+  .hero-text {
+    grid-area: heading;
+    align-self: end;
+    padding-bottom: 0.5rem;
+  }
+
+  .hero-text .section-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #0E2B47;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #0E2B47;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .hero-text h1 strong {
+    font-weight: 800;
+  }
+
+  .about-intro {
+    grid-area: intro;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    max-width: 320px;
+    padding-top: 0.25rem;
+    align-self: start;
+    margin: 0;
+  }
+
+  /* ── Photos ── */
+  .about-photo {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .about-photo--main {
+    grid-area: photo-main;
+    min-height: 320px;
+  }
+
+  .about-photo--main img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .about-photo--secondary {
+    grid-area: photo-secondary;
+    align-self: end;
+  }
+
+  .about-photo--secondary img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .about-photo--bottom {
+    margin-top: 2rem;
+    max-width: 480px;
+  }
+
+  .about-photo--bottom img {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* ── Row 2: Our Story (flexbox split) ── */
+  .story-row {
     padding: 4rem 0;
     background: #fff;
+  }
+
+  .story-flex {
+    display: flex;
+    gap: 3rem;
+  }
+
+  .story-left {
+    flex: 0 0 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  .story-right {
+    flex: 1;
+  }
+
+  .story-script {
+    font-family: 'Playwrite RO', cursive;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #0E2B47;
+    line-height: 1.3;
+  }
+
+  .story-right p {
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .story-right p strong {
+    font-weight: 700;
+    color: #0E2B47;
+  }
+
+  /* ── Team ── */
+  .team-section {
+    padding: 5rem 0 4rem;
+    background: #f8f9fa;
   }
 
   .team-heading {
@@ -178,7 +316,7 @@ import RelatedNav from '../components/sections/RelatedNav.astro';
   .team-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 2.5rem 2rem;
   }
 
   .team-member {
@@ -186,8 +324,8 @@ import RelatedNav from '../components/sections/RelatedNav.astro';
   }
 
   .team-member img {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
     object-fit: cover;
     object-position: top center;
     border-radius: 50%;
@@ -201,7 +339,7 @@ import RelatedNav from '../components/sections/RelatedNav.astro';
   }
 
   .team-member h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #0E2B47;
     margin-bottom: 0.25rem;
@@ -215,14 +353,23 @@ import RelatedNav from '../components/sections/RelatedNav.astro';
   }
 
   .team-member > p:last-child {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     color: #555;
     line-height: 1.6;
   }
 
-  .accreditations-inline {
+  /* ── Accreditations ── */
+  .accreditations-section {
     padding: 4rem 0;
     background: #fff;
+  }
+
+  .accreditations-heading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0E2B47;
+    margin-bottom: 2rem;
   }
 
   .accreditations-logos {
@@ -260,7 +407,58 @@ import RelatedNav from '../components/sections/RelatedNav.astro';
     opacity: 1;
   }
 
-  @media (max-width: 900px) {
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "heading"
+        "intro"
+        "photo-main"
+        "photo-secondary";
+      gap: 1.25rem;
+    }
+
+    .about-row {
+      padding: 2rem 0 0;
+      background-size: 80% auto;
+    }
+
+    .hero-text h1 {
+      font-size: 1.75rem;
+    }
+
+    .about-intro {
+      max-width: none;
+    }
+
+    .about-photo--main {
+      min-height: 240px;
+    }
+
+    .story-flex {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .story-left {
+      flex: none;
+      justify-content: flex-start;
+      padding: 0;
+    }
+
+    .story-script {
+      font-size: 2rem;
+    }
+
+    .story-row {
+      padding: 3rem 0;
+    }
+
+    .about-photo--bottom {
+      max-width: none;
+    }
+
     .team-grid {
       grid-template-columns: repeat(2, 1fr);
     }

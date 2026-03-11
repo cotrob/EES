@@ -20,52 +20,55 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <!-- Bento Grid 1 -->
       <div class="bento-grid">
         <div class="bento-item">
-          <img src="/image/photography/01_Hero_Images_OG/Frontage_1.webp" alt="Abbotsford residential solar installation" />
+          <img src="/image/photos_clients/12_v1.webp" alt="Norlane residential solar installation" />
           <div class="bento-overlay">
             <div class="bento-content">
               <span class="bento-kw">12.33kW</span>
-              <span class="bento-name">Abbotsford</span>
+              <span class="bento-name">Norlane</span>
               <div class="bento-details">
                 <ul>
                   <li>36 premium tier-1 panels</li>
-                  <li>North-facing pitched roof</li>
+                  <li>Multi-roof residential array</li>
                   <li>10kWh battery storage</li>
                 </ul>
-                <p>Residential retrofit for a heritage home in Melbourne's inner east.</p>
+                <p>Suburban home in Norlane with full rooftop solar coverage across multiple roof planes.</p>
               </div>
             </div>
           </div>
         </div>
         <div class="bento-item">
-          <img src="/image/photography/01_Hero_Images_OG/Frontage_4.webp" alt="Geelong West residential solar installation" />
+          <img src="/image/photos_clients/16_v1.webp" alt="Inverleigh residential solar installation" />
           <div class="bento-overlay">
             <div class="bento-content">
               <span class="bento-kw">8.5kW</span>
-              <span class="bento-name">Geelong West</span>
+              <span class="bento-name">Inverleigh</span>
               <div class="bento-details">
                 <ul>
                   <li>22 premium panels</li>
-                  <li>Full north-facing optimisation</li>
+                  <li>Home and shed installation</li>
                   <li>Battery-ready inverter</li>
                 </ul>
-                <p>Family home upgrade in Geelong West's leafy residential streets.</p>
+                <p>Rural property in Inverleigh with solar across the home and outbuilding.</p>
               </div>
             </div>
           </div>
         </div>
         <div class="bento-item bento-wide-top">
-          <img src="/image/photography/01_Hero_Images_OG/Frontage_4b.webp" alt="Residential solar roof installation" />
+          <video autoplay muted loop playsinline preload="metadata" poster="/image/photos_clients/13_v1_poster.webp">
+            <source src="/image/video/13_v1_residential_drone.webm" type="video/webm" />
+            <source src="/image/video/13_v1_residential_drone.mp4" type="video/mp4" />
+          </video>
           <div class="bento-overlay">
             <div class="bento-content">
               <span class="bento-kw">10.4kW</span>
-              <span class="bento-name">Newtown</span>
+              <span class="bento-name">Anglesea</span>
               <div class="bento-details">
                 <ul>
                   <li>26 high-efficiency panels</li>
-                  <li>Split array east/west orientation</li>
-                  <li>Hybrid inverter system</li>
+                  <li>Metal roof installation</li>
+                  <li>Full monitoring system</li>
                 </ul>
-                <p>Modern family home in Newtown with optimised dual-roof array.</p>
+                <p>Coastal home in Anglesea with solar across multiple roof sections.</p>
               </div>
             </div>
           </div>
@@ -590,12 +593,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     transition: margin-top 0.4s ease;
   }
 
-  .bento-item:hover .bento-overlay {
+  .bento-item:hover .bento-overlay,
+  .bento-item.is-active .bento-overlay {
     background: rgba(0, 15, 30, 0.82);
     pointer-events: auto;
   }
 
-  .bento-item:hover .bento-content {
+  .bento-item:hover .bento-content,
+  .bento-item.is-active .bento-content {
     margin-top: 0;
   }
 
@@ -606,7 +611,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     transition: opacity 0.35s ease 0.1s, max-height 0.35s ease 0.1s;
   }
 
-  .bento-item:hover .bento-details {
+  .bento-item:hover .bento-details,
+  .bento-item.is-active .bento-details {
     opacity: 1;
     max-height: 250px;
   }
@@ -831,6 +837,41 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 </style>
 
 <script>
+  // Click-to-stick: clicking a card keeps overlay visible until another card is clicked,
+  // clicking elsewhere on the page, or after 3.5s timeout
+  (() => {
+    let activeItem: HTMLElement | null = null;
+    let timeout: ReturnType<typeof setTimeout> | null = null;
+
+    function clearActive() {
+      if (activeItem) {
+        activeItem.classList.remove('is-active');
+        activeItem = null;
+      }
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+    }
+
+    document.querySelectorAll('.bento-item').forEach((item) => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const el = item as HTMLElement;
+        if (el === activeItem) {
+          clearActive();
+          return;
+        }
+        clearActive();
+        el.classList.add('is-active');
+        activeItem = el;
+        timeout = setTimeout(clearActive, 3500);
+      });
+    });
+
+    document.addEventListener('click', clearActive);
+  })();
+
   const moreToggle = document.getElementById('more-examples-toggle');
   const bentoExtra = document.getElementById('bento-extra');
   if (moreToggle && bentoExtra) {

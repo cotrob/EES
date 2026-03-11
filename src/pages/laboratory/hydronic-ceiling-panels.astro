@@ -9,6 +9,12 @@ import {
   Store01Icon,
   LandmarkIcon,
   Home01Icon,
+  SaveMoneyDollarIcon,
+  EnergyIcon,
+  ShieldEnergyIcon,
+  Sun03Icon,
+  TemperatureIcon,
+  DashboardSpeed02Icon,
 } from '@hugeicons/core-free-icons';
 ---
 
@@ -27,16 +33,14 @@ import {
   <!-- What Are These -->
   <section class="intro-section">
     <div class="container">
-      <div class="intro-layout">
-        <div class="intro-text">
-          <p class="section-label">What Are Hydronic Ceiling Panels?</p>
-          <h2>A Complete Replacement for Conventional Heating and Cooling</h2>
-          <p>Hydronic ceiling panels heat and cool your space using water circulated through tiles in your ceiling. They replace traditional systems like split units, ducted air conditioning, radiators, and gas heaters with a single, silent, invisible system.</p>
-          <p>There are no wall-mounted units, no ductwork, no vents, and no fan noise. Just a clean ceiling that keeps every room comfortable year-round.</p>
-        </div>
+      <div class="intro-layout intro-layout--stacked">
+        <p class="section-label">What Are Hydronic Ceiling Panels?</p>
+        <h2>A Complete Replacement for Conventional Heating and Cooling</h2>
         <div class="intro-image">
-          <img src="/image/WIP/TestRoom_Final_webp/639607_7582f9e8760f4b8c8deb96294d92f1c3_mv2_crop.webp" alt="3D render looking up at a suspended ceiling with hydronic panels finished in a variety of architectural surfaces including timber, rendered coating, perforated metal, and mini-orb" />
+          <img src="/image/WIP/Hydronic_Ceiling_Panels/ChatGPT Image Mar 12, 2026, 06_58_35 AM.png" alt="Hydronic ceiling panel system illustration showing water-circulated ceiling tiles for heating and cooling" />
         </div>
+        <p>Hydronic ceiling panels heat and cool your space using water circulated through tiles in your ceiling. They replace traditional systems like split units, ducted air conditioning, radiators, and gas heaters with a single, silent, invisible system.</p>
+        <p>There are no wall-mounted units, no ductwork, no vents, and no fan noise. Just a clean ceiling that keeps every room comfortable year-round.</p>
       </div>
     </div>
   </section>
@@ -140,6 +144,8 @@ import {
   <!-- Panel Close-Ups -->
   <section class="section panel-closeups">
     <div class="container">
+      <p class="section-label">How They're Made</p>
+      <h2 class="closeup-heading">From Raw Materials to Finished Panel</h2>
       <div class="closeup-grid">
         <div class="closeup-card">
           <img src="/image/WIP/TestRoom_Development_webp/IMG_7483.webp" alt="Blue polypropylene capillary tube mat bonded to foil-faced insulation panel, the active conditioning layer of each tile" />
@@ -227,30 +233,36 @@ import {
 
       <div class="advantages-grid">
         <div class="advantage-card advantage-card--highlight">
+          <HugeIcon icon={SaveMoneyDollarIcon} size={48} class="advantage-icon" />
           <span class="advantage-stat">30–50%</span>
           <h3>Lower Cost</h3>
           <p>Priced significantly below competing radiant ceiling systems, without compromising performance or build quality.</p>
         </div>
         <div class="advantage-card advantage-card--highlight">
+          <HugeIcon icon={EnergyIcon} size={48} class="advantage-icon" />
           <span class="advantage-stat">20–100%</span>
           <h3>More Capacity</h3>
           <p>Delivers substantially higher thermal output than competitive systems, accommodating a wider range of space and load requirements.</p>
         </div>
         <div class="advantage-card">
+          <HugeIcon icon={ShieldEnergyIcon} size={48} class="advantage-icon" />
           <span class="advantage-stat">>95%</span>
           <h3>System Output Retained</h3>
           <p>Minimal heat transfer losses. The rigid insulation barrier keeps energy directed into the occupied space, not into the ceiling void.</p>
         </div>
         <div class="advantage-card">
+          <HugeIcon icon={Sun03Icon} size={48} class="advantage-icon" />
           <span class="advantage-stat">50–90%</span>
           <h3>Radiative Transfer</h3>
           <p>Achieves 50–90% radiative and 10–50% convective heat transfer, the ideal balance for occupant comfort and energy efficiency.</p>
         </div>
         <div class="advantage-card">
+          <HugeIcon icon={TemperatureIcon} size={48} class="advantage-icon" />
           <h3>Dual Heating &amp; Cooling</h3>
           <p>One system provides year-round climate control. No separate heating and cooling infrastructure required, reducing complexity and cost.</p>
         </div>
         <div class="advantage-card">
+          <HugeIcon icon={DashboardSpeed02Icon} size={48} class="advantage-icon" />
           <h3>Fast Response, Dynamic Control</h3>
           <p>Adjusts quickly to changing thermal loads using an intelligent comfort model, not a conventional thermostat. Maintains consistent conditions without overshooting.</p>
         </div>
@@ -640,6 +652,38 @@ import {
     align-items: center;
   }
 
+  .intro-layout--stacked {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .intro-layout--stacked h2 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #0E2B47;
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+  }
+
+  .intro-layout--stacked > p {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .intro-layout--stacked .intro-image {
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-layout--stacked .intro-image img {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
   .intro-text h2 {
     font-size: 2.25rem;
     font-weight: 800;
@@ -656,9 +700,7 @@ import {
   }
 
   .intro-image {
-    border-radius: 1rem;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   }
 
   .intro-image img {
@@ -671,6 +713,10 @@ import {
     .intro-layout {
       grid-template-columns: 1fr;
       gap: 2rem;
+    }
+
+    .intro-layout--stacked h2 {
+      font-size: 1.75rem;
     }
 
     .intro-text h2 {
@@ -791,6 +837,14 @@ import {
   .panel-closeups {
     background: #fff;
     padding: 5rem 0;
+  }
+
+  .closeup-heading {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #0E2B47;
+    margin-bottom: 2.5rem;
+    line-height: 1.15;
   }
 
   .closeup-grid {
@@ -1534,11 +1588,11 @@ import {
   .advantages-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    gap: 1.75rem;
   }
 
   .advantage-card {
-    padding: 2rem;
+    padding: 2.5rem;
     background: #f8f9fa;
     border-radius: 0.75rem;
     border: 1px solid rgba(0, 0, 0, 0.06);
@@ -1582,6 +1636,16 @@ import {
 
   .advantage-card--highlight .advantage-stat {
     color: #C0D446;
+  }
+
+  .advantage-card :global(.advantage-icon) {
+    display: block;
+    margin-bottom: 1.5rem;
+    color: #2061B7;
+  }
+
+  .advantage-card--highlight :global(.advantage-icon) {
+    color: #fff;
   }
 
   @media (max-width: 900px) {

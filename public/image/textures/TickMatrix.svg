@@ -13,7 +13,6 @@
   <use href="#tick" transform="translate(225,19) rotate(45)"/>
 
   <use href="#tick" transform="translate(25,59) rotate(45)"/>
-  <use href="#tick" transform="translate(65,59) rotate(45)"/>
   <use href="#tick" transform="translate(105,59) rotate(45)"/>
   <use href="#tick" transform="translate(145,59) rotate(45)"/>
   <use href="#tick" transform="translate(185,59) rotate(45)"/>
@@ -47,4 +46,6 @@
   <use href="#tick" transform="translate(185,219) rotate(45)"/>
   <use href="#tick" transform="translate(225,219) rotate(45)"/>
 </g>
+<!-- Green accent tick -->
+<path d="M-9 0l6 6 12-12" stroke="#4ADE80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="translate(65,59) rotate(45)"/>
 </svg>

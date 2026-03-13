@@ -80,6 +80,7 @@ const currentYear = new Date().getFullYear();
     <div class="footer-legal">
       <a href="/privacy">Privacy Policy</a>
       <a href="/terms">Terms of Service</a>
+      <span class="footer-credit">Design by <a href="https://robcot.com" target="_blank" rel="noopener">Rob Cot</a></span>
     </div>
   </div>
 </footer>
@@ -260,6 +261,23 @@ const currentYear = new Date().getFullYear();
   }
 
   .footer-legal a:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .footer-credit {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    padding-left: 1.5rem;
+  }
+
+  .footer-credit a {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-credit a:hover {
     color: rgba(255, 255, 255, 0.8);
   }
 

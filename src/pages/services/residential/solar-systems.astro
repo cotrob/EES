@@ -3,7 +3,6 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../../components/ScrollIndicator.astro';
 import SplitFeature from '../../../components/sections/SplitFeature.astro';
 import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
-import StatBar from '../../../components/sections/StatBar.astro';
 import RelatedNav from '../../../components/sections/RelatedNav.astro';
 import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
 import FaqGroup from '../../../components/sections/FaqGroup.astro';
@@ -14,6 +13,7 @@ import ZapIcon from '@hugeicons/core-free-icons/ZapIcon';
 import Home01Icon from '@hugeicons/core-free-icons/Home01Icon';
 import BatteryFullIcon from '@hugeicons/core-free-icons/BatteryFullIcon';
 import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
+import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Icon';
 ---
 
 <BaseLayout
@@ -27,20 +27,137 @@ import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
   />
 
 
-  <!-- Hero: The holistic first conversation -->
-  <SplitFeature image="/image/illustrations/service_residential_solarasystem_section_lifefirstV1.png" alt="EES residential solar installation on a home in Geelong" bg="white" flat>
-    <p class="section-label">Our Approach</p>
-    <h2>We Start With Your Life, Not Your Roof</h2>
-    <p>
-      Before we look at your roof or talk about panels, we want to understand how you live. How much power are you using during the day? Are you home or at work? Are you planning to get an electric vehicle, an induction cooktop, or a heat pump in the next few years? Are you retiring soon and going to be home more?
-    </p>
-    <p>
-      All of this matters because a solar system should be designed around your actual consumption and where it's heading, not a generic template. We never oversize a system to sell you more panels, and we never design for winter production because that doesn't reflect how your system will perform most of the year.
-    </p>
-    <p>
-      The goal is simple: cover your own usage first. Not to send power back to the grid for a measly one cent per kilowatt hour. To power your home.
-    </p>
-  </SplitFeature>
+  <!-- Intro: Our approach -->
+  <section class="approach-section">
+    <div class="container">
+      <div class="approach-layout">
+        <div class="approach-heading">
+          <p class="section-label">Our Approach</p>
+          <h2>We Start With<br />Your Life, Not<br />Your Roof</h2>
+          <div class="approach-arrow">
+            <HugeIcon icon={ArrowDownRight01Icon} />
+          </div>
+        </div>
+        <div class="approach-text">
+          <p>
+            Before we look at your roof or talk about panels, we want to understand how you live. How much power are you using during the day? Are you home or at work? Are you planning to get an electric vehicle, an induction cooktop, or a heat pump in the next few years? Are you retiring soon and going to be home more?
+          </p>
+          <p>
+            All of this matters because a solar system should be designed around your actual consumption and where it's heading, not a generic template. We never oversize a system to sell you more panels, and we never design for winter production because that doesn't reflect how your system will perform most of the year.
+          </p>
+          <div class="approach-image">
+            <img src="/image/illustrations/service_residential_solarasystem_section_lifefirstV1.png" alt="EES residential solar installation on a home in Geelong" loading="lazy" />
+          </div>
+          <p>
+            The goal is simple: cover your own usage first. Not to send power back to the grid for a measly one cent per kilowatt hour. To power your home.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .approach-section {
+      padding: 4rem 0;
+      background: #fff;
+    }
+
+    .approach-layout {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3.5rem;
+      align-items: start;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .approach-heading {
+      position: relative;
+      padding-right: 80px;
+      text-align: right;
+    }
+
+    .approach-heading h2 {
+      margin-bottom: 0;
+    }
+
+    .approach-arrow {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      height: 50px;
+      background: #C2D456;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0E2B47;
+    }
+
+    .approach-arrow :global(svg) {
+      width: 33px;
+      height: 33px;
+      stroke-width: 3;
+    }
+
+    .approach-text p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .approach-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .approach-image {
+      margin: 1.5rem 0;
+    }
+
+    .approach-image img {
+      width: 77%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .approach-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .approach-heading {
+        padding-right: 0;
+        text-align: center;
+      }
+
+      .approach-heading h2 {
+        display: inline;
+      }
+
+      .approach-arrow {
+        position: relative;
+        top: auto;
+        right: auto;
+        display: inline-flex;
+        vertical-align: top;
+        margin-left: 0.5rem;
+      }
+
+      .approach-image {
+        margin-top: 1.5rem;
+      }
+
+      .approach-image img {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  </style>
 
 
   <!-- How solar works: simple explanation -->
@@ -174,6 +291,224 @@ import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
         transform: rotate(90deg);
         width: 24px;
         margin: 0;
+      }
+    }
+  </style>
+
+
+  <!-- Warranty card -->
+  <section class="warranty-section">
+    <div class="container">
+      <div class="warranty-card">
+        <div class="warranty-badge">
+          <img src="/image/icon/residenteials_Section_Gaurantee_Badge.svg" alt="" class="warranty-badge__bg" />
+          <span class="warranty-badge__number">10 year</span>
+          <span class="warranty-badge__label">Workmanship Warranty</span>
+        </div>
+        <div class="warranty-card__inner">
+          <div class="warranty-card__text">
+            <p class="section-label">Warranty & Support</p>
+            <h2>We Stand Behind Every Install</h2>
+            <p>
+              Every installation comes with our <strong>10-year workmanship warranty</strong>, covering the installation itself — not just the products. If something goes wrong with how the system was installed, we fix it.
+            </p>
+            <p>
+              Panel and inverter manufacturer warranties apply on top of this, typically 25 years for panels and 10-15 years for inverters. We're a local team based in Moolap — here for the long term, not a fly-in-fly-out installer.
+            </p>
+          </div>
+          <div class="warranty-card__image">
+            <img src="/image/photography/01_Hero_Images_OG/Frontage_17_TopCut_.webp" alt="Solar panels on a modern home" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .warranty-section {
+      padding: 4rem 0;
+      background: #fff;
+    }
+
+    .warranty-card {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      background: #f8f9fa;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 3rem;
+    }
+
+    .warranty-badge {
+      position: absolute;
+      top: -40px;
+      right: 60px;
+      text-align: center;
+      width: 130px;
+      height: 130px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .warranty-badge__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .warranty-badge__number {
+      position: relative;
+      z-index: 1;
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0E2B47;
+      line-height: 1.1;
+    }
+
+    .warranty-badge__label {
+      position: relative;
+      z-index: 1;
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #0E2B47;
+      margin-top: 0.15rem;
+    }
+
+    .warranty-card__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .warranty-card__text h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .warranty-card__text p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .warranty-card__text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .warranty-card__image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .warranty-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .warranty-card__inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .warranty-badge {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 0 auto 1.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Back-to-base monitoring -->
+  <section class="monitoring-section">
+    <div class="container">
+      <div class="monitoring-layout">
+        <div class="monitoring-text">
+          <p class="section-label">Back-to-Base Monitoring</p>
+          <h2>We'll Know Something Is Wrong Before You Do</h2>
+          <p>
+            Every system we install is connected to our back-to-base monitoring portal. Our team checks every system each morning. If something drops out, generates less than expected, or throws a fault, we see it — often before the homeowner even notices.
+          </p>
+          <p>
+            We've had cases where a system was intermittently disconnecting due to a Wi-Fi issue. We picked it up in our morning check, texted the client, went around and fixed it in five minutes. They had no idea anything was wrong. That's the level of ongoing support we provide.
+          </p>
+          <p>
+            It's not just install and walk away. We set up monitoring on the day of installation, walk you through the app, and keep an eye on your system from that point forward.
+          </p>
+        </div>
+        <div class="monitoring-card">
+          <div class="monitoring-card__stat">48hr</div>
+          <p>
+            <strong>Critical fault response.</strong> If our monitoring detects a serious issue with your system, we arrange for one of our A-grade electricians to be on site within 48 business hours. We haven't encountered a critical fault yet, but the commitment is there.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .monitoring-section {
+      padding: 5rem 0;
+      background: #fff;
+    }
+
+    .monitoring-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .monitoring-text h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .monitoring-text p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .monitoring-card {
+      background: #0E2B47;
+      color: #fff;
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+
+    .monitoring-card__stat {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .monitoring-card p {
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.7;
+    }
+
+    .monitoring-card strong {
+      color: #fff;
+    }
+
+    @media (max-width: 800px) {
+      .monitoring-layout {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -492,14 +827,190 @@ import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
   </style>
 
 
-  <StatBar
-    stats={[
-      { value: '70-90%', label: 'Average bill reduction' },
-      { value: '10yr', label: 'Workmanship warranty' },
-      { value: '25yr', label: 'Panel warranty' },
-      { value: '1-2 day', label: 'Typical install time' },
-    ]}
-  />
+  <!-- Guarantees -->
+  <section class="guarantees-section">
+    <div class="guarantees-section__slant"></div>
+    <div class="guarantees-section__texture"></div>
+    <div class="container">
+      <p class="section-label" style="text-align:center;">With Every Solar System</p>
+      <h2 style="text-align:center; margin-bottom: 2.5rem;">Our Guarantees</h2>
+
+      <div class="guarantees-grid">
+        <div class="guarantee-tile">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">70-90%</span>
+            <span class="guarantee-tile__label">Average<br />bill reduction</span>
+          </div>
+        </div>
+
+        <div class="guarantee-tile">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">1-2 day</span>
+            <span class="guarantee-tile__label">Typical<br />install time</span>
+          </div>
+        </div>
+
+        <div class="guarantee-tile guarantee-tile--badged">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">10 year</span>
+            <span class="guarantee-tile__label">Workmanship<br />warranty</span>
+          </div>
+          <img src="/image/icon/residenteials_Section_Gaurantee_Badge.svg" alt="" class="guarantee-tile__badge" />
+        </div>
+
+        <div class="guarantee-tile guarantee-tile--badged">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">25 year</span>
+            <span class="guarantee-tile__label">Panel<br />warranty</span>
+          </div>
+          <img src="/image/icon/residenteials_Section_Gaurantee_Badge.svg" alt="" class="guarantee-tile__badge" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .guarantees-section {
+      position: relative;
+      padding: 5rem 0 6rem;
+      background: #f4f5f7;
+      overflow: hidden;
+    }
+
+    .guarantees-section__slant {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: #eceef1;
+      clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
+      z-index: 0;
+    }
+
+    .guarantees-section__texture {
+      position: absolute;
+      bottom: -500px;
+      left: -100px;
+      width: 1000px;
+      height: 1000px;
+      background: url('/image/textures/WhatWeDo_Texture.svg') no-repeat center / contain;
+      transform: rotate(30deg);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    .guarantees-section .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .guarantees-grid {
+      display: flex;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .guarantee-tile {
+      position: relative;
+      width: 220px;
+      flex-shrink: 0;
+      aspect-ratio: 528 / 521;
+      margin-right: -20px;
+    }
+
+    .guarantee-tile:last-child {
+      margin-right: 0;
+    }
+
+    .guarantee-tile__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.06));
+    }
+
+    .guarantee-tile__content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .guarantee-tile__value {
+      display: block;
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #0E2B47;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .guarantee-tile__label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #0E2B47;
+      line-height: 1.4;
+    }
+
+    .guarantee-tile__badge {
+      position: absolute;
+      bottom: -18px;
+      right: -18px;
+      width: 72px;
+      height: 72px;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .guarantees-grid {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+      }
+
+      .guarantee-tile {
+        width: calc(50% - 0.75rem);
+        flex-shrink: 0;
+        margin-right: 0;
+      }
+
+      .guarantee-tile__value {
+        font-size: 1.75rem;
+      }
+
+      .guarantee-tile__label {
+        font-size: 0.85rem;
+      }
+
+      .guarantee-tile__badge {
+        width: 56px;
+        height: 56px;
+        bottom: -12px;
+        right: -12px;
+      }
+
+      .guarantees-section__texture {
+        width: 600px;
+        height: 600px;
+        bottom: -300px;
+        left: -80px;
+      }
+    }
+  </style>
 
 
   <!-- High-end architectural installs -->

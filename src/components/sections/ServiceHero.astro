@@ -1,0 +1,138 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  illustration: string;
+  illustrationAlt?: string;
+}
+
+const { title, subtitle = 'Geelong and surrounds', illustration, illustrationAlt = '' } = Astro.props;
+---
+
+<section class="service-hero">
+  <div class="service-hero__top">
+    <div class="service-hero__container">
+      <div class="service-hero__row">
+        <div class="service-hero__text">
+          <h1>{title}</h1>
+          <p>{subtitle}</p>
+        </div>
+        <img src="/image/logo/logo_color_White_bottomText.svg" alt="EES Environmental Energy Services" class="service-hero__logo" />
+      </div>
+    </div>
+  </div>
+  <div class="service-hero__wave">
+    <img src={illustration} alt={illustrationAlt} class="service-hero__illus" />
+    <img src="/image/textures/ServicePage_SVG_curveHedaer.svg" alt="" class="service-hero__curve" aria-hidden="true" />
+  </div>
+</section>
+
+<style>
+  .service-hero {
+    position: relative;
+  }
+
+  .service-hero__top {
+    background: #0F2B47;
+    padding: 7rem 0 1.5rem;
+    border-bottom-right-radius: 110px;
+  }
+
+  .service-hero__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .service-hero__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .service-hero__text h1 {
+    color: #fff;
+    font-size: 3.25rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 0 0.5rem;
+    max-width: 480px;
+  }
+
+  .service-hero__text p {
+    color: rgba(255, 255, 255, 1);
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .service-hero__logo {
+    width: 140px;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  /* Wave / curve transition area */
+  .service-hero__wave {
+    position: relative;
+    margin-top: -1px;
+    padding-right: 100px;
+  }
+
+  .service-hero__curve {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-hero__illus {
+    position: absolute;
+    bottom: 5%;
+    right: max(calc((100vw - 1400px) / 2 + 2rem), 2rem);
+    width: 78%;
+    max-width: 1440px;
+    height: auto;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .service-hero__top {
+      padding: 6rem 0 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-hero__text h1 {
+      font-size: 2rem;
+    }
+
+    .service-hero__text p {
+      font-size: 0.95rem;
+    }
+
+    .service-hero__container {
+      padding: 0 1.25rem;
+    }
+
+    .service-hero__logo {
+      display: none;
+    }
+
+    .service-hero__illus {
+      width: 80%;
+      right: 1.25rem;
+      bottom: -1rem;
+    }
+
+    .service-hero__top {
+      border-bottom-right-radius: 40px;
+    }
+
+    .service-hero__wave {
+      padding-right: 30px;
+    }
+  }
+</style>

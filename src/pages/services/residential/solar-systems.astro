@@ -6,59 +6,196 @@ import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro'
 import StatBar from '../../../components/sections/StatBar.astro';
 import RelatedNav from '../../../components/sections/RelatedNav.astro';
 import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
+import FaqGroup from '../../../components/sections/FaqGroup.astro';
+import ServiceHero from '../../../components/sections/ServiceHero.astro';
+import HugeIcon from '../../../components/HugeIcon.astro';
+import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
+import ZapIcon from '@hugeicons/core-free-icons/ZapIcon';
+import Home01Icon from '@hugeicons/core-free-icons/Home01Icon';
+import BatteryFullIcon from '@hugeicons/core-free-icons/BatteryFullIcon';
+import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
 ---
 
 <BaseLayout
   title="Residential Solar Panels Geelong & Torquay | Installation | EES"
   description="Expert residential solar panel installation in Geelong, Torquay and the Surf Coast. CEC accredited, designed for your home, backed by a 10-year workmanship warranty."
 >
-  <section class="page-header">
-    <div class="container">
-      <h1>Residential Solar Systems</h1>
-      <p>Solar panel installation designed around your home and energy profile.</p>
-    </div>
-  </section>
+  <ServiceHero
+    title="Residential Solar Systems"
+    illustration="/image/illustrations/Residential  Solar Systems.png"
+    illustrationAlt="Residential solar panel installation illustration"
+  />
 
-  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_14_TopCut_.webp" alt="EES residential solar installation on a home in Geelong" bg="white">
+
+  <!-- Hero: The holistic first conversation -->
+  <SplitFeature image="/image/illustrations/service_residential_solarasystem_section_lifefirstV1.png" alt="EES residential solar installation on a home in Geelong" bg="white" flat>
     <p class="section-label">Our Approach</p>
-    <h2>Solar Designed for Your Home</h2>
+    <h2>We Start With Your Life, Not Your Roof</h2>
     <p>
-      Every home is different — roof orientation, shading, energy usage, and future plans all affect what solar system will perform best. We design each system around your specific property, not a generic template.
+      Before we look at your roof or talk about panels, we want to understand how you live. How much power are you using during the day? Are you home or at work? Are you planning to get an electric vehicle, an induction cooktop, or a heat pump in the next few years? Are you retiring soon and going to be home more?
     </p>
     <p>
-      Our process starts with a detailed assessment of your roof, energy bills, and goals. From there, we design a system that maximises self-consumption and delivers the best return on your investment.
+      All of this matters because a solar system should be designed around your actual consumption and where it's heading, not a generic template. We never oversize a system to sell you more panels, and we never design for winter production because that doesn't reflect how your system will perform most of the year.
+    </p>
+    <p>
+      The goal is simple: cover your own usage first. Not to send power back to the grid for a measly one cent per kilowatt hour. To power your home.
     </p>
   </SplitFeature>
 
-  <IconFeatureGrid
-    label="What We Install"
-    heading="Quality Components, Long-Term Reliability"
-    bg="light"
-    features={[
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/></svg>',
-        title: 'Tier 1 Solar Panels',
-        description: 'Independently tested and rated for Australian conditions with 25-year warranties.'
-      },
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
-        title: 'Quality Inverters',
-        description: 'The component that converts DC power from your panels to AC power for your home.'
-      },
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>',
-        title: 'Optimised Design',
-        description: 'Panel placement and string configuration designed for your specific roof.'
-      },
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>',
-        title: 'Full Monitoring',
-        description: 'See your generation and consumption in real time from your phone.'
-      },
-    ]}
-  />
 
-  <!-- Solar System Size Selector -->
+  <!-- How solar works: simple explanation -->
+  <section class="solar-basics-section">
+    <div class="container">
+      <p class="section-label">How Solar Works</p>
+      <h2>Sunlight In, Savings Out</h2>
+
+      <!-- IMAGE: Horizontal flow diagram showing: Sunlight hits panels → DC electricity generated → Inverter converts DC to AC → AC powers your home → Excess charges battery → Battery powers home at night. Simple clean line art in EES blue, with the home/battery loop highlighted. Similar style to battery page flow diagram. -->
+
+      <div class="basics-flow">
+        <div class="basics-step">
+          <div class="basics-icon">
+            <HugeIcon icon={Sun01Icon} />
+          </div>
+          <h3>Sunlight hits panels</h3>
+          <p>Solar panels on your roof convert sunlight into DC electricity.</p>
+        </div>
+        <div class="basics-arrow">
+          <HugeIcon icon={ArrowRight01Icon} />
+        </div>
+        <div class="basics-step">
+          <div class="basics-icon">
+            <HugeIcon icon={ZapIcon} />
+          </div>
+          <h3>Inverter converts it</h3>
+          <p>The inverter turns DC into AC power that your home can use.</p>
+        </div>
+        <div class="basics-arrow">
+          <HugeIcon icon={ArrowRight01Icon} />
+        </div>
+        <div class="basics-step">
+          <div class="basics-icon">
+            <HugeIcon icon={Home01Icon} />
+          </div>
+          <h3>Home uses it first</h3>
+          <p>Everything running in your home gets powered by solar first.</p>
+        </div>
+        <div class="basics-arrow">
+          <HugeIcon icon={ArrowRight01Icon} />
+        </div>
+        <div class="basics-step">
+          <div class="basics-icon">
+            <HugeIcon icon={BatteryFullIcon} />
+          </div>
+          <h3>Battery stores the rest</h3>
+          <p>Anything left over charges your battery for tonight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .solar-basics-section {
+      padding: 5rem 0;
+      background: #f8f9fa;
+    }
+
+    .solar-basics-section .section-label,
+    .solar-basics-section h2 {
+      text-align: center;
+    }
+
+    .solar-basics-section h2 {
+      margin-bottom: 3rem;
+    }
+
+    .basics-flow {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.75rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .basics-step {
+      text-align: center;
+      flex: 1;
+      max-width: 200px;
+    }
+
+    .basics-icon {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 1rem;
+      color: #2061B7;
+    }
+
+    .basics-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .basics-step h3 {
+      font-size: 0.95rem;
+      color: #0E2B47;
+      margin-bottom: 0.4rem;
+    }
+
+    .basics-step p {
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .basics-arrow {
+      width: 28px;
+      flex-shrink: 0;
+      color: #2061B7;
+      margin-top: 0.5rem;
+    }
+
+    .basics-arrow svg {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .basics-flow {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .basics-step {
+        max-width: 300px;
+      }
+
+      .basics-arrow {
+        transform: rotate(90deg);
+        width: 24px;
+        margin: 0;
+      }
+    }
+  </style>
+
+
+  <!-- NMI data analysis: how we actually size your system -->
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_21_TopCut_.webp" alt="EES solar panels on residential roof" reverse bg="white">
+    <p class="section-label">Data Driven Design</p>
+    <h2>We Look at Your Actual Usage, Not Just Your Bill</h2>
+    <p>
+      Every property in Australia has a National Meter Identifier (NMI). Using your NMI and smart meter number, we can see your electricity consumption down to half hour intervals. We can see exactly when you're using power, how much, and if you already have solar, how much your existing system is generating.
+    </p>
+    <p>
+      This is how we size your system accurately. Not from a bill total. Not from a generic calculator. From your actual data. We can see if you use most of your power during the day or at night, whether you have enough excess to justify a battery, and what your realistic savings and payback period will be.
+    </p>
+    <p>
+      We don't know any other company in the area that does this level of analysis.
+    </p>
+  </SplitFeature>
+
+
+  <!-- Tier comparison table: KEEP AS-IS -->
   <section class="solar-tiers-section">
     <div class="container">
       <div class="spec-cards-header">
@@ -168,12 +305,10 @@ import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro'
     .spec-cards-header {
       max-width: 1000px;
       margin: 0 auto 2rem;
-      /* Offset to center over the 3 data columns, not the feature label column */
       padding-left: 22%;
       text-align: center;
     }
 
-    /* Comparison table */
     .tier-comparison-table {
       max-width: 1000px;
       margin: 0 auto;
@@ -188,7 +323,6 @@ import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro'
       table-layout: fixed;
     }
 
-    /* Card header row */
     .tier-card-row th {
       vertical-align: top;
       padding: 0;
@@ -262,7 +396,6 @@ import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro'
       border-color: #2061B7;
     }
 
-    /* Column label row */
     .tier-label-row th {
       text-align: left;
       padding: 0.7rem 1.25rem;
@@ -291,7 +424,6 @@ import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro'
       border-right: 2px solid #2061B7;
     }
 
-    /* Body rows */
     .tier-comparison-table tbody td {
       padding: 0.65rem 1.25rem;
       font-size: 0.88rem;
@@ -365,56 +497,175 @@ import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro'
       { value: '70-90%', label: 'Average bill reduction' },
       { value: '10yr', label: 'Workmanship warranty' },
       { value: '25yr', label: 'Panel warranty' },
-      { value: '1 day', label: 'Typical install time' },
+      { value: '1-2 day', label: 'Typical install time' },
     ]}
   />
 
-  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_21_TopCut_.webp" alt="EES solar panels installed on residential roof" reverse bg="white">
-    <p class="section-label">Rebates & Incentives</p>
+
+  <!-- High-end architectural installs -->
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_17_TopCut_.webp" alt="Solar installation on architectural home" bg="white">
+    <!-- IMAGE: Replace with a photo showing a clean, high-end residential solar installation where cables are hidden and the panels complement the architecture. Ideally a complex roof with multiple orientations. -->
+    <p class="section-label">Complex and Architectural Homes</p>
+    <h2>We Work With Your Architect and Builder</h2>
+    <p>
+      About half of our residential work is on architectural and designed homes. These are complex sites with multiple roof orientations, different phases, and homeowners who care deeply about how the system looks on their property.
+    </p>
+    <p>
+      We work directly with the original builders and architects to understand how the property was designed and what the best way is to run cables, mount panels, and integrate the system without compromising the aesthetic. That might mean lifting out roof sheets, cutting and reinstalling plaster, or coordinating painters to come in after us.
+    </p>
+    <p>
+      Other companies would run external conduit and walk away. We take the time to make sure the system fits the house, not the other way around.
+    </p>
+  </SplitFeature>
+
+
+  <!-- The honest pitch + industry stats -->
+  <section class="honest-section">
+    <div class="container">
+      <div class="honest-layout">
+        <div class="honest-text">
+          <p class="section-label">Honest Advice</p>
+          <h2>We'll Tell You If Solar Doesn't Make Sense</h2>
+          <p>
+            If 90% of your power is being used during the day and you don't have significant nighttime consumption, a battery might not be worth it for you right now. If your daytime usage is too low, a large solar system won't deliver the returns you're hoping for.
+          </p>
+          <p>
+            We will tell you this. We'd rather lose a sale than install a system that doesn't perform and have an unhappy customer. That's been our approach from day one, and it's why our clients refer their friends and family.
+          </p>
+        </div>
+        <div class="honest-stat-card">
+          <div class="stat-big">18.7%</div>
+          <p>
+            of solar installations in Australia are substandard, according to the Clean Energy Regulator's audit of 2,500 homes in 2024/25. That's nearly one in five.
+          </p>
+          <p>
+            We've never had a system made defunct by an electrical inspector. Every install adheres to AS/NZS 4777 standards. Our 10 year workmanship warranty is double the legal minimum of five years, and unlike companies offering 30 year warranties after being in business for one or two years, we've been operating in the Geelong region for over a decade. It's an honest warranty from a company that will actually be here to honour it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .honest-section {
+      padding: 5rem 0;
+      background: rgba(240, 238, 217, 0.25);
+    }
+
+    .honest-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .honest-text h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .honest-text p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .honest-stat-card {
+      background: #0E2B47;
+      color: #fff;
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+
+    .stat-big {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .honest-stat-card p {
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .honest-stat-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 800px) {
+      .honest-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+
+  <!-- Rebates -->
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_19_TopCut_.webp" alt="EES headquarters in Moolap, Geelong" reverse bg="white">
+    <p class="section-label">Rebates and Incentives</p>
     <h2>Government Support to Lower Your Costs</h2>
     <p>
-      The federal government provides an upfront discount on solar installations through Small-scale Technology Certificates (STCs). This is applied as a point-of-sale discount — you don't need to claim it separately.
+      The federal government provides an upfront discount on solar installations through Small-scale Technology Certificates (STCs). This is applied as a point of sale discount. You don't need to claim it separately.
     </p>
     <p>
       Additional Victorian Government rebates may be available depending on your property and household income. As a Solar Victoria approved retailer, we confirm your eligibility and handle the application process.
     </p>
   </SplitFeature>
 
+
+  <!-- Process -->
   <ProcessTimeline
     label="How It Works"
     heading="From Enquiry to Savings"
     steps={[
-      { title: 'Consultation', description: 'We assess your property, review your bills, and discuss your goals.' },
-      { title: 'Design', description: 'We design a system tailored to your roof and energy profile.' },
-      { title: 'Paperwork', description: 'We handle the rebate application, grid connection approval, and permits.' },
-      { title: 'Installation', description: 'Our CEC-accredited electricians install the system, typically in one day.' },
-      { title: 'Commissioning', description: 'We test everything, connect monitoring, and walk you through the system.' },
+      { title: 'Discovery call', description: 'A quick five to ten minute call to understand your situation: what phases you are, how long you plan to be in the home, and whether it makes sense for us to come out.' },
+      { title: 'Consultation', description: 'We visit your property, review your energy data using your NMI and smart meter, assess your roof, and discuss your goals and future plans.' },
+      { title: 'System design', description: 'We design a system tailored to your property, your usage patterns, and any future additions like batteries, heat pumps, or EV chargers.' },
+      { title: 'Paperwork and approvals', description: 'We handle rebate applications, export pre approval from your local network provider (DNSP), grid connection approval, and permits. Stock is ordered and your installation date is confirmed.' },
+      { title: 'Pre install confirmation', description: 'Clear communication leading up to install day. We confirm everything 24 hours before, including inverter and battery location and expected duration of any power interruption.' },
+      { title: 'Installation', description: 'Our CEC accredited team arrives on time and introduces themselves. The system is installed in one to two days, fully commissioned, and the site is cleaned and returned to its original state.' },
+      { title: 'Walkthrough and monitoring', description: 'We walk you through how the system works, set up the monitoring app on your phone, and connect your system to our back to base monitoring portal so we can keep an eye on it from day one.' },
+      { title: 'Post install completion', description: 'We lodge the Certificate of Electrical Safety, an inspector attends your site and energises the system, DNSP paperwork is completed, your meter is updated to register exported energy, and we help negotiate your feed in tariff or set you up with a VPP or dynamic tariff.' },
     ]}
   />
 
-  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_19_TopCut_.webp" alt="EES headquarters in Moolap, Geelong" bg="light">
-    <p class="section-label">Warranty & Support</p>
-    <h2>We Stand Behind Every Install</h2>
-    <p>
-      Every installation comes with our <strong>10-year workmanship warranty</strong>, covering the installation itself — not just the products. If something goes wrong with how the system was installed, we fix it.
-    </p>
-    <p>
-      Panel and inverter manufacturer warranties apply on top of this, typically 25 years for panels and 10-15 years for inverters. We're a local team based in Moolap — here for the long term, not a fly-in-fly-out installer.
-    </p>
-  </SplitFeature>
+
+  <FaqGroup
+    heading="Solar Panel FAQ"
+    groups={[
+      {
+        label: 'Common Questions',
+        questions: [
+          { q: 'Will my solar system generate power on cloudy days?', a: 'Yes, but at reduced capacity. Expect 10 to 50% of normal output depending on cloud coverage. Production is based on solar irradiance, not just visible sunlight. If you have a battery, stored power helps compensate as your household draws from both the solar system and battery simultaneously.' },
+          { q: 'Will I still get a bill with a solar and battery system?', a: 'Usually, however it depends on the time of year. On the best summer days you receive roughly 300% more generation than on an average winter day. We aim to design your system so your electricity bill is neutral over a 12 month period. In winter months, we can set you up with wholesale energy providers to automatically top up your battery during low cost periods.' },
+          { q: 'Why is my solar system larger than my inverter capacity?', a: 'This is called oversizing, and it is intentional. Panels only hit peak output for a short window when the sun is directly overhead. By oversizing the array, your inverter reaches full capacity for longer periods throughout the day, generating significantly more electricity overall. The gains during morning, afternoon, and variable conditions far outweigh the brief moments of clipping at peak.' },
+        ]
+      },
+    ]}
+  />
+
 
   <RelatedNav
+    heading="Part of a Bigger System"
     links={[
-      { href: '/services/residential/battery-systems', title: 'Battery Storage', description: 'Store solar energy for use after dark' },
-      { href: '/services/residential/heat-pump-systems', title: 'Heat Pump Systems', description: 'Efficient hot water and climate control' },
-      { href: '/services/financing', title: 'Financing & Rebates', description: 'Payment plans and government incentives' },
+      { href: '/services/residential/battery-systems', title: 'Battery Storage', description: 'Store your solar energy and use it after dark' },
+      { href: '/services/residential/heat-pump-systems', title: 'Heat Pump Hot Water', description: 'Run your hot water on free solar electricity' },
+      { href: '/services/residential/virtual-power-plants', title: 'Virtual Power Plants', description: 'Earn money by trading your stored energy' },
+      { href: '/services/financing', title: 'Financing and Rebates', description: 'Payment plans and government incentives' },
     ]}
   />
+
 
   <section class="cta-section">
     <div class="container">
-      <p>Ready to get a solar system designed for your home?</p>
+      <p>Ready to get a solar system designed around how you actually live?</p>
       <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
+      <p style="margin-top: 0.75rem; font-size: 0.95rem;">Or call us on <a href="tel:0427664827">0427 664 827</a></p>
     </div>
   </section>
 

@@ -891,7 +891,11 @@ p {
 .split-image img {
   width: 100%;
   border-radius: 1rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.split-image--flat img {
+  border-radius: 0;
+  box-shadow: none;
 }
 
 @media (max-width: 800px) {

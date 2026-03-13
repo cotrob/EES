@@ -4,85 +4,647 @@ import ScrollIndicator from '../../../components/ScrollIndicator.astro';
 import SplitFeature from '../../../components/sections/SplitFeature.astro';
 import StatBar from '../../../components/sections/StatBar.astro';
 import RelatedNav from '../../../components/sections/RelatedNav.astro';
-import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
+import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
+import FaqGroup from '../../../components/sections/FaqGroup.astro';
+import HugeIcon from '../../../components/HugeIcon.astro';
+import Clock01Icon from '@hugeicons/core-free-icons/Clock01Icon';
+import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
+import UserGroupIcon from '@hugeicons/core-free-icons/UserGroupIcon';
+import FireIcon from '@hugeicons/core-free-icons/FireIcon';
+import HeaterIcon from '@hugeicons/core-free-icons/HeaterIcon';
+import ZapIcon from '@hugeicons/core-free-icons/ZapIcon';
 ---
 
 <BaseLayout
-  title="Heat Pump Systems | EES"
-  description="Our polyvalent heat pump produces heating and cooling simultaneously with an effective COP of 7:1 — powering your home from a single efficient unit."
+  title="Heat Pump Hot Water Systems Geelong | Installation & Prices | EES"
+  description="Heat pump hot water installation in Geelong, Torquay and the Surf Coast. Replace your old gas or electric hot water with an efficient heat pump. CEC accredited, honest advice on whether it's worth switching."
 >
   <section class="page-header">
     <div class="container">
-      <h1>Heat Pump Systems</h1>
-      <p>Efficient heating, cooling, and hot water from a single unit.</p>
+      <h1>Heat Pump Hot Water Systems</h1>
+      <p>The smart upgrade that pairs with your solar to cut gas out of your home.</p>
     </div>
   </section>
 
-  <SplitFeature image="/image/WIP/environmental-service-pod/esp-complete-system-front-photo.webp" alt="EES polyvalent heat pump system" bg="white">
-    <p class="section-label">Core Technology</p>
-    <h2>The Polyvalent Heat Pump</h2>
+  <!-- Hero: The "fries with that" pitch, reframed for the customer -->
+  <SplitFeature image="/image/WIP/environmental-service-pod/esp-complete-system-front-photo.webp" alt="Heat pump hot water system installed beside a home in Geelong" bg="white">
+    <!-- IMAGE: Swap this for a real photo of a standalone heat pump hot water unit installed on the side of a residential home. Ideal: clean install, outdoor unit with piping visible, suburban Geelong setting. -->
+    <p class="section-label">Why Heat Pump Hot Water</p>
+    <h2>Already Have Solar? This Is the Next Step.</h2>
     <p>
-      Our heat pump is different from conventional units. It is <strong>polyvalent</strong> — meaning it produces heating and cooling simultaneously, rather than one or the other.
+      If you've got solar panels on your roof and you're generating free electricity during the day, why are you still paying for gas to heat your water?
     </p>
     <p>
-      For every 1 kW of electricity consumed, the heat pump delivers an average of <strong>4 kW of thermal output</strong> (a COP of 4:1). But because it generates hot and cold water at the same time, the real-world effective performance is closer to <strong>7:1</strong> — making it exceptionally efficient.
+      A heat pump hot water system runs on electricity, not gas. Pair it with your solar and your hot water is essentially free. It's the single easiest way to start removing gas from your home and putting more of your solar generation to work.
     </p>
   </SplitFeature>
+
+  <!-- How a heat pump works: simple visual explanation -->
+  <section class="how-it-works-section">
+    <div class="container">
+      <p class="section-label">How It Works</p>
+      <h2>Heat Pump Hot Water in 30 Seconds</h2>
+      <p class="section-intro">
+        A heat pump doesn't generate heat by burning gas or running a heating element. It moves heat from the air into your water, using the same technology as a reverse cycle air conditioner. That's why it uses roughly a third of the electricity of a standard electric hot water system.
+      </p>
+
+      <div class="how-it-works-steps">
+        <!-- IMAGE: SVG diagram showing the heat pump cycle in 3 steps. Step 1: outdoor unit absorbs warmth from ambient air (show wavy air lines entering the unit). Step 2: refrigerant compressor concentrates the heat (show the compressor with a temperature arrow going up). Step 3: heat exchanger transfers it into the hot water tank (show hot water tank with warm water rising). Simple, clean line art in the EES blue (#0E2B47) with green accents. Horizontal layout on desktop, vertical stack on mobile. -->
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Absorbs heat from the air</h3>
+          <p>Even on cool days, there's warmth in the air. The heat pump's fan draws air across an evaporator that captures that thermal energy.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Compresses and concentrates it</h3>
+          <p>A compressor pressurises the refrigerant, raising the temperature high enough to heat water to 60°C and above.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Heats your water</h3>
+          <p>The hot refrigerant passes through a heat exchanger wrapped around your storage tank, transferring all that captured energy into your water.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .how-it-works-section {
+      padding: 5rem 0;
+      background: #f8f9fa;
+    }
+
+    .how-it-works-section .section-label {
+      text-align: center;
+    }
+
+    .how-it-works-section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      color: #555;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .how-it-works-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .step-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #0E2B47;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .step-card h3 {
+      font-size: 1.15rem;
+      color: #0E2B47;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-card p {
+      font-size: 0.92rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .how-it-works-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+
+  <!-- The three decision factors -->
+  <section class="decision-factors-section">
+    <div class="container">
+      <p class="section-label">Is It Right for You?</p>
+      <h2>Three Things That Determine If It's Worth Switching</h2>
+      <p class="section-intro">
+        We're not going to tell everyone to get a heat pump. About half the time, it's genuinely not worth it. Here's how we work out whether it makes sense for your home.
+      </p>
+
+      <div class="factors-grid">
+        <div class="factor-card">
+          <div class="factor-icon">
+<HugeIcon icon={Clock01Icon} />
+          </div>
+          <h3>Age of your current system</h3>
+          <p>If your hot water system is relatively new and working well, it doesn't make financial sense to replace it yet. We'll ask how old it is and whether it's showing any signs of failing.</p>
+        </div>
+        <div class="factor-card">
+          <div class="factor-icon">
+<HugeIcon icon={Sun01Icon} />
+          </div>
+          <h3>What type of system you have</h3>
+          <p>Instantaneous gas, gas storage, solar boosted, or fully electric. Each one has a different cost profile, and switching from some types saves far more than others.</p>
+        </div>
+        <div class="factor-card">
+          <div class="factor-icon">
+<HugeIcon icon={UserGroupIcon} />
+          </div>
+          <h3>How many people live in your home</h3>
+          <p>A couple uses far less hot water than a family of five. The size of your household directly affects how much you'll save and what tank size makes sense.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .decision-factors-section {
+      padding: 5rem 0;
+      background: #fff;
+    }
+
+    .decision-factors-section .section-label {
+      text-align: center;
+    }
+
+    .decision-factors-section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .factors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .factor-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .factor-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 1.25rem;
+      color: #2061B7;
+    }
+
+    .factor-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .factor-card h3 {
+      font-size: 1.1rem;
+      color: #0E2B47;
+      margin-bottom: 0.75rem;
+    }
+
+    .factor-card p {
+      font-size: 0.92rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .factors-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+      }
+    }
+  </style>
+
+
+  <!-- The honest conversation callout -->
+  <section class="honest-callout">
+    <div class="container">
+      <div class="callout-box">
+        <div class="callout-accent"></div>
+        <div class="callout-content">
+          <h3>We'll tell you if it's not worth it.</h3>
+          <p>
+            About half the people we talk to, a heat pump doesn't make sense for their situation right now. Maybe the existing system is only a few years old. Maybe they're not using enough hot water to justify the cost. We'd rather be straight with you and save you the money than push a sale that won't deliver real savings.
+          </p>
+          <p>
+            That's how we approach everything at EES. If it doesn't add up for you, we'll say so.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .honest-callout {
+      padding: 3rem 0;
+      background: #f8f9fa;
+    }
+
+    .callout-box {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+
+    .callout-accent {
+      width: 6px;
+      flex-shrink: 0;
+      background: #2061B7;
+    }
+
+    .callout-content {
+      padding: 2.5rem 2.5rem;
+    }
+
+    .callout-content h3 {
+      font-size: 1.35rem;
+      color: #0E2B47;
+      margin-bottom: 1rem;
+    }
+
+    .callout-content p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .callout-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 600px) {
+      .callout-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- What type of hot water do you have now? -->
+  <section class="hw-types-section">
+    <div class="container">
+      <p class="section-label">What You Might Currently Have</p>
+      <h2>Four Common Hot Water System Types</h2>
+      <p class="section-intro">
+        Knowing what you've got now helps us work out whether a heat pump will actually save you money, and how much.
+      </p>
+
+      <div class="hw-types-grid">
+        <div class="hw-type-card">
+          <div class="hw-type-icon">
+            <!-- IMAGE: Simple line icon of a gas flame -->
+<HugeIcon icon={FireIcon} />
+          </div>
+          <h3>Instantaneous Gas</h3>
+          <p>Heats water on demand with no storage tank. Efficient for gas but still relies on gas supply and connection fees.</p>
+        </div>
+        <div class="hw-type-card">
+          <div class="hw-type-icon">
+<HugeIcon icon={HeaterIcon} />
+          </div>
+          <h3>Gas Storage</h3>
+          <p>A gas burner heats a tank of water and keeps it hot. Common in older homes, but the pilot light runs constantly and gas prices keep climbing.</p>
+        </div>
+        <div class="hw-type-card">
+          <div class="hw-type-icon">
+<HugeIcon icon={Sun01Icon} />
+          </div>
+          <h3>Solar Boosted</h3>
+          <p>Roof mounted solar collectors heat water with a gas or electric booster for cloudy days. Works well, but the panels degrade over time and replacements are expensive.</p>
+        </div>
+        <div class="hw-type-card">
+          <div class="hw-type-icon">
+<HugeIcon icon={ZapIcon} />
+          </div>
+          <h3>Fully Electric</h3>
+          <p>A heating element inside the tank. Simple and cheap to install but the most expensive to run. This is where a heat pump makes the biggest difference.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .hw-types-section {
+      padding: 5rem 0;
+      background: #fff;
+    }
+
+    .hw-types-section .section-label {
+      text-align: center;
+    }
+
+    .hw-types-section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .hw-types-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hw-type-card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 1.75rem 1.25rem;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+    }
+
+    .hw-type-icon {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 1rem;
+      color: #2061B7;
+    }
+
+    .hw-type-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hw-type-card h3 {
+      font-size: 1.05rem;
+      color: #0E2B47;
+      margin-bottom: 0.5rem;
+    }
+
+    .hw-type-card p {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .hw-types-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .hw-types-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+    }
+  </style>
+
+
+  <!-- The bigger picture: electrification and gas removal -->
+  <section class="electrification-section">
+    <div class="container">
+      <div class="electrification-layout">
+        <div class="electrification-text">
+          <p class="section-label">The Bigger Picture</p>
+          <h2>Part of Removing Gas From Your Home Entirely</h2>
+          <p>
+            Gas prices in Victoria have been rising faster than electricity for years, and the trend isn't slowing down. On top of what you actually use, there's a daily connection fee of around $1.40 just to stay connected to the gas network. That's over $500 a year before you've even turned on the hot water.
+          </p>
+          <p>
+            A heat pump is usually the first step in removing gas completely. Once your hot water is running off solar electricity instead of gas, the only things left on your gas bill are typically your cooktop and maybe a ducted heater. At that point, switching those over too and disconnecting from gas starts to make a lot of financial sense.
+          </p>
+          <p>
+            We walk you through this whole picture during the consultation. It doesn't have to happen all at once. Some people start with solar and a battery, add a heat pump later, then eventually swap the cooktop and heater. The point is that each step builds on the last, and we design your system with that future in mind from day one.
+          </p>
+        </div>
+        <div class="electrification-visual">
+          <!-- IMAGE: Vertical "journey" diagram showing the progressive electrification steps:
+            1. Solar panels (generating free electricity)
+            2. Battery (storing it for evening)
+            3. Heat pump hot water (first gas appliance replaced)
+            4. Induction cooktop (second gas appliance replaced)
+            5. Hydronic/HVAC heating (final gas appliance replaced)
+            6. Gas disconnected (savings icon, $500+/year saved on connection fee alone)
+          Each step shown as a node on a vertical line, with a subtle arrow flowing downward. Use EES blue (#0E2B47) for the line and nodes, green accent for the final "gas disconnected" node. Clean, minimal line art style. -->
+          <div class="journey-placeholder">
+            <div class="journey-step">
+              <div class="journey-dot"></div>
+              <span>Solar panels installed</span>
+            </div>
+            <div class="journey-step">
+              <div class="journey-dot"></div>
+              <span>Battery added</span>
+            </div>
+            <div class="journey-step journey-step--active">
+              <div class="journey-dot"></div>
+              <span>Heat pump replaces gas hot water</span>
+            </div>
+            <div class="journey-step">
+              <div class="journey-dot journey-dot--future"></div>
+              <span>Induction cooktop replaces gas stove</span>
+            </div>
+            <div class="journey-step">
+              <div class="journey-dot journey-dot--future"></div>
+              <span>Hydronic replaces gas ducted heating</span>
+            </div>
+            <div class="journey-step">
+              <div class="journey-dot journey-dot--final"></div>
+              <span>Gas disconnected. $500+ saved per year.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .electrification-section {
+      padding: 5rem 0;
+      background: rgba(240, 238, 217, 0.25);
+    }
+
+    .electrification-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .electrification-text p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .electrification-text h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .journey-placeholder {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 2rem 0;
+      position: relative;
+    }
+
+    .journey-placeholder::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 2.5rem;
+      bottom: 2.5rem;
+      width: 2px;
+      background: #e5e7eb;
+    }
+
+    .journey-step {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 0.85rem 0;
+      position: relative;
+    }
+
+    .journey-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #2061B7;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .journey-dot--future {
+      background: #fff;
+      border: 2px solid #c5cdd8;
+    }
+
+    .journey-dot--final {
+      background: #1a7a3a;
+    }
+
+    .journey-step span {
+      font-size: 0.95rem;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .journey-step--active span {
+      color: #0E2B47;
+      font-weight: 700;
+    }
+
+    .journey-step:last-child span {
+      color: #1a7a3a;
+      font-weight: 700;
+    }
+
+    @media (max-width: 800px) {
+      .electrification-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+
 
   <StatBar
-    dark
     stats={[
-      { value: '4:1', label: 'Standard COP' },
-      { value: '7:1', label: 'Effective COP' },
-      { value: '48V', label: 'DC Operation' },
-      { value: '220L', label: 'Hot Water Storage' },
+      { value: '3x', label: 'More efficient than electric' },
+      { value: '~$500', label: 'Gas connection fee saved per year' },
+      { value: '10yr', label: 'Workmanship warranty' },
+      { value: '1 day', label: 'Typical install time' },
     ]}
   />
 
-  <IconFeatureGrid
-    label="Capabilities"
-    heading="What It Powers"
-    description="The heat pump is the core of our Environmental Service Pod and provides all climate and hot water services from one compact, 48V DC unit."
-    bg="light"
-    features={[
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>',
-        title: 'Space Heating',
-        description: 'Warm water circulated through our hydronic ceiling panels provides even, radiant heating throughout your home.'
-      },
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>',
-        title: 'Space Cooling',
-        description: 'The same ceiling panels deliver cooling by circulating chilled water — no separate air conditioning system required.'
-      },
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6l3 3"/><circle cx="12" cy="14" r="8"/><path d="M8 14h8"/></svg>',
-        title: 'Hot Water',
-        description: 'Domestic hot water stored in a 220L insulated tank, heated efficiently by the same heat pump unit.'
-      },
-    ]}
-  />
 
-  <SplitFeature image="/image/WIP/environmental-service-pod/esp-modular-layout-schematic.webp" alt="Heat pump integration schematic showing connection to thermal storage and home systems" reverse bg="white">
-    <p class="section-label">System Integration</p>
-    <h2>How It Fits Into Your Home</h2>
+  <!-- Rebates & costs -->
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_19_TopCut_.webp" alt="EES team at Moolap headquarters" reverse bg="white">
+    <!-- IMAGE: Swap for a photo showing an EES team member explaining something to a homeowner, ideally near a hot water system or switchboard. Approachable, on-site consultation feel. -->
+    <p class="section-label">Rebates and Installation Costs</p>
+    <h2>What It Costs and What Help Is Available</h2>
     <p>
-      The heat pump connects to two thermal storage tanks (hot and cold) and is managed by an intelligent MODBUS control system. Combined with solar PV and battery storage, it forms a complete home energy system that can operate independently of the grid.
+      Heat pump hot water systems are eligible for federal Small-scale Technology Certificates (STCs), which are applied as a point of sale discount. Depending on the unit, this can reduce the upfront cost by $700 to $1,000 or more.
+    </p>
+    <p>
+      Victorian Energy Upgrades (VEU) certificates may also apply, providing an additional rebate. We check your eligibility and handle the paperwork as part of the installation.
+    </p>
+    <p>
+      The total installed cost depends on the tank size, brand, and what's involved in removing your old system. We'll give you an itemised quote with no surprises during your free consultation.
     </p>
   </SplitFeature>
 
-  <RelatedNav
-    links={[
-      { href: '/laboratory/environmental-service-pod', title: 'Environmental Service Pod', description: 'Learn about our integrated energy system' },
-      { href: '/services/residential/comfort-conditioning', title: 'Comfort Conditioning', description: 'Hydronic radiant ceiling panels for heating and cooling' },
-      { href: '/services/residential/solar-systems', title: 'Solar Systems', description: 'Solar panel installation designed for your home' },
+
+  <!-- How we work -->
+  <ProcessTimeline
+    label="Our Process"
+    heading="How a Heat Pump Installation Works"
+    steps={[
+      { title: 'Free consultation', description: 'We look at your current hot water system, ask about your household size and usage, and tell you honestly whether switching makes sense.' },
+      { title: 'System recommendation', description: 'If it does make sense, we recommend a specific unit and tank size based on your home. No overselling, no guesswork.' },
+      { title: 'Rebate paperwork', description: 'We handle the STC and VEU applications so the discounts are applied upfront. You don\'t need to claim anything separately.' },
+      { title: 'Installation', description: 'Our electricians remove the old system and install the heat pump, typically in a single day. We test everything before we leave.' },
+      { title: 'Walkthrough', description: 'We show you how the system works, connect it to your monitoring if you have solar, and make sure you\'re comfortable with everything.' },
     ]}
   />
+
+
+  <FaqGroup
+    heading="Heat Pump FAQ"
+    groups={[
+      {
+        label: 'Common Questions',
+        questions: [
+          { q: 'How does a heat pump hot water system work?', a: 'A heat pump extracts heat from the surrounding air and uses it to heat water, similar to how a fridge works but in reverse. For every 1 kW of electricity consumed, a heat pump can produce 3 to 4 kW of heat energy. This makes them roughly three times more efficient than a traditional electric hot water system and significantly cheaper to run than gas.' },
+          { q: 'Heat pump vs gas hot water, which is better?', a: 'Heat pumps are more efficient, produce no on site emissions, and can be powered by solar. Gas systems are being phased out in new Victorian homes, and gas prices continue to rise faster than electricity. You are also paying around $1.40 per day just for the gas connection fee before you use any gas. For most households, a heat pump is the better long term choice, especially when paired with solar panels.' },
+          { q: 'How much does a heat pump hot water system cost to install?', a: 'The cost depends on the size of the system, the complexity of the installation, and what you are replacing. Government rebates through Solar Victoria can reduce the upfront cost significantly. We provide a specific quote during your consultation after assessing your household size, current system, and hot water usage.' },
+        ]
+      },
+    ]}
+  />
+
+
+  <RelatedNav
+    heading="Part of a Bigger System"
+    links={[
+      { href: '/services/residential/solar-systems', title: 'Solar Systems', description: 'Power your heat pump with free solar electricity' },
+      { href: '/services/residential/battery-systems', title: 'Battery Storage', description: 'Store solar energy to run your heat pump after dark' },
+      { href: '/services/residential/comfort-conditioning', title: 'Comfort Conditioning', description: 'Replace gas ducted heating with hydronic radiant panels' },
+      { href: '/services/financing', title: 'Financing Options', description: 'Payment plans and government rebates' },
+    ]}
+  />
+
 
   <section class="cta-section">
     <div class="container">
-      <p>Ready to find out if a polyvalent heat pump is right for your home?</p>
-      <a href="/contact" class="btn btn-primary">Request a Free Consultation</a>
+      <p>Not sure if a heat pump makes sense for your home? Let's find out.</p>
+      <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
+      <p style="margin-top: 0.75rem; font-size: 0.95rem;">Or call us on <a href="tel:0427664827">0427 664 827</a></p>
     </div>
   </section>
 

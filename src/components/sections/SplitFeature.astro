@@ -4,9 +4,10 @@ interface Props {
   alt: string;
   reverse?: boolean;
   bg?: 'white' | 'light' | 'cream';
+  flat?: boolean;
 }
 
-const { image, alt, reverse = false, bg = 'white' } = Astro.props;
+const { image, alt, reverse = false, bg = 'white', flat = false } = Astro.props;
 
 const bgMap = {
   white: '#fff',
@@ -21,7 +22,7 @@ const bgMap = {
       <div class="split-text">
         <slot />
       </div>
-      <div class="split-image">
+      <div class={`split-image ${flat ? 'split-image--flat' : ''}`}>
         <img src={image} alt={alt} loading="lazy" />
       </div>
     </div>

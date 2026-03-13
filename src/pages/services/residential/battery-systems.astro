@@ -6,139 +6,637 @@ import SpecCards from '../../../components/sections/SpecCards.astro';
 import StatBar from '../../../components/sections/StatBar.astro';
 import RelatedNav from '../../../components/sections/RelatedNav.astro';
 import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
+import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
+import FaqGroup from '../../../components/sections/FaqGroup.astro';
+import ServiceHero from '../../../components/sections/ServiceHero.astro';
+import { hugeIconToSvg } from '../../../lib/hugeicon-svg';
+import HugeIcon from '../../../components/HugeIcon.astro';
+import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
+import Home01Icon from '@hugeicons/core-free-icons/Home01Icon';
+import BatteryFullIcon from '@hugeicons/core-free-icons/BatteryFullIcon';
+import BatteryCharging01Icon from '@hugeicons/core-free-icons/BatteryCharging01Icon';
+import ElectricTower01Icon from '@hugeicons/core-free-icons/ElectricTower01Icon';
+import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
+import Layers01Icon from '@hugeicons/core-free-icons/Layers01Icon';
+import ZapIcon from '@hugeicons/core-free-icons/ZapIcon';
+import ShieldEnergyIcon from '@hugeicons/core-free-icons/ShieldEnergyIcon';
 ---
 
 <BaseLayout
   title="Solar Battery Storage Geelong | Prices, Rebates & Installation | EES"
-  description="Home battery storage systems in Geelong. Solar battery prices, Victorian rebates, and expert installation by CEC-accredited team."
+  description="Home battery storage systems in Geelong. Solar battery prices, Victorian rebates, and expert installation by CEC-accredited team. Back-to-base monitoring on every system."
 >
-  <section class="page-header">
-    <div class="container">
-      <h1>Home Battery Storage</h1>
-      <p>Store your solar energy and power your home day and night.</p>
-    </div>
-  </section>
+  <ServiceHero
+    title="Residential Battery Systems"
+    illustration="/image/illustrations/Residential  Battery Systems.png"
+    illustrationAlt="Home battery storage system illustration"
+  />
 
+
+  <!-- Hero: Why battery, in Lincoln's words -->
   <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_15_TopCut_.webp" alt="Home battery storage installation by EES in Geelong" bg="white">
-    <p class="section-label">Energy Independence</p>
-    <h2>Why Add a Battery?</h2>
+    <p class="section-label">Why Add a Battery</p>
+    <h2>Stop Giving Your Solar Away for 1 Cent</h2>
     <p>
-      Solar panels generate electricity during the day, but most households use the bulk of their energy in the evening. Without storage, that daytime solar is exported to the grid for a fraction of what you pay to buy it back at night.
+      Without a battery, your solar panels export excess electricity to the grid during the day. The feed in tariff you get paid for that? It's barely one cent per kilowatt hour. Then at night, when you're cooking dinner, charging the car, or running the heater, you buy power back from the grid at 30 cents or more.
     </p>
     <p>
-      A home battery stores your excess solar generation and releases it when you need it — after dark, during peak tariff periods, or during a grid outage. The result is <strong>less energy purchased from the grid</strong> and more value from every panel on your roof.
+      A battery changes that equation completely. Instead of sending your solar to the grid for next to nothing, you store it. Then at night, your home draws from the battery first. Your electric vehicle charges from the battery. Your induction cooktop runs from the battery. Your heater runs from the battery.
+    </p>
+    <p>
+      The result is simple: you use more of your own solar, buy less from the grid, and get a much better return on every panel on your roof.
     </p>
   </SplitFeature>
 
-  <IconFeatureGrid
-    label="The Basics"
-    heading="How It Works"
-    bg="light"
-    features={[
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>',
-        title: 'Solar Charges Battery',
-        description: 'Your solar panels charge the battery during the day. When the battery is full, any remaining excess is exported to the grid.'
-      },
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="7" width="12" height="10" rx="1"/><line x1="10" y1="7" x2="10" y2="17"/><line x1="14" y1="7" x2="14" y2="17"/><line x1="4" y1="10" x2="4" y2="14"/><line x1="4" y1="10" x2="6" y2="10"/><line x1="4" y1="14" x2="6" y2="14"/><line x1="18" y1="10" x2="20" y2="10"/><line x1="18" y1="14" x2="20" y2="14"/></svg>',
-        title: 'Battery Powers Home',
-        description: 'In the evening, your home draws from the battery first, only pulling from the grid once the battery is depleted.'
-      },
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/><path d="M9 8h6M9 12h4"/></svg>',
-        title: 'App Monitors Everything',
-        description: 'Modern battery systems are managed by a built-in BMS that handles charge cycles, temperature, and cell balancing automatically. You monitor everything from an app on your phone.'
-      },
-    ]}
-  />
 
+  <!-- How it works: energy flow -->
+  <section class="energy-flow-section">
+    <div class="container">
+      <p class="section-label">How It Works</p>
+      <h2>Where Your Energy Goes</h2>
+
+      <!-- IMAGE: Horizontal energy flow diagram showing the priority order of where solar energy goes:
+        1. Solar panels generate electricity (sun icon + panels)
+        2. First priority: powers your home directly (house icon, solid arrow)
+        3. Second priority: charges the battery (battery icon, solid arrow)
+        4. Third priority: excess goes to grid (grid/pylon icon, dashed arrow, with "~1c/kWh" label)
+        Then at night, reverse flow:
+        5. Battery powers home (battery → house, solid arrow)
+        6. If battery runs out: grid fills the gap (grid → house, dashed arrow)
+        Clean line art, horizontal on desktop, could wrap vertically on mobile. EES blue (#0E2B47) for primary flow, light gray for grid/fallback flow. -->
+
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-icon">
+            <HugeIcon icon={Sun01Icon} />
+          </div>
+          <h3>Solar generates</h3>
+          <p>Panels produce electricity during the day.</p>
+        </div>
+        <div class="flow-arrow">
+          <HugeIcon icon={ArrowRight01Icon} />
+        </div>
+        <div class="flow-step">
+          <div class="flow-icon">
+            <HugeIcon icon={Home01Icon} />
+          </div>
+          <h3>Home uses first</h3>
+          <p>Everything running in your home gets powered first.</p>
+        </div>
+        <div class="flow-arrow">
+          <HugeIcon icon={ArrowRight01Icon} />
+        </div>
+        <div class="flow-step">
+          <div class="flow-icon">
+            <HugeIcon icon={BatteryFullIcon} />
+          </div>
+          <h3>Battery stores the rest</h3>
+          <p>Excess solar charges the battery for tonight.</p>
+        </div>
+        <div class="flow-arrow flow-arrow--faded">
+          <HugeIcon icon={ArrowRight01Icon} />
+        </div>
+        <div class="flow-step flow-step--faded">
+          <div class="flow-icon">
+            <HugeIcon icon={ElectricTower01Icon} />
+          </div>
+          <h3>Grid gets the leftovers</h3>
+          <p>Only once the battery is full does anything go to the grid.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .energy-flow-section {
+      padding: 5rem 0;
+      background: #f8f9fa;
+    }
+
+    .energy-flow-section .section-label,
+    .energy-flow-section h2 {
+      text-align: center;
+    }
+
+    .energy-flow-section h2 {
+      margin-bottom: 3rem;
+    }
+
+    .flow-steps {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.75rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .flow-step {
+      text-align: center;
+      flex: 1;
+      max-width: 200px;
+    }
+
+    .flow-step--faded {
+      opacity: 0.45;
+    }
+
+    .flow-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1rem;
+      color: #2061B7;
+    }
+
+    .flow-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .flow-step h3 {
+      font-size: 1rem;
+      color: #0E2B47;
+      margin-bottom: 0.4rem;
+    }
+
+    .flow-step p {
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .flow-arrow {
+      width: 28px;
+      flex-shrink: 0;
+      color: #2061B7;
+      margin-top: 0.75rem;
+    }
+
+    .flow-arrow--faded {
+      opacity: 0.3;
+    }
+
+    .flow-arrow svg {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .flow-steps {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .flow-step {
+        max-width: 300px;
+      }
+
+      .flow-arrow {
+        transform: rotate(90deg);
+        width: 24px;
+        margin: 0;
+      }
+    }
+  </style>
+
+
+  <!-- Battery sizing -->
   <SpecCards
     label="Sizing Guide"
     heading="What Size Battery Do You Need?"
     cards={[
       {
         title: '5 kWh',
-        body: 'Suits smaller households or those wanting to offset evening peak usage. A cost-effective entry point into battery storage.',
-        footer: 'Best for: Small households & peak offset'
+        body: 'Covers evening peak usage for a smaller household or a couple. A good entry point if you want to offset the expensive hours without a big upfront cost.',
+        footer: 'Best for: 1 to 2 person households'
       },
       {
         title: '10 kWh',
-        body: 'Covers most of the overnight consumption for an average home. The most common choice for families with solar.',
+        body: 'The most common size for a family home. Covers most overnight consumption, handles EV charging and cooking on induction, and keeps you off the grid through the evening.',
         footer: 'Best for: Average family homes'
       },
       {
-        title: '13-15 kWh',
-        body: 'For larger homes or those aiming for near grid independence. Ideal when paired with a larger solar system.',
-        footer: 'Best for: Large homes & grid independence'
+        title: '13 to 15 kWh',
+        body: 'For larger homes or those targeting near complete grid independence. Ideal when paired with a bigger solar system and especially if you\'re planning to add a heat pump or EV charger.',
+        footer: 'Best for: Large homes and full independence'
       },
     ]}
   />
 
+
   <StatBar
     stats={[
+      { value: '80%+', label: 'Grid independence achievable' },
       { value: '10yr+', label: 'Battery lifespan' },
-      { value: '80%+', label: 'Grid independence' },
-      { value: '$0.30+', label: 'Per kWh saved vs grid' },
-      { value: '24/7', label: 'App monitoring' },
+      { value: '10yr', label: 'Workmanship warranty' },
+      { value: '24/7', label: 'Back to base monitoring' },
     ]}
   />
 
+
+  <!-- Back-to-base monitoring: the big differentiator -->
+  <section class="monitoring-section">
+    <div class="container">
+      <div class="monitoring-layout">
+        <div class="monitoring-text">
+          <p class="section-label">Back to Base Monitoring</p>
+          <h2>We'd Know About a Fault Before You Do</h2>
+          <p>
+            Every system we install is connected to our master login portal. Every morning, our team checks that every system is operating as it should. If something looks off, we reach out.
+          </p>
+          <p>
+            This isn't a promise we make and forget about. It actually happens. Recently, one of our team noticed a customer's system was intermittently dropping its internet connection over several days. He texted the client, went around to their house, moved a Wi-Fi extender in one room, and the system was back online in five minutes. The customer said they wouldn't have even known there was a problem.
+          </p>
+          <p>
+            That's the difference between a company that installs and walks away, and one that actually looks after your system for the long term.
+          </p>
+        </div>
+        <div class="monitoring-stats">
+          <!-- IMAGE: Screenshot or mockup of the EES monitoring dashboard showing real-time solar generation, battery state of charge, grid import/export, and self-sufficiency ratio. Anonymised customer data. Clean, modern app UI feel. -->
+          <div class="monitoring-card">
+            <h4>What we monitor</h4>
+            <ul>
+              <li>Solar production (daily, monthly, yearly)</li>
+              <li>Battery state of charge</li>
+              <li>How much power your home is using</li>
+              <li>How much you're importing from the grid</li>
+              <li>How much you're exporting to the grid</li>
+              <li>Your self sufficiency ratio</li>
+            </ul>
+          </div>
+          <div class="monitoring-card monitoring-card--dark">
+            <h4>What self sufficiency looks like</h4>
+            <div class="sufficiency-row">
+              <span class="sufficiency-season">Summer</span>
+              <div class="sufficiency-bar">
+                <div class="sufficiency-fill" style="width: 95%"></div>
+              </div>
+              <span class="sufficiency-value">~95%</span>
+            </div>
+            <div class="sufficiency-row">
+              <span class="sufficiency-season">Winter</span>
+              <div class="sufficiency-bar">
+                <div class="sufficiency-fill sufficiency-fill--winter" style="width: 70%"></div>
+              </div>
+              <span class="sufficiency-value">~70%</span>
+            </div>
+            <p class="sufficiency-note">Self sufficiency tells you what percentage of your electricity came from your own solar and battery, not the grid. In summer you might be almost completely independent. In winter, you'll still draw some from the grid, and that's where a <a href="/services/residential/virtual-power-plants">virtual power plant</a> helps.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .monitoring-section {
+      padding: 5rem 0;
+      background: #fff;
+    }
+
+    .monitoring-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .monitoring-text h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .monitoring-text p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .monitoring-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .monitoring-card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 1.75rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    .monitoring-card--dark {
+      background: #0E2B47;
+      border-color: #0E2B47;
+      color: #fff;
+    }
+
+    .monitoring-card h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+
+    .monitoring-card--dark h4 {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .monitoring-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .monitoring-card ul li {
+      font-size: 0.9rem;
+      color: #333;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .monitoring-card ul li:last-child {
+      border-bottom: none;
+    }
+
+    .sufficiency-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .sufficiency-season {
+      font-size: 0.88rem;
+      font-weight: 600;
+      width: 60px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .sufficiency-bar {
+      flex: 1;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .sufficiency-fill {
+      height: 100%;
+      background: #2061B7;
+      border-radius: 5px;
+    }
+
+    .sufficiency-fill--winter {
+      background: #5a8ec7;
+    }
+
+    .sufficiency-value {
+      font-size: 0.88rem;
+      font-weight: 700;
+      width: 45px;
+      text-align: right;
+    }
+
+    .sufficiency-note {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.6;
+      margin-top: 1rem;
+      margin-bottom: 0;
+    }
+
+    .sufficiency-note a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 800px) {
+      .monitoring-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+
+
+  <!-- Finance: can't afford a battery? -->
+  <section class="finance-callout">
+    <div class="container">
+      <div class="callout-box">
+        <div class="callout-accent"></div>
+        <div class="callout-content">
+          <h3>What if you can't afford a battery right now?</h3>
+          <p>
+            We hear this a lot, and it's a fair question. The battery is the biggest cost in the system. But there are a couple of options.
+          </p>
+          <p>
+            First, we can install a hybrid inverter with just solar now. The inverter is battery ready, so when you're ready to add storage later, it's a straightforward upgrade with no wasted equipment.
+          </p>
+          <p>
+            Second, financing is available. If your current electricity bill is $300 to $400 a month, the repayments on a solar and battery system can be similar or even less. The difference is that your money is going toward an asset you own, something that adds value to your property, instead of just paying an electricity company that's going to charge you more again next year.
+          </p>
+          <p>
+            <a href="/services/financing">Learn about financing options</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .finance-callout {
+      padding: 3rem 0;
+      background: rgba(240, 238, 217, 0.25);
+    }
+
+    .finance-callout .callout-box {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+
+    .finance-callout .callout-accent {
+      width: 6px;
+      flex-shrink: 0;
+      background: #2061B7;
+    }
+
+    .finance-callout .callout-content {
+      padding: 2.5rem;
+    }
+
+    .finance-callout .callout-content h3 {
+      font-size: 1.35rem;
+      color: #0E2B47;
+      margin-bottom: 1rem;
+    }
+
+    .finance-callout .callout-content p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .finance-callout .callout-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .finance-callout .callout-content a {
+      color: #2061B7;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .finance-callout .callout-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Rebates -->
   <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_20_TopCut_.webp" alt="Victorian battery rebate eligible installation by EES" reverse bg="white">
-    <p class="section-label">Rebates & Incentives</p>
+    <p class="section-label">Rebates and Incentives</p>
     <h2>Victorian Battery Rebate</h2>
     <p>
       The Victorian Government offers a rebate on home battery installations through the Solar Victoria program. Eligibility depends on your property type, household income, and whether you already have solar installed.
     </p>
     <p>
-      As a Solar Victoria approved retailer, we handle the rebate application as part of your installation — you don't need to apply separately.
+      Federal incentives through Small-scale Technology Certificates (STCs) also reduce the upfront cost of qualifying systems.
     </p>
     <p>
-      Additional federal incentives through Small-scale Technology Certificates (STCs) also reduce the upfront cost of qualifying systems.
+      As a Solar Victoria approved retailer, we handle both the state and federal rebate applications as part of your installation. You don't need to apply separately.
     </p>
   </SplitFeature>
 
+
+  <!-- Pricing factors -->
   <IconFeatureGrid
-    label="Pricing Factors"
-    heading="What Affects the Cost?"
+    label="What Affects the Cost"
+    heading="Battery Pricing Factors"
+    bg="light"
     features={[
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="1"/><line x1="10" y1="4" x2="10" y2="20"/><line x1="14" y1="4" x2="14" y2="20"/><line x1="6" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="6" y1="16" x2="18" y2="16"/></svg>',
+        icon: hugeIconToSvg(BatteryCharging01Icon),
         title: 'Capacity',
-        description: 'Larger batteries cost more but store more energy. The right size depends on your household consumption and solar generation.'
+        description: 'Larger batteries store more energy but cost more. The right size depends on your household consumption and solar generation. We size it based on your actual interval data, not guesswork.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>',
+        icon: hugeIconToSvg(Layers01Icon),
         title: 'Chemistry',
-        description: 'Lithium iron phosphate (LiFePO4) costs more upfront but lasts longer and is safer than other lithium chemistries.'
+        description: 'We install lithium iron phosphate (LiFePO4) batteries. They cost more upfront but last significantly longer and are safer than other lithium chemistries.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
-        title: 'Hybrid vs Retrofit',
-        description: 'Installing a battery alongside a new solar system is typically more cost-effective than retrofitting an existing system.'
+        icon: hugeIconToSvg(ZapIcon),
+        title: 'New system vs retrofit',
+        description: 'Installing a battery alongside a new solar system is more cost effective than adding one to an existing setup. If you already have solar, we assess whether your current inverter supports battery integration.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-        title: 'Backup Capability',
-        description: 'Full home backup during outages requires additional switchgear. Standard grid-connected batteries will not power your home during a blackout unless configured for backup.'
+        icon: hugeIconToSvg(ShieldEnergyIcon),
+        title: 'Backup capability',
+        description: 'Standard grid connected batteries will not power your home during a blackout unless specifically configured for backup. Full home backup requires additional switchgear, which adds to the cost.'
       },
     ]}
     columns={2}
   />
 
-  <RelatedNav
-    links={[
-      { href: '/services/residential/solar-systems', title: 'Residential Solar Systems', description: 'Solar panel installation designed for your home' },
-      { href: '/services/residential/home-automation', title: 'Home Automation', description: 'Smart energy management for your home' },
-      { href: '/services/financing', title: 'Financing & Rebates', description: 'Payment plans and government incentives' },
-      { href: '/laboratory/environmental-service-pod', title: 'Environmental Service Pod', description: 'Integrated solar, battery, heat pump, and conditioning in one system' },
+
+  <!-- 48hr response -->
+  <section class="response-bar">
+    <div class="container">
+      <div class="response-inner">
+        <div class="response-stat">48hr</div>
+        <div class="response-text">
+          <strong>Critical fault response.</strong> If our monitoring detects a serious issue with your system, we arrange for one of our A-grade electricians to be on site within 48 business hours. We haven't encountered a critical fault yet, but the commitment is there.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .response-bar {
+      padding: 2.5rem 0;
+      background: #0E2B47;
+      color: #fff;
+    }
+
+    .response-inner {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .response-stat {
+      font-size: 3rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .response-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .response-text strong {
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .response-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+    }
+  </style>
+
+
+  <FaqGroup
+    heading="Battery Storage FAQ"
+    groups={[
+      {
+        label: 'Common Questions',
+        questions: [
+          { q: 'How long do solar batteries last?', a: 'Most home batteries are warranted for 10 years or a set number of charge cycles, whichever comes first. In practice, a quality lithium battery will continue operating well beyond the warranty period with gradual capacity reduction over time, similar to how solar panels degrade slowly.' },
+          { q: 'What size battery do I need?', a: 'This depends on your overnight energy consumption, your solar system size, and whether you plan to use a VPP. A typical household uses 8 to 15 kWh overnight. We size your battery based on your actual energy data from your smart meter, not a generic estimate. Our consultation includes a detailed analysis of your usage patterns.' },
+          { q: 'Is it worth getting battery storage with solar panels?', a: 'If your feed in tariff is low (and most are now under 5 cents), a battery lets you use your own solar instead of exporting it for next to nothing. Combined with Victorian battery rebates and the option to earn through a VPP, the payback period has shortened significantly in the last few years.' },
+          { q: 'Can you add battery storage to existing solar panels?', a: 'Yes. If you have a hybrid inverter, adding a battery is straightforward. If you have a standard string inverter, it may need to be upgraded to a hybrid model. We assess your existing system during the consultation and let you know exactly what is needed.' },
+        ]
+      },
     ]}
   />
+
+
+  <RelatedNav
+    heading="Part of a Bigger System"
+    links={[
+      { href: '/services/residential/solar-systems', title: 'Solar Systems', description: 'The panels that generate the energy your battery stores' },
+      { href: '/services/residential/virtual-power-plants', title: 'Virtual Power Plants', description: 'Earn money by trading your stored energy on the wholesale market' },
+      { href: '/services/residential/home-automation', title: 'Home Automation', description: 'Smart scheduling to get the most out of your battery' },
+      { href: '/services/financing', title: 'Financing Options', description: 'Payment plans and government rebates' },
+    ]}
+  />
+
 
   <section class="cta-section">
     <div class="container">
       <p>Ready to find out what battery system is right for your home?</p>
       <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
+      <p style="margin-top: 0.75rem; font-size: 0.95rem;">Or call us on <a href="tel:0427664827">0427 664 827</a></p>
     </div>
   </section>
 

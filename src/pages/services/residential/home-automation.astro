@@ -2,106 +2,400 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../../components/ScrollIndicator.astro';
 import SplitFeature from '../../../components/sections/SplitFeature.astro';
-import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
 import RelatedNav from '../../../components/sections/RelatedNav.astro';
+import HugeIcon from '../../../components/HugeIcon.astro';
+import SmartAcIcon from '@hugeicons/core-free-icons/SmartAcIcon';
+import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
+import WashingMachineIcon from '@hugeicons/core-free-icons/WashingMachineIcon';
+import EvChargingIcon from '@hugeicons/core-free-icons/EvChargingIcon';
+import DishWasherIcon from '@hugeicons/core-free-icons/DishWasherIcon';
+import PoolIcon from '@hugeicons/core-free-icons/PoolIcon';
 ---
 
 <BaseLayout
   title="Home Automation & Energy Management Geelong | Smart Home | EES"
-  description="Home energy management and smart automation in Geelong. Monitor solar, control heating, and optimise energy usage from one system."
+  description="Home energy management and smart automation in Geelong. Automate high-energy appliances to run on solar, control heating zones, and maximise your battery savings."
 >
   <section class="page-header">
     <div class="container">
       <h1>Home Automation &amp; Energy Management</h1>
-      <p>Intelligent control of your home energy and comfort systems.</p>
+      <p>Make your home smarter about when and how it uses energy.</p>
     </div>
   </section>
 
-  <SplitFeature image="/image/WIP/environmental-service-pod/esp-electrical-controls-interior.webp" alt="EES home energy management system electrical controls interior">
-    <p class="section-label">The Foundation</p>
-    <h2>Why Energy Management Matters</h2>
+
+  <!-- Hero: Why automation matters, from Matt's explanation -->
+  <SplitFeature image="/image/WIP/environmental-service-pod/esp-electrical-controls-interior.webp" alt="EES home energy management system controls">
+    <p class="section-label">The Final Step</p>
+    <h2>Your Solar and Battery Are Only as Smart as Your Home</h2>
     <p>
-      Solar panels generate power. Batteries store it. Heat pumps use it. But without intelligent control, these systems operate independently — each one making decisions without knowing what the others are doing.
+      You've got solar generating free electricity during the day. You've got a battery storing the excess. But if your dishwasher, washing machine, dryer, and air conditioner are all running at 6pm when you get home from work, they're pulling from the battery or the grid instead of using the free solar that was available all day.
     </p>
     <p>
-      A home energy management system (HEMS) connects everything together. It decides when to charge the battery, when to run the heat pump, when to export to the grid, and when to hold energy in reserve — all based on real-time data.
-    </p>
-    <p>
-      The result is <strong>less wasted energy, lower bills, and a home that runs more efficiently</strong> without you having to think about it.
+      Home automation fixes this. We set up your high energy appliances to run during the day, even when you're not home, using solar electricity that would otherwise go to waste. The result is more of your solar gets used, your battery stays fuller for evening and VPP trading, and your energy costs drop further.
     </p>
   </SplitFeature>
 
-  <IconFeatureGrid
-    bg="light"
-    label="Energy-Focused Integration"
-    heading="What We Integrate"
-    description="Our automation systems are built around energy — not consumer gadgets. We focus on the systems that actually affect your energy consumption and comfort."
-    columns={2}
-    features={[
-      {
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>',
-        title: 'Solar & battery monitoring',
-        description: 'Real-time visibility of generation, consumption, and storage.'
-      },
-      {
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/><path d="M12 16v4"/></svg>',
-        title: 'Heat pump scheduling',
-        description: 'Run the heat pump when solar is generating, not when electricity is expensive.'
-      },
-      {
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8l4 4"/><circle cx="12" cy="14" r="8"/></svg>',
-        title: 'Hydronic heating control',
-        description: 'Zone-by-zone temperature management via our ceiling panel system.'
-      },
-      {
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>',
-        title: 'Load shifting',
-        description: 'Automatically move high-draw appliances (hot water, EV charging) to off-peak or solar-generating hours.'
-      },
-      {
-        icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
-        title: 'Grid export optimisation',
-        description: 'Hold energy when feed-in tariffs are low, export when they are high.'
-      },
-    ]}
-  />
 
-  <SplitFeature reverse image="/image/WIP/environmental-service-pod/esp-complete-unit-photo.webp" alt="EES MODBUS control system for home energy management">
-    <p class="section-label">Open Protocols</p>
-    <h2>How It Works</h2>
+  <!-- What we automate -->
+  <section class="appliances-section">
+    <div class="container">
+      <p class="section-label">What We Automate</p>
+      <h2>The Appliances That Make the Biggest Difference</h2>
+      <p class="section-intro">
+        We start by looking at where you can get the biggest benefit for your money. Not every appliance needs to be smart. We focus on the ones that actually move the needle on your energy bill.
+      </p>
+
+      <div class="appliance-grid">
+        <div class="appliance-card">
+          <div class="appliance-icon">
+<HugeIcon icon={SmartAcIcon} />
+          </div>
+          <h3>Air conditioning</h3>
+          <p>Condition the house during the day on solar. By 5pm it's already at temperature. Run on a temperature sensor, not a timer.</p>
+        </div>
+        <div class="appliance-card">
+          <div class="appliance-icon">
+<HugeIcon icon={Sun01Icon} />
+          </div>
+          <h3>Hot water</h3>
+          <p>Heat pump scheduled to run when solar excess is available. Heats your water for free during the day instead of drawing from the grid at night.</p>
+        </div>
+        <div class="appliance-card">
+          <div class="appliance-icon">
+<HugeIcon icon={WashingMachineIcon} />
+          </div>
+          <h3>Washing machines and dryers</h3>
+          <p>Scheduled to finish before you get home, running entirely on solar. Set a deadline and the system finds the cheapest window.</p>
+        </div>
+        <div class="appliance-card">
+          <div class="appliance-icon">
+<HugeIcon icon={EvChargingIcon} />
+          </div>
+          <h3>EV charging</h3>
+          <p>Your car charges when the battery is above a set level or when excess solar is available, not at peak rates when you plug in at night.</p>
+        </div>
+        <div class="appliance-card">
+          <div class="appliance-icon">
+<HugeIcon icon={DishWasherIcon} />
+          </div>
+          <h3>Dishwashers</h3>
+          <p>Set to run during a solar window with a "ready by" deadline. The system works out the cheapest time to start.</p>
+        </div>
+        <div class="appliance-card">
+          <div class="appliance-icon">
+<HugeIcon icon={PoolIcon} />
+          </div>
+          <h3>Pool pumps</h3>
+          <p>Runs only when there's surplus solar generation. If solar dips, the battery temporarily supplements to keep it running.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .appliances-section {
+      padding: 5rem 0;
+      background: #f8f9fa;
+    }
+
+    .appliances-section .section-label,
+    .appliances-section h2 {
+      text-align: center;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .appliance-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .appliance-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.75rem 1.5rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    .appliance-icon {
+      width: 40px;
+      height: 40px;
+      color: #2061B7;
+      margin-bottom: 1rem;
+    }
+
+    .appliance-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .appliance-card h3 {
+      font-size: 1.05rem;
+      color: #0E2B47;
+      margin-bottom: 0.5rem;
+    }
+
+    .appliance-card p {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 800px) {
+      .appliance-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .appliance-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+
+  <!-- How we do it: Shelly and smart devices -->
+  <SplitFeature image="/image/WIP/environmental-service-pod/esp-complete-unit-photo.webp" alt="Smart energy control hardware" reverse bg="white">
+    <!-- IMAGE: Replace with a photo showing Shelly smart switches or relays installed in a switchboard or behind a powerpoint. Real hardware, not stock photo. -->
+    <p class="section-label">The Hardware</p>
+    <h2>Smart Switches, Not Smart Gimmicks</h2>
     <p>
-      Our systems use MODBUS and other open protocols to communicate between components. A central controller monitors inputs from solar, battery, heat pump, and environmental sensors, then makes decisions based on rules tailored to your household.
+      We use the Shelly suite of products for most home automation work. These are compact smart switches, smart power points, relays, and IR drivers that sit behind your existing switches and outlets. They don't change the look of your home.
     </p>
     <p>
-      You can view and adjust settings from your phone or a local display. The system learns your patterns over time and adapts — but you always have manual override.
+      During the consultation, we work out what's already smart (some modern appliances connect natively) and what needs a Shelly device to become controllable. Then we prioritise based on where the biggest energy savings are, not on adding the most devices.
+    </p>
+    <p>
+      Everything connects to your energy management system so it works automatically. You can also control things manually from an app if you want to.
     </p>
   </SplitFeature>
 
-  <SplitFeature image="/image/WIP/environmental-service-pod/esp-full-system-rendering.webp" alt="EES Environmental Service Pod complete integrated energy system" bg="cream">
-    <p class="section-label">Integrated by Design</p>
-    <h2>Part of a Complete System</h2>
+
+  <!-- VPP synergy -->
+  <section class="synergy-section">
+    <div class="container">
+      <div class="synergy-layout">
+        <div class="synergy-text">
+          <p class="section-label">Works With Your VPP</p>
+          <h2>Automation Makes Your Battery Worth More</h2>
+          <p>
+            Here's why home automation and a Virtual Power Plant work so well together. If your appliances run on solar during the day, your battery stays fuller. A fuller battery means more energy available for VPP trading during evening price spikes.
+          </p>
+          <p>
+            Without automation, your battery might be at 70% by 5pm because the air conditioner and hot water system were drawing from it. With automation, those loads ran on solar during the day and your battery is still at 95%. When prices spike at 6pm, you've got 25% more energy to sell at wholesale rates.
+          </p>
+          <p>
+            It's a compounding effect. Each part of the system makes the other parts more valuable.
+          </p>
+        </div>
+        <div class="synergy-visual">
+          <!-- IMAGE: Simple two-column comparison showing battery charge level at 5pm. Left: "Without automation" battery at 70%. Right: "With automation" battery at 95%. Below each, show the VPP earnings potential. Clean bar chart or battery icon style. -->
+          <div class="synergy-comparison">
+            <div class="synergy-card">
+              <div class="synergy-label">Without automation</div>
+              <div class="synergy-battery">
+                <div class="battery-shell">
+                  <div class="battery-fill" style="height: 70%"></div>
+                </div>
+                <div class="battery-pct">70%</div>
+              </div>
+              <p>Battery partially drained by daytime appliances. Less available for VPP.</p>
+            </div>
+            <div class="synergy-card synergy-card--better">
+              <div class="synergy-label">With automation</div>
+              <div class="synergy-battery">
+                <div class="battery-shell battery-shell--full">
+                  <div class="battery-fill battery-fill--full" style="height: 95%"></div>
+                </div>
+                <div class="battery-pct battery-pct--full">95%</div>
+              </div>
+              <p>Appliances ran on solar. Battery nearly full. Maximum VPP earnings.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .synergy-section {
+      padding: 5rem 0;
+      background: rgba(240, 238, 217, 0.25);
+    }
+
+    .synergy-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .synergy-text h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .synergy-text p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .synergy-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .synergy-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.75rem 1.25rem;
+      text-align: center;
+      border: 1px solid #e5e7eb;
+    }
+
+    .synergy-card--better {
+      background: #0E2B47;
+      border-color: #0E2B47;
+    }
+
+    .synergy-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+      margin-bottom: 1.5rem;
+    }
+
+    .synergy-card--better .synergy-label {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .synergy-battery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .battery-shell {
+      width: 48px;
+      height: 80px;
+      border: 3px solid #c5cdd8;
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+
+    .battery-shell::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 14px;
+      width: 16px;
+      height: 4px;
+      background: #c5cdd8;
+      border-radius: 2px 2px 0 0;
+    }
+
+    .battery-shell--full {
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .battery-shell--full::before {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .battery-fill {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #c5cdd8;
+      transition: height 0.3s;
+    }
+
+    .battery-fill--full {
+      background: #2061B7;
+    }
+
+    .battery-pct {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0E2B47;
+    }
+
+    .battery-pct--full {
+      color: #fff;
+    }
+
+    .synergy-card p {
+      font-size: 0.82rem;
+      color: #555;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .synergy-card--better p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    @media (max-width: 800px) {
+      .synergy-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+
+
+  <!-- The progressive story -->
+  <SplitFeature image="/image/WIP/environmental-service-pod/esp-full-system-rendering.webp" alt="Complete integrated home energy system" bg="white">
+    <p class="section-label">The Full Picture</p>
+    <h2>Each Service Builds on the Last</h2>
     <p>
-      Home automation works best when it's designed alongside the energy systems it controls. That's why we integrate it from the start — not bolt it on afterwards.
+      Home automation isn't something we bolt on after the fact. It's the final piece in a system that starts with solar and gets progressively smarter. Solar generates. A battery stores. A VPP trades. A heat pump heats your water. Hydronic panels condition your home. And automation ties it all together so every part works in concert.
     </p>
     <p>
-      Our <a href="/laboratory/environmental-service-pod">Environmental Service Pod</a> includes a MODBUS control module as standard, providing centralised management of heat pump, battery, and thermal storage from a single point.
+      You don't have to do everything at once. Many of our clients start with solar and a battery, then add a heat pump a year later, then eventually set up automation. The system is designed to grow with you, and each addition makes the whole thing work better.
     </p>
   </SplitFeature>
+
 
   <RelatedNav
-    heading="Related Services"
+    heading="Part of a Bigger System"
     links={[
-      { href: '/services/residential/battery-systems', title: 'Battery Storage', description: 'Store your solar energy and use it after sunset' },
-      { href: '/services/residential/heat-pump-systems', title: 'Heat Pump Systems', description: 'Efficient hot water and climate control powered by solar' },
-      { href: '/services/residential/comfort-conditioning', title: 'Hydronic Comfort Conditioning', description: 'Radiant ceiling panels for heating and cooling' },
-      { href: '/laboratory/environmental-service-pod', title: 'Environmental Service Pod', description: 'Solar, battery, heat pump, and controls in one integrated unit' },
+      { href: '/services/residential/virtual-power-plants', title: 'Virtual Power Plants', description: 'Trade stored energy for maximum returns' },
+      { href: '/services/residential/battery-systems', title: 'Battery Storage', description: 'Store your solar and power your home after dark' },
+      { href: '/services/residential/comfort-conditioning', title: 'Comfort Conditioning', description: 'Hydronic radiant panels controlled by zone' },
+      { href: '/laboratory/environmental-service-pod', title: 'Environmental Service Pod', description: 'Solar, battery, heat pump, and controls in one system' },
     ]}
   />
+
 
   <section class="cta-section">
     <div class="container">
-      <p>Ready to discuss energy management for your home?</p>
+      <p>Want to find out what automation could save you?</p>
       <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
+      <p style="margin-top: 0.75rem; font-size: 0.95rem;">Or call us on <a href="tel:0427664827">0427 664 827</a></p>
     </div>
   </section>
 

@@ -4,101 +4,191 @@ import ScrollIndicator from '../../../components/ScrollIndicator.astro';
 import SplitFeature from '../../../components/sections/SplitFeature.astro';
 import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
 import StatBar from '../../../components/sections/StatBar.astro';
+import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
 import RelatedNav from '../../../components/sections/RelatedNav.astro';
+import ServiceHero from '../../../components/sections/ServiceHero.astro';
+import { hugeIconToSvg } from '../../../lib/hugeicon-svg';
+import Pulse01Icon from '@hugeicons/core-free-icons/Pulse01Icon';
+import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
+import ChartBarIncreasingIcon from '@hugeicons/core-free-icons/ChartBarIncreasingIcon';
+import Shield01Icon from '@hugeicons/core-free-icons/Shield01Icon';
+import ZapIcon from '@hugeicons/core-free-icons/ZapIcon';
+import ComputerDesk01Icon from '@hugeicons/core-free-icons/ComputerDesk01Icon';
 ---
 
 <BaseLayout
-  title="Commercial Battery Storage | Business Energy Solutions Geelong | EES"
-  description="Commercial battery storage for businesses. Reduce peak demand charges, store solar energy, and improve energy resilience."
+  title="Commercial Battery Storage & Solar | Business Energy Solutions | EES"
+  description="Commercial battery storage for businesses in Geelong. Reduce peak demand charges, store solar energy, and manage loads with engineered battery systems."
 >
-  <section class="page-header">
+  <ServiceHero
+    title="Commercial Battery Systems"
+    illustration="/image/illustrations/Commercial  Battery Systems.png"
+    illustrationAlt="Commercial battery storage system illustration"
+  />
+
+
+  <!-- Hero: peak demand -->
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_20_TopCut_.webp" alt="Commercial building with battery storage system" bg="white">
+    <p class="section-label">Peak Demand Management</p>
+    <h2>The Most Expensive 15 Minutes on Your Bill</h2>
+    <p>
+      For many businesses, the biggest cost on the electricity bill isn't total consumption. It's peak demand charges. These are based on the highest power draw recorded during a billing period, even if that spike only lasts 15 to 30 minutes.
+    </p>
+    <p>
+      A single compressor kicking in while the aircon is running and the ovens are on can set your demand charge for the entire month. A battery system eliminates that spike by discharging stored energy the moment your grid draw exceeds a set threshold. Your peak gets shaved, and your bill drops accordingly.
+    </p>
+  </SplitFeature>
+
+
+  <!-- How peak shaving works -->
+  <section class="peak-shaving-section">
     <div class="container">
-      <h1>Commercial Battery Storage</h1>
-      <p>Reduce peak demand charges and maximise your solar investment.</p>
+      <p class="section-label">How It Works</p>
+      <h2>Peak Shaving, Explained Simply</h2>
+
+      <!-- IMAGE: Peak shaving diagram. Two overlapping area charts on the same axis:
+        1. WITHOUT battery: Shows load profile over a business day (8am-6pm) with a tall spike at ~2pm (maybe 80kW), the peak demand charge is based on this highest point
+        2. WITH battery: Same load profile but the spike is "shaved" — battery discharges during the peak, flattening the top (maybe down to 50kW), showing the cost savings as the difference
+        Label the "peak demand charge threshold" with a horizontal dotted line
+        Use EES blue (#0E2B47) for the load, lighter blue for the battery contribution, and a red dotted line for the peak threshold -->
+
+      <div class="shaving-steps">
+        <div class="shaving-step">
+          <div class="step-number">1</div>
+          <h3>Battery charges</h3>
+          <p>During low demand periods or from your solar system, the battery charges up and stores energy ready for when it's needed.</p>
+        </div>
+        <div class="shaving-step">
+          <div class="step-number">2</div>
+          <h3>Demand spikes</h3>
+          <p>When your building's power draw starts climbing towards the peak threshold, the system detects it in real time.</p>
+        </div>
+        <div class="shaving-step">
+          <div class="step-number">3</div>
+          <h3>Battery responds</h3>
+          <p>The battery automatically discharges to supplement grid power, keeping your total grid draw below the limit you've set.</p>
+        </div>
+        <div class="shaving-step">
+          <div class="step-number">4</div>
+          <h3>Bill drops</h3>
+          <p>Your recorded peak demand is lower, your demand charges drop, and the savings repeat every billing cycle.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_20_TopCut_.webp" alt="Commercial building with solar and battery system" bg="white">
-    <p class="section-label">Peak Demand Management</p>
-    <h2>Why Commercial Battery Storage?</h2>
-    <p>
-      For many businesses, the highest cost on the electricity bill isn't total consumption — it's <strong>peak demand charges</strong>. These charges are based on the highest power draw recorded during a billing period, even if it only lasts 15-30 minutes.
-    </p>
-    <p>
-      A battery system reduces peak demand by discharging stored energy during high-draw periods, keeping your maximum grid draw below the threshold. This is called <strong>peak shaving</strong>, and it can deliver significant savings — especially for businesses with variable loads.
-    </p>
-  </SplitFeature>
 
-  <SplitFeature image="/image/photography/01_Hero_Images_OG/comerical_V1.webp" alt="Commercial solar array paired with battery" reverse bg="light">
-    <p class="section-label">How It Works</p>
-    <h2>Intelligent Load Management</h2>
-    <p>
-      The battery charges from your solar system during the day (or from the grid during off-peak hours). When your building's energy demand spikes, the battery discharges to supplement grid power, keeping the total grid draw below a set limit.
-    </p>
-    <p>
-      The system is managed by intelligent controls that monitor your load in real time and respond automatically — no manual intervention required.
-    </p>
-  </SplitFeature>
-
+  <!-- Benefits -->
   <IconFeatureGrid
     label="Advantages"
-    heading="Key Benefits"
+    heading="Beyond Peak Shaving"
     bg="white"
     columns={3}
     features={[
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
-        title: 'Peak Demand Reduction',
-        description: 'Lower the demand charges that make up a significant portion of commercial electricity bills.'
+        icon: hugeIconToSvg(Pulse01Icon),
+        title: 'Demand Charge Reduction',
+        description: 'The primary financial benefit. Even modest peak reduction translates to significant savings when demand charges make up a large portion of commercial bills.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>',
-        title: 'Solar Self-Consumption',
-        description: 'Store excess solar generation instead of exporting it at low feed-in rates.'
+        icon: hugeIconToSvg(Sun01Icon),
+        title: 'Solar Self Consumption',
+        description: 'Store excess solar generation during the day and use it during peak tariff periods or after hours, instead of exporting at low feed in rates.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-        title: 'Backup Power',
-        description: 'Maintain operations during grid outages for critical loads.'
-      },
-      {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
+        icon: hugeIconToSvg(ChartBarIncreasingIcon),
         title: 'Energy Arbitrage',
-        description: 'Charge during cheap off-peak periods, discharge during expensive peak periods.'
+        description: 'Charge from the grid during cheap off peak periods and discharge during expensive peak windows. The tariff difference is your profit.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
-        title: 'Future-Proofing',
-        description: 'As grid costs rise and tariff structures change, battery flexibility becomes more valuable.'
+        icon: hugeIconToSvg(Shield01Icon),
+        title: 'Backup Power',
+        description: 'Maintain operations during grid outages for your critical loads. Servers, refrigeration, EFTPOS, lighting, whatever can\'t go down.'
+      },
+      {
+        icon: hugeIconToSvg(ZapIcon),
+        title: 'Future Proofing',
+        description: 'Grid costs rise and tariff structures change. Battery flexibility becomes more valuable over time, not less.'
+      },
+      {
+        icon: hugeIconToSvg(ComputerDesk01Icon),
+        title: 'Intelligent Automation',
+        description: 'The system monitors your load in real time and responds automatically. No manual intervention, no staff time, no complexity for your team.'
       },
     ]}
   />
 
+
+  <!-- Stats bar -->
   <StatBar
     dark
     stats={[
-      { value: '15-30min', label: 'Peak demand window' },
-      { value: '30-50%', label: 'Potential demand charge savings' },
+      { value: '15–30 min', label: 'Peak demand window' },
+      { value: '30–50%', label: 'Potential demand charge savings' },
       { value: '24/7', label: 'Automated monitoring' },
       { value: '10yr', label: 'Workmanship warranty' },
     ]}
   />
 
-  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_10.webp" alt="Commercial building with rooftop solar" bg="white">
+
+  <!-- Engineering callout -->
+  <section class="engineering-section">
+    <div class="container">
+      <p class="section-label">Engineered, Not Just Installed</p>
+      <h2>The Same Rigour as Commercial Solar</h2>
+      <p class="section-intro">
+        Commercial battery installations involve the same engineering, compliance, and operational planning as our solar work. Every point that applies to commercial solar applies here too.
+      </p>
+
+      <div class="engineering-grid">
+        <div class="engineering-card">
+          <h3>Structural &amp; Electrical Engineering</h3>
+          <p>Structural engineers verify that your building or ground mount location can handle the weight. Electrical engineers design protection schematics and grid protection boards to meet all regulatory requirements.</p>
+        </div>
+        <div class="engineering-card">
+          <h3>DNSP &amp; Network Coordination</h3>
+          <p>We coordinate directly with the distribution network service provider to manage export limitations and connection requirements. The system sits behind the meter, between the grid and your switchboard.</p>
+        </div>
+        <div class="engineering-card">
+          <h3>Scheduled Around Your Business</h3>
+          <p>Shutdowns at 2am, phased installations across multiple weekends, work sequenced around your busiest periods. We plan every stage to minimise disruption to your operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Solar pairing -->
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_10.webp" alt="Commercial rooftop solar paired with battery storage" reverse bg="light">
     <p class="section-label">Better Together</p>
-    <h2>Paired With Solar</h2>
+    <h2>Paired With Commercial Solar</h2>
     <p>
-      Battery storage delivers the best return when paired with an appropriately sized commercial solar system. Solar provides free daytime energy to charge the battery, and the battery extends those savings into evening and peak periods.
+      Battery storage delivers the best return when paired with an appropriately sized solar system. Solar provides free daytime energy to charge the battery, and the battery extends those savings into evening and peak tariff periods.
     </p>
     <p>
-      Our batteries are installed behind the meter — sitting between the grid connection and your building's switchboard. The system is invisible to the grid operator and doesn't require complex export agreements.
+      Together, they cover the full cycle: generate during the day, store the excess, shave your demand peaks, and reduce the amount you buy from the grid after hours. The same team engineers, installs, and monitors both systems as one integrated solution.
     </p>
     <a href="/services/commercial/solar-systems" class="btn btn-primary">Learn About Commercial Solar</a>
   </SplitFeature>
 
+
+  <!-- Process -->
+  <ProcessTimeline
+    label="Our Process"
+    heading="From Assessment to Commissioning"
+    steps={[
+      { title: 'Load Analysis', description: 'We review your electricity bills, demand profiles, and tariff structure to identify where battery storage will deliver the best return.' },
+      { title: 'System Design', description: 'Battery capacity, inverter sizing, and control strategy are engineered for your specific load profile and peak demand patterns.' },
+      { title: 'Engineering & Approvals', description: 'Structural assessment, electrical protection design, DNSP coordination, and all permit and rebate paperwork handled by us.' },
+      { title: 'Installation', description: 'Scheduled entirely around your operations. Switchboard integration and commissioning planned to minimise downtime.' },
+      { title: 'Monitoring & Support', description: 'Every system is monitored from day one. We track performance, respond to issues, and ensure the system is delivering the savings it was designed for.' },
+    ]}
+  />
+
+
   <RelatedNav
     links={[
-      { href: '/services/commercial/solar-systems', title: 'Commercial Solar', description: 'Rooftop and ground-mount systems' },
+      { href: '/services/commercial/solar-systems', title: 'Commercial Solar', description: 'Rooftop and ground mount systems' },
       { href: '/services/commercial', title: 'Commercial Overview', description: 'All commercial energy solutions' },
       { href: '/services/consultation', title: 'Free Consultation', description: 'Get a battery storage assessment' },
     ]}
@@ -113,3 +203,141 @@ import RelatedNav from '../../../components/sections/RelatedNav.astro';
 
   <ScrollIndicator />
 </BaseLayout>
+
+
+<style>
+  /* Peak shaving section */
+  .peak-shaving-section {
+    padding: 5rem 0;
+    background: var(--color-bg-light, #f8f9fa);
+  }
+
+  .peak-shaving-section .section-label {
+    color: var(--color-primary, #2061B7);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .peak-shaving-section h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: var(--color-primary-dark, #0E2B47);
+    margin-bottom: 2rem;
+  }
+
+  .shaving-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .shaving-step {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    text-align: center;
+  }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--color-primary, #2061B7);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 auto 1rem;
+  }
+
+  .shaving-step h3 {
+    font-size: 1.05rem;
+    color: var(--color-primary-dark, #0E2B47);
+    margin-bottom: 0.5rem;
+  }
+
+  .shaving-step p {
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .shaving-steps {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .shaving-steps {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+  /* Engineering section */
+  .engineering-section {
+    padding: 5rem 0;
+    background: rgba(240, 238, 217, 0.25);
+  }
+
+  .engineering-section .section-label {
+    color: var(--color-primary, #2061B7);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .engineering-section h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: var(--color-primary-dark, #0E2B47);
+    margin-bottom: 1rem;
+  }
+
+  .section-intro {
+    font-size: 1.1rem;
+    color: #444;
+    max-width: 720px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .engineering-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .engineering-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  .engineering-card h3 {
+    font-size: 1.1rem;
+    color: var(--color-primary-dark, #0E2B47);
+    margin-bottom: 0.75rem;
+  }
+
+  .engineering-card p {
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .engineering-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

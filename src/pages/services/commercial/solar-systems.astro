@@ -5,102 +5,240 @@ import SplitFeature from '../../../components/sections/SplitFeature.astro';
 import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
 import SpecCards from '../../../components/sections/SpecCards.astro';
 import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
+import StatBar from '../../../components/sections/StatBar.astro';
 import RelatedNav from '../../../components/sections/RelatedNav.astro';
+import ServiceHero from '../../../components/sections/ServiceHero.astro';
+import { hugeIconToSvg } from '../../../lib/hugeicon-svg';
+import HugeIcon from '../../../components/HugeIcon.astro';
+import Building01Icon from '@hugeicons/core-free-icons/Building01Icon';
+import ZapIcon from '@hugeicons/core-free-icons/ZapIcon';
+import Clock01Icon from '@hugeicons/core-free-icons/Clock01Icon';
+import File01Icon from '@hugeicons/core-free-icons/File01Icon';
+import Dollar01Icon from '@hugeicons/core-free-icons/Dollar01Icon';
+import Shield01Icon from '@hugeicons/core-free-icons/Shield01Icon';
+import ChartBarIncreasingIcon from '@hugeicons/core-free-icons/ChartBarIncreasingIcon';
 ---
 
 <BaseLayout
   title="Commercial Solar Systems Geelong | Business Solar Installation | EES"
-  description="Commercial solar panel installation for businesses in Geelong and regional Victoria. Reduce overheads and meet sustainability goals."
+  description="Commercial solar panel installation for businesses in Geelong and regional Victoria. Engineered systems, LGC rebates, and installations scheduled around your operations."
 >
-  <section class="page-header">
-    <div class="container">
-      <h1>Commercial Solar Systems</h1>
-      <p>Reduce your operating costs with solar designed for your business.</p>
-    </div>
-  </section>
+  <ServiceHero
+    title="Commercial Solar Systems"
+    illustration="/image/illustrations/Commercial  Solar Systems.png"
+    illustrationAlt="Commercial solar panel installation illustration"
+  />
 
-  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_10.webp" alt="Commercial rooftop solar installation" bg="white">
+
+  <!-- Hero: the real difference -->
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_10.webp" alt="Commercial rooftop solar installation by EES" bg="white">
     <p class="section-label">Solar for Business</p>
-    <h2>Built for Commercial Energy Demands</h2>
+    <h2>Your Business Runs During the Most Expensive Hours</h2>
     <p>
-      Commercial electricity rates are high and rising. A well-designed solar system offsets a significant portion of your daytime energy consumption — the hours when most businesses are running at full capacity and electricity costs the most.
+      Most businesses use the bulk of their electricity during the day, right when grid rates are at their peak. That's actually the best possible scenario for solar. Every kilowatt your system generates goes straight to offsetting the power you'd otherwise buy at full retail rate.
     </p>
     <p>
-      Unlike residential systems, commercial solar is designed around your business's load profile, roof or ground-mount availability, and operational hours. We design systems that maximise self-consumption, not just generation.
+      Commercial clients tend to be financially motivated, and rightly so. This isn't about environmental credentials on a brochure. It's about reducing your largest variable operating cost, year after year, with an asset that depreciates in your favour.
     </p>
   </SplitFeature>
 
+
+  <!-- What makes commercial different -->
+  <section class="commercial-difference">
+    <div class="container">
+      <p class="section-label">What's Different</p>
+      <h2>This Isn't a Residential Install on a Bigger Roof</h2>
+      <p class="section-intro">
+        Commercial solar involves engineering, compliance, and coordination that simply doesn't apply to homes. Our team has completed installs across schools, businesses, government buildings, and council facilities throughout the Geelong region, and been involved in rollouts of almost 300 service stations nationally.
+      </p>
+
+      <!-- IMAGE: Split comparison showing a residential roof install (simple, one-story house) alongside a commercial warehouse/building install (larger scale, flat roof, with structural mounting, multiple string inverters, safety walkways). Emphasise the difference in scale and complexity. -->
+
+      <div class="difference-grid">
+        <div class="difference-card">
+          <div class="difference-icon">
+<HugeIcon icon={Building01Icon} />
+          </div>
+          <h3>Structural Engineering</h3>
+          <p>
+            We work with structural engineers to verify wind and weight loading for your building. Every commercial roof is different, and assumptions don't cut it when you're mounting hundreds of kilos of panels and racking to a structure.
+          </p>
+        </div>
+        <div class="difference-card">
+          <div class="difference-icon">
+<HugeIcon icon={ZapIcon} />
+          </div>
+          <h3>Electrical Engineering</h3>
+          <p>
+            Larger systems require protection schematics, grid protection boards, and export limitation studies. Our electrical engineers design these to meet ESV, Clean Energy Council, and DNSP requirements before installation begins.
+          </p>
+        </div>
+        <div class="difference-card">
+          <div class="difference-icon">
+<HugeIcon icon={Clock01Icon} />
+          </div>
+          <h3>Working Around Your Operations</h3>
+          <p>
+            We schedule every phase of the install around your business. If a switchboard shutdown needs to happen at 2am to avoid disrupting your operations, that's what we do. Minimising your downtime is always the priority.
+          </p>
+        </div>
+        <div class="difference-card">
+          <div class="difference-icon">
+<HugeIcon icon={File01Icon} />
+          </div>
+          <h3>DNSP Coordination</h3>
+          <p>
+            We coordinate directly with the distribution network service provider to ensure your system ties into the grid safely and meets all export and connection requirements. This is paperwork and process that we handle entirely.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- System types -->
   <SpecCards
     label="System Types"
     heading="What We Design and Install"
     cards={[
       {
         title: 'Rooftop Systems',
-        body: 'From 10 kW to 100+ kW, designed for flat or pitched commercial roofs. Optimised for your building\'s specific layout and shading profile.',
-        footer: '10-100+ kW capacity'
+        body: 'From 10 kW to 100+ kW, designed for flat or pitched commercial roofs. Engineered mounting with verified wind and weight loading for your specific building.',
+        footer: '10 – 100+ kW capacity'
       },
       {
-        title: 'Ground-Mount',
-        body: 'For properties with available land and unsuitable roofs. Engineered mounting systems with optimal tilt and orientation.',
-        footer: 'Where roof isn\'t suitable'
+        title: 'Ground Mount',
+        body: 'For properties with available land or roofs that aren\'t suitable. Engineered foundations with optimal tilt and orientation for maximum generation.',
+        footer: 'When roof isn\'t suitable'
       },
       {
-        title: 'Three-Phase',
-        body: 'Designed for commercial and industrial electrical configurations. Full monitoring and reporting for energy management.',
+        title: 'Three Phase',
+        body: 'Designed for commercial electrical infrastructure. Full monitoring, export management, and reporting to track your return from day one.',
         footer: 'Commercial & industrial'
       },
     ]}
   />
 
+
+  <!-- LGCs section -->
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/comerical_V1.webp" alt="Large commercial solar array installation" reverse bg="light">
+    <p class="section-label">Commercial Rebates</p>
+    <h2>LGCs, Not STCs</h2>
+    <p>
+      Residential solar uses Small-scale Technology Certificates (STCs) as a point of sale discount. Commercial systems above a certain threshold use Large-scale Technology Certificates (LGCs) instead. These operate differently and are a bit more complex in how they're monitored and distributed.
+    </p>
+    <p>
+      We handle the entire LGC process for you. Understanding the certificate market, managing the paperwork, and ensuring you receive the full value of your entitlement is part of what we do. Combined with Division 40 depreciation, the financial case for commercial solar is strong.
+    </p>
+  </SplitFeature>
+
+
+  <!-- Financial benefits -->
   <IconFeatureGrid
     label="Returns"
-    heading="Financial Benefits"
-    bg="light"
+    heading="The Financial Case"
+    bg="white"
     columns={2}
     features={[
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
-        title: 'Reduced Electricity Bills',
-        description: 'Offset daytime energy consumption directly at retail rates.'
+        icon: hugeIconToSvg(Dollar01Icon),
+        title: 'Direct Retail Rate Savings',
+        description: 'Every kilowatt of solar you use directly offsets power you\'d otherwise buy at full commercial rates. Daytime businesses see the fastest payback.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>',
-        title: 'Federal STC Rebate',
-        description: 'Applied as a point-of-sale discount, reducing upfront cost.'
+        icon: hugeIconToSvg(File01Icon),
+        title: 'LGC Rebate',
+        description: 'Large-scale Technology Certificates provide a financial incentive for commercial installations. We manage the entire process.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
+        icon: hugeIconToSvg(ChartBarIncreasingIcon),
         title: 'Tax Depreciation',
-        description: 'Commercial solar systems can be depreciated as a business asset under Division 40.'
+        description: 'Commercial solar systems can be depreciated as a business asset under Division 40, reducing your tax liability over the life of the system.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-        title: 'Sustainability Credentials',
-        description: 'Meet reporting requirements and demonstrate environmental commitment.'
+        icon: hugeIconToSvg(Shield01Icon),
+        title: 'Sustainability Reporting',
+        description: 'Meet ESG and sustainability reporting requirements with verified generation data and reduced Scope 2 emissions.'
       },
     ]}
   />
 
+
+  <!-- Stats -->
+  <StatBar
+    dark
+    stats={[
+      { value: '300+', label: 'Commercial stations in team portfolio' },
+      { value: '10yr', label: 'Workmanship warranty' },
+      { value: '100+ kW', label: 'System capacity' },
+      { value: '24/7', label: 'System monitoring' },
+    ]}
+  />
+
+
+  <!-- Experience section -->
+  <section class="experience-section">
+    <div class="container">
+      <p class="section-label">Team Experience</p>
+      <h2>Across Every Type of Commercial Property</h2>
+      <p class="section-intro">
+        Our team has hands on experience across the full range of commercial installations. From SME offices to large scale national rollouts, the engineering, compliance, and project coordination required is something we've done many times before.
+      </p>
+
+      <div class="experience-grid">
+        <div class="experience-item">
+          <h3>Schools</h3>
+          <p>Working around term schedules and strict safety requirements.</p>
+        </div>
+        <div class="experience-item">
+          <h3>Businesses &amp; Offices</h3>
+          <p>Systems designed for weekday daytime load profiles.</p>
+        </div>
+        <div class="experience-item">
+          <h3>Government &amp; Council</h3>
+          <p>Meeting procurement and compliance frameworks.</p>
+        </div>
+        <div class="experience-item">
+          <h3>Service Stations</h3>
+          <p>Part of a 300+ station national rollout, coordinating engineers, subcontractors, and network providers across every state.</p>
+        </div>
+        <div class="experience-item">
+          <h3>Warehouses &amp; Industrial</h3>
+          <p>Large roof areas, heavy load profiles, and three phase infrastructure.</p>
+        </div>
+        <div class="experience-item">
+          <h3>Retail</h3>
+          <p>Installations that work around trading hours and customer access.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Process -->
   <ProcessTimeline
     label="Our Process"
-    heading="From Assessment to Savings"
+    heading="From Site Assessment to Savings"
     steps={[
-      { title: 'Site Assessment', description: 'We evaluate your property, energy usage, and electrical infrastructure.' },
-      { title: 'System Design', description: 'Engineered for your specific load profile and roof layout.' },
-      { title: 'Approvals', description: 'We handle grid connection applications, permits, and rebate paperwork.' },
-      { title: 'Installation', description: 'Scheduled around your operations to minimise disruption.' },
-      { title: 'Commissioning', description: 'Full testing, monitoring setup, and handover.' },
+      { title: 'Site Assessment', description: 'We evaluate your property, energy usage, electrical infrastructure, and roof or ground suitability. For larger systems, structural engineers assess wind and weight loading.' },
+      { title: 'System Design', description: 'Engineered for your specific load profile, building layout, and export requirements. Electrical engineers prepare protection schematics where required.' },
+      { title: 'Approvals & Coordination', description: 'We handle grid connection applications, DNSP coordination, permits, LGC paperwork, and any council requirements.' },
+      { title: 'Installation', description: 'Scheduled entirely around your operations. Switchboard shutdowns coordinated in advance to minimise disruption to your business.' },
+      { title: 'Commissioning & Monitoring', description: 'Full system testing, monitoring setup, and handover. Every system is monitored from day one so we can track performance and respond to any issues.' },
     ]}
   />
 
-  <SplitFeature image="/image/photography/01_Hero_Images_OG/comerical_V1.webp" alt="Large commercial solar array" reverse bg="light">
-    <p class="section-label">Maximise Your Investment</p>
+
+  <!-- Battery CTA -->
+  <SplitFeature image="/image/photography/01_Hero_Images_OG/comerical_V1.webp" alt="Commercial solar and battery system" reverse bg="light">
+    <p class="section-label">Extend Your Savings</p>
     <h2>Add Battery Storage</h2>
     <p>
-      Solar and battery together can further reduce your electricity costs by storing excess generation for use during peak tariff periods and reducing demand charges. Batteries extend your solar savings beyond daylight hours.
+      Solar covers your daytime consumption. A battery extends those savings into peak tariff periods and reduces demand charges, which for many businesses are the single biggest line item on the electricity bill. The same engineering and coordination applies.
     </p>
-    <a href="/services/commercial/battery-systems" class="btn btn-primary">Learn About Battery Storage</a>
+    <a href="/services/commercial/battery-systems" class="btn btn-primary">Learn About Commercial Battery Storage</a>
   </SplitFeature>
+
 
   <RelatedNav
     links={[
@@ -119,3 +257,132 @@ import RelatedNav from '../../../components/sections/RelatedNav.astro';
 
   <ScrollIndicator />
 </BaseLayout>
+
+
+<style>
+  /* Commercial difference section */
+  .commercial-difference {
+    padding: 5rem 0;
+    background: var(--color-bg-light, #f8f9fa);
+  }
+
+  .commercial-difference .section-label {
+    color: var(--color-primary, #2061B7);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .commercial-difference h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: var(--color-primary-dark, #0E2B47);
+    margin-bottom: 1rem;
+  }
+
+  .section-intro {
+    font-size: 1.1rem;
+    color: #444;
+    max-width: 720px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .difference-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .difference-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  .difference-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--color-primary, #2061B7);
+    margin-bottom: 1rem;
+  }
+
+  .difference-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .difference-card h3 {
+    font-size: 1.15rem;
+    color: var(--color-primary-dark, #0E2B47);
+    margin-bottom: 0.75rem;
+  }
+
+  .difference-card p {
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .difference-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+  /* Experience section */
+  .experience-section {
+    padding: 5rem 0;
+    background: rgba(240, 238, 217, 0.25);
+  }
+
+  .experience-section .section-label {
+    color: var(--color-primary, #2061B7);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .experience-section h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: var(--color-primary-dark, #0E2B47);
+    margin-bottom: 1rem;
+  }
+
+  .experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .experience-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  .experience-item h3 {
+    font-size: 1.05rem;
+    color: var(--color-primary-dark, #0E2B47);
+    margin-bottom: 0.5rem;
+  }
+
+  .experience-item p {
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .experience-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

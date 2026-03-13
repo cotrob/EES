@@ -5,6 +5,11 @@ import SplitFeature from '../../components/sections/SplitFeature.astro';
 import SpecCards from '../../components/sections/SpecCards.astro';
 import IconFeatureGrid from '../../components/sections/IconFeatureGrid.astro';
 import RelatedNav from '../../components/sections/RelatedNav.astro';
+import { hugeIconToSvg } from '../../lib/hugeicon-svg';
+import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
+import SolarPanel01Icon from '@hugeicons/core-free-icons/SolarPanel01Icon';
+import BatteryCharging01Icon from '@hugeicons/core-free-icons/BatteryCharging01Icon';
+import ZapIcon from '@hugeicons/core-free-icons/ZapIcon';
 ---
 
 <BaseLayout
@@ -56,22 +61,22 @@ import RelatedNav from '../../components/sections/RelatedNav.astro';
     columns={2}
     features={[
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>',
+        icon: hugeIconToSvg(Sun01Icon),
         title: 'Federal STC Rebate',
         description: 'Small-scale Technology Certificates provide a point-of-sale discount on solar and heat pump installations. Applied directly to your quote.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/></svg>',
+        icon: hugeIconToSvg(SolarPanel01Icon),
         title: 'Victorian Solar Rebate',
         description: 'Solar Victoria rebates for eligible properties based on property value and household income. We handle the application for you.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="7" width="12" height="10" rx="1"/><line x1="10" y1="7" x2="10" y2="4"/><line x1="14" y1="7" x2="14" y2="4"/><path d="M10 17v3"/><path d="M14 17v3"/></svg>',
+        icon: hugeIconToSvg(BatteryCharging01Icon),
         title: 'Victorian Battery Rebate',
         description: 'A separate rebate for home battery installations through Solar Victoria. Can be combined with the solar rebate.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+        icon: hugeIconToSvg(ZapIcon),
         title: 'Victorian Energy Upgrades (VEU)',
         description: 'Incentives for energy-efficient upgrades including heat pumps and hot water systems. Rebate values vary by product and location.'
       },

@@ -5,106 +5,313 @@ import SplitFeature from '../../../components/sections/SplitFeature.astro';
 import StatBar from '../../../components/sections/StatBar.astro';
 import RelatedNav from '../../../components/sections/RelatedNav.astro';
 import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
+import FaqGroup from '../../../components/sections/FaqGroup.astro';
+import { hugeIconToSvg } from '../../../lib/hugeicon-svg';
+import SmileIcon from '@hugeicons/core-free-icons/SmileIcon';
+import Pulse01Icon from '@hugeicons/core-free-icons/Pulse01Icon';
+import ZapIcon from '@hugeicons/core-free-icons/ZapIcon';
+import ShieldEnergyIcon from '@hugeicons/core-free-icons/ShieldEnergyIcon';
 ---
 
 <BaseLayout
-  title="Comfort Conditioning | EES"
-  description="Hydronic radiant ceiling panels for healthier, more efficient heating and cooling in your home — operating at a fraction of the cost of conventional systems."
+  title="Hydronic Heating & Cooling Geelong | Radiant Ceiling Panels | EES"
+  description="Hydronic heating and cooling systems in Geelong. Radiant ceiling panels that heat and cool your home silently at a third of the running cost. Replace gas ducted heating with renewable energy."
 >
   <section class="page-header">
     <div class="container">
-      <h1>Comfort Conditioning</h1>
-      <p>Healthier, more efficient heating and cooling for your home.</p>
+      <h1>Hydronic Heating & Cooling</h1>
+      <p>Radiant ceiling panels that replace your gas heater and run on solar.</p>
     </div>
   </section>
 
-  <SplitFeature image="/image/WIP/Hydronic_Ceiling_Panels_StoryOff/panel-installed-ceiling-residential.webp" alt="Hydronic radiant ceiling panel installed in a residential home" bg="white">
-    <p class="section-label">Our Approach</p>
-    <h2>How We Condition Your Home</h2>
+
+  <!-- Hero: The problem with ducted gas -->
+  <SplitFeature image="/image/WIP/Hydronic_Ceiling_Panels_StoryOff/panel-installed-ceiling-residential.webp" alt="Hydronic radiant ceiling panel installed in a residential home in Geelong" bg="white">
+    <p class="section-label">A Better Way to Heat and Cool</p>
+    <h2>Your Gas Ducted Heater Is the Most Expensive Appliance in Your Home</h2>
     <p>
-      We use hydronic radiant ceiling panels — a fundamentally different approach to heating and cooling compared to conventional ducted systems or split units.
+      Gas ducted central heating blows warm air through ducts in your ceiling. It's noisy, it circulates dust, it creates hot and cold spots, and gas prices in Victoria have been climbing faster than electricity for years.
     </p>
     <p>
-      Rather than blowing hot or cold air around the room, our system radiates energy directly from the ceiling. This is how the sun warms the earth, and it's how the human body naturally exchanges heat with its surroundings.
-    </p>
-    <p>
-      Your body exchanges energy through three mechanisms: radiation, convection, and breathing. Of these, <strong>radiant transfer has the greatest impact on comfort</strong>. Radiant systems deliver both radiant and convective conditioning simultaneously, making them the most effective form of environmental conditioning available.
+      Hydronic radiant panels are the opposite. They heat and cool your home by radiating energy directly from the ceiling, the same way the sun warms the earth. No fans, no dust, no noise. And when paired with solar, the running cost drops to nearly zero.
     </p>
   </SplitFeature>
 
+
+  <!-- The solar + comfort automation story from Matt -->
+  <section class="scenario-section">
+    <div class="container">
+      <div class="scenario-layout">
+        <div class="scenario-text">
+          <p class="section-label">How It Works With Solar</p>
+          <h2>Your Home at 19° When You Walk in the Door</h2>
+          <p>
+            Imagine you're at work. It's winter. Your solar panels are generating electricity and your battery is full. Instead of exporting that excess power to the grid for next to nothing, your system uses it to gently condition your home throughout the day.
+          </p>
+          <p>
+            A temperature sensor reads the room. If it drops below your set point, the hydronic panels warm it back up, all running on free solar electricity. By the time you get home at 5pm, the house is sitting at 19 degrees, not 26. You don't need to turn anything on. You don't need to blast the heater and wait 45 minutes for the house to warm up.
+          </p>
+          <p>
+            Compare that to turning on a gas ducted heater at 5pm and drawing from the grid while you wait for it to heat the house. One approach costs you nothing and the house is already comfortable. The other costs you gas and patience.
+          </p>
+        </div>
+        <div class="scenario-visual">
+          <!-- IMAGE: Split comparison illustration. Left side: "5pm without hydronic" showing a cold house (blue tones, person walking in coat, thermostat showing 26°C, gas heater icon running). Right side: "5pm with hydronic" showing a warm house (warm tones, person relaxed, thermostat showing 19°C, solar panels icon). Clean, minimal illustration style matching EES branding. Side by side on desktop, stacked on mobile. -->
+          <div class="comparison-cards">
+            <div class="comparison-card comparison-card--before">
+              <div class="comparison-label">Without hydronic</div>
+              <div class="comparison-temp">26°C</div>
+              <p>Get home. Turn on gas heater. Wait 45 minutes. Pay for gas.</p>
+            </div>
+            <div class="comparison-card comparison-card--after">
+              <div class="comparison-label">With hydronic + solar</div>
+              <div class="comparison-temp">19°C</div>
+              <p>Get home. House is already comfortable. Powered by free solar all day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .scenario-section {
+      padding: 5rem 0;
+      background: #f8f9fa;
+    }
+
+    .scenario-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .scenario-text h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .scenario-text p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .comparison-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .comparison-card {
+      border-radius: 12px;
+      padding: 1.75rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    .comparison-card--before {
+      background: #fff;
+    }
+
+    .comparison-card--after {
+      background: #0E2B47;
+      border-color: #0E2B47;
+    }
+
+    .comparison-card--after .comparison-label,
+    .comparison-card--after p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .comparison-card--after .comparison-temp {
+      color: #fff;
+    }
+
+    .comparison-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+
+    .comparison-temp {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #0E2B47;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .comparison-card p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    @media (max-width: 800px) {
+      .scenario-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+
+
   <StatBar
     stats={[
-      { value: '1/3', label: 'Running cost vs conventional' },
-      { value: '600x1200mm', label: 'Standard panel size' },
-      { value: '24V DC', label: 'Low voltage operation' },
+      { value: '1/3', label: 'Running cost vs ducted gas' },
       { value: '0 dB', label: 'Silent operation' },
+      { value: '10yr', label: 'Workmanship warranty' },
+      { value: '~$0', label: 'Running cost with solar' },
     ]}
   />
 
+
+  <!-- Why radiant is better than forced air -->
   <IconFeatureGrid
-    label="The Difference"
-    heading="Why Radiant Is Better"
-    bg="light"
+    label="Radiant vs Forced Air"
+    heading="Why This Is Better Than What You Have Now"
+    bg="white"
     features={[
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="9" r="1"/></svg>',
-        title: 'Healthier',
-        description: 'No dust circulation, no dry air, no noise. Radiant conditioning avoids the problems associated with forced-air systems.'
+        icon: hugeIconToSvg(SmileIcon),
+        title: 'No dust, no dry air, no noise',
+        description: 'Forced air systems blow dust and allergens around your home, dry out the air, and generate constant fan noise. Radiant panels do none of this. They sit in the ceiling and silently radiate warmth or cooling.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>',
-        title: 'More Hygienic',
-        description: 'Ceiling-mounted panels don\'t collect or disturb floor dust. No filters to change, no ducts to clean.'
+        icon: hugeIconToSvg(Pulse01Icon),
+        title: 'Even temperature, everywhere',
+        description: 'Ducted systems create hot spots near vents and cold spots in corners. Radiant panels distribute energy evenly across the ceiling, so the whole room feels the same temperature. No draughts, no dead zones.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
-        title: 'More Efficient',
-        description: 'Operating at roughly one-third the cost of conventional systems. Lower energy consumption means lower bills and lower emissions.'
+        icon: hugeIconToSvg(ZapIcon),
+        title: 'A third of the running cost',
+        description: 'Hydronic systems move water, not air. Water carries heat far more efficiently than air, which means less energy to get the same result. When powered by solar, the cost drops to nearly nothing.'
       },
       {
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>',
-        title: 'More Comfortable',
-        description: 'Even temperature distribution without hot or cold spots. No draughts, no noise — just consistent, natural comfort.'
+        icon: hugeIconToSvg(ShieldEnergyIcon),
+        title: 'Nothing to clean or maintain',
+        description: 'No filters to replace. No ducts to clean. No outdoor unit collecting leaves. Ceiling mounted panels stay out of the way and don\'t need servicing like conventional HVAC systems do.'
       },
     ]}
     columns={2}
   />
 
-  <SplitFeature image="/image/WIP/Hydronic_Ceiling_Panels_StoryOff/panel-serpentine-tube-pattern.webp" alt="Hydronic ceiling panel showing serpentine tube pattern" reverse bg="white">
+
+  <!-- How the panels work -->
+  <SplitFeature image="/image/WIP/Hydronic_Ceiling_Panels_StoryOff/panel-serpentine-tube-pattern.webp" alt="Inside a hydronic ceiling panel showing serpentine water tube pattern" reverse bg="light">
     <p class="section-label">The Panels</p>
-    <h2>What We Install</h2>
+    <h2>How Hydronic Ceiling Panels Work</h2>
     <p>
-      Our suspended hydronic ceiling panels provide heating and cooling in a single system. Each panel is:
+      Each panel is 600 x 1200mm and fits into a standard suspended ceiling grid. Inside, a serpentine tube carries warm or chilled water that radiates energy into the room below.
     </p>
-    <ul>
-      <li><strong>600 x 1200mm</strong> — fits standard Australian suspended ceiling grids</li>
-      <li><strong>Modular</strong> — easy to install, modify, and maintain</li>
-      <li>Available with <strong>multiple finishing surfaces</strong> to match your interior</li>
-    </ul>
     <p>
-      The system runs on low-voltage (24V DC) components including variable speed pumps, actuators, and mixing valves. It's quiet, safe, and simple.
+      For heating, warm water from a heat pump circulates through the panels and radiates gentle warmth downward. For cooling, chilled water absorbs heat from the room. The same panel does both, controlled by a mixing valve that adjusts the water temperature automatically.
+    </p>
+    <p>
+      The whole system runs on low voltage (24V DC), which means the pumps, valves, and controls are small, quiet, and safe. There's no high voltage equipment in the ceiling.
     </p>
   </SplitFeature>
 
-  <SplitFeature image="/image/WIP/environmental-service-pod/esp-hydronic-manifold-photo.webp" alt="Hydronic manifold connected to renewable energy system" bg="light">
-    <p class="section-label">Renewable Integration</p>
-    <h2>Paired With Renewable Energy</h2>
+
+  <!-- Replacing gas: the bigger picture -->
+  <section class="gas-replacement-section">
+    <div class="container">
+      <div class="gas-layout">
+        <!-- IMAGE: Photo of a gas meter on the side of a house, or a gas bill, something that visually represents the cost of staying connected to gas. Alternatively, a photo of EES team removing an old gas ducted heater. -->
+        <div class="gas-text">
+          <p class="section-label">Replacing Gas Heating</p>
+          <h2>The Last Big Gas Appliance in Most Homes</h2>
+          <p>
+            For a lot of households, the gas ducted heater is the biggest reason they're still connected to gas. Once the hot water has been switched to a heat pump and the cooktop has gone to induction, the heater is the last thing keeping that $1.40 per day gas connection fee on your bill.
+          </p>
+          <p>
+            Switching to hydronic ceiling panels powered by a heat pump and solar removes that final appliance. At that point, you can disconnect from gas entirely and save over $500 a year on the connection fee alone, before you even count what you were spending on gas usage.
+          </p>
+          <p>
+            We design your solar and battery system with this future in mind from day one. Even if you're not ready to switch to hydronic heating yet, we size everything so it's ready when you are.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .gas-replacement-section {
+      padding: 5rem 0;
+      background: rgba(240, 238, 217, 0.25);
+    }
+
+    .gas-layout {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .gas-text h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .gas-text p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+  </style>
+
+
+  <!-- Integration with the full system -->
+  <SplitFeature image="/image/WIP/environmental-service-pod/esp-hydronic-manifold-photo.webp" alt="Hydronic manifold connected to heat pump and renewable energy system" bg="white">
+    <p class="section-label">Part of the Whole System</p>
+    <h2>Powered by Your Solar and Heat Pump</h2>
     <p>
-      Our conditioning system is designed to work hand-in-hand with solar PV, battery storage, and our polyvalent heat pump. This means your heating and cooling can run primarily — or entirely — on renewable energy.
+      Hydronic conditioning doesn't work in isolation. It connects to a heat pump that generates warm and chilled water, which is powered by your solar panels and battery. Together, they form a complete system where your home's heating, cooling, and hot water all run on renewable energy.
+    </p>
+    <p>
+      When you add home automation, the system gets even smarter. Temperature sensors in each zone let the controls adjust water flow and temperature automatically, keeping every room where you want it without you lifting a finger.
     </p>
   </SplitFeature>
 
-  <RelatedNav
-    links={[
-      { href: '/services/residential/heat-pump-systems', title: 'Heat Pump Systems', description: 'The polyvalent heat pump that powers our conditioning system' },
-      { href: '/services/residential/solar-systems', title: 'Solar Systems', description: 'Solar panel installation designed for your home' },
+
+  <FaqGroup
+    heading="Hydronic Heating FAQ"
+    groups={[
+      {
+        label: 'Common Questions',
+        questions: [
+          { q: 'What is hydronic heating?', a: 'Hydronic heating uses warm water circulated through panels, radiators, or underfloor pipes to heat a space. Our system uses radiant ceiling panels that transfer heat directly to objects and people in the room, like the warmth you feel from the sun, rather than blowing hot air. It heats and cools without noise, dust, or dry air.' },
+          { q: 'Is hydronic heating gas or electric?', a: 'It can be either. Traditional hydronic systems use a gas boiler to heat the water. Our system uses an electric heat pump instead, which is roughly three times more efficient than gas and can be powered by your solar panels. This means your heating and cooling can run on free solar electricity during the day.' },
+          { q: 'Is hydronic heating expensive to run?', a: 'Our hydronic ceiling panel system operates at roughly one third the running cost of conventional ducted heating and cooling. When paired with a heat pump and solar panels, the running cost drops further, potentially to near zero during solar generating hours. Gas prices continue to rise, making the savings even greater over time.' },
+          { q: 'Can hydronic heating be used to cool as well?', a: 'Yes. Our radiant ceiling panels work in reverse during summer, circulating chilled water to absorb heat from the room. It is one system for both heating and cooling, with no need for separate air conditioning units.' },
+          { q: 'Can you convert gas hydronic heating to electric?', a: 'Yes. If you already have hydronic pipework and radiators or panels, we can replace the gas boiler with an electric heat pump. This removes your gas dependency and lets you run the system from solar. The existing distribution pipework often stays in place.' },
+        ]
+      },
     ]}
   />
 
+
+  <RelatedNav
+    heading="Part of a Bigger System"
+    links={[
+      { href: '/services/residential/heat-pump-systems', title: 'Heat Pump Hot Water', description: 'The heat pump that powers your hydronic system and hot water' },
+      { href: '/services/residential/solar-systems', title: 'Solar Systems', description: 'Generate free electricity to run your heating and cooling' },
+      { href: '/services/residential/home-automation', title: 'Home Automation', description: 'Smart controls for zone by zone temperature management' },
+      { href: '/laboratory/hydronic-ceiling-panels', title: 'Hydronic Ceiling Panels', description: 'Technical details on our lab tested radiant panels' },
+    ]}
+  />
+
+
   <section class="cta-section">
     <div class="container">
-      <p>Ready to see how radiant conditioning can work in your home?</p>
-      <a href="/contact" class="btn btn-primary">Request a Free Consultation</a>
+      <p>Interested in replacing your gas heater with something quieter, healthier, and cheaper to run?</p>
+      <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
+      <p style="margin-top: 0.75rem; font-size: 0.95rem;">Or call us on <a href="tel:0427664827">0427 664 827</a></p>
     </div>
   </section>
 

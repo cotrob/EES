@@ -33,6 +33,8 @@ const navItems = [
       },
       {
         title: 'Further Info',
+        icon: 'M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z',
+        mobileIconOnly: true,
         image: '/image/photography/01_Hero_Images_OG/Frontage_3.webp',
         href: '/resources',
         noCard: true,
@@ -70,6 +72,8 @@ const navItems = [
       },
       {
         title: 'Further Info',
+        icon: 'M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z',
+        mobileIconOnly: true,
         href: '/laboratory/resources',
         noCard: true,
         services: [
@@ -122,7 +126,7 @@ const currentPath = Astro.url.pathname;
                         <h3>
                           {card.href ? (
                             <a href={card.href} class="mega-title-link-v2">
-                              {card.icon && <svg class="mega-title-icon-v2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={card.icon}/></svg>}
+                              {card.icon && <svg class:list={['mega-title-icon-v2', { 'mobile-only-icon': card.mobileIconOnly }]} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={card.icon}/></svg>}
                               {card.title}
                               <svg class="mega-title-chevron-v2" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                             </a>
@@ -548,6 +552,10 @@ const currentPath = Astro.url.pathname;
     opacity: 1;
   }
 
+  .mobile-only-icon {
+    display: none;
+  }
+
   .mega-title-chevron-v2 {
     display: inline-block;
     vertical-align: middle;
@@ -769,6 +777,10 @@ const currentPath = Astro.url.pathname;
       padding-left: 2rem;
     }
 
+    .header-v2.menu-open .mobile-only-icon {
+      display: inline-block;
+    }
+
     .header-v2.menu-open .mega-card-links-v2 {
       border-left: none;
       padding-left: 0;
@@ -776,7 +788,7 @@ const currentPath = Astro.url.pathname;
     }
 
     .header-v2.menu-open .mega-card-links-v2 a {
-      padding: 0.5rem 1rem 0.5rem 3rem;
+      padding: 0.5rem 1rem 0.5rem 4rem;
       border-radius: 0.5rem;
       font-size: 0.9375rem;
       color: rgba(255, 255, 255, 0.85);

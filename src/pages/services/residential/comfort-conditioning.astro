@@ -2,72 +2,55 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../../components/ScrollIndicator.astro';
 import SplitFeature from '../../../components/sections/SplitFeature.astro';
-import StatBar from '../../../components/sections/StatBar.astro';
 import RelatedNav from '../../../components/sections/RelatedNav.astro';
 import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
 import FaqGroup from '../../../components/sections/FaqGroup.astro';
+import ServiceHero from '../../../components/sections/ServiceHero.astro';
+import HugeIcon from '../../../components/HugeIcon.astro';
 import { hugeIconToSvg } from '../../../lib/hugeicon-svg';
 import SmileIcon from '@hugeicons/core-free-icons/SmileIcon';
 import Pulse01Icon from '@hugeicons/core-free-icons/Pulse01Icon';
 import ZapIcon from '@hugeicons/core-free-icons/ZapIcon';
 import ShieldEnergyIcon from '@hugeicons/core-free-icons/ShieldEnergyIcon';
+import HeaterIcon from '@hugeicons/core-free-icons/HeaterIcon';
+import DropletIcon from '@hugeicons/core-free-icons/DropletIcon';
+import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
+import SmartPhone01Icon from '@hugeicons/core-free-icons/SmartPhone01Icon';
+import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
+import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Icon';
 ---
 
 <BaseLayout
   title="Hydronic Heating & Cooling Geelong | Radiant Ceiling Panels | EES"
   description="Hydronic heating and cooling systems in Geelong. Radiant ceiling panels that heat and cool your home silently at a third of the running cost. Replace gas ducted heating with renewable energy."
 >
-  <section class="page-header">
+  <ServiceHero
+    title="Hydronic Heating & Cooling"
+    illustration="/image/illustrations/Residential  Solar Systems.png"
+    illustrationAlt="Hydronic heating and cooling system illustration"
+  />
+
+
+  <!-- Intro: Our approach -->
+  <section class="approach-section">
     <div class="container">
-      <h1>Hydronic Heating & Cooling</h1>
-      <p>Radiant ceiling panels that replace your gas heater and run on solar.</p>
-    </div>
-  </section>
-
-
-  <!-- Hero: The problem with ducted gas -->
-  <SplitFeature image="/image/WIP/Hydronic_Ceiling_Panels_StoryOff/panel-installed-ceiling-residential.webp" alt="Hydronic radiant ceiling panel installed in a residential home in Geelong" bg="white">
-    <p class="section-label">A Better Way to Heat and Cool</p>
-    <h2>Your Gas Ducted Heater Is the Most Expensive Appliance in Your Home</h2>
-    <p>
-      Gas ducted central heating blows warm air through ducts in your ceiling. It's noisy, it circulates dust, it creates hot and cold spots, and gas prices in Victoria have been climbing faster than electricity for years.
-    </p>
-    <p>
-      Hydronic radiant panels are the opposite. They heat and cool your home by radiating energy directly from the ceiling, the same way the sun warms the earth. No fans, no dust, no noise. And when paired with solar, the running cost drops to nearly zero.
-    </p>
-  </SplitFeature>
-
-
-  <!-- The solar + comfort automation story from Matt -->
-  <section class="scenario-section">
-    <div class="container">
-      <div class="scenario-layout">
-        <div class="scenario-text">
-          <p class="section-label">How It Works With Solar</p>
-          <h2>Your Home at 19° When You Walk in the Door</h2>
-          <p>
-            Imagine you're at work. It's winter. Your solar panels are generating electricity and your battery is full. Instead of exporting that excess power to the grid for next to nothing, your system uses it to gently condition your home throughout the day.
-          </p>
-          <p>
-            A temperature sensor reads the room. If it drops below your set point, the hydronic panels warm it back up, all running on free solar electricity. By the time you get home at 5pm, the house is sitting at 19 degrees, not 26. You don't need to turn anything on. You don't need to blast the heater and wait 45 minutes for the house to warm up.
-          </p>
-          <p>
-            Compare that to turning on a gas ducted heater at 5pm and drawing from the grid while you wait for it to heat the house. One approach costs you nothing and the house is already comfortable. The other costs you gas and patience.
-          </p>
+      <div class="approach-layout">
+        <div class="approach-heading">
+          <p class="section-label">A Better Way to Heat and Cool</p>
+          <h2>Your Gas Ducted<br />Heater Is the Most<br />Expensive Appliance<br />in Your Home</h2>
+          <div class="approach-arrow">
+            <HugeIcon icon={ArrowDownRight01Icon} />
+          </div>
         </div>
-        <div class="scenario-visual">
-          <!-- IMAGE: Split comparison illustration. Left side: "5pm without hydronic" showing a cold house (blue tones, person walking in coat, thermostat showing 26°C, gas heater icon running). Right side: "5pm with hydronic" showing a warm house (warm tones, person relaxed, thermostat showing 19°C, solar panels icon). Clean, minimal illustration style matching EES branding. Side by side on desktop, stacked on mobile. -->
-          <div class="comparison-cards">
-            <div class="comparison-card comparison-card--before">
-              <div class="comparison-label">Without hydronic</div>
-              <div class="comparison-temp">26°C</div>
-              <p>Get home. Turn on gas heater. Wait 45 minutes. Pay for gas.</p>
-            </div>
-            <div class="comparison-card comparison-card--after">
-              <div class="comparison-label">With hydronic + solar</div>
-              <div class="comparison-temp">19°C</div>
-              <p>Get home. House is already comfortable. Powered by free solar all day.</p>
-            </div>
+        <div class="approach-text">
+          <p>
+            Gas ducted central heating blows warm air through ducts in your ceiling. It's noisy, it circulates dust, it creates hot and cold spots, and gas prices in Victoria have been climbing faster than electricity for years.
+          </p>
+          <p>
+            Hydronic radiant panels are the opposite. They heat and cool your home by radiating energy directly from the ceiling, the same way the sun warms the earth. No fans, no dust, no noise. And when paired with solar, the running cost drops to nearly zero.
+          </p>
+          <div class="approach-image">
+            <img src="/image/WIP/Hydronic_Ceiling_Panels_StoryOff/panel-installed-ceiling-residential.webp" alt="Hydronic radiant ceiling panel installed in a residential home" loading="lazy" />
           </div>
         </div>
       </div>
@@ -75,102 +58,1145 @@ import ShieldEnergyIcon from '@hugeicons/core-free-icons/ShieldEnergyIcon';
   </section>
 
   <style>
-    .scenario-section {
-      padding: 5rem 0;
-      background: #f8f9fa;
+    .approach-section {
+      padding: 8rem 0 4rem;
+      background: #fff;
     }
 
-    .scenario-layout {
+    .approach-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      max-width: 1100px;
+      grid-template-columns: auto 1fr;
+      gap: 3.5rem;
+      align-items: start;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
-    .scenario-text h2 {
-      margin-bottom: 1.5rem;
+    .approach-heading {
+      position: relative;
+      padding-right: 80px;
+      text-align: right;
     }
 
-    .scenario-text p {
+    .approach-heading h2 {
+      margin-bottom: 0;
+    }
+
+    .approach-arrow {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      height: 50px;
+      background: #C2D456;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0E2B47;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .approach-arrow.animate-in {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .approach-arrow :global(svg) {
+      width: 33px;
+      height: 33px;
+      stroke-width: 3;
+      opacity: 0;
+      transform: translate(-8px, -8px);
+      transition: opacity 0.35s ease 0.3s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+    }
+
+    .approach-arrow.animate-in :global(svg) {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    .approach-text p {
       font-size: 0.95rem;
       color: #555;
       line-height: 1.7;
       margin-bottom: 1rem;
     }
 
-    .comparison-cards {
+    .approach-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .approach-image {
+      margin: 1.5rem 0;
+    }
+
+    .approach-image img {
+      width: 77%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .approach-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .approach-heading {
+        padding-right: 0;
+        text-align: center;
+      }
+
+      .approach-heading h2 {
+        display: inline;
+      }
+
+      .approach-arrow {
+        position: relative;
+        top: auto;
+        right: auto;
+        display: inline-flex;
+        vertical-align: top;
+        margin-left: 0.5rem;
+      }
+
+      .approach-image {
+        margin-top: 1.5rem;
+      }
+
+      .approach-image img {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  </style>
+
+  <script>
+    const arrow = document.querySelector('.approach-arrow');
+    if (arrow) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { arrow.classList.add('animate-in'); obs.disconnect(); } });
+      }, { threshold: 0.5 });
+      obs.observe(arrow);
+    }
+  </script>
+
+
+  <!-- How it works: hydronic flow -->
+  <section class="hydronic-basics-section">
+    <div class="container">
+      <p class="section-label">How It Works</p>
+      <h2>From Heat Pump to Comfortable Home</h2>
+
+      <svg width="0" height="0" style="position:absolute;">
+        <defs>
+          <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#C0D446" />
+            <stop offset="100%" stop-color="#2061B7" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <div class="hydronic-basics-flow">
+        <div class="basics-step">
+          <div class="basics-icon">
+            <HugeIcon icon={HeaterIcon} gradient="icon-gradient" />
+          </div>
+          <h3>Heat pump heats or cools water</h3>
+          <p>An electric heat pump generates warm water for heating or chilled water for cooling, using roughly a third of the energy of a gas system.</p>
+        </div>
+        <div class="basics-arrow">
+          <HugeIcon icon={ArrowRight01Icon} />
+        </div>
+        <div class="basics-step">
+          <div class="basics-icon">
+            <HugeIcon icon={DropletIcon} gradient="icon-gradient" />
+          </div>
+          <h3>Water circulates through panels</h3>
+          <p>Warm or chilled water flows through serpentine tubes inside ceiling-mounted panels via a low-voltage pump system.</p>
+        </div>
+        <div class="basics-arrow">
+          <HugeIcon icon={ArrowRight01Icon} />
+        </div>
+        <div class="basics-step">
+          <div class="basics-icon">
+            <HugeIcon icon={Sun01Icon} gradient="icon-gradient" />
+          </div>
+          <h3>Panels radiate into the room</h3>
+          <p>The panels radiate warmth downward in winter or absorb heat upward in summer. No fans, no ducts, no noise.</p>
+        </div>
+        <div class="basics-arrow">
+          <HugeIcon icon={ArrowRight01Icon} />
+        </div>
+        <div class="basics-step">
+          <div class="basics-icon">
+            <HugeIcon icon={SmartPhone01Icon} gradient="icon-gradient" />
+          </div>
+          <h3>Sensors adjust automatically</h3>
+          <p>Temperature sensors in each zone monitor conditions and adjust water flow to maintain your set point without you lifting a finger.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .hydronic-basics-section {
+      padding: 5rem 0;
+      background: #f8f9fa;
+    }
+
+    .hydronic-basics-section .section-label,
+    .hydronic-basics-section h2 {
+      text-align: center;
+    }
+
+    .hydronic-basics-section h2 {
+      margin-bottom: 3rem;
+    }
+
+    .hydronic-basics-flow {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.75rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .basics-step {
+      text-align: center;
+      flex: 1;
+      max-width: 200px;
+      transform: rotateY(180deg);
+      opacity: 0;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .basics-arrow {
+      transform: rotateY(180deg);
+      opacity: 0;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    @keyframes arrow-pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.5); }
+      100% { transform: scale(1.3); }
+    }
+
+    /* Everything flips in together */
+    .hydronic-basics-flow.in-view .basics-step:nth-child(1) { transition-delay: 0s; transform: rotateY(0); opacity: 1; }
+    .hydronic-basics-flow.in-view > :nth-child(2) { transition-delay: 0.15s; transform: rotateY(0); opacity: 1; }
+    .hydronic-basics-flow.in-view .basics-step:nth-child(3) { transition-delay: 0.3s; transform: rotateY(0); opacity: 1; }
+    .hydronic-basics-flow.in-view > :nth-child(4) { transition-delay: 0.45s; transform: rotateY(0); opacity: 1; }
+    .hydronic-basics-flow.in-view .basics-step:nth-child(5) { transition-delay: 0.6s; transform: rotateY(0); opacity: 1; }
+    .hydronic-basics-flow.in-view > :nth-child(6) { transition-delay: 0.75s; transform: rotateY(0); opacity: 1; }
+    .hydronic-basics-flow.in-view .basics-step:nth-child(7) { transition-delay: 0.9s; transform: rotateY(0); opacity: 1; }
+
+    /* Arrows pulse 1.5x after all flips finish */
+    .hydronic-basics-flow.in-view > :nth-child(2) { animation: arrow-pulse 0.35s ease 1.5s forwards; }
+    .hydronic-basics-flow.in-view > :nth-child(4) { animation: arrow-pulse 0.35s ease 1.65s forwards; }
+    .hydronic-basics-flow.in-view > :nth-child(6) { animation: arrow-pulse 0.35s ease 1.8s forwards; }
+
+    .basics-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1rem;
+    }
+
+    .basics-icon :global(svg) {
+      width: 100%;
+      height: 100%;
+    }
+
+    .basics-step h3 {
+      font-size: 0.95rem;
+      color: #0E2B47;
+      margin-bottom: 0.4rem;
+    }
+
+    .basics-step p {
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .basics-arrow {
+      width: 28px;
+      flex-shrink: 0;
+      color: #2061B7;
+      margin-top: 0.5rem;
+    }
+
+    .basics-arrow svg {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .hydronic-basics-flow {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .basics-step {
+        max-width: 300px;
+      }
+
+      .basics-arrow {
+        transform: rotateY(180deg) rotate(90deg);
+        width: 24px;
+        margin: 0;
+      }
+
+      @keyframes arrow-pulse-mobile {
+        0% { transform: rotate(90deg) scale(1); }
+        50% { transform: rotate(90deg) scale(1.5); }
+        100% { transform: rotate(90deg) scale(1.3); }
+      }
+
+      .hydronic-basics-flow.in-view > .basics-arrow { transform: rotateY(0) rotate(90deg); opacity: 1; }
+      .hydronic-basics-flow.in-view > :nth-child(2) { animation: arrow-pulse-mobile 0.35s ease 1.5s forwards; }
+      .hydronic-basics-flow.in-view > :nth-child(4) { animation: arrow-pulse-mobile 0.35s ease 1.65s forwards; }
+      .hydronic-basics-flow.in-view > :nth-child(6) { animation: arrow-pulse-mobile 0.35s ease 1.8s forwards; }
+    }
+  </style>
+
+  <script>
+    const flow = document.querySelector('.hydronic-basics-flow');
+    if (flow) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { flow.classList.add('in-view'); observer.disconnect(); } });
+      }, { threshold: 0.3 });
+      observer.observe(flow);
+    }
+  </script>
+
+
+  <!-- Guarantees -->
+  <section class="guarantees-section">
+    <div class="guarantees-section__slant"></div>
+    <div class="guarantees-section__texture"></div>
+    <div class="container">
+      <p class="section-label" style="text-align:center;">With Every Hydronic System</p>
+      <h2 style="text-align:center; margin-bottom: 2.5rem;">Our Guarantees</h2>
+
+      <div class="guarantees-grid">
+        <div class="guarantee-tile">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">1/3</span>
+            <span class="guarantee-tile__label">Running cost<br />vs ducted gas</span>
+          </div>
+        </div>
+
+        <div class="guarantee-tile">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">0 dB</span>
+            <span class="guarantee-tile__label">Silent<br />operation</span>
+          </div>
+        </div>
+
+        <div class="guarantee-tile guarantee-tile--badged">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">10 year</span>
+            <span class="guarantee-tile__label">Workmanship<br />warranty</span>
+          </div>
+          <img src="/image/icon/residenteials_Section_Gaurantee_Badge.svg" alt="" class="guarantee-tile__badge" />
+        </div>
+
+        <div class="guarantee-tile guarantee-tile--badged">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">~$0</span>
+            <span class="guarantee-tile__label">Running cost<br />with solar</span>
+          </div>
+          <img src="/image/icon/residenteials_Section_Gaurantee_Badge.svg" alt="" class="guarantee-tile__badge" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .guarantees-section {
+      position: relative;
+      padding: 5rem 0 6rem;
+      background: #f4f5f7;
+      overflow: hidden;
+    }
+
+    .guarantees-section__slant {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: #eceef1;
+      clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
+      z-index: 0;
+    }
+
+    .guarantees-section__texture {
+      position: absolute;
+      bottom: -500px;
+      left: -100px;
+      width: 1000px;
+      height: 1000px;
+      background: url('/image/textures/WhatWeDo_Texture.svg') no-repeat center / contain;
+      transform: rotate(30deg);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    .guarantees-section .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .guarantees-grid {
+      display: flex;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .guarantee-tile {
+      position: relative;
+      width: 220px;
+      flex-shrink: 0;
+      aspect-ratio: 528 / 521;
+      margin-right: -20px;
+    }
+
+    .guarantee-tile:last-child {
+      margin-right: 0;
+    }
+
+    .guarantee-tile__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.06));
+    }
+
+    .guarantee-tile__content {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      padding: 1.5rem;
     }
 
-    .comparison-card {
-      border-radius: 12px;
-      padding: 1.75rem;
-      border: 1px solid #e5e7eb;
-    }
-
-    .comparison-card--before {
-      background: #fff;
-    }
-
-    .comparison-card--after {
-      background: #0E2B47;
-      border-color: #0E2B47;
-    }
-
-    .comparison-card--after .comparison-label,
-    .comparison-card--after p {
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .comparison-card--after .comparison-temp {
-      color: #fff;
-    }
-
-    .comparison-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #888;
+    .guarantee-tile__value {
+      display: block;
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #0E2B47;
+      line-height: 1.1;
       margin-bottom: 0.5rem;
     }
 
-    .comparison-temp {
-      font-size: 2.5rem;
-      font-weight: 800;
+    .guarantee-tile__label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 500;
       color: #0E2B47;
-      line-height: 1;
-      margin-bottom: 0.75rem;
+      line-height: 1.4;
     }
 
-    .comparison-card p {
-      font-size: 0.9rem;
-      color: #555;
-      line-height: 1.5;
-      margin: 0;
+    .guarantee-tile__badge {
+      position: absolute;
+      bottom: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 72px;
+      height: 72px;
+      z-index: 2;
     }
 
-    @media (max-width: 800px) {
-      .scenario-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    @media (max-width: 768px) {
+      .guarantees-grid {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+      }
+
+      .guarantee-tile {
+        width: calc(50% - 0.75rem);
+        flex-shrink: 0;
+        margin-right: 0;
+      }
+
+      .guarantee-tile__value {
+        font-size: 1.75rem;
+      }
+
+      .guarantee-tile__label {
+        font-size: 0.85rem;
+      }
+
+      .guarantee-tile__badge {
+        width: 56px;
+        height: 56px;
+        bottom: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .guarantees-section__texture {
+        width: 600px;
+        height: 600px;
+        bottom: -300px;
+        left: -80px;
       }
     }
   </style>
 
 
-  <StatBar
-    stats={[
-      { value: '1/3', label: 'Running cost vs ducted gas' },
-      { value: '0 dB', label: 'Silent operation' },
-      { value: '10yr', label: 'Workmanship warranty' },
-      { value: '~$0', label: 'Running cost with solar' },
-    ]}
-  />
+  <!-- Comparison table -->
+  <section class="conditioning-tiers-section">
+    <img src="/image/icon/Brand_wave_dots_BlueByGoogleMaps.svg" alt="" class="tiers-decoration" aria-hidden="true" />
+    <div class="container">
+      <div class="spec-cards-header">
+        <p class="section-label">Heating Systems Compared</p>
+        <h2>Why Hydronic Is Different</h2>
+      </div>
+
+      <div class="tier-comparison-table">
+        <table>
+          <thead>
+            <!-- Card row -->
+            <tr class="tier-card-row">
+              <th></th>
+              <th class="tier-card-cell">
+                <div class="tier-card-top-bar"></div>
+                <h3>Gas Ducted Heating</h3>
+                <p class="tier-desc">Blows heated air through ceiling ducts. Common in older homes but noisy, dusty, and increasingly expensive with rising gas prices.</p>
+                <span class="tier-badge">Best for: Existing gas homes</span>
+              </th>
+              <th class="tier-card-cell">
+                <div class="tier-card-top-bar"></div>
+                <h3>Reverse Cycle AC</h3>
+                <p class="tier-desc">Electric split or ducted system that heats and cools by moving refrigerant. Efficient but creates draughts and uneven temperatures.</p>
+                <span class="tier-badge">Best for: Budget retrofits</span>
+              </th>
+              <th class="tier-card-cell tier-card-cell--popular">
+                <div class="tier-card-top-bar"></div>
+                <div class="tier-popular-tag">Premium Comfort</div>
+                <h3>Hydronic Radiant Panels</h3>
+                <p class="tier-desc">Ceiling-mounted panels that radiate warmth or cooling silently from above. Powered by a heat pump and solar for near-zero running costs.</p>
+                <span class="tier-badge">Best for: Premium comfort</span>
+              </th>
+            </tr>
+            <!-- Column label row -->
+            <tr class="tier-label-row">
+              <th>Feature</th>
+              <th>Gas Ducted Heating</th>
+              <th>Reverse Cycle AC</th>
+              <th>Hydronic Radiant Panels</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Running Cost</td>
+              <td>High (gas + connection fee)</td>
+              <td>Medium (electricity)</td>
+              <td>Low (heat pump + solar)</td>
+            </tr>
+            <tr>
+              <td>Noise Level</td>
+              <td>Moderate (fan + ductwork)</td>
+              <td>Moderate (compressor + fan)</td>
+              <td>Silent (no moving parts)</td>
+            </tr>
+            <tr>
+              <td>Air Quality</td>
+              <td>Poor (circulates dust & allergens)</td>
+              <td>Moderate (filters help)</td>
+              <td>Excellent (no airflow)</td>
+            </tr>
+            <tr>
+              <td>Temperature Evenness</td>
+              <td>Poor (hot spots near vents, cold corners)</td>
+              <td>Moderate (better with zoning)</td>
+              <td>Excellent (even radiant distribution)</td>
+            </tr>
+            <tr>
+              <td>Solar Compatible</td>
+              <td>No (gas)</td>
+              <td>Yes (runs on electricity)</td>
+              <td>Yes (heat pump + solar)</td>
+            </tr>
+            <tr>
+              <td>Maintenance</td>
+              <td>High (duct cleaning, gas servicing)</td>
+              <td>Medium (filter changes, refrigerant)</td>
+              <td>Low (no filters, no ducts, no servicing)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile stacked cards (hidden on desktop) -->
+      <div class="tier-mobile-cards">
+        <div class="tier-mobile-card">
+          <div class="tier-mobile-card__header">
+            <h3>Gas Ducted Heating</h3>
+            <p>Blows heated air through ceiling ducts. Common in older homes but noisy, dusty, and increasingly expensive with rising gas prices.</p>
+            <span class="tier-badge">Best for: Existing gas homes</span>
+          </div>
+          <dl class="tier-mobile-card__specs">
+            <div><dt>Running Cost</dt><dd>High (gas + connection fee)</dd></div>
+            <div><dt>Noise Level</dt><dd>Moderate (fan + ductwork)</dd></div>
+            <div><dt>Air Quality</dt><dd>Poor (circulates dust & allergens)</dd></div>
+            <div><dt>Temperature Evenness</dt><dd>Poor (hot spots near vents, cold corners)</dd></div>
+            <div><dt>Solar Compatible</dt><dd>No (gas)</dd></div>
+            <div><dt>Maintenance</dt><dd>High (duct cleaning, gas servicing)</dd></div>
+          </dl>
+        </div>
+
+        <div class="tier-mobile-card">
+          <div class="tier-mobile-card__header">
+            <h3>Reverse Cycle AC</h3>
+            <p>Electric split or ducted system that heats and cools by moving refrigerant. Efficient but creates draughts and uneven temperatures.</p>
+            <span class="tier-badge">Best for: Budget retrofits</span>
+          </div>
+          <dl class="tier-mobile-card__specs">
+            <div><dt>Running Cost</dt><dd>Medium (electricity)</dd></div>
+            <div><dt>Noise Level</dt><dd>Moderate (compressor + fan)</dd></div>
+            <div><dt>Air Quality</dt><dd>Moderate (filters help)</dd></div>
+            <div><dt>Temperature Evenness</dt><dd>Moderate (better with zoning)</dd></div>
+            <div><dt>Solar Compatible</dt><dd>Yes (runs on electricity)</dd></div>
+            <div><dt>Maintenance</dt><dd>Medium (filter changes, refrigerant)</dd></div>
+          </dl>
+        </div>
+
+        <div class="tier-mobile-card tier-mobile-card--popular">
+          <div class="tier-mobile-card__header">
+            <div class="tier-popular-tag">Premium Comfort</div>
+            <h3>Hydronic Radiant Panels</h3>
+            <p>Ceiling-mounted panels that radiate warmth or cooling silently from above. Powered by a heat pump and solar for near-zero running costs.</p>
+            <span class="tier-badge">Best for: Premium comfort</span>
+          </div>
+          <dl class="tier-mobile-card__specs">
+            <div><dt>Running Cost</dt><dd>Low (heat pump + solar)</dd></div>
+            <div><dt>Noise Level</dt><dd>Silent (no moving parts)</dd></div>
+            <div><dt>Air Quality</dt><dd>Excellent (no airflow)</dd></div>
+            <div><dt>Temperature Evenness</dt><dd>Excellent (even radiant distribution)</dd></div>
+            <div><dt>Solar Compatible</dt><dd>Yes (heat pump + solar)</dd></div>
+            <div><dt>Maintenance</dt><dd>Low (no filters, no ducts, no servicing)</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .conditioning-tiers-section {
+      padding: 4rem 0;
+      background: #f8f9fa;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tiers-decoration {
+      position: absolute;
+      right: -10%;
+      top: 50%;
+      transform: translateY(-50%) rotate(100deg);
+      opacity: 0.4;
+      pointer-events: none;
+      height: 100%;
+      width: auto;
+    }
+
+    .spec-cards-header {
+      max-width: 1000px;
+      margin: 0 auto 2rem;
+      padding-left: 22%;
+      text-align: center;
+    }
+
+    .tier-comparison-table {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: transparent;
+      overflow: visible;
+    }
+
+    .tier-comparison-table table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: fixed;
+    }
+
+    .tier-card-row th {
+      vertical-align: top;
+      padding: 0;
+      border-bottom: none;
+      background: #f8f9fa;
+    }
+
+    .tier-card-row th:first-child {
+      background: #f8f9fa;
+    }
+
+    .tier-card-cell {
+      text-align: left;
+      font-weight: normal;
+      position: relative;
+      background: #fff;
+      border: 2px solid #e5e7eb;
+      border-bottom: none;
+      border-radius: 0.75rem 0.75rem 0 0;
+      overflow: hidden;
+    }
+
+    .tier-card-cell h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0E2B47;
+      margin: 0 0 0.5rem;
+      padding: 0 1.25rem;
+    }
+
+    .tier-card-cell .tier-desc {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.55;
+      margin: 0 0 0.75rem;
+      padding: 0 1.25rem;
+    }
+
+    .tier-card-cell .tier-badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #2061B7;
+      background: rgba(32, 97, 183, 0.08);
+      padding: 0.25rem 0.65rem;
+      border-radius: 2rem;
+      margin: 0 0 1.25rem 1.25rem;
+    }
+
+    .tier-card-top-bar {
+      height: 4px;
+      background: #2061B7;
+      margin-bottom: 1.25rem;
+    }
+
+    .tier-popular-tag {
+      background: #2061B7;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: center;
+      padding: 0.3rem 0;
+      margin-top: -1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .tier-card-cell--popular {
+      background: rgba(32, 97, 183, 0.03);
+      border-color: #2061B7;
+    }
+
+    .tier-label-row th {
+      text-align: left;
+      padding: 0.7rem 1.25rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+      border-bottom: 2px solid #e5e7eb;
+      border-top: 1px solid #e5e7eb;
+      background: #fff;
+    }
+
+    .tier-label-row th:first-child {
+      border-left: 1px solid #e5e7eb;
+      border-top-left-radius: 0.75rem;
+    }
+
+    .tier-label-row th:last-child {
+      border-right: 1px solid #e5e7eb;
+    }
+
+    .tier-label-row th:nth-child(4) {
+      background: rgba(32, 97, 183, 0.06);
+      border-left: 2px solid #2061B7;
+      border-right: 2px solid #2061B7;
+    }
+
+    .tier-comparison-table tbody td {
+      padding: 0.65rem 1.25rem;
+      font-size: 0.88rem;
+      color: #444;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+      background: #fff;
+    }
+
+    .tier-comparison-table tbody td:first-child {
+      font-weight: 600;
+      color: #0E2B47;
+      border-left: 1px solid #e5e7eb;
+    }
+
+    .tier-comparison-table tbody td:last-child {
+      border-right: 1px solid #e5e7eb;
+    }
+
+    .tier-comparison-table tbody td:nth-child(4) {
+      background: rgba(32, 97, 183, 0.03);
+      border-left: 2px solid #2061B7;
+      border-right: 2px solid #2061B7;
+    }
+
+    .tier-comparison-table tbody tr:nth-child(even) td {
+      background: #fafbfc;
+    }
+
+    .tier-comparison-table tbody tr:nth-child(even) td:nth-child(4) {
+      background: rgba(32, 97, 183, 0.05);
+    }
+
+    .tier-comparison-table tbody tr:last-child td {
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .tier-comparison-table tbody tr:last-child td:nth-child(4) {
+      border-bottom: 2px solid #2061B7;
+    }
+
+    .tier-comparison-table tbody tr:last-child td:first-child {
+      border-bottom-left-radius: 0.75rem;
+    }
+
+    .tier-comparison-table tbody tr:last-child td:last-child {
+      border-bottom-right-radius: 0.75rem;
+    }
+
+    /* Mobile cards - hidden on desktop */
+    .tier-mobile-cards {
+      display: none;
+    }
+
+    @media (max-width: 800px) {
+      .spec-cards-header {
+        padding-left: 0;
+      }
+
+      .tier-comparison-table {
+        display: none;
+      }
+
+      .tier-mobile-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .tier-mobile-card {
+        background: #fff;
+        border: 2px solid #e5e7eb;
+        border-radius: 0.75rem;
+        overflow: hidden;
+      }
+
+      .tier-mobile-card--popular {
+        border-color: #2061B7;
+      }
+
+      .tier-mobile-card__header {
+        padding: 1.5rem 1.25rem 1rem;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .tier-mobile-card--popular .tier-mobile-card__header {
+        border-bottom-color: rgba(32, 97, 183, 0.2);
+      }
+
+      .tier-mobile-card__header .tier-popular-tag {
+        margin: -1.5rem -1.25rem 1rem;
+        padding: 0.4rem 0;
+      }
+
+      .tier-mobile-card__header h3 {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #0E2B47;
+        margin: 0 0 0.4rem;
+      }
+
+      .tier-mobile-card__header p {
+        font-size: 0.88rem;
+        color: #555;
+        line-height: 1.55;
+        margin: 0 0 0.75rem;
+      }
+
+      .tier-mobile-card__header .tier-badge {
+        display: inline-block;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: #2061B7;
+        background: rgba(32, 97, 183, 0.08);
+        padding: 0.25rem 0.65rem;
+        border-radius: 2rem;
+      }
+
+      .tier-mobile-card__specs {
+        margin: 0;
+        padding: 0;
+      }
+
+      .tier-mobile-card__specs > div {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.6rem 1.25rem;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .tier-mobile-card__specs > div:last-child {
+        border-bottom: none;
+      }
+
+      .tier-mobile-card__specs dt {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #0E2B47;
+      }
+
+      .tier-mobile-card__specs dd {
+        font-size: 0.85rem;
+        color: #444;
+        margin: 0;
+        text-align: right;
+      }
+
+      .tier-mobile-card--popular .tier-mobile-card__specs > div:nth-child(even) {
+        background: rgba(32, 97, 183, 0.03);
+      }
+    }
+  </style>
+
+
+  <!-- Back-to-base monitoring -->
+  <section class="monitoring-section">
+    <div class="container">
+      <div class="monitoring-layout">
+        <div class="monitoring-text">
+          <p class="section-label">Back-to-Base Monitoring</p>
+          <h2><strong>We'll Know</strong> Something Is Wrong Before You Do</h2>
+          <p>
+            Every system we install is connected to our back-to-base monitoring portal. Our team checks every system each morning. If something drops out, generates less than expected, or throws a fault, we see it — often before the homeowner even notices.
+          </p>
+          <p>
+            We've had cases where a system was intermittently disconnecting due to a Wi-Fi issue. We picked it up in our morning check, texted the client, went around and fixed it in five minutes. They had no idea anything was wrong. That's the level of ongoing support we provide.
+          </p>
+          <p>
+            <strong>It's not just install and walk away.</strong> We set up monitoring on the day of installation, walk you through the app, and keep an eye on your system from that point forward.
+          </p>
+        </div>
+        <div class="monitoring-card-wrap">
+          <div class="monitoring-card">
+            <div class="monitoring-card__stat">After install, we monitor your system</div>
+            <p>
+              <strong>Critical fault response.</strong> If our monitoring detects a serious issue with your system, we arrange for one of our A-grade electricians to be on site within 48 business hours. We haven't encountered a critical fault yet, but the commitment is there.
+            </p>
+          </div>
+          <!-- SCADA-style house ↔ monitor diagram -->
+          <div class="scada-diagram">
+            <svg class="scada-svg" viewBox="0 0 480 140" preserveAspectRatio="xMidYMid meet">
+              <!-- House icon (logo style - rounded continuous outline) -->
+              <g class="scada-house" transform="translate(40, 10)">
+                <!-- Rounded house shape - single continuous path -->
+                <path d="M35,2 L6,28 Q0,34 0,40 L0,62 Q0,68 6,68 L64,68 Q70,68 70,62 L70,40 Q70,34 64,28 Z" fill="none" stroke="#C2D456" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+                <!-- Smile curve at bottom -->
+                <path d="M24,56 Q35,64 46,56" fill="none" stroke="#C2D456" stroke-width="2.5" stroke-linecap="round" />
+                <!-- Status dot -->
+                <circle cx="64" cy="34" r="4" fill="#C2D456" class="scada-status-dot" />
+              </g>
+
+              <!-- Connection line -->
+              <line x1="130" y1="50" x2="330" y2="50" stroke="rgba(194,212,86,0.15)" stroke-width="1" />
+              <!-- Single pulsing dot: house → monitor → house -->
+              <circle r="4" fill="#C2D456" class="scada-data-pulse">
+                <animateMotion dur="4s" repeatCount="indefinite" path="M130,50 L330,50 L130,50" />
+              </circle>
+
+              <!-- Monitor/screen icon -->
+              <g class="scada-control" transform="translate(340, 12)">
+                <!-- Screen bezel -->
+                <rect x="0" y="0" width="70" height="50" fill="rgba(194,212,86,0.05)" stroke="#C2D456" stroke-width="2" rx="4" />
+                <!-- Screen inner -->
+                <rect x="5" y="5" width="60" height="36" fill="rgba(194,212,86,0.08)" stroke="rgba(194,212,86,0.3)" stroke-width="1" rx="2" />
+                <!-- Waveform on screen -->
+                <polyline points="10,24 18,18 24,28 30,16 36,26 42,20 48,24 56,22 60,24" fill="none" stroke="#C2D456" stroke-width="1.5" stroke-linejoin="round" />
+                <!-- Status LED -->
+                <circle cx="35" cy="46" r="2" fill="#C2D456" class="scada-status-dot" />
+                <!-- Stand -->
+                <line x1="35" y1="50" x2="35" y2="60" stroke="#C2D456" stroke-width="2" />
+                <line x1="22" y1="60" x2="48" y2="60" stroke="#C2D456" stroke-width="2" stroke-linecap="round" />
+              </g>
+
+              <!-- Labels below diagram -->
+              <text x="75" y="128" fill="#fff" font-size="10" text-anchor="middle" font-family="inherit" font-weight="600">Your Home</text>
+              <text x="375" y="128" fill="#fff" font-size="10" text-anchor="middle" font-family="inherit" font-weight="600">Our System Monitor</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .monitoring-section {
+      padding: 5rem 0;
+      background: #fff;
+    }
+
+    .monitoring-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .monitoring-text h2 {
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      font-size: 2.2rem;
+    }
+
+    .monitoring-text h2 strong {
+      font-weight: 800;
+    }
+
+    .monitoring-text p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .monitoring-card-wrap {
+      position: relative;
+    }
+
+    .monitoring-card {
+      position: relative;
+      z-index: 1;
+      background: #0E2B47;
+      color: #fff;
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+
+    .monitoring-card__stat {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .monitoring-card p {
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.7;
+    }
+
+    .monitoring-card strong {
+      color: #fff;
+    }
+
+    /* SCADA diagram */
+    .scada-diagram {
+      background: #1a3a5c;
+      border-radius: 0 0 12px 12px;
+      padding: 1.25rem 1rem 1rem;
+      margin-top: -8px;
+      position: relative;
+      z-index: 0;
+    }
+
+    .scada-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .scada-status-dot {
+      animation: scada-blink 2s ease-in-out infinite;
+    }
+
+    @keyframes scada-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .scada-data-pulse {
+      animation: scada-pulse-glow 1s ease-in-out infinite;
+    }
+
+    @keyframes scada-pulse-glow {
+      0%, 100% { opacity: 1; r: 4; }
+      50% { opacity: 0.5; r: 6; }
+    }
+
+    @media (max-width: 800px) {
+      .monitoring-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+
+  <!-- 48hr response -->
+  <section class="response-bar">
+    <div class="container">
+      <div class="response-inner">
+        <strong>We'll know before you do.</strong>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .response-bar {
+      padding: 2.5rem 0;
+      background: #0E2B47;
+      color: #fff;
+    }
+
+    .response-inner {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+    }
+  </style>
 
 
   <!-- Why radiant is better than forced air -->

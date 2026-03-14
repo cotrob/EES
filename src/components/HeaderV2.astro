@@ -9,7 +9,6 @@ const navItems = [
         title: 'Residential',
         icon: 'M2.25 12L11.2045 3.04549C11.6438 2.60615 12.3562 2.60615 12.7955 3.04549L21.75 12M4.5 9.75V19.875C4.5 20.4963 5.00368 21 5.625 21H9.75V16.125C9.75 15.5037 10.2537 15 10.875 15H13.125C13.7463 15 14.25 15.5037 14.25 16.125V21H18.375C18.9963 21 19.5 20.4963 19.5 19.875V9.75M8.25 21H16.5',
         image: '/image/photography/01_Hero_Images_OG/Frontage_1.webp',
-        href: '/services/residential',
         services: [
           { href: '/services/residential/solar-systems', label: 'Solar Systems' },
           { href: '/services/residential/battery-systems', label: 'Battery Systems' },
@@ -24,7 +23,6 @@ const navItems = [
         title: 'Commercial',
         icon: 'M2.25 21H21.75M3.75 3V21M14.25 3V21M20.25 7.5V21M6.75 6.75H7.5M6.75 9.75H7.5M6.75 12.75H7.5M10.5 6.75H11.25M10.5 9.75H11.25M10.5 12.75H11.25M6.75 21V17.625C6.75 17.0037 7.25368 16.5 7.875 16.5H10.125C10.7463 16.5 11.25 17.0037 11.25 17.625V21M3 3H15M14.25 7.5H21M17.25 11.25H17.2575V11.2575H17.25V11.25ZM17.25 14.25H17.2575V14.2575H17.25V14.25ZM17.25 17.25H17.2575V17.2575H17.25V17.25Z',
         image: '/image/photography/01_Hero_Images_OG/Frontage_5.webp',
-        href: '/services/commercial',
         services: [
           { href: '/services/commercial/solar-systems', label: 'Solar Systems' },
           { href: '/services/commercial/battery-systems', label: 'Battery Systems' },
@@ -36,7 +34,6 @@ const navItems = [
         icon: 'M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z',
         mobileIconOnly: true,
         image: '/image/photography/01_Hero_Images_OG/Frontage_3.webp',
-        href: '/resources',
         noCard: true,
         services: [
           { href: '/services/consultation', label: 'Free Consultation' },
@@ -54,7 +51,6 @@ const navItems = [
         title: 'Facility',
         icon: 'M9.75001 3.10408V8.81802C9.75001 9.41476 9.51295 9.98705 9.091 10.409L5.00001 14.5M9.75001 3.10408C9.49886 3.12743 9.24884 3.15465 9.00001 3.18568M9.75001 3.10408C10.4908 3.03521 11.2413 3 12 3C12.7587 3 13.5093 3.03521 14.25 3.10408M14.25 3.10408V8.81802C14.25 9.41476 14.4871 9.98705 14.909 10.409L19.8 15.3M14.25 3.10408C14.5011 3.12743 14.7512 3.15465 15 3.18568M19.8 15.3L18.2299 15.6925C16.1457 16.2136 13.9216 15.9608 12 15C10.0784 14.0392 7.85435 13.7864 5.7701 14.3075L5.00001 14.5M19.8 15.3L21.2022 16.7022C22.4341 17.9341 21.8527 20.0202 20.1354 20.3134C17.4911 20.7649 14.773 21 12 21C9.227 21 6.50891 20.7649 3.86459 20.3134C2.14728 20.0202 1.56591 17.9341 2.7978 16.7022L5.00001 14.5',
         image: '/image/photography/01_Hero_Images_OG/Frontage_6.webp',
-        href: '/laboratory/facility',
         services: [
           { href: '/laboratory/test-room', label: 'Simulation Room (Test Cell)' },
           { href: '/laboratory/research-team', label: 'Research Team' },
@@ -64,7 +60,6 @@ const navItems = [
         title: 'Products',
         icon: 'M21 7.5L12 2.25L3 7.5M21 7.5L12 12.75M21 7.5V16.5L12 21.75M3 7.5L12 12.75M3 7.5V16.5L12 21.75M12 12.75V21.75',
         image: '/image/photography/01_Hero_Images_OG/Frontage_7.webp',
-        href: '/laboratory/products',
         services: [
           { href: '/laboratory/hydronic-ceiling-panels', label: 'Hydronic Ceiling Panels' },
           { href: '/laboratory/environmental-service-pod', label: 'Environmental Service Pod' },
@@ -74,7 +69,6 @@ const navItems = [
         title: 'Further Info',
         icon: 'M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z',
         mobileIconOnly: true,
-        href: '/laboratory/resources',
         noCard: true,
         services: [
           { href: '/laboratory/written-papers', label: 'Academic Research' },
@@ -121,16 +115,21 @@ const currentPath = Astro.url.pathname;
               <div class="mega-menu-v2">
                 <div class="mega-menu-inner-v2">
                   {item.megaMenu?.map((card: any) => (
-                    <div class:list={['mega-card-v2', { 'mega-card-no-bg': card.noCard }]}>
+                    <div class:list={['mega-card-v2', { 'mega-card-no-bg': card.noCard, 'mega-card-disabled': card.disabled }]}>
                       <div class="mega-card-header-v2">
                         <h3>
-                          {card.href ? (
+                          {card.href && !card.disabled ? (
                             <a href={card.href} class="mega-title-link-v2">
                               {card.icon && <svg class:list={['mega-title-icon-v2', { 'mobile-only-icon': card.mobileIconOnly }]} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={card.icon}/></svg>}
                               {card.title}
                               <svg class="mega-title-chevron-v2" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                             </a>
-                          ) : card.title}
+                          ) : (
+                            <span class="mega-title-link-v2 mega-title-disabled">
+                              {card.icon && <svg class:list={['mega-title-icon-v2', { 'mobile-only-icon': card.mobileIconOnly }]} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={card.icon}/></svg>}
+                              {card.title}
+                            </span>
+                          )}
                         </h3>
                         {card.examplesHref && (
                           <a href={card.examplesHref} class="mega-examples-btn-v2">
@@ -142,10 +141,16 @@ const currentPath = Astro.url.pathname;
                       <ul class="mega-card-links-v2">
                         {card.services.map((svc: any) => (
                           <li>
-                            <a href={svc.href}>
-                              {svc.label}
-                              <svg class="mega-link-chevron-v2" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                            </a>
+                            {svc.disabled ? (
+                              <span class="mega-link-disabled">
+                                {svc.label}
+                              </span>
+                            ) : (
+                              <a href={svc.href}>
+                                {svc.label}
+                                <svg class="mega-link-chevron-v2" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                              </a>
+                            )}
                           </li>
                         ))}
                       </ul>
@@ -508,6 +513,17 @@ const currentPath = Astro.url.pathname;
     background: none;
     border: none;
     box-shadow: none;
+  }
+
+  .mega-title-disabled {
+    cursor: default;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .mega-title-disabled:hover {
+    opacity: 0.7;
+    text-decoration: none;
   }
 
   .mega-card-header-v2 {

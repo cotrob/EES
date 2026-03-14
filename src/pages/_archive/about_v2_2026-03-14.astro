@@ -122,41 +122,65 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
         <p class="team-intro">From research to installation to ongoing support, every part of EES is handled in-house by people who know what they're doing.</p>
       </div>
       <div class="team-grid">
-        <div class="team-member">
-          <img src="/image/photos_team/DrMarkLuther_clean_transparent.png" alt="Dr Mark Luther" loading="lazy" />
-          <h3>Dr Mark B. Luther</h3>
-          <p class="team-role">Director (Arch.D.)</p>
-          <p>Honorary Professor of Deakin University after 27 years of service. Specialises in Architecture Science and Environmental Technology. Inventor of the Environmental Service Pod and the Autonomatic Hydronic Ceiling Panel.</p>
+        <div class="team-card team-card--featured">
+          <div class="team-card-photo">
+            <img src="/image/photos_team/DrMarkLuther_clean_transparent.png" alt="Dr Mark Luther" loading="lazy" />
+          </div>
+          <div class="team-card-info">
+            <h3>Dr Mark B. Luther</h3>
+            <p class="team-role">Director (Arch.D.)</p>
+            <p>Honorary Professor of Deakin University after 27 years of service. Specialises in Architecture Science and Environmental Technology. Inventor of the Environmental Service Pod and the Autonomatic Hydronic Ceiling Panel.</p>
+          </div>
         </div>
-        <div class="team-member">
-          <img src="/image/photos_team/LincolnLuther_clean_transparent.png" alt="Lincoln Luther" loading="lazy" />
-          <h3>Lincoln B. Luther</h3>
-          <p class="team-role">Manager of Sales</p>
-          <p>Over 4 years industry experience in renewables with a background in Economics, Banking and Finance. Leads every consultation, system design, and energy analysis. The first person you'll speak to.</p>
+        <div class="team-card team-card--featured">
+          <div class="team-card-photo">
+            <img src="/image/photos_team/LincolnLuther_clean_transparent.png" alt="Lincoln Luther" loading="lazy" />
+          </div>
+          <div class="team-card-info">
+            <h3>Lincoln B. Luther</h3>
+            <p class="team-role">Manager of Sales</p>
+            <p>Over 4 years industry experience in renewables with a background in Economics, Banking and Finance. Leads every consultation, system design, and energy analysis. The first person you'll speak to.</p>
+          </div>
         </div>
-        <div class="team-member">
-          <img src="/image/photos_team/Matthew Ellison_02_clean_transparent.png" alt="Matthew Ellison" loading="lazy" />
-          <h3>Matthew Ellison</h3>
-          <p class="team-role">Manager of Installations</p>
-          <p>Senior electrician experienced in residential and commercial solar PV and battery installations. Checks every system every morning through back-to-base monitoring. Also involved in research and design on the Environmental Service Pod.</p>
+        <div class="team-card team-card--featured">
+          <div class="team-card-photo">
+            <img src="/image/photos_team/Matthew Ellison_02_clean_transparent.png" alt="Matthew Ellison" loading="lazy" />
+          </div>
+          <div class="team-card-info">
+            <h3>Matthew Ellison</h3>
+            <p class="team-role">Manager of Installations</p>
+            <p>Senior electrician experienced in residential and commercial solar PV and battery installations. Checks every system every morning through back-to-base monitoring. Also involved in research and design on the Environmental Service Pod.</p>
+          </div>
         </div>
-        <div class="team-member">
-          <img src="/image/photos_team/HungQDo_clean_transparent.png" alt="Hung Q. Do" loading="lazy" />
-          <h3>Hung Q. Do</h3>
-          <p class="team-role">Research Development</p>
-          <p>PhD candidate specialising in hydronic ceiling innovative systems. His research focuses on effective conditioning through hydronic control in commercial buildings.</p>
+        <div class="team-card">
+          <div class="team-card-photo">
+            <img src="/image/photos_team/HungQDo_clean_transparent.png" alt="Hung Q. Do" loading="lazy" />
+          </div>
+          <div class="team-card-info">
+            <h3>Hung Q. Do</h3>
+            <p class="team-role">Research Development</p>
+            <p>PhD candidate specialising in hydronic ceiling innovative systems. His research focuses on effective conditioning through hydronic control in commercial buildings.</p>
+          </div>
         </div>
-        <div class="team-member">
-          <img src="/image/photos_team/placeholder.svg" alt="Pat Sandall" loading="lazy" />
-          <h3>Pat Sandall</h3>
-          <p class="team-role">Head Electrician, A Grade</p>
-          <p>A Grade electrician leading EES field installations across solar, battery, and integrated energy systems for residential and commercial projects.</p>
+        <div class="team-card">
+          <div class="team-card-photo">
+            <img src="/image/photos_team/placeholder.svg" alt="Pat Sandall" loading="lazy" />
+          </div>
+          <div class="team-card-info">
+            <h3>Pat Sandall</h3>
+            <p class="team-role">Head Electrician, A Grade</p>
+            <p>A Grade electrician leading EES field installations across solar, battery, and integrated energy systems for residential and commercial projects.</p>
+          </div>
         </div>
-        <div class="team-member">
-          <img src="/image/photos_team/placeholder.svg" alt="Caleb Nowson" loading="lazy" />
-          <h3>Caleb Nowson</h3>
-          <p class="team-role">Business Development Manager</p>
-          <p>Manages business development and client relationships, connecting homeowners and businesses with the right energy solutions.</p>
+        <div class="team-card">
+          <div class="team-card-photo">
+            <img src="/image/photos_team/placeholder.svg" alt="Caleb Nowson" loading="lazy" />
+          </div>
+          <div class="team-card-info">
+            <h3>Caleb Nowson</h3>
+            <p class="team-role">Business Development Manager</p>
+            <p>Manages business development and client relationships, connecting homeowners and businesses with the right energy solutions.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -481,7 +505,6 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
 
   .team-header {
     margin-bottom: 3rem;
-    text-align: center;
   }
 
   .team-header .section-label {
@@ -505,35 +528,43 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
     color: #555;
     max-width: 560px;
     line-height: 1.6;
-    margin: 0 auto;
   }
 
   .team-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
-  .team-member {
-    text-align: center;
+  .team-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
-  .team-member img {
+  .team-card-photo {
+    background: linear-gradient(135deg, #e9eee0 0%, #f0f1ec 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-top: 1.5rem;
+    min-height: 200px;
+  }
+
+  .team-card-photo img {
     width: 160px;
     height: 160px;
     object-fit: cover;
     object-position: top center;
-    border-radius: 50%;
-    background: #fff;
-    border: 3px solid transparent;
-    background-image: linear-gradient(#fff, #fff), linear-gradient(135deg, #C0D446 0%, #e5e7eb 30%, #e5e7eb 100%);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
-    margin: 0 auto 1rem;
-    display: block;
   }
 
-  .team-member h3 {
+  .team-card-info {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+
+  .team-card-info h3 {
     font-size: 1rem;
     font-weight: 700;
     color: #0E2B47;
@@ -547,12 +578,10 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
     margin-bottom: 0.6rem;
   }
 
-  .team-member > p:last-child {
-    font-size: 0.85rem;
+  .team-card-info > p:last-child {
+    font-size: 0.82rem;
     color: #555;
     line-height: 1.6;
-    max-width: 320px;
-    margin: 0 auto;
   }
 
   /* ── Accreditations ── */

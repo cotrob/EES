@@ -262,8 +262,8 @@ import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
         <h2>Our guarantee</h2>
         <p>We use best-in-class products, back our work with a 10-year workmanship warranty and guarantee our team is accredited.</p>
         <div class="guarantee-signature">
-          <span class="signature-text">Lincoln Luther</span>
-          <span class="signature-title">Managing Director</span>
+          <img src="/image/elements/Signature_Lincoln.png" alt="Lincoln Luther signature" class="signature-img" />
+          <span class="signature-title">Lincoln Luther — Managing Director</span>
         </div>
       </div>
       <div class="guarantee-grid">
@@ -353,11 +353,94 @@ import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
       <p class="testimonials-label">Real Testimonials</p>
       <h2>Direct Messages <span class="h2-light">from Clients</span></h2>
       <p class="testimonials-desc">We're local to Geelong and Torquay. Here's more proof of how we look after our clients.</p>
-      <div class="testimonials-grid">
+      <div class="testimonials-carousel">
+        <div class="testimonials-fade testimonials-fade--left"></div>
+        <div class="testimonials-fade testimonials-fade--right"></div>
+        <button class="testimonials-arrow testimonials-arrow--left" aria-label="Previous testimonials">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="testimonials-arrow testimonials-arrow--right" aria-label="Next testimonials">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <div class="testimonials-grid">
+        <!-- NEW cards first -->
         <div class="testimonial-wrap">
           <div class="testimonial-card">
             <p class="testimonial-text">
-              Hi Lincoln, just wanted to say thanks to you and the boys. They were on time, got it all sorted in a day and <strong>left the place cleaner than they found it</strong> which honestly surprised me. Already noticed the bills coming down. Should've done it years ago!
+              Lincoln, just wanted to let you know Matt texted me last week saying our system had been dropping in and out. We had <strong>no idea anything was wrong.</strong> He came past, moved a Wi-Fi extender, and it was sorted in five minutes. Never had that kind of follow-up from anyone.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">DM</div>
+              <div class="author-info">
+                <span class="author-name">Dan M.</span>
+                <span class="author-location">Leopold, VIC</span>
+              </div>
+            </div>
+          </div>
+          <div class="reply-bubble">
+            <p>Thanks Dan! That's what the back-to-base monitoring is there for. Matt checks every system each morning so we can pick things up early. Glad it was a quick fix.</p>
+            <span class="reply-from"><img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" /> Lincoln, EES</span>
+          </div>
+        </div>
+        <div class="testimonial-wrap">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              Hi Lincoln, quick update. You set us up on that wholesale energy plan and we <strong>made $170 last month just from the battery.</strong> My partner didn't believe me until I showed him the bill. The whole system has honestly paid for itself faster than we expected.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">JR</div>
+              <div class="author-info">
+                <span class="author-name">Jess R.</span>
+                <span class="author-location">Ocean Grove, VIC</span>
+              </div>
+            </div>
+          </div>
+          <div class="reply-bubble">
+            <p>That's great to hear Jess! The three-phase setup really helps with the VPP earnings. We'll keep an eye on your plan and let you know if anything better comes along.</p>
+            <span class="reply-from"><img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" /> Lincoln, EES</span>
+          </div>
+        </div>
+        <div class="testimonial-wrap">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              Hey Matt, our architect was honestly impressed. Your guys <strong>ran all the cabling under the plaster</strong> and even coordinated with the builder to match the paint. You wouldn't know the panels were there from the street. Exactly what we wanted for the house.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">PL</div>
+              <div class="author-info">
+                <span class="author-name">Pete L.</span>
+                <span class="author-location">Jan Juc, VIC</span>
+              </div>
+            </div>
+          </div>
+          <div class="reply-bubble">
+            <p>Thanks Pete! Homes like yours deserve that level of care. We always work in with the architect and builder to make sure nothing looks out of place.</p>
+            <span class="reply-from"><img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" /> Matt, EES</span>
+          </div>
+        </div>
+        <div class="testimonial-wrap">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              Lincoln we started with just solar last year and you talked us through adding the battery, then the heat pump, and now we've <strong>completely disconnected from gas.</strong> Our bills went from $400 a quarter to basically nothing. Wish we'd done the lot from day one.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MK</div>
+              <div class="author-info">
+                <span class="author-name">Michelle K.</span>
+                <span class="author-location">Grovedale, VIC</span>
+              </div>
+            </div>
+          </div>
+          <div class="reply-bubble">
+            <p>That's a great result Michelle! The staged approach worked well for your situation.</p>
+            <span class="reply-from"><img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" /> Lincoln, EES</span>
+          </div>
+        </div>
+        <!-- Original cards -->
+        <div class="testimonial-wrap">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              Hi Matt, just wanted to say thanks to you and the boys. They were on time, got it all sorted in a day and <strong>left the place cleaner than they found it</strong> which honestly surprised me. Already noticed the bills coming down. Should've done it years ago!
             </p>
             <div class="testimonial-author">
               <div class="author-avatar">KW</div>
@@ -368,8 +451,8 @@ import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
             </div>
           </div>
           <div class="reply-bubble">
-            <p>Legend Karen, thanks for that! Always leave it cleaner than we found it haha. Stoked the bills are already dropping too.</p>
-            <span class="reply-from"><img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" /> Lincoln, EES</span>
+            <p>Thanks so much Karen! We always aim to leave it cleaner than we found it. Great to hear the bills are already coming down.</p>
+            <span class="reply-from"><img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" /> Matt, EES</span>
           </div>
         </div>
         <div class="testimonial-wrap">
@@ -386,25 +469,25 @@ import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
             </div>
           </div>
           <div class="reply-bubble">
-            <p>Cheers Rob! Yeah we only ever quote what actually makes sense for the house. No point oversizing it hey. Glad we could help mate.</p>
+            <p>Thanks Rob! We only ever quote what actually makes sense for the house. No point oversizing it. Glad we could help.</p>
             <span class="reply-from"><img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" /> Lincoln, EES</span>
           </div>
         </div>
         <div class="testimonial-wrap">
           <div class="testimonial-card">
             <p class="testimonial-text">
-              Hey Lincoln, just wanted to say thanks. We called Monday arvo and the <strong>panels were up by Thursday.</strong> Couldn't believe how quick it all was. The sparky even showed my wife how to use the monitoring app before he left. Really stoked with how it all turned out.
+              Hey Lincoln, just wanted to say thanks. We called Monday arvo and the <strong>panels were up by Thursday.</strong> Couldn't believe how quick it all was. The sparky even showed my husband how to use the monitoring app before he left. Really stoked with how it all turned out.
             </p>
             <div class="testimonial-author">
-              <div class="author-avatar">BT</div>
+              <div class="author-avatar">ST</div>
               <div class="author-info">
-                <span class="author-name">Ben T.</span>
+                <span class="author-name">Sarah T.</span>
                 <span class="author-location">Bellarine, VIC</span>
               </div>
             </div>
           </div>
           <div class="reply-bubble">
-            <p>Thanks Ben! Monday to Thursday is a solid turnaround hey. Hope the missus is loving the app, it's a game changer.</p>
+            <p>Thanks Sarah! This one came together quick, we appreciate how responsive you were, it really helped things along. Hope he's getting the hang of the app, it really is a game changer.</p>
             <span class="reply-from"><img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" /> Lincoln, EES</span>
           </div>
         </div>
@@ -426,6 +509,7 @@ import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
             <span class="reply-from"><img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" /> Lincoln, EES</span>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </section>
@@ -540,7 +624,7 @@ import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
         <div class="accreditation-logo accreditation-logo--large">
           <img src="/image/_logos_partners/newenergytech_approvaed seller.webp" alt="New Energy Tech Approved Seller" />
         </div>
-        <div class="accreditation-logo accreditation-logo--medium">
+        <div class="accreditation-logo accreditation-logo--medium" style="transform: scale(0.83);">
           <img src="/image/_logos_partners/sigenergy-certified-installer.webp" alt="Sigenergy Certified Installer" />
         </div>
       </div>
@@ -1354,21 +1438,19 @@ import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
     max-width: 380px;
   }
 
-  .signature-text {
-    font-family: 'Playwrite RO', cursive;
-    font-weight: 100;
-    color: rgba(255, 255, 255, 0.35);
+  .signature-img {
     display: block;
-    font-size: 2.25rem;
-    line-height: 1.4;
-    white-space: nowrap;
+    width: 216px;
+    height: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.4;
+    margin-bottom: 0.5rem;
   }
 
   .signature-title {
     display: block;
     font-size: 0.8125rem;
     color: rgba(255, 255, 255, 0.5);
-    margin-top: 0.5rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     font-weight: 500;
@@ -1395,7 +1477,7 @@ import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: #C2D456;
   }
 
   .guarantee-icon svg {
@@ -2556,6 +2638,43 @@ import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
     }, { threshold: 0.15 });
 
     gObserver.observe(guaranteeGroup);
+  }
+
+  // Testimonials carousel arrows + fade edges
+  const tGrid = document.querySelector('.testimonials-grid') as HTMLElement;
+  const tLeft = document.querySelector('.testimonials-arrow--left') as HTMLElement;
+  const tRight = document.querySelector('.testimonials-arrow--right') as HTMLElement;
+  const fadeLeft = document.querySelector('.testimonials-fade--left') as HTMLElement;
+  const fadeRight = document.querySelector('.testimonials-fade--right') as HTMLElement;
+
+  if (tGrid && tLeft && tRight) {
+    function updateTestimonialNav() {
+      const { scrollLeft, scrollWidth, clientWidth } = tGrid;
+      const atStart = scrollLeft <= 10;
+      const atEnd = scrollLeft + clientWidth >= scrollWidth - 10;
+
+      tLeft.classList.toggle('is-visible', !atStart);
+      tLeft.classList.toggle('is-hidden', atStart);
+      tRight.classList.toggle('is-visible', !atEnd);
+      tRight.classList.toggle('is-hidden', atEnd);
+
+      if (fadeLeft) fadeLeft.style.opacity = atStart ? '0' : '1';
+      if (fadeRight) fadeRight.style.opacity = atEnd ? '0' : '1';
+    }
+
+    tLeft.addEventListener('click', () => {
+      const card = tGrid.querySelector('.testimonial-wrap') as HTMLElement;
+      if (card) tGrid.scrollBy({ left: -(card.offsetWidth + 24), behavior: 'smooth' });
+    });
+
+    tRight.addEventListener('click', () => {
+      const card = tGrid.querySelector('.testimonial-wrap') as HTMLElement;
+      if (card) tGrid.scrollBy({ left: card.offsetWidth + 24, behavior: 'smooth' });
+    });
+
+    tGrid.addEventListener('scroll', updateTestimonialNav, { passive: true });
+    updateTestimonialNav();
+    window.addEventListener('resize', updateTestimonialNav);
   }
 </script>
 

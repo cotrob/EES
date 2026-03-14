@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../../components/ScrollIndicator.astro';
 import SplitFeature from '../../../components/sections/SplitFeature.astro';
 import RelatedNav from '../../../components/sections/RelatedNav.astro';
+import ServiceHero from '../../../components/sections/ServiceHero.astro';
 import HugeIcon from '../../../components/HugeIcon.astro';
 import SmartAcIcon from '@hugeicons/core-free-icons/SmartAcIcon';
 import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
@@ -10,31 +11,1203 @@ import WashingMachineIcon from '@hugeicons/core-free-icons/WashingMachineIcon';
 import EvChargingIcon from '@hugeicons/core-free-icons/EvChargingIcon';
 import DishWasherIcon from '@hugeicons/core-free-icons/DishWasherIcon';
 import PoolIcon from '@hugeicons/core-free-icons/PoolIcon';
+import BatteryFullIcon from '@hugeicons/core-free-icons/BatteryFullIcon';
+import SmartPhone01Icon from '@hugeicons/core-free-icons/SmartPhone01Icon';
+import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
+import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Icon';
 ---
 
 <BaseLayout
   title="Home Automation & Energy Management Geelong | Smart Home | EES"
   description="Home energy management and smart automation in Geelong. Automate high-energy appliances to run on solar, control heating zones, and maximise your battery savings."
 >
-  <section class="page-header">
+  <ServiceHero
+    title="Home Automation & Energy Management"
+    illustration="/image/illustrations/Residential  Solar Systems.png"
+    illustrationAlt="Home automation and energy management illustration"
+  />
+
+
+  <!-- Intro: Our approach -->
+  <section class="approach-section">
     <div class="container">
-      <h1>Home Automation &amp; Energy Management</h1>
-      <p>Make your home smarter about when and how it uses energy.</p>
+      <div class="approach-layout">
+        <div class="approach-heading">
+          <p class="section-label">The Final Step</p>
+          <h2>Your Solar and<br />Battery Are Only<br />as Smart as<br />Your Home</h2>
+          <div class="approach-arrow">
+            <HugeIcon icon={ArrowDownRight01Icon} />
+          </div>
+        </div>
+        <div class="approach-text">
+          <p>
+            You've got solar generating free electricity during the day. You've got a battery storing the excess. But if your dishwasher, washing machine, dryer, and air conditioner are all running at 6pm when you get home from work, they're pulling from the battery or the grid instead of using the free solar that was available all day.
+          </p>
+          <p>
+            Home automation fixes this. We set up your high energy appliances to run during the day, even when you're not home, using solar electricity that would otherwise go to waste. The result is more of your solar gets used, your battery stays fuller for evening and VPP trading, and your energy costs drop further.
+          </p>
+          <div class="approach-image">
+            <img src="/image/WIP/environmental-service-pod/esp-electrical-controls-interior.webp" alt="EES home energy management system controls" loading="lazy" />
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <style>
+    .approach-section {
+      padding: 8rem 0 4rem;
+      background: #fff;
+    }
 
-  <!-- Hero: Why automation matters, from Matt's explanation -->
-  <SplitFeature image="/image/WIP/environmental-service-pod/esp-electrical-controls-interior.webp" alt="EES home energy management system controls">
-    <p class="section-label">The Final Step</p>
-    <h2>Your Solar and Battery Are Only as Smart as Your Home</h2>
-    <p>
-      You've got solar generating free electricity during the day. You've got a battery storing the excess. But if your dishwasher, washing machine, dryer, and air conditioner are all running at 6pm when you get home from work, they're pulling from the battery or the grid instead of using the free solar that was available all day.
-    </p>
-    <p>
-      Home automation fixes this. We set up your high energy appliances to run during the day, even when you're not home, using solar electricity that would otherwise go to waste. The result is more of your solar gets used, your battery stays fuller for evening and VPP trading, and your energy costs drop further.
-    </p>
-  </SplitFeature>
+    .approach-layout {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3.5rem;
+      align-items: start;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .approach-heading {
+      position: relative;
+      padding-right: 80px;
+      text-align: right;
+    }
+
+    .approach-heading h2 {
+      margin-bottom: 0;
+    }
+
+    .approach-arrow {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      height: 50px;
+      background: #C2D456;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0E2B47;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .approach-arrow.animate-in {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .approach-arrow :global(svg) {
+      width: 33px;
+      height: 33px;
+      stroke-width: 3;
+      opacity: 0;
+      transform: translate(-8px, -8px);
+      transition: opacity 0.35s ease 0.3s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+    }
+
+    .approach-arrow.animate-in :global(svg) {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    .approach-text p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .approach-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .approach-image {
+      margin: 1.5rem 0;
+    }
+
+    .approach-image img {
+      width: 77%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .approach-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .approach-heading {
+        padding-right: 0;
+        text-align: center;
+      }
+
+      .approach-heading h2 {
+        display: inline;
+      }
+
+      .approach-arrow {
+        position: relative;
+        top: auto;
+        right: auto;
+        display: inline-flex;
+        vertical-align: top;
+        margin-left: 0.5rem;
+      }
+
+      .approach-image {
+        margin-top: 1.5rem;
+      }
+
+      .approach-image img {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  </style>
+
+  <script>
+    const arrow = document.querySelector('.approach-arrow');
+    if (arrow) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { arrow.classList.add('animate-in'); obs.disconnect(); } });
+      }, { threshold: 0.5 });
+      obs.observe(arrow);
+    }
+  </script>
+
+
+  <!-- How it works: 4-step flow -->
+  <section class="automation-basics-section">
+    <div class="container">
+      <p class="section-label">How It Works</p>
+      <h2>Solar to Smart Savings</h2>
+
+      <svg width="0" height="0" style="position:absolute;">
+        <defs>
+          <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#C0D446" />
+            <stop offset="100%" stop-color="#2061B7" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <div class="automation-basics-flow">
+        <div class="basics-step">
+          <div class="basics-icon">
+            <HugeIcon icon={Sun01Icon} gradient="icon-gradient" />
+          </div>
+          <h3>Solar generates excess</h3>
+          <p>Your panels produce more electricity than your home needs during the day. Instead of exporting it for almost nothing, automation puts it to work.</p>
+        </div>
+        <div class="basics-arrow">
+          <HugeIcon icon={ArrowRight01Icon} />
+        </div>
+        <div class="basics-step">
+          <div class="basics-icon">
+            <HugeIcon icon={SmartPhone01Icon} gradient="icon-gradient" />
+          </div>
+          <h3>Smart switches detect surplus</h3>
+          <p>Shelly smart switches and relays monitor your solar production and battery level in real time, identifying when free energy is available.</p>
+        </div>
+        <div class="basics-arrow">
+          <HugeIcon icon={ArrowRight01Icon} />
+        </div>
+        <div class="basics-step">
+          <div class="basics-icon">
+            <HugeIcon icon={SmartAcIcon} gradient="icon-gradient" />
+          </div>
+          <h3>Appliances run automatically</h3>
+          <p>High-energy loads like hot water, washing machines, and air conditioning start automatically during peak solar hours, even when you're not home.</p>
+        </div>
+        <div class="basics-arrow">
+          <HugeIcon icon={ArrowRight01Icon} />
+        </div>
+        <div class="basics-step">
+          <div class="basics-icon basics-icon--battery">
+            <HugeIcon icon={BatteryFullIcon} gradient="icon-gradient" />
+          </div>
+          <h3>Battery stays full</h3>
+          <p>Because appliances ran on solar during the day, your battery is at 95% by 5pm instead of 70% — more energy available for evening use and VPP trading.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .automation-basics-section {
+      padding: 5rem 0;
+      background: #f8f9fa;
+    }
+
+    .automation-basics-section .section-label,
+    .automation-basics-section h2 {
+      text-align: center;
+    }
+
+    .automation-basics-section h2 {
+      margin-bottom: 3rem;
+    }
+
+    .automation-basics-flow {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.75rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .basics-step {
+      text-align: center;
+      flex: 1;
+      max-width: 200px;
+      transform: rotateY(180deg);
+      opacity: 0;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .basics-arrow {
+      transform: rotateY(180deg);
+      opacity: 0;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    @keyframes arrow-pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.5); }
+      100% { transform: scale(1.3); }
+    }
+
+    /* Everything flips in together */
+    .automation-basics-flow.in-view .basics-step:nth-child(1) { transition-delay: 0s; transform: rotateY(0); opacity: 1; }
+    .automation-basics-flow.in-view > :nth-child(2) { transition-delay: 0.15s; transform: rotateY(0); opacity: 1; }
+    .automation-basics-flow.in-view .basics-step:nth-child(3) { transition-delay: 0.3s; transform: rotateY(0); opacity: 1; }
+    .automation-basics-flow.in-view > :nth-child(4) { transition-delay: 0.45s; transform: rotateY(0); opacity: 1; }
+    .automation-basics-flow.in-view .basics-step:nth-child(5) { transition-delay: 0.6s; transform: rotateY(0); opacity: 1; }
+    .automation-basics-flow.in-view > :nth-child(6) { transition-delay: 0.75s; transform: rotateY(0); opacity: 1; }
+    .automation-basics-flow.in-view .basics-step:nth-child(7) { transition-delay: 0.9s; transform: rotateY(0); opacity: 1; }
+
+    /* Arrows pulse 1.5x after all flips finish */
+    .automation-basics-flow.in-view > :nth-child(2) { animation: arrow-pulse 0.35s ease 1.5s forwards; }
+    .automation-basics-flow.in-view > :nth-child(4) { animation: arrow-pulse 0.35s ease 1.65s forwards; }
+    .automation-basics-flow.in-view > :nth-child(6) { animation: arrow-pulse 0.35s ease 1.8s forwards; }
+
+    .basics-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1rem;
+    }
+
+    .basics-icon :global(svg) {
+      width: 100%;
+      height: 100%;
+    }
+
+    .basics-icon--battery :global(path:nth-child(n+3)) {
+      stroke-width: 3.5;
+    }
+
+    .basics-step h3 {
+      font-size: 0.95rem;
+      color: #0E2B47;
+      margin-bottom: 0.4rem;
+    }
+
+    .basics-step p {
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .basics-arrow {
+      width: 28px;
+      flex-shrink: 0;
+      color: #2061B7;
+      margin-top: 0.5rem;
+    }
+
+    .basics-arrow svg {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .automation-basics-flow {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .basics-step {
+        max-width: 300px;
+      }
+
+      .basics-arrow {
+        transform: rotateY(180deg) rotate(90deg);
+        width: 24px;
+        margin: 0;
+      }
+
+      @keyframes arrow-pulse-mobile {
+        0% { transform: rotate(90deg) scale(1); }
+        50% { transform: rotate(90deg) scale(1.5); }
+        100% { transform: rotate(90deg) scale(1.3); }
+      }
+
+      .automation-basics-flow.in-view > .basics-arrow { transform: rotateY(0) rotate(90deg); opacity: 1; }
+      .automation-basics-flow.in-view > :nth-child(2) { animation: arrow-pulse-mobile 0.35s ease 1.5s forwards; }
+      .automation-basics-flow.in-view > :nth-child(4) { animation: arrow-pulse-mobile 0.35s ease 1.65s forwards; }
+      .automation-basics-flow.in-view > :nth-child(6) { animation: arrow-pulse-mobile 0.35s ease 1.8s forwards; }
+    }
+  </style>
+
+  <script>
+    const flow = document.querySelector('.automation-basics-flow');
+    if (flow) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { flow.classList.add('in-view'); observer.disconnect(); } });
+      }, { threshold: 0.3 });
+      observer.observe(flow);
+    }
+  </script>
+
+
+  <!-- Guarantees -->
+  <section class="guarantees-section">
+    <div class="guarantees-section__slant"></div>
+    <div class="guarantees-section__texture"></div>
+    <div class="container">
+      <p class="section-label" style="text-align:center;">What You Get</p>
+      <h2 style="text-align:center; margin-bottom: 2.5rem;">Our Guarantees</h2>
+
+      <div class="guarantees-grid">
+        <div class="guarantee-tile">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">6</span>
+            <span class="guarantee-tile__label">Appliances<br />automated</span>
+          </div>
+        </div>
+
+        <div class="guarantee-tile">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">10 year</span>
+            <span class="guarantee-tile__label">Workmanship<br />warranty</span>
+          </div>
+        </div>
+
+        <div class="guarantee-tile guarantee-tile--badged">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">48hr</span>
+            <span class="guarantee-tile__label">Fault<br />response time</span>
+          </div>
+          <img src="/image/icon/residenteials_Section_Gaurantee_Badge.svg" alt="" class="guarantee-tile__badge" />
+        </div>
+
+        <div class="guarantee-tile guarantee-tile--badged">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">$0</span>
+            <span class="guarantee-tile__label">Consultation<br />fee</span>
+          </div>
+          <img src="/image/icon/residenteials_Section_Gaurantee_Badge.svg" alt="" class="guarantee-tile__badge" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .guarantees-section {
+      position: relative;
+      padding: 5rem 0 6rem;
+      background: #f4f5f7;
+      overflow: hidden;
+    }
+
+    .guarantees-section__slant {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: #eceef1;
+      clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
+      z-index: 0;
+    }
+
+    .guarantees-section__texture {
+      position: absolute;
+      bottom: -500px;
+      left: -100px;
+      width: 1000px;
+      height: 1000px;
+      background: url('/image/textures/WhatWeDo_Texture.svg') no-repeat center / contain;
+      transform: rotate(30deg);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    .guarantees-section .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .guarantees-grid {
+      display: flex;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .guarantee-tile {
+      position: relative;
+      width: 220px;
+      flex-shrink: 0;
+      aspect-ratio: 528 / 521;
+      margin-right: -20px;
+    }
+
+    .guarantee-tile:last-child {
+      margin-right: 0;
+    }
+
+    .guarantee-tile__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.06));
+    }
+
+    .guarantee-tile__content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .guarantee-tile__value {
+      display: block;
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #0E2B47;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .guarantee-tile__label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #0E2B47;
+      line-height: 1.4;
+    }
+
+    .guarantee-tile__badge {
+      position: absolute;
+      bottom: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 72px;
+      height: 72px;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .guarantees-grid {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+      }
+
+      .guarantee-tile {
+        width: calc(50% - 0.75rem);
+        flex-shrink: 0;
+        margin-right: 0;
+      }
+
+      .guarantee-tile__value {
+        font-size: 1.75rem;
+      }
+
+      .guarantee-tile__label {
+        font-size: 0.85rem;
+      }
+
+      .guarantee-tile__badge {
+        width: 56px;
+        height: 56px;
+        bottom: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .guarantees-section__texture {
+        width: 600px;
+        height: 600px;
+        bottom: -300px;
+        left: -80px;
+      }
+    }
+  </style>
+
+
+  <!-- Automation levels comparison table -->
+  <section class="automation-tiers-section">
+    <img src="/image/icon/Brand_wave_dots_BlueByGoogleMaps.svg" alt="" class="tiers-decoration" aria-hidden="true" />
+    <div class="container">
+      <div class="spec-cards-header">
+        <p class="section-label">Automation Levels</p>
+        <h2>Start Simple, Add Over Time</h2>
+      </div>
+
+      <div class="tier-comparison-table">
+        <table>
+          <thead>
+            <!-- Card row -->
+            <tr class="tier-card-row">
+              <th></th>
+              <th class="tier-card-cell">
+                <div class="tier-card-top-bar"></div>
+                <h3>Essential</h3>
+                <p class="tier-desc">Start with the two biggest energy consumers — hot water scheduling and pool pump automation. The simplest setup with immediate impact on solar utilisation.</p>
+                <span class="tier-badge">Best for: Getting started</span>
+              </th>
+              <th class="tier-card-cell tier-card-cell--popular">
+                <div class="tier-card-top-bar"></div>
+                <div class="tier-popular-tag">Most Popular</div>
+                <h3>Standard</h3>
+                <p class="tier-desc">Add air conditioning and laundry automation. Your home maintains temperature during the day on solar and appliances run before you get home.</p>
+                <span class="tier-badge">Best for: Most households</span>
+              </th>
+              <th class="tier-card-cell">
+                <div class="tier-card-top-bar"></div>
+                <h3>Complete</h3>
+                <p class="tier-desc">Full home energy management including EV charging, dishwasher scheduling, and zone-by-zone climate control. Maximum solar utilisation and VPP earnings.</p>
+                <span class="tier-badge">Best for: Full optimisation</span>
+              </th>
+            </tr>
+            <!-- Column label row -->
+            <tr class="tier-label-row">
+              <th>Feature</th>
+              <th>Essential</th>
+              <th>Standard</th>
+              <th>Complete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Appliances Controlled</td>
+              <td>Hot water + pool pump</td>
+              <td>+ AC + washing machine</td>
+              <td>+ EV charging + dishwasher + zones</td>
+            </tr>
+            <tr>
+              <td>Shelly Devices Needed</td>
+              <td>2–3 devices</td>
+              <td>4–6 devices</td>
+              <td>8+ devices</td>
+            </tr>
+            <tr>
+              <td>Solar Utilisation Improvement</td>
+              <td>15–25% more self-consumption</td>
+              <td>30–45% more</td>
+              <td>50%+ more</td>
+            </tr>
+            <tr>
+              <td>Battery Level at 5pm</td>
+              <td>~80% (vs 70% without)</td>
+              <td>~90%</td>
+              <td>~95%</td>
+            </tr>
+            <tr>
+              <td>VPP Earning Impact</td>
+              <td>Moderate improvement</td>
+              <td>Significant improvement</td>
+              <td>Maximum earnings potential</td>
+            </tr>
+            <tr>
+              <td>Setup Complexity</td>
+              <td>Simple (half day)</td>
+              <td>Standard (1 day)</td>
+              <td>Comprehensive (1–2 days)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile stacked cards (hidden on desktop) -->
+      <div class="tier-mobile-cards">
+        <div class="tier-mobile-card">
+          <div class="tier-mobile-card__header">
+            <h3>Essential</h3>
+            <p>Start with the two biggest energy consumers — hot water scheduling and pool pump automation. The simplest setup with immediate impact on solar utilisation.</p>
+            <span class="tier-badge">Best for: Getting started</span>
+          </div>
+          <dl class="tier-mobile-card__specs">
+            <div><dt>Appliances Controlled</dt><dd>Hot water + pool pump</dd></div>
+            <div><dt>Shelly Devices Needed</dt><dd>2–3 devices</dd></div>
+            <div><dt>Solar Utilisation Improvement</dt><dd>15–25% more self-consumption</dd></div>
+            <div><dt>Battery Level at 5pm</dt><dd>~80% (vs 70% without)</dd></div>
+            <div><dt>VPP Earning Impact</dt><dd>Moderate improvement</dd></div>
+            <div><dt>Setup Complexity</dt><dd>Simple (half day)</dd></div>
+          </dl>
+        </div>
+
+        <div class="tier-mobile-card tier-mobile-card--popular">
+          <div class="tier-mobile-card__header">
+            <div class="tier-popular-tag">Most Popular</div>
+            <h3>Standard</h3>
+            <p>Add air conditioning and laundry automation. Your home maintains temperature during the day on solar and appliances run before you get home.</p>
+            <span class="tier-badge">Best for: Most households</span>
+          </div>
+          <dl class="tier-mobile-card__specs">
+            <div><dt>Appliances Controlled</dt><dd>+ AC + washing machine</dd></div>
+            <div><dt>Shelly Devices Needed</dt><dd>4–6 devices</dd></div>
+            <div><dt>Solar Utilisation Improvement</dt><dd>30–45% more</dd></div>
+            <div><dt>Battery Level at 5pm</dt><dd>~90%</dd></div>
+            <div><dt>VPP Earning Impact</dt><dd>Significant improvement</dd></div>
+            <div><dt>Setup Complexity</dt><dd>Standard (1 day)</dd></div>
+          </dl>
+        </div>
+
+        <div class="tier-mobile-card">
+          <div class="tier-mobile-card__header">
+            <h3>Complete</h3>
+            <p>Full home energy management including EV charging, dishwasher scheduling, and zone-by-zone climate control. Maximum solar utilisation and VPP earnings.</p>
+            <span class="tier-badge">Best for: Full optimisation</span>
+          </div>
+          <dl class="tier-mobile-card__specs">
+            <div><dt>Appliances Controlled</dt><dd>+ EV charging + dishwasher + zones</dd></div>
+            <div><dt>Shelly Devices Needed</dt><dd>8+ devices</dd></div>
+            <div><dt>Solar Utilisation Improvement</dt><dd>50%+ more</dd></div>
+            <div><dt>Battery Level at 5pm</dt><dd>~95%</dd></div>
+            <div><dt>VPP Earning Impact</dt><dd>Maximum earnings potential</dd></div>
+            <div><dt>Setup Complexity</dt><dd>Comprehensive (1–2 days)</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="tier-detail-cta">
+        <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .automation-tiers-section {
+      padding: 4rem 0;
+      background: #f8f9fa;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tiers-decoration {
+      position: absolute;
+      right: -10%;
+      top: 50%;
+      transform: translateY(-50%) rotate(100deg);
+      opacity: 0.4;
+      pointer-events: none;
+      height: 100%;
+      width: auto;
+    }
+
+    .spec-cards-header {
+      max-width: 1000px;
+      margin: 0 auto 2rem;
+      padding-left: 22%;
+      text-align: center;
+    }
+
+    .tier-comparison-table {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: transparent;
+      overflow: visible;
+    }
+
+    .tier-comparison-table table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: fixed;
+    }
+
+    .tier-card-row th {
+      vertical-align: top;
+      padding: 0;
+      border-bottom: none;
+      background: #f8f9fa;
+    }
+
+    .tier-card-row th:first-child {
+      background: #f8f9fa;
+    }
+
+    .tier-card-cell {
+      text-align: left;
+      font-weight: normal;
+      position: relative;
+      background: #fff;
+      border: 2px solid #e5e7eb;
+      border-bottom: none;
+      border-radius: 0.75rem 0.75rem 0 0;
+      overflow: hidden;
+    }
+
+    .tier-card-cell h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0E2B47;
+      margin: 0 0 0.5rem;
+      padding: 0 1.25rem;
+    }
+
+    .tier-card-cell .tier-desc {
+      font-size: 0.88rem;
+      color: #555;
+      line-height: 1.55;
+      margin: 0 0 0.75rem;
+      padding: 0 1.25rem;
+    }
+
+    .tier-card-cell .tier-badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #2061B7;
+      background: rgba(32, 97, 183, 0.08);
+      padding: 0.25rem 0.65rem;
+      border-radius: 2rem;
+      margin: 0 0 1.25rem 1.25rem;
+    }
+
+    .tier-card-top-bar {
+      height: 4px;
+      background: #2061B7;
+      margin-bottom: 1.25rem;
+    }
+
+    .tier-popular-tag {
+      background: #2061B7;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: center;
+      padding: 0.3rem 0;
+      margin-top: -1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .tier-card-cell--popular {
+      background: rgba(32, 97, 183, 0.03);
+      border-color: #2061B7;
+    }
+
+    .tier-label-row th {
+      text-align: left;
+      padding: 0.7rem 1.25rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+      border-bottom: 2px solid #e5e7eb;
+      border-top: 1px solid #e5e7eb;
+      background: #fff;
+    }
+
+    .tier-label-row th:first-child {
+      border-left: 1px solid #e5e7eb;
+      border-top-left-radius: 0.75rem;
+    }
+
+    .tier-label-row th:last-child {
+      border-right: 1px solid #e5e7eb;
+    }
+
+    .tier-label-row th:nth-child(3) {
+      background: rgba(32, 97, 183, 0.06);
+      border-left: 2px solid #2061B7;
+      border-right: 2px solid #2061B7;
+    }
+
+    .tier-comparison-table tbody td {
+      padding: 0.65rem 1.25rem;
+      font-size: 0.88rem;
+      color: #444;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+      background: #fff;
+    }
+
+    .tier-comparison-table tbody td:first-child {
+      font-weight: 600;
+      color: #0E2B47;
+      border-left: 1px solid #e5e7eb;
+    }
+
+    .tier-comparison-table tbody td:last-child {
+      border-right: 1px solid #e5e7eb;
+    }
+
+    .tier-comparison-table tbody td:nth-child(3) {
+      background: rgba(32, 97, 183, 0.03);
+      border-left: 2px solid #2061B7;
+      border-right: 2px solid #2061B7;
+    }
+
+    .tier-comparison-table tbody tr:nth-child(even) td {
+      background: #fafbfc;
+    }
+
+    .tier-comparison-table tbody tr:nth-child(even) td:nth-child(3) {
+      background: rgba(32, 97, 183, 0.05);
+    }
+
+    .tier-comparison-table tbody tr:last-child td {
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .tier-comparison-table tbody tr:last-child td:nth-child(3) {
+      border-bottom: 2px solid #2061B7;
+    }
+
+    .tier-comparison-table tbody tr:last-child td:first-child {
+      border-bottom-left-radius: 0.75rem;
+    }
+
+    .tier-comparison-table tbody tr:last-child td:last-child {
+      border-bottom-right-radius: 0.75rem;
+    }
+
+    .tier-detail-cta {
+      text-align: center;
+      max-width: 1000px;
+      margin: 2rem auto 0;
+    }
+
+    /* Mobile cards - hidden on desktop */
+    .tier-mobile-cards {
+      display: none;
+    }
+
+    @media (max-width: 800px) {
+      .spec-cards-header {
+        padding-left: 0;
+      }
+
+      .tier-comparison-table {
+        display: none;
+      }
+
+      .tier-mobile-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .tier-mobile-card {
+        background: #fff;
+        border: 2px solid #e5e7eb;
+        border-radius: 0.75rem;
+        overflow: hidden;
+      }
+
+      .tier-mobile-card--popular {
+        border-color: #2061B7;
+      }
+
+      .tier-mobile-card__header {
+        padding: 1.5rem 1.25rem 1rem;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .tier-mobile-card--popular .tier-mobile-card__header {
+        border-bottom-color: rgba(32, 97, 183, 0.2);
+      }
+
+      .tier-mobile-card__header .tier-popular-tag {
+        margin: -1.5rem -1.25rem 1rem;
+        padding: 0.4rem 0;
+      }
+
+      .tier-mobile-card__header h3 {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #0E2B47;
+        margin: 0 0 0.4rem;
+      }
+
+      .tier-mobile-card__header p {
+        font-size: 0.88rem;
+        color: #555;
+        line-height: 1.55;
+        margin: 0 0 0.75rem;
+      }
+
+      .tier-mobile-card__header .tier-badge {
+        display: inline-block;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: #2061B7;
+        background: rgba(32, 97, 183, 0.08);
+        padding: 0.25rem 0.65rem;
+        border-radius: 2rem;
+      }
+
+      .tier-mobile-card__specs {
+        margin: 0;
+        padding: 0;
+      }
+
+      .tier-mobile-card__specs > div {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.6rem 1.25rem;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .tier-mobile-card__specs > div:last-child {
+        border-bottom: none;
+      }
+
+      .tier-mobile-card__specs dt {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #0E2B47;
+      }
+
+      .tier-mobile-card__specs dd {
+        font-size: 0.85rem;
+        color: #444;
+        margin: 0;
+        text-align: right;
+      }
+
+      .tier-mobile-card--popular .tier-mobile-card__specs > div:nth-child(even) {
+        background: rgba(32, 97, 183, 0.03);
+      }
+    }
+  </style>
+
+
+  <!-- Back-to-base monitoring -->
+  <section class="monitoring-section">
+    <div class="container">
+      <div class="monitoring-layout">
+        <div class="monitoring-text">
+          <p class="section-label">Back-to-Base Monitoring</p>
+          <h2><strong>We'll Know</strong> Something Is Wrong Before You Do</h2>
+          <p>
+            Every system we install is connected to our back-to-base monitoring portal. Our team checks every system each morning. If something drops out, generates less than expected, or throws a fault, we see it — often before the homeowner even notices.
+          </p>
+          <p>
+            We've had cases where a system was intermittently disconnecting due to a Wi-Fi issue. We picked it up in our morning check, texted the client, went around and fixed it in five minutes. They had no idea anything was wrong. That's the level of ongoing support we provide.
+          </p>
+          <p>
+            <strong>It's not just install and walk away.</strong> We set up monitoring on the day of installation, walk you through the app, and keep an eye on your system from that point forward.
+          </p>
+        </div>
+        <div class="monitoring-card-wrap">
+          <div class="monitoring-card">
+            <div class="monitoring-card__stat">After install, we monitor your system</div>
+            <p>
+              <strong>Critical fault response.</strong> If our monitoring detects a serious issue with your system, we arrange for one of our A-grade electricians to be on site within 48 business hours. We haven't encountered a critical fault yet, but the commitment is there.
+            </p>
+          </div>
+          <!-- SCADA-style house ↔ monitor diagram -->
+          <div class="scada-diagram">
+            <svg class="scada-svg" viewBox="0 0 480 140" preserveAspectRatio="xMidYMid meet">
+              <!-- House icon (logo style - rounded continuous outline) -->
+              <g class="scada-house" transform="translate(40, 10)">
+                <!-- Rounded house shape - single continuous path -->
+                <path d="M35,2 L6,28 Q0,34 0,40 L0,62 Q0,68 6,68 L64,68 Q70,68 70,62 L70,40 Q70,34 64,28 Z" fill="none" stroke="#C2D456" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+                <!-- Smile curve at bottom -->
+                <path d="M24,56 Q35,64 46,56" fill="none" stroke="#C2D456" stroke-width="2.5" stroke-linecap="round" />
+                <!-- Status dot -->
+                <circle cx="64" cy="34" r="4" fill="#C2D456" class="scada-status-dot" />
+              </g>
+
+              <!-- Connection line -->
+              <line x1="130" y1="50" x2="330" y2="50" stroke="rgba(194,212,86,0.15)" stroke-width="1" />
+              <!-- Single pulsing dot: house → monitor → house -->
+              <circle r="4" fill="#C2D456" class="scada-data-pulse">
+                <animateMotion dur="4s" repeatCount="indefinite" path="M130,50 L330,50 L130,50" />
+              </circle>
+
+              <!-- Monitor/screen icon -->
+              <g class="scada-control" transform="translate(340, 12)">
+                <!-- Screen bezel -->
+                <rect x="0" y="0" width="70" height="50" fill="rgba(194,212,86,0.05)" stroke="#C2D456" stroke-width="2" rx="4" />
+                <!-- Screen inner -->
+                <rect x="5" y="5" width="60" height="36" fill="rgba(194,212,86,0.08)" stroke="rgba(194,212,86,0.3)" stroke-width="1" rx="2" />
+                <!-- Waveform on screen -->
+                <polyline points="10,24 18,18 24,28 30,16 36,26 42,20 48,24 56,22 60,24" fill="none" stroke="#C2D456" stroke-width="1.5" stroke-linejoin="round" />
+                <!-- Status LED -->
+                <circle cx="35" cy="46" r="2" fill="#C2D456" class="scada-status-dot" />
+                <!-- Stand -->
+                <line x1="35" y1="50" x2="35" y2="60" stroke="#C2D456" stroke-width="2" />
+                <line x1="22" y1="60" x2="48" y2="60" stroke="#C2D456" stroke-width="2" stroke-linecap="round" />
+              </g>
+
+              <!-- Labels below diagram -->
+              <text x="75" y="128" fill="#fff" font-size="10" text-anchor="middle" font-family="inherit" font-weight="600">Your Home</text>
+              <text x="375" y="128" fill="#fff" font-size="10" text-anchor="middle" font-family="inherit" font-weight="600">Our System Monitor</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .monitoring-section {
+      padding: 5rem 0;
+      background: #fff;
+    }
+
+    .monitoring-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .monitoring-text h2 {
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      font-size: 2.2rem;
+    }
+
+    .monitoring-text h2 strong {
+      font-weight: 800;
+    }
+
+    .monitoring-text p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .monitoring-card-wrap {
+      position: relative;
+    }
+
+    .monitoring-card {
+      position: relative;
+      z-index: 1;
+      background: #0E2B47;
+      color: #fff;
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+
+    .monitoring-card__stat {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .monitoring-card p {
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.7;
+    }
+
+    .monitoring-card strong {
+      color: #fff;
+    }
+
+    /* SCADA diagram */
+    .scada-diagram {
+      background: #1a3a5c;
+      border-radius: 0 0 12px 12px;
+      padding: 1.25rem 1rem 1rem;
+      margin-top: -8px;
+      position: relative;
+      z-index: 0;
+    }
+
+    .scada-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .scada-status-dot {
+      animation: scada-blink 2s ease-in-out infinite;
+    }
+
+    @keyframes scada-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .scada-data-pulse {
+      animation: scada-pulse-glow 1s ease-in-out infinite;
+    }
+
+    @keyframes scada-pulse-glow {
+      0%, 100% { opacity: 1; r: 4; }
+      50% { opacity: 0.5; r: 6; }
+    }
+
+    @media (max-width: 800px) {
+      .monitoring-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+
+  <!-- 48hr response -->
+  <section class="response-bar">
+    <div class="container">
+      <div class="response-inner">
+        <strong>We'll know before you do.</strong>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .response-bar {
+      padding: 2.5rem 0;
+      background: #0E2B47;
+      color: #fff;
+    }
+
+    .response-inner {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 800;
+    }
+  </style>
 
 
   <!-- What we automate -->
@@ -202,7 +1375,6 @@ import PoolIcon from '@hugeicons/core-free-icons/PoolIcon';
           </p>
         </div>
         <div class="synergy-visual">
-          <!-- IMAGE: Simple two-column comparison showing battery charge level at 5pm. Left: "Without automation" battery at 70%. Right: "With automation" battery at 95%. Below each, show the VPP earnings potential. Clean bar chart or battery icon style. -->
           <div class="synergy-comparison">
             <div class="synergy-card">
               <div class="synergy-label">Without automation</div>

@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GoogleMap from '../components/GoogleMap.astro';
+import HugeIcon from '../components/HugeIcon.astro';
+import Home01Icon from '@hugeicons/core-free-icons/Home01Icon';
+import CallIcon from '@hugeicons/core-free-icons/CallIcon';
+import Settings02Icon from '@hugeicons/core-free-icons/Settings02Icon';
+import Sun01Icon from '@hugeicons/core-free-icons/Sun01Icon';
 ---
 
 <BaseLayout
@@ -445,7 +450,10 @@ import GoogleMap from '../components/GoogleMap.astro';
             <div class="step-line"></div>
           </div>
           <div class="step-content">
-            <h3>Tell us about your home</h3>
+            <div class="step-icon-row">
+              <div class="step-icon"><HugeIcon icon={Home01Icon} size={22} color="#3B6B2B" /></div>
+              <h3>Tell us about your home</h3>
+            </div>
             <p>Answer a few quick questions online so we can check if your home's a good fit for solar. It only takes a couple of minutes.</p>
           </div>
         </div>
@@ -455,7 +463,10 @@ import GoogleMap from '../components/GoogleMap.astro';
             <div class="step-line"></div>
           </div>
           <div class="step-content">
-            <h3>Free remote consultation</h3>
+            <div class="step-icon-row">
+              <div class="step-icon"><HugeIcon icon={CallIcon} size={22} color="#3B6B2B" /></div>
+              <h3>Free remote consultation</h3>
+            </div>
             <p>We'll put together a tailored design with upfront costs and realistic savings estimates. Our solar team will give you a call to walk through everything — no obligation, no pressure.</p>
           </div>
         </div>
@@ -465,7 +476,10 @@ import GoogleMap from '../components/GoogleMap.astro';
             <div class="step-line"></div>
           </div>
           <div class="step-content">
-            <h3>Hassle-free installation</h3>
+            <div class="step-icon-row">
+              <div class="step-icon"><HugeIcon icon={Settings02Icon} size={22} color="#3B6B2B" /></div>
+              <h3>Hassle-free installation</h3>
+            </div>
             <p>From the site inspection to the install itself, we handle the lot. Once we get cracking, most jobs are wrapped up within a few days.</p>
           </div>
         </div>
@@ -474,7 +488,10 @@ import GoogleMap from '../components/GoogleMap.astro';
             <span class="step-number">4</span>
           </div>
           <div class="step-content">
-            <h3>Sit back and soak up the savings</h3>
+            <div class="step-icon-row">
+              <div class="step-icon"><HugeIcon icon={Sun01Icon} size={22} color="#3B6B2B" /></div>
+              <h3>Sit back and soak up the savings</h3>
+            </div>
             <p>We'll help you sort the best feed-in tariff and energy plan. You can track your generation and savings to make sure your system's earning its keep.</p>
           </div>
         </div>
@@ -1714,11 +1731,11 @@ import GoogleMap from '../components/GoogleMap.astro';
   }
 
   .step-number {
-    width: 62px;
-    height: 62px;
-    background: url('/image/icon/Icon_PageAccent_Blue_V2.svg') no-repeat center / contain;
-    color: #fff;
-    font-size: 1.5rem;
+    width: 44px;
+    height: 44px;
+    background: none;
+    color: #1a3a5c;
+    font-size: 1.75rem;
     font-weight: 800;
     display: flex;
     align-items: center;
@@ -1741,16 +1758,30 @@ import GoogleMap from '../components/GoogleMap.astro';
   .step:nth-child(4) .step-number { transition-delay: 0.7s; }
 
   .step-line {
-    width: 4px;
+    width: 3px;
     flex: 1;
     min-height: 40px;
-    background: #1a1a1a;
+    background: #1a3a5c;
     margin: 0 auto;
     border-radius: 2px;
   }
 
   .step-content {
     padding-bottom: 1.5rem;
+  }
+
+  .step-icon-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .step-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #3B6B2B;
   }
 
   .step-content h3 {
@@ -1780,9 +1811,9 @@ import GoogleMap from '../components/GoogleMap.astro';
     }
 
     .step-number {
-      width: 44px;
-      height: 44px;
-      font-size: 1.25rem;
+      width: 36px;
+      height: 36px;
+      font-size: 1.4rem;
     }
 
     .step {

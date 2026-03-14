@@ -8,13 +8,11 @@ interface Props {
   size?: number | string;
   color?: string;
   class?: string;
+  gradient?: string;
 }
 
-const { icon, size = 24, color = 'currentColor', class: className } = Astro.props;
+const { icon, size = 24, color = 'currentColor', class: className, gradient } = Astro.props;
 
-function toKebab(str: string): string {
-  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-}
 ---
 
 <svg
@@ -27,10 +25,17 @@ function toKebab(str: string): string {
   class={className}
 >
   {icon.map(([tag, attrs]) => {
+    const camelToKebab = (s: string) => s.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
     const htmlAttrs = Object.fromEntries(
       Object.entries(attrs)
         .filter(([k]) => k !== 'key')
-        .map(([k, v]) => [toKebab(k), v])
+        .map(([k, v]) => {
+          const key = camelToKebab(k);
+          if (gradient && key === 'stroke' && v === 'currentColor') {
+            return [key, `url(#${gradient})`];
+          }
+          return [key, v];
+        })
     );
     return tag === 'path'
       ? <path {...htmlAttrs} />

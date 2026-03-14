@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../../components/ScrollIndicator.astro';
 import SplitFeature from '../../../components/sections/SplitFeature.astro';
+import BentoMini from '../../../components/sections/BentoMini.astro';
 import ProcessTimeline from '../../../components/sections/ProcessTimeline.astro';
 import RelatedNav from '../../../components/sections/RelatedNav.astro';
 import IconFeatureGrid from '../../../components/sections/IconFeatureGrid.astro';
@@ -14,6 +15,13 @@ import Home01Icon from '@hugeicons/core-free-icons/Home01Icon';
 import BatteryFullIcon from '@hugeicons/core-free-icons/BatteryFullIcon';
 import ArrowRight01Icon from '@hugeicons/core-free-icons/ArrowRight01Icon';
 import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Icon';
+import CallIcon from '@hugeicons/core-free-icons/CallIcon';
+import Search01Icon from '@hugeicons/core-free-icons/Search01Icon';
+import CompassIcon from '@hugeicons/core-free-icons/CompassIcon';
+import ClipboardIcon from '@hugeicons/core-free-icons/ClipboardIcon';
+import CheckmarkBadge01Icon from '@hugeicons/core-free-icons/CheckmarkBadge01Icon';
+import SmartPhone01Icon from '@hugeicons/core-free-icons/SmartPhone01Icon';
+import Certificate01Icon from '@hugeicons/core-free-icons/Certificate01Icon';
 ---
 
 <BaseLayout
@@ -40,16 +48,16 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
         </div>
         <div class="approach-text">
           <p>
-            Before we look at your roof or talk about panels, we want to understand how you live. How much power are you using during the day? Are you home or at work? Are you planning to get an electric vehicle, an induction cooktop, or a heat pump in the next few years? Are you retiring soon and going to be home more?
+            Before we look at your roof or talk about panels, we want to <strong>understand how you live</strong>. How much power are you using during the day? Are you home or at work? Are you planning to get an electric vehicle, an induction cooktop, or a heat pump in the next few years? Are you retiring soon and going to be home more?
           </p>
           <p>
-            All of this matters because a solar system should be designed around your actual consumption and where it's heading, not a generic template. We never oversize a system to sell you more panels, and we never design for winter production because that doesn't reflect how your system will perform most of the year.
+            All of this matters because a solar system should be <strong>designed around your actual consumption</strong> and where it's heading, not a generic template. We never oversize a system to sell you more panels, and we never design for winter production because that doesn't reflect how your system will perform most of the year.
           </p>
           <div class="approach-image">
             <img src="/image/illustrations/service_residential_solarasystem_section_lifefirstV1.png" alt="EES residential solar installation on a home in Geelong" loading="lazy" />
           </div>
           <p>
-            The goal is simple: cover your own usage first. Not to send power back to the grid for a measly one cent per kilowatt hour. To power your home.
+            The goal is simple: <strong>cover your own usage first</strong>. Not to send power back to the grid for a measly one cent per kilowatt hour. To power your home.
           </p>
         </div>
       </div>
@@ -58,7 +66,7 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
 
   <style>
     .approach-section {
-      padding: 4rem 0;
+      padding: 8rem 0 4rem;
       background: #fff;
     }
 
@@ -93,12 +101,28 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
       align-items: center;
       justify-content: center;
       color: #0E2B47;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .approach-arrow.animate-in {
+      opacity: 1;
+      transform: scale(1);
     }
 
     .approach-arrow :global(svg) {
       width: 33px;
       height: 33px;
       stroke-width: 3;
+      opacity: 0;
+      transform: translate(-8px, -8px);
+      transition: opacity 0.35s ease 0.3s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+    }
+
+    .approach-arrow.animate-in :global(svg) {
+      opacity: 1;
+      transform: translate(0, 0);
     }
 
     .approach-text p {
@@ -159,6 +183,16 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
     }
   </style>
 
+  <script>
+    const arrow = document.querySelector('.approach-arrow');
+    if (arrow) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { arrow.classList.add('animate-in'); obs.disconnect(); } });
+      }, { threshold: 0.5 });
+      obs.observe(arrow);
+    }
+  </script>
+
 
   <!-- How solar works: simple explanation -->
   <section class="solar-basics-section">
@@ -166,12 +200,19 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
       <p class="section-label">How Solar Works</p>
       <h2>Sunlight In, Savings Out</h2>
 
-      <!-- IMAGE: Horizontal flow diagram showing: Sunlight hits panels → DC electricity generated → Inverter converts DC to AC → AC powers your home → Excess charges battery → Battery powers home at night. Simple clean line art in EES blue, with the home/battery loop highlighted. Similar style to battery page flow diagram. -->
+      <svg width="0" height="0" style="position:absolute;">
+        <defs>
+          <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#C0D446" />
+            <stop offset="100%" stop-color="#2061B7" />
+          </linearGradient>
+        </defs>
+      </svg>
 
       <div class="basics-flow">
         <div class="basics-step">
           <div class="basics-icon">
-            <HugeIcon icon={Sun01Icon} />
+            <HugeIcon icon={Sun01Icon} gradient="icon-gradient" />
           </div>
           <h3>Sunlight hits panels</h3>
           <p>Solar panels on your roof convert sunlight into DC electricity.</p>
@@ -181,7 +222,7 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
         </div>
         <div class="basics-step">
           <div class="basics-icon">
-            <HugeIcon icon={ZapIcon} />
+            <HugeIcon icon={ZapIcon} gradient="icon-gradient" />
           </div>
           <h3>Inverter converts it</h3>
           <p>The inverter turns DC into AC power that your home can use.</p>
@@ -191,7 +232,7 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
         </div>
         <div class="basics-step">
           <div class="basics-icon">
-            <HugeIcon icon={Home01Icon} />
+            <HugeIcon icon={Home01Icon} gradient="icon-gradient" />
           </div>
           <h3>Home uses it first</h3>
           <p>Everything running in your home gets powered by solar first.</p>
@@ -200,8 +241,8 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
           <HugeIcon icon={ArrowRight01Icon} />
         </div>
         <div class="basics-step">
-          <div class="basics-icon">
-            <HugeIcon icon={BatteryFullIcon} />
+          <div class="basics-icon basics-icon--battery">
+            <HugeIcon icon={BatteryFullIcon} gradient="icon-gradient" />
           </div>
           <h3>Battery stores the rest</h3>
           <p>Anything left over charges your battery for tonight.</p>
@@ -238,18 +279,50 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
       text-align: center;
       flex: 1;
       max-width: 200px;
+      transform: rotateY(180deg);
+      opacity: 0;
+      transition: transform 0.5s ease, opacity 0.5s ease;
     }
+
+    .basics-arrow {
+      transform: rotateY(180deg);
+      opacity: 0;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    @keyframes arrow-pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.5); }
+      100% { transform: scale(1.3); }
+    }
+
+    /* Everything flips in together */
+    .basics-flow.in-view .basics-step:nth-child(1) { transition-delay: 0s; transform: rotateY(0); opacity: 1; }
+    .basics-flow.in-view > :nth-child(2) { transition-delay: 0.15s; transform: rotateY(0); opacity: 1; }
+    .basics-flow.in-view .basics-step:nth-child(3) { transition-delay: 0.3s; transform: rotateY(0); opacity: 1; }
+    .basics-flow.in-view > :nth-child(4) { transition-delay: 0.45s; transform: rotateY(0); opacity: 1; }
+    .basics-flow.in-view .basics-step:nth-child(5) { transition-delay: 0.6s; transform: rotateY(0); opacity: 1; }
+    .basics-flow.in-view > :nth-child(6) { transition-delay: 0.75s; transform: rotateY(0); opacity: 1; }
+    .basics-flow.in-view .basics-step:nth-child(7) { transition-delay: 0.9s; transform: rotateY(0); opacity: 1; }
+
+    /* Arrows pulse 1.5x after all flips finish */
+    .basics-flow.in-view > :nth-child(2) { animation: arrow-pulse 0.35s ease 1.5s forwards; }
+    .basics-flow.in-view > :nth-child(4) { animation: arrow-pulse 0.35s ease 1.65s forwards; }
+    .basics-flow.in-view > :nth-child(6) { animation: arrow-pulse 0.35s ease 1.8s forwards; }
 
     .basics-icon {
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       margin: 0 auto 1rem;
-      color: #2061B7;
     }
 
-    .basics-icon svg {
+    .basics-icon :global(svg) {
       width: 100%;
       height: 100%;
+    }
+
+    .basics-icon--battery :global(path:nth-child(n+3)) {
+      stroke-width: 3.5;
     }
 
     .basics-step h3 {
@@ -288,249 +361,394 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
       }
 
       .basics-arrow {
-        transform: rotate(90deg);
+        transform: rotateY(180deg) rotate(90deg);
         width: 24px;
         margin: 0;
       }
+
+      @keyframes arrow-pulse-mobile {
+        0% { transform: rotate(90deg) scale(1); }
+        50% { transform: rotate(90deg) scale(1.5); }
+        100% { transform: rotate(90deg) scale(1.3); }
+      }
+
+      .basics-flow.in-view > .basics-arrow { transform: rotateY(0) rotate(90deg); opacity: 1; }
+      .basics-flow.in-view > :nth-child(2) { animation: arrow-pulse-mobile 0.35s ease 1.5s forwards; }
+      .basics-flow.in-view > :nth-child(4) { animation: arrow-pulse-mobile 0.35s ease 1.65s forwards; }
+      .basics-flow.in-view > :nth-child(6) { animation: arrow-pulse-mobile 0.35s ease 1.8s forwards; }
     }
   </style>
 
+  <script>
+    const flow = document.querySelector('.basics-flow');
+    if (flow) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { flow.classList.add('in-view'); observer.disconnect(); } });
+      }, { threshold: 0.3 });
+      observer.observe(flow);
+    }
+  </script>
 
-  <!-- Warranty card -->
-  <section class="warranty-section">
+
+  <!-- Guarantees -->
+  <section class="guarantees-section">
+    <div class="guarantees-section__slant"></div>
+    <div class="guarantees-section__texture"></div>
     <div class="container">
-      <div class="warranty-card">
-        <div class="warranty-badge">
-          <img src="/image/icon/residenteials_Section_Gaurantee_Badge.svg" alt="" class="warranty-badge__bg" />
-          <span class="warranty-badge__number">10 year</span>
-          <span class="warranty-badge__label">Workmanship Warranty</span>
+      <p class="section-label" style="text-align:center;">With Every Solar System</p>
+      <h2 style="text-align:center; margin-bottom: 2.5rem;">Our Guarantees</h2>
+
+      <div class="guarantees-grid">
+        <div class="guarantee-tile">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">70-90%</span>
+            <span class="guarantee-tile__label">Average<br />bill reduction</span>
+          </div>
         </div>
-        <div class="warranty-card__inner">
-          <div class="warranty-card__text">
-            <p class="section-label">Warranty & Support</p>
-            <h2>We Stand Behind Every Install</h2>
-            <p>
-              Every installation comes with our <strong>10-year workmanship warranty</strong>, covering the installation itself — not just the products. If something goes wrong with how the system was installed, we fix it.
-            </p>
-            <p>
-              Panel and inverter manufacturer warranties apply on top of this, typically 25 years for panels and 10-15 years for inverters. We're a local team based in Moolap — here for the long term, not a fly-in-fly-out installer.
-            </p>
+
+        <div class="guarantee-tile">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">1-2 day</span>
+            <span class="guarantee-tile__label">Typical<br />install time</span>
           </div>
-          <div class="warranty-card__image">
-            <img src="/image/photography/01_Hero_Images_OG/Frontage_17_TopCut_.webp" alt="Solar panels on a modern home" loading="lazy" />
+        </div>
+
+        <div class="guarantee-tile guarantee-tile--badged">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">10 year</span>
+            <span class="guarantee-tile__label">Workmanship<br />warranty</span>
           </div>
+          <img src="/image/icon/residenteials_Section_Gaurantee_Badge.svg" alt="" class="guarantee-tile__badge" />
+        </div>
+
+        <div class="guarantee-tile guarantee-tile--badged">
+          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
+          <div class="guarantee-tile__content">
+            <span class="guarantee-tile__value">25 year</span>
+            <span class="guarantee-tile__label">Panel<br />warranty</span>
+          </div>
+          <img src="/image/icon/residenteials_Section_Gaurantee_Badge.svg" alt="" class="guarantee-tile__badge" />
         </div>
       </div>
     </div>
   </section>
 
   <style>
-    .warranty-section {
-      padding: 4rem 0;
-      background: #fff;
+    .guarantees-section {
+      position: relative;
+      padding: 5rem 0 6rem;
+      background: #f4f5f7;
+      overflow: hidden;
     }
 
-    .warranty-card {
+    .guarantees-section__slant {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: #eceef1;
+      clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
+      z-index: 0;
+    }
+
+    .guarantees-section__texture {
+      position: absolute;
+      bottom: -500px;
+      left: -100px;
+      width: 1000px;
+      height: 1000px;
+      background: url('/image/textures/WhatWeDo_Texture.svg') no-repeat center / contain;
+      transform: rotate(30deg);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    .guarantees-section .container {
       position: relative;
+      z-index: 1;
+    }
+
+    .guarantees-grid {
+      display: flex;
+      justify-content: center;
       max-width: 900px;
       margin: 0 auto;
-      background: #f8f9fa;
-      border: 1px solid #e5e7eb;
-      border-radius: 20px;
-      padding: 3rem;
     }
 
-    .warranty-badge {
-      position: absolute;
-      top: -40px;
-      right: 60px;
-      text-align: center;
-      width: 130px;
-      height: 130px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    .guarantee-tile {
+      position: relative;
+      width: 220px;
+      flex-shrink: 0;
+      aspect-ratio: 528 / 521;
+      margin-right: -20px;
     }
 
-    .warranty-badge__bg {
+    .guarantee-tile:last-child {
+      margin-right: 0;
+    }
+
+    .guarantee-tile__bg {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.06));
     }
 
-    .warranty-badge__number {
+    .guarantee-tile__content {
       position: relative;
       z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .guarantee-tile__value {
       display: block;
-      font-size: 1.5rem;
+      font-size: 2.25rem;
       font-weight: 800;
       color: #0E2B47;
       line-height: 1.1;
+      margin-bottom: 0.5rem;
     }
 
-    .warranty-badge__label {
-      position: relative;
-      z-index: 1;
+    .guarantee-tile__label {
       display: block;
-      font-size: 0.65rem;
-      font-weight: 600;
+      font-size: 0.95rem;
+      font-weight: 500;
       color: #0E2B47;
-      margin-top: 0.15rem;
+      line-height: 1.4;
     }
 
-    .warranty-card__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .warranty-card__text h2 {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
-
-    .warranty-card__text p {
-      font-size: 0.9rem;
-      color: #555;
-      line-height: 1.7;
-      margin-bottom: 0.75rem;
-    }
-
-    .warranty-card__text p:last-child {
-      margin-bottom: 0;
-    }
-
-    .warranty-card__image img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
+    .guarantee-tile__badge {
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 72px;
+      height: 72px;
+      z-index: 2;
     }
 
     @media (max-width: 768px) {
-      .warranty-card {
-        padding: 2rem 1.5rem;
+      .guarantees-grid {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
       }
 
-      .warranty-card__inner {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+      .guarantee-tile {
+        width: calc(50% - 0.75rem);
+        flex-shrink: 0;
+        margin-right: 0;
       }
 
-      .warranty-badge {
-        position: relative;
-        top: auto;
-        right: auto;
-        margin: 0 auto 1.5rem;
+      .guarantee-tile__value {
+        font-size: 1.75rem;
+      }
+
+      .guarantee-tile__label {
+        font-size: 0.85rem;
+      }
+
+      .guarantee-tile__badge {
+        width: 56px;
+        height: 56px;
+        bottom: -12px;
+        right: -12px;
+      }
+
+      .guarantees-section__texture {
+        width: 600px;
+        height: 600px;
+        bottom: -300px;
+        left: -80px;
       }
     }
   </style>
 
 
-  <!-- Back-to-base monitoring -->
-  <section class="monitoring-section">
+  <!-- Gallery preview -->
+  <section class="gallery-preview-section">
+    <img src="/image/icon/Brand_wave_dots_BlueByGoogleMaps.svg" alt="" class="gallery-decoration" aria-hidden="true" />
     <div class="container">
-      <div class="monitoring-layout">
-        <div class="monitoring-text">
-          <p class="section-label">Back-to-Base Monitoring</p>
-          <h2>We'll Know Something Is Wrong Before You Do</h2>
-          <p>
-            Every system we install is connected to our back-to-base monitoring portal. Our team checks every system each morning. If something drops out, generates less than expected, or throws a fault, we see it — often before the homeowner even notices.
-          </p>
-          <p>
-            We've had cases where a system was intermittently disconnecting due to a Wi-Fi issue. We picked it up in our morning check, texted the client, went around and fixed it in five minutes. They had no idea anything was wrong. That's the level of ongoing support we provide.
-          </p>
-          <p>
-            It's not just install and walk away. We set up monitoring on the day of installation, walk you through the app, and keep an eye on your system from that point forward.
-          </p>
+      <div class="gallery-preview-grid">
+        <div class="gallery-preview-item">
+          <img src="/image/photos_clients/12_v1.webp" alt="Norlane residential solar installation" loading="lazy" />
+          <div class="gallery-preview-overlay">
+            <span class="gallery-preview-kw">12.33kW</span>
+            <span class="gallery-preview-name">Norlane</span>
+          </div>
         </div>
-        <div class="monitoring-card">
-          <div class="monitoring-card__stat">48hr</div>
-          <p>
-            <strong>Critical fault response.</strong> If our monitoring detects a serious issue with your system, we arrange for one of our A-grade electricians to be on site within 48 business hours. We haven't encountered a critical fault yet, but the commitment is there.
-          </p>
+        <div class="gallery-preview-item">
+          <img src="/image/photography/01_Hero_Images_OG/Frontage_7.webp" alt="Ocean Grove residential solar installation" loading="lazy" />
+          <div class="gallery-preview-overlay">
+            <span class="gallery-preview-kw">13.2kW</span>
+            <span class="gallery-preview-name">Ocean Grove</span>
+          </div>
         </div>
+        <div class="gallery-preview-item gallery-preview-wide">
+          <img src="/image/photography/01_Hero_Images_OG/Frontage_9.webp" alt="Leopold residential solar installation" loading="lazy" />
+          <div class="gallery-preview-overlay">
+            <span class="gallery-preview-kw">6.6kW</span>
+            <span class="gallery-preview-name">Leopold</span>
+          </div>
+        </div>
+        <div class="gallery-preview-item gallery-preview-wide">
+          <img src="/image/photography/01_Hero_Images_OG/Frontage_17_TopCut_.webp" alt="Torquay residential solar installation" loading="lazy" />
+          <div class="gallery-preview-overlay">
+            <span class="gallery-preview-kw">15.5kW</span>
+            <span class="gallery-preview-name">Torquay</span>
+          </div>
+        </div>
+        <div class="gallery-preview-item">
+          <img src="/image/photography/01_Hero_Images_OG/Frontage_15_TopCut_.webp" alt="Belmont residential solar installation" loading="lazy" />
+          <div class="gallery-preview-overlay">
+            <span class="gallery-preview-kw">9.9kW</span>
+            <span class="gallery-preview-name">Belmont</span>
+          </div>
+        </div>
+        <div class="gallery-preview-item">
+          <img src="/image/photos_clients/16_v1.webp" alt="Inverleigh residential solar installation" loading="lazy" />
+          <div class="gallery-preview-overlay">
+            <span class="gallery-preview-kw">8.5kW</span>
+            <span class="gallery-preview-name">Inverleigh</span>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-preview-cta">
+        <a href="/examples/residential">View Full Gallery</a>
       </div>
     </div>
   </section>
 
   <style>
-    .monitoring-section {
-      padding: 5rem 0;
+    .gallery-preview-section {
+      padding: 4rem 0;
       background: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-decoration {
+      position: absolute;
+      right: -10%;
+      top: 50%;
+      transform: translateY(-50%) rotate(100deg);
+      opacity: 0.4;
+      pointer-events: none;
+      height: 100%;
+      width: auto;
     }
 
-    .monitoring-layout {
+    .gallery-preview-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      max-width: 1100px;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 0.6rem;
+      max-width: 1000px;
       margin: 0 auto;
-      align-items: start;
     }
 
-    .monitoring-text h2 {
-      margin-bottom: 1.5rem;
+    .gallery-preview-item {
+      position: relative;
+      border-radius: 0.6rem;
+      overflow: hidden;
     }
 
-    .monitoring-text p {
+    .gallery-preview-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .gallery-preview-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+    .gallery-preview-item:nth-child(3) { grid-column: 3 / 5; grid-row: 1; }
+    .gallery-preview-item:nth-child(4) { grid-column: 1 / 3; grid-row: 2; }
+    .gallery-preview-item:nth-child(5) { grid-column: 3; grid-row: 2; }
+    .gallery-preview-item:nth-child(6) { grid-column: 4; grid-row: 2; }
+
+    .gallery-preview-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      aspect-ratio: 1 / 1;
+    }
+
+    .gallery-preview-wide img {
+      aspect-ratio: auto;
+      height: 100%;
+    }
+
+    .gallery-preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0.75rem;
+    }
+
+    .gallery-preview-kw {
+      display: inline-block;
+      width: fit-content;
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px);
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      margin-bottom: 0.2rem;
+    }
+
+    .gallery-preview-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+
+    .gallery-preview-cta {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .gallery-preview-cta a {
+      color: #2061B7;
+      font-weight: 600;
       font-size: 0.95rem;
-      color: #555;
-      line-height: 1.7;
-      margin-bottom: 1rem;
+      text-decoration: none;
     }
 
-    .monitoring-card {
-      background: #0E2B47;
-      color: #fff;
-      border-radius: 12px;
-      padding: 2.5rem;
+    .gallery-preview-cta a:hover {
+      text-decoration: underline;
     }
 
-    .monitoring-card__stat {
-      font-size: 3.5rem;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
+    @media (max-width: 768px) {
+      .gallery-preview-grid {
+        grid-template-columns: 1fr 1fr;
+      }
 
-    .monitoring-card p {
-      font-size: 0.92rem;
-      color: rgba(255, 255, 255, 0.75);
-      line-height: 1.7;
-    }
+      .gallery-preview-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+      .gallery-preview-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+      .gallery-preview-item:nth-child(3) { grid-column: 1 / 3; grid-row: 2; }
+      .gallery-preview-item:nth-child(4) { grid-column: 1 / 3; grid-row: 3; }
+      .gallery-preview-item:nth-child(5) { grid-column: 1; grid-row: 4; }
+      .gallery-preview-item:nth-child(6) { grid-column: 2; grid-row: 4; }
 
-    .monitoring-card strong {
-      color: #fff;
-    }
-
-    @media (max-width: 800px) {
-      .monitoring-layout {
-        grid-template-columns: 1fr;
+      .gallery-preview-wide img {
+        aspect-ratio: 16 / 9;
       }
     }
   </style>
 
 
-  <!-- NMI data analysis: how we actually size your system -->
-  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_21_TopCut_.webp" alt="EES solar panels on residential roof" reverse bg="white">
-    <p class="section-label">Data Driven Design</p>
-    <h2>We Look at Your Actual Usage, Not Just Your Bill</h2>
-    <p>
-      Every property in Australia has a National Meter Identifier (NMI). Using your NMI and smart meter number, we can see your electricity consumption down to half hour intervals. We can see exactly when you're using power, how much, and if you already have solar, how much your existing system is generating.
-    </p>
-    <p>
-      This is how we size your system accurately. Not from a bill total. Not from a generic calculator. From your actual data. We can see if you use most of your power during the day or at night, whether you have enough excess to justify a battery, and what your realistic savings and payback period will be.
-    </p>
-    <p>
-      We don't know any other company in the area that does this level of analysis.
-    </p>
-  </SplitFeature>
-
-
-  <!-- Tier comparison table: KEEP AS-IS -->
+  <!-- Tier comparison table -->
   <section class="solar-tiers-section">
     <div class="container">
       <div class="spec-cards-header">
@@ -546,20 +764,20 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
               <th></th>
               <th class="tier-card-cell">
                 <div class="tier-card-top-bar"></div>
-                <h3>6.6 kW</h3>
+                <h3>6.6 kW Array</h3>
                 <p class="tier-desc">Suits smaller households with moderate energy use. A cost-effective entry point with strong returns.</p>
                 <span class="tier-badge">Best for: 1–2 person households</span>
               </th>
               <th class="tier-card-cell tier-card-cell--popular">
                 <div class="tier-card-top-bar"></div>
                 <div class="tier-popular-tag">Most Common</div>
-                <h3>10 kW</h3>
+                <h3>10 kW Array</h3>
                 <p class="tier-desc">The most common size for a family home. Maximises the federal STC rebate and covers most daytime usage.</p>
                 <span class="tier-badge">Best for: Family homes</span>
               </th>
               <th class="tier-card-cell">
                 <div class="tier-card-top-bar"></div>
-                <h3>13–15 kW</h3>
+                <h3>13–15 kW Array</h3>
                 <p class="tier-desc">For larger homes, homes with pools, or households planning to add a battery, heat pump, or EV charger.</p>
                 <span class="tier-badge">Best for: Large homes & future-proofing</span>
               </th>
@@ -567,9 +785,9 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
             <!-- Column label row -->
             <tr class="tier-label-row">
               <th>Feature</th>
-              <th>6.6 kW</th>
-              <th>10 kW</th>
-              <th>13–15 kW</th>
+              <th>6.6 kW Array</th>
+              <th>10 kW Array</th>
+              <th>13–15 kW Array</th>
             </tr>
           </thead>
           <tbody>
@@ -625,8 +843,66 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
         </table>
       </div>
 
+      <!-- Mobile stacked cards (hidden on desktop) -->
+      <div class="tier-mobile-cards">
+        <div class="tier-mobile-card">
+          <div class="tier-mobile-card__header">
+            <h3>6.6 kW Array</h3>
+            <p>Suits smaller households with moderate energy use. A cost-effective entry point with strong returns.</p>
+            <span class="tier-badge">Best for: 1–2 person households</span>
+          </div>
+          <dl class="tier-mobile-card__specs">
+            <div><dt>Number of Panels</dt><dd>15–18 panels</dd></div>
+            <div><dt>Daily Generation</dt><dd>~24–28 kWh/day</dd></div>
+            <div><dt>Roof Space Needed</dt><dd>~28–35 m²</dd></div>
+            <div><dt>Typical Bill Reduction</dt><dd>70–85%</dd></div>
+            <div><dt>Inverter</dt><dd>Single-phase 5 kW</dd></div>
+            <div><dt>STC Rebate</dt><dd>~$2,800–$3,200</dd></div>
+            <div><dt>Battery Ready</dt><dd>Yes — can add later</dd></div>
+            <div><dt>Payback Period</dt><dd>3–5 years</dd></div>
+          </dl>
+        </div>
+
+        <div class="tier-mobile-card tier-mobile-card--popular">
+          <div class="tier-mobile-card__header">
+            <div class="tier-popular-tag">Most Common</div>
+            <h3>10 kW Array</h3>
+            <p>The most common size for a family home. Maximises the federal STC rebate and covers most daytime usage.</p>
+            <span class="tier-badge">Best for: Family homes</span>
+          </div>
+          <dl class="tier-mobile-card__specs">
+            <div><dt>Number of Panels</dt><dd>22–26 panels</dd></div>
+            <div><dt>Daily Generation</dt><dd>~38–42 kWh/day</dd></div>
+            <div><dt>Roof Space Needed</dt><dd>~40–52 m²</dd></div>
+            <div><dt>Typical Bill Reduction</dt><dd>80–90%</dd></div>
+            <div><dt>Inverter</dt><dd>Single/three-phase 5–10 kW</dd></div>
+            <div><dt>STC Rebate</dt><dd>~$3,800–$4,400</dd></div>
+            <div><dt>Battery Ready</dt><dd>Yes — ideal pairing</dd></div>
+            <div><dt>Payback Period</dt><dd>3–4 years</dd></div>
+          </dl>
+        </div>
+
+        <div class="tier-mobile-card">
+          <div class="tier-mobile-card__header">
+            <h3>13–15 kW Array</h3>
+            <p>For larger homes, homes with pools, or households planning to add a battery, heat pump, or EV charger.</p>
+            <span class="tier-badge">Best for: Large homes & future-proofing</span>
+          </div>
+          <dl class="tier-mobile-card__specs">
+            <div><dt>Number of Panels</dt><dd>28–38 panels</dd></div>
+            <div><dt>Daily Generation</dt><dd>~50–62 kWh/day</dd></div>
+            <div><dt>Roof Space Needed</dt><dd>~52–72 m²</dd></div>
+            <div><dt>Typical Bill Reduction</dt><dd>85–95%+</dd></div>
+            <div><dt>Inverter</dt><dd>Three-phase 10–15 kW</dd></div>
+            <div><dt>STC Rebate</dt><dd>~$5,000–$6,200</dd></div>
+            <div><dt>Battery Ready</dt><dd>Yes — recommended</dd></div>
+            <div><dt>Payback Period</dt><dd>3–5 years</dd></div>
+          </dl>
+        </div>
+      </div>
+
       <div class="tier-detail-cta">
-        <a href="/services/consultation" class="btn btn-primary">Get Your Free Quote</a>
+        <a href="#solar-qualifier" class="btn btn-primary">Get Your Free Quote</a>
       </div>
     </div>
   </section>
@@ -814,220 +1090,361 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
       margin: 2rem auto 0;
     }
 
+    /* Mobile cards - hidden on desktop */
+    .tier-mobile-cards {
+      display: none;
+    }
+
     @media (max-width: 800px) {
-      .tier-comparison-table {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+      .spec-cards-header {
+        padding-left: 0;
       }
 
-      .tier-comparison-table table {
-        min-width: 650px;
+      .tier-comparison-table {
+        display: none;
+      }
+
+      .tier-mobile-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .tier-mobile-card {
+        background: #fff;
+        border: 2px solid #e5e7eb;
+        border-radius: 0.75rem;
+        overflow: hidden;
+      }
+
+      .tier-mobile-card--popular {
+        border-color: #2061B7;
+      }
+
+      .tier-mobile-card__header {
+        padding: 1.5rem 1.25rem 1rem;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .tier-mobile-card--popular .tier-mobile-card__header {
+        border-bottom-color: rgba(32, 97, 183, 0.2);
+      }
+
+      .tier-mobile-card__header .tier-popular-tag {
+        margin: -1.5rem -1.25rem 1rem;
+        padding: 0.4rem 0;
+      }
+
+      .tier-mobile-card__header h3 {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #0E2B47;
+        margin: 0 0 0.4rem;
+      }
+
+      .tier-mobile-card__header p {
+        font-size: 0.88rem;
+        color: #555;
+        line-height: 1.55;
+        margin: 0 0 0.75rem;
+      }
+
+      .tier-mobile-card__header .tier-badge {
+        display: inline-block;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: #2061B7;
+        background: rgba(32, 97, 183, 0.08);
+        padding: 0.25rem 0.65rem;
+        border-radius: 2rem;
+      }
+
+      .tier-mobile-card__specs {
+        margin: 0;
+        padding: 0;
+      }
+
+      .tier-mobile-card__specs > div {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.6rem 1.25rem;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .tier-mobile-card__specs > div:last-child {
+        border-bottom: none;
+      }
+
+      .tier-mobile-card__specs dt {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #0E2B47;
+      }
+
+      .tier-mobile-card__specs dd {
+        font-size: 0.85rem;
+        color: #444;
+        margin: 0;
+        text-align: right;
+      }
+
+      .tier-mobile-card--popular .tier-mobile-card__specs > div:nth-child(even) {
+        background: rgba(32, 97, 183, 0.03);
       }
     }
   </style>
 
 
-  <!-- Guarantees -->
-  <section class="guarantees-section">
-    <div class="guarantees-section__slant"></div>
-    <div class="guarantees-section__texture"></div>
+  <!-- Back-to-base monitoring -->
+  <section class="monitoring-section">
     <div class="container">
-      <p class="section-label" style="text-align:center;">With Every Solar System</p>
-      <h2 style="text-align:center; margin-bottom: 2.5rem;">Our Guarantees</h2>
-
-      <div class="guarantees-grid">
-        <div class="guarantee-tile">
-          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
-          <div class="guarantee-tile__content">
-            <span class="guarantee-tile__value">70-90%</span>
-            <span class="guarantee-tile__label">Average<br />bill reduction</span>
-          </div>
+      <div class="monitoring-layout">
+        <div class="monitoring-text">
+          <p class="section-label">Back-to-Base Monitoring</p>
+          <h2>We'll Know Something Is Wrong Before You Do</h2>
+          <p>
+            Every system we install is connected to our back-to-base monitoring portal. Our team checks every system each morning. If something drops out, generates less than expected, or throws a fault, we see it — often before the homeowner even notices.
+          </p>
+          <p>
+            We've had cases where a system was intermittently disconnecting due to a Wi-Fi issue. We picked it up in our morning check, texted the client, went around and fixed it in five minutes. They had no idea anything was wrong. That's the level of ongoing support we provide.
+          </p>
+          <p>
+            <strong>It's not just install and walk away.</strong> We set up monitoring on the day of installation, walk you through the app, and keep an eye on your system from that point forward.
+          </p>
         </div>
-
-        <div class="guarantee-tile">
-          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
-          <div class="guarantee-tile__content">
-            <span class="guarantee-tile__value">1-2 day</span>
-            <span class="guarantee-tile__label">Typical<br />install time</span>
+        <div class="monitoring-card-wrap">
+          <div class="monitoring-card">
+            <div class="monitoring-card__stat">After install, we monitor your system</div>
+            <p>
+              <strong>Critical fault response.</strong> If our monitoring detects a serious issue with your system, we arrange for one of our A-grade electricians to be on site within 48 business hours. We haven't encountered a critical fault yet, but the commitment is there.
+            </p>
           </div>
-        </div>
+          <!-- SCADA-style house ↔ monitor diagram -->
+          <div class="scada-diagram">
+            <svg class="scada-svg" viewBox="0 0 480 140" preserveAspectRatio="xMidYMid meet">
+              <!-- House icon (logo style - rounded continuous outline) -->
+              <g class="scada-house" transform="translate(40, 10)">
+                <!-- Rounded house shape - single continuous path -->
+                <path d="M35,2 L6,28 Q0,34 0,40 L0,62 Q0,68 6,68 L64,68 Q70,68 70,62 L70,40 Q70,34 64,28 Z" fill="none" stroke="#C2D456" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+                <!-- Smile curve at bottom -->
+                <path d="M24,56 Q35,64 46,56" fill="none" stroke="#C2D456" stroke-width="2.5" stroke-linecap="round" />
+                <!-- Status dot -->
+                <circle cx="64" cy="34" r="4" fill="#C2D456" class="scada-status-dot" />
+              </g>
 
-        <div class="guarantee-tile guarantee-tile--badged">
-          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
-          <div class="guarantee-tile__content">
-            <span class="guarantee-tile__value">10 year</span>
-            <span class="guarantee-tile__label">Workmanship<br />warranty</span>
-          </div>
-          <img src="/image/icon/residenteials_Section_Gaurantee_Badge.svg" alt="" class="guarantee-tile__badge" />
-        </div>
+              <!-- Connection line -->
+              <line x1="130" y1="50" x2="330" y2="50" stroke="rgba(194,212,86,0.15)" stroke-width="1" />
+              <!-- Single pulsing dot: house → monitor → house -->
+              <circle r="4" fill="#C2D456" class="scada-data-pulse">
+                <animateMotion dur="4s" repeatCount="indefinite" path="M130,50 L330,50 L130,50" />
+              </circle>
 
-        <div class="guarantee-tile guarantee-tile--badged">
-          <img src="/image/elements/residenteials_Section_Gaurantee_Tile.svg" alt="" class="guarantee-tile__bg" />
-          <div class="guarantee-tile__content">
-            <span class="guarantee-tile__value">25 year</span>
-            <span class="guarantee-tile__label">Panel<br />warranty</span>
+              <!-- Monitor/screen icon -->
+              <g class="scada-control" transform="translate(340, 12)">
+                <!-- Screen bezel -->
+                <rect x="0" y="0" width="70" height="50" fill="rgba(194,212,86,0.05)" stroke="#C2D456" stroke-width="2" rx="4" />
+                <!-- Screen inner -->
+                <rect x="5" y="5" width="60" height="36" fill="rgba(194,212,86,0.08)" stroke="rgba(194,212,86,0.3)" stroke-width="1" rx="2" />
+                <!-- Waveform on screen -->
+                <polyline points="10,24 18,18 24,28 30,16 36,26 42,20 48,24 56,22 60,24" fill="none" stroke="#C2D456" stroke-width="1.5" stroke-linejoin="round" />
+                <!-- Status LED -->
+                <circle cx="35" cy="46" r="2" fill="#C2D456" class="scada-status-dot" />
+                <!-- Stand -->
+                <line x1="35" y1="50" x2="35" y2="60" stroke="#C2D456" stroke-width="2" />
+                <line x1="22" y1="60" x2="48" y2="60" stroke="#C2D456" stroke-width="2" stroke-linecap="round" />
+              </g>
+
+              <!-- Labels below diagram -->
+              <text x="75" y="128" fill="#fff" font-size="10" text-anchor="middle" font-family="inherit" font-weight="600">Your Home</text>
+              <text x="375" y="128" fill="#fff" font-size="10" text-anchor="middle" font-family="inherit" font-weight="600">Our System Monitor</text>
+            </svg>
           </div>
-          <img src="/image/icon/residenteials_Section_Gaurantee_Badge.svg" alt="" class="guarantee-tile__badge" />
         </div>
       </div>
     </div>
   </section>
 
   <style>
-    .guarantees-section {
-      position: relative;
-      padding: 5rem 0 6rem;
-      background: #f4f5f7;
-      overflow: hidden;
+    .monitoring-section {
+      padding: 5rem 0;
+      background: #fff;
     }
 
-    .guarantees-section__slant {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-      background: #eceef1;
-      clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
-      z-index: 0;
-    }
-
-    .guarantees-section__texture {
-      position: absolute;
-      bottom: -500px;
-      left: -100px;
-      width: 1000px;
-      height: 1000px;
-      background: url('/image/textures/WhatWeDo_Texture.svg') no-repeat center / contain;
-      transform: rotate(30deg);
-      z-index: 0;
-      pointer-events: none;
-      opacity: 1;
-    }
-
-    .guarantees-section .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .guarantees-grid {
-      display: flex;
-      justify-content: center;
-      max-width: 900px;
+    .monitoring-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1100px;
       margin: 0 auto;
+      align-items: start;
     }
 
-    .guarantee-tile {
+    .monitoring-text h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .monitoring-text p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .monitoring-card-wrap {
       position: relative;
-      width: 220px;
-      flex-shrink: 0;
-      aspect-ratio: 528 / 521;
-      margin-right: -20px;
     }
 
-    .guarantee-tile:last-child {
-      margin-right: 0;
-    }
-
-    .guarantee-tile__bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.06));
-    }
-
-    .guarantee-tile__content {
+    .monitoring-card {
       position: relative;
       z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      text-align: center;
-      padding: 1.5rem;
+      background: #0E2B47;
+      color: #fff;
+      border-radius: 12px;
+      padding: 2.5rem;
     }
 
-    .guarantee-tile__value {
-      display: block;
-      font-size: 2.25rem;
+    .monitoring-card__stat {
+      font-size: 1.6rem;
       font-weight: 800;
-      color: #0E2B47;
-      line-height: 1.1;
-      margin-bottom: 0.5rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
     }
 
-    .guarantee-tile__label {
+    .monitoring-card p {
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.7;
+    }
+
+    .monitoring-card strong {
+      color: #fff;
+    }
+
+    /* SCADA diagram */
+    .scada-diagram {
+      background: #1a3a5c;
+      border-radius: 0 0 12px 12px;
+      padding: 1.25rem 1rem 1rem;
+      margin-top: -8px;
+      position: relative;
+      z-index: 0;
+    }
+
+    .scada-svg {
+      width: 100%;
+      height: auto;
       display: block;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #0E2B47;
-      line-height: 1.4;
     }
 
-    .guarantee-tile__badge {
-      position: absolute;
-      bottom: -18px;
-      right: -18px;
-      width: 72px;
-      height: 72px;
-      z-index: 2;
+    .scada-status-dot {
+      animation: scada-blink 2s ease-in-out infinite;
     }
 
-    @media (max-width: 768px) {
-      .guarantees-grid {
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        justify-content: center;
-      }
+    @keyframes scada-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
 
-      .guarantee-tile {
-        width: calc(50% - 0.75rem);
-        flex-shrink: 0;
-        margin-right: 0;
-      }
+    .scada-data-pulse {
+      animation: scada-pulse-glow 1s ease-in-out infinite;
+    }
 
-      .guarantee-tile__value {
-        font-size: 1.75rem;
-      }
+    @keyframes scada-pulse-glow {
+      0%, 100% { opacity: 1; r: 4; }
+      50% { opacity: 0.5; r: 6; }
+    }
 
-      .guarantee-tile__label {
-        font-size: 0.85rem;
-      }
-
-      .guarantee-tile__badge {
-        width: 56px;
-        height: 56px;
-        bottom: -12px;
-        right: -12px;
-      }
-
-      .guarantees-section__texture {
-        width: 600px;
-        height: 600px;
-        bottom: -300px;
-        left: -80px;
+    @media (max-width: 800px) {
+      .monitoring-layout {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 
 
-  <!-- High-end architectural installs -->
-  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_17_TopCut_.webp" alt="Solar installation on architectural home" bg="white">
-    <!-- IMAGE: Replace with a photo showing a clean, high-end residential solar installation where cables are hidden and the panels complement the architecture. Ideally a complex roof with multiple orientations. -->
-    <p class="section-label">Complex and Architectural Homes</p>
-    <h2>We Work With Your Architect and Builder</h2>
+  <!-- 48hr response -->
+  <section class="response-bar">
+    <div class="container">
+      <div class="response-inner">
+        <div class="response-stat">in 48hr</div>
+        <div class="response-text">
+          <strong>We'll know before you do.</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .response-bar {
+      padding: 2.5rem 0;
+      background: #0E2B47;
+      color: #fff;
+    }
+
+    .response-inner {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .response-stat {
+      font-size: 3rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .response-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .response-text strong {
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .response-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+    }
+  </style>
+
+
+  <!-- NMI data analysis: how we actually size your system -->
+  <div class="nmi-section-zoom">
+  <SplitFeature image="/image/photos_people/Gemini_Generated_Image_q54odtq54odtq54o.png" alt="EES technician analysing solar usage data" reverse bg="white">
+    <p class="section-label">Data Driven Design</p>
+    <h2>We Look at Your Actual Usage, Not Just Your Bill</h2>
     <p>
-      About half of our residential work is on architectural and designed homes. These are complex sites with multiple roof orientations, different phases, and homeowners who care deeply about how the system looks on their property.
+      Every property in Australia has a National Meter Identifier (NMI). Using your NMI and smart meter number, we can see your electricity consumption down to half hour intervals. We can see exactly when you're using power, how much, and if you already have solar, how much your existing system is generating.
     </p>
     <p>
-      We work directly with the original builders and architects to understand how the property was designed and what the best way is to run cables, mount panels, and integrate the system without compromising the aesthetic. That might mean lifting out roof sheets, cutting and reinstalling plaster, or coordinating painters to come in after us.
+      This is how we size your system accurately. Not from a bill total. Not from a generic calculator. From your actual data. We can see if you use most of your power during the day or at night, whether you have enough excess to justify a battery, and what your realistic savings and payback period will be.
     </p>
     <p>
-      Other companies would run external conduit and walk away. We take the time to make sure the system fits the house, not the other way around.
+      We don't know any other company in the area that does this level of analysis.
     </p>
   </SplitFeature>
+  </div>
+
+  <style>
+    .nmi-section-zoom :global(.split-image) {
+      overflow: hidden;
+      border-radius: 1rem;
+    }
+    .nmi-section-zoom :global(.split-image img) {
+      transform: scale(1.25);
+      transform-origin: center center;
+    }
+  </style>
 
 
   <!-- The honest pitch + industry stats -->
@@ -1045,17 +1462,87 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
           </p>
         </div>
         <div class="honest-stat-card">
-          <div class="stat-big">18.7%</div>
+          <div class="stat-big" data-count-target="18.7">0%</div>
           <p>
-            of solar installations in Australia are substandard, according to the Clean Energy Regulator's audit of 2,500 homes in 2024/25. That's nearly one in five.
+            of solar installations in Australia <strong class="highlight-bold">are substandard</strong>, according to the Clean Energy Regulator's audit of 2,500 homes in 2024/25. That's nearly one in five.
           </p>
           <p>
             We've never had a system made defunct by an electrical inspector. Every install adheres to AS/NZS 4777 standards. Our 10 year workmanship warranty is double the legal minimum of five years, and unlike companies offering 30 year warranties after being in business for one or two years, we've been operating in the Geelong region for over a decade. It's an honest warranty from a company that will actually be here to honour it.
           </p>
+          <a href="https://cer.gov.au/document/inspections-update-no-24" target="_blank" rel="noopener noreferrer" class="stat-source-link">
+            Read the Clean Energy Regulator report →
+          </a>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="section-cta-bar">
+    <a href="#solar-qualifier" class="btn btn-primary"><svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>Get Your Free Quote</a>
+  </div>
+
+  <!-- High-end architectural installs -->
+  <section class="architect-section">
+    <div class="container">
+      <div class="architect-layout">
+        <div class="architect-text">
+          <p class="section-label">Complex and Architectural Homes</p>
+          <h2>We Work With Your Architect and Builder</h2>
+          <p>
+            About half of our residential work is on architectural and designed homes. These are complex sites with multiple roof orientations, different phases, and homeowners who care deeply about how the system looks on their property.
+          </p>
+          <p>
+            We work directly with the original builders and architects to understand how the property was designed and what the best way is to run cables, mount panels, and integrate the system without compromising the aesthetic. That might mean lifting out roof sheets, cutting and reinstalling plaster, or coordinating painters to come in after us.
+          </p>
+          <p>
+            Other companies would run external conduit and walk away. We take the time to make sure the system fits the house, not the other way around.
+          </p>
+        </div>
+        <div class="architect-bento">
+          <BentoMini images={[
+            { src: "/image/photography/01_Hero_Images_OG/Frontage_4.webp", alt: "Architectural home solar installation", kw: "13.2kW", location: "Barwon Heads" },
+            { src: "/image/photography/01_Hero_Images_OG/Frontage_8.webp", alt: "Complex roof solar installation", kw: "10.4kW", location: "Torquay" },
+            { src: "/image/photography/01_Hero_Images_OG/Frontage_7.webp", alt: "Designer home solar panels", kw: "15kW", location: "Jan Juc" },
+            { src: "/image/photography/01_Hero_Images_OG/Frontage_19_TopCut_.webp", alt: "High-end residential solar", kw: "10kW", location: "Ocean Grove" },
+            { src: "/image/photography/01_Hero_Images_OG/Frontage_16_TopCut_.webp", alt: "Premium solar installation", kw: "12kW", location: "Anglesea" },
+          ]} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .architect-section {
+      padding: 5rem 0;
+      background: #fff;
+    }
+
+    .architect-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .architect-text h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .architect-text p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 800px) {
+      .architect-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 
   <style>
     .honest-section {
@@ -1084,10 +1571,11 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
     }
 
     .honest-stat-card {
-      background: #0E2B47;
-      color: #fff;
+      background: #FFFFFF;
+      color: #333;
       border-radius: 12px;
       padding: 2.5rem;
+      border: 1px solid #e5e7eb;
     }
 
     .stat-big {
@@ -1095,17 +1583,49 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
       font-weight: 800;
       line-height: 1;
       margin-bottom: 1rem;
+      color: #0E2B47;
     }
 
     .honest-stat-card p {
       font-size: 0.92rem;
-      color: rgba(255, 255, 255, 0.75);
+      color: #555;
       line-height: 1.7;
       margin-bottom: 1rem;
     }
 
     .honest-stat-card p:last-child {
       margin-bottom: 0;
+    }
+
+    .highlight-bold {
+      font-weight: 400;
+      color: #555;
+      font-size: 1em;
+      transition: font-weight 0.4s ease, color 0.4s ease, font-size 0.4s ease;
+    }
+
+    .highlight-bold.active {
+      font-weight: 800;
+      color: #0E2B47;
+      font-size: 1.2em;
+    }
+
+    .stat-source-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #0E2B47;
+      border: 1.5px solid #0E2B47;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .stat-source-link:hover {
+      background: #0E2B47;
+      color: #fff;
     }
 
     @media (max-width: 800px) {
@@ -1115,9 +1635,50 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
     }
   </style>
 
+  <script>
+    function animateCount(el) {
+      const target = parseFloat(el.dataset.countTarget);
+      const duration = 1600;
+      const start = performance.now();
+      const highlightEl = el.closest('.honest-stat-card')?.querySelector('.highlight-bold');
+
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = (target * eased).toFixed(1);
+        el.textContent = current + '%';
+
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          el.textContent = target + '%';
+          if (highlightEl) {
+            setTimeout(() => highlightEl.classList.add('active'), 200);
+          }
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const statEl = document.querySelector('[data-count-target]');
+    if (statEl) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      observer.observe(statEl);
+    }
+  </script>
+
 
   <!-- Rebates -->
-  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_19_TopCut_.webp" alt="EES headquarters in Moolap, Geelong" reverse bg="white">
+  <div class="rebates-section">
+  <SplitFeature image="/image/illustrations/Residential_STC_GOv_Section.png" alt="Government rebates and STC incentives for solar" reverse bg="white">
     <p class="section-label">Rebates and Incentives</p>
     <h2>Government Support to Lower Your Costs</h2>
     <p>
@@ -1126,7 +1687,19 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
     <p>
       Additional Victorian Government rebates may be available depending on your property and household income. As a Solar Victoria approved retailer, we confirm your eligibility and handle the application process.
     </p>
+    <a href="#solar-qualifier" class="btn btn-primary" style="margin-top: 1.5rem;"><svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>Get Your Free Quote</a>
   </SplitFeature>
+  </div>
+
+  <style>
+    .rebates-section :global(.split-image img) {
+      max-width: 66%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      padding: 2rem;
+    }
+  </style>
 
 
   <!-- Process -->
@@ -1134,16 +1707,152 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
     label="How It Works"
     heading="From Enquiry to Savings"
     steps={[
-      { title: 'Discovery call', description: 'A quick five to ten minute call to understand your situation: what phases you are, how long you plan to be in the home, and whether it makes sense for us to come out.' },
-      { title: 'Consultation', description: 'We visit your property, review your energy data using your NMI and smart meter, assess your roof, and discuss your goals and future plans.' },
-      { title: 'System design', description: 'We design a system tailored to your property, your usage patterns, and any future additions like batteries, heat pumps, or EV chargers.' },
-      { title: 'Paperwork and approvals', description: 'We handle rebate applications, export pre approval from your local network provider (DNSP), grid connection approval, and permits. Stock is ordered and your installation date is confirmed.' },
-      { title: 'Pre install confirmation', description: 'Clear communication leading up to install day. We confirm everything 24 hours before, including inverter and battery location and expected duration of any power interruption.' },
-      { title: 'Installation', description: 'Our CEC accredited team arrives on time and introduces themselves. The system is installed in one to two days, fully commissioned, and the site is cleaned and returned to its original state.' },
-      { title: 'Walkthrough and monitoring', description: 'We walk you through how the system works, set up the monitoring app on your phone, and connect your system to our back to base monitoring portal so we can keep an eye on it from day one.' },
-      { title: 'Post install completion', description: 'We lodge the Certificate of Electrical Safety, an inspector attends your site and energises the system, DNSP paperwork is completed, your meter is updated to register exported energy, and we help negotiate your feed in tariff or set you up with a VPP or dynamic tariff.' },
+      { title: 'Discovery call', icon: CallIcon, description: 'A quick five to ten minute call to understand your situation: what phases you are, how long you plan to be in the home, and whether it makes sense for us to come out.' },
+      { title: 'Consultation', icon: Search01Icon, description: 'We visit your property, review your energy data using your NMI and smart meter, assess your roof, and discuss your goals and future plans.' },
+      { title: 'System design', icon: CompassIcon, description: 'We design a system tailored to your property, your usage patterns, and any future additions like batteries, heat pumps, or EV chargers.' },
+      { title: 'Paperwork and approvals', icon: ClipboardIcon, description: 'We handle rebate applications, export pre approval from your local network provider (DNSP), grid connection approval, and permits. Stock is ordered and your installation date is confirmed.' },
+      { title: 'Pre install confirmation', icon: CheckmarkBadge01Icon, description: 'Clear communication leading up to install day. We confirm everything 24 hours before, including inverter and battery location and expected duration of any power interruption.' },
+      { title: 'Installation', icon: Home01Icon, description: 'Our CEC accredited team arrives on time and introduces themselves. The system is installed in one to two days, fully commissioned, and the site is cleaned and returned to its original state.' },
+      { title: 'Walkthrough and monitoring', icon: SmartPhone01Icon, description: 'We walk you through how the system works, set up the monitoring app on your phone, and connect your system to our back to base monitoring portal so we can keep an eye on it from day one.' },
+      { title: 'Post install completion', icon: Certificate01Icon, description: 'We lodge the Certificate of Electrical Safety, an inspector attends your site and energises the system, DNSP paperwork is completed, your meter is updated to register exported energy, and we help negotiate your feed in tariff or set you up with a VPP or dynamic tariff.' },
     ]}
   />
+
+
+  <!-- Warranty card -->
+  <section class="warranty-section">
+    <div class="container">
+      <div class="warranty-card">
+        <div class="warranty-badge">
+          <img src="/image/icon/residenteials_Section_Gaurantee_Badge_NoTick.svg" alt="" class="warranty-badge__bg" />
+          <span class="warranty-badge__number">10 year</span>
+          <span class="warranty-badge__label">Workmanship<br>Warranty</span>
+        </div>
+        <div class="warranty-card__inner">
+          <div class="warranty-card__text">
+            <p class="section-label">Warranty & Support</p>
+            <h2>We Stand Behind Every Install</h2>
+            <p>
+              Every installation comes with our <strong>10-year workmanship warranty</strong>, covering the installation itself — not just the products. If something goes wrong with how the system was installed, we fix it.
+            </p>
+            <p>
+              Panel and inverter manufacturer warranties apply on top of this, typically 25 years for panels and 10-15 years for inverters. We're a local team based in Moolap — here for the long term, not a fly-in-fly-out installer.
+            </p>
+          </div>
+          <div class="warranty-card__image">
+            <img src="/image/photos_people/ChatGPT Image Mar 14, 2026, 01_36_09 PM.png" alt="EES team with battery storage system" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .warranty-section {
+      padding: 4rem 0;
+      background: #fff;
+    }
+
+    .warranty-card {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      background: #f8f9fa;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 3rem;
+    }
+
+    .warranty-badge {
+      position: absolute;
+      top: -50px;
+      right: 60px;
+      text-align: center;
+      width: 190px;
+      height: 190px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 10px;
+      padding-right: 12px;
+    }
+
+    .warranty-badge__bg {
+      position: absolute;
+      inset: -10px;
+      width: calc(100% + 20px);
+      height: calc(100% + 20px);
+    }
+
+    .warranty-badge__number {
+      position: relative;
+      z-index: 1;
+      display: block;
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #0E2B47;
+      line-height: 1.1;
+    }
+
+    .warranty-badge__label {
+      position: relative;
+      z-index: 1;
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #0E2B47;
+      line-height: 1.3;
+      margin-top: 0.2rem;
+    }
+
+    .warranty-card__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .warranty-card__text h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .warranty-card__text p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .warranty-card__text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .warranty-card__image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .warranty-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .warranty-card__inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .warranty-badge {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 0 auto 1.5rem;
+      }
+    }
+  </style>
 
 
   <FaqGroup
@@ -1162,7 +1871,7 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
 
 
   <RelatedNav
-    heading="Part of a Bigger System"
+    heading="Other Considerations for Your Solar System"
     links={[
       { href: '/services/residential/battery-systems', title: 'Battery Storage', description: 'Store your solar energy and use it after dark' },
       { href: '/services/residential/heat-pump-systems', title: 'Heat Pump Hot Water', description: 'Run your hot water on free solar electricity' },
@@ -1171,14 +1880,6 @@ import ArrowDownRight01Icon from '@hugeicons/core-free-icons/ArrowDownRight01Ico
     ]}
   />
 
-
-  <section class="cta-section">
-    <div class="container">
-      <p>Ready to get a solar system designed around how you actually live?</p>
-      <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
-      <p style="margin-top: 0.75rem; font-size: 0.95rem;">Or call us on <a href="tel:0427664827">0427 664 827</a></p>
-    </div>
-  </section>
 
   <ScrollIndicator />
 </BaseLayout>

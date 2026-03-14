@@ -2,6 +2,7 @@
 interface Step {
   title: string;
   description: string;
+  icon?: [string, Record<string, string | number>][];
 }
 
 interface Props {
@@ -9,9 +10,13 @@ interface Props {
   heading?: string;
   steps: Step[];
   bg?: 'white' | 'light' | 'cream';
+  iconSize?: number;
+  iconColor?: string;
 }
 
-const { label, heading, steps, bg = 'cream' } = Astro.props;
+import HugeIcon from '../HugeIcon.astro';
+
+const { label, heading, steps, bg = 'cream', iconSize = 22, iconColor = '#3B6B2B' } = Astro.props;
 
 const bgMap = {
   white: '#fff',
@@ -36,7 +41,14 @@ const bgMap = {
             {i < steps.length - 1 && <div class="step-line"></div>}
           </div>
           <div class="step-content">
-            <h3>{step.title}</h3>
+            <div class="step-icon-row">
+              {step.icon && (
+                <div class="step-icon">
+                  <HugeIcon icon={step.icon} size={iconSize} color={iconColor} />
+                </div>
+              )}
+              <h3>{step.title}</h3>
+            </div>
             <p>{step.description}</p>
           </div>
         </div>
@@ -44,3 +56,32 @@ const bgMap = {
     </div>
   </div>
 </section>
+
+<script>
+  function initProcessTimeline() {
+    const steps = document.querySelectorAll('.process-timeline .step');
+    if (!steps.length) return;
+
+    let revealed = false;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !revealed) {
+            revealed = true;
+            observer.disconnect();
+            steps.forEach((step, i) => {
+              setTimeout(() => step.classList.add('is-visible'), i * 300);
+            });
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    steps.forEach((step) => observer.observe(step));
+  }
+
+  initProcessTimeline();
+  document.addEventListener('astro:page-load', initProcessTimeline);
+</script>

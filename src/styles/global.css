@@ -124,6 +124,17 @@ p {
 
 .btn-arrow {
   flex-shrink: 0;
+  animation: bounce-right 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce-right {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+.section-cta-bar {
+  text-align: center;
+  padding: 2rem 0 3rem;
 }
 
 .btn-primary {
@@ -672,10 +683,10 @@ p {
 }
 
 .step-number {
-  width: 62px;
-  height: 62px;
-  background: url('/image/icon/Icon_PageAccent_Blue_V2.svg') no-repeat center / contain;
-  color: #fff;
+  width: 44px;
+  height: 44px;
+  background: none;
+  color: #1a3a5c;
   font-size: 1.5rem;
   font-weight: 800;
   display: flex;
@@ -683,6 +694,8 @@ p {
   justify-content: center;
   position: relative;
   z-index: 1;
+  border: 3px solid #1a3a5c;
+  border-radius: 50%;
   transform: rotateY(180deg);
   opacity: 0;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
@@ -693,31 +706,71 @@ p {
   opacity: 1;
 }
 
-.step:nth-child(1) .step-number { transition-delay: 0.1s; }
-.step:nth-child(2) .step-number { transition-delay: 0.3s; }
-.step:nth-child(3) .step-number { transition-delay: 0.5s; }
-.step:nth-child(4) .step-number { transition-delay: 0.7s; }
-.step:nth-child(5) .step-number { transition-delay: 0.9s; }
+.step .step-number { transition-delay: 0s; }
+.step .step-line { transition-delay: 0.3s; }
+.step .step-content { transition-delay: 0.1s; }
+.step .step-icon { transition-delay: 0.2s; }
 
 .step-line {
   width: 4px;
   flex: 1;
   min-height: 40px;
-  background: #1a1a1a;
+  background: #1a3a5c;
   margin: 0 auto;
   border-radius: 2px;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
+.step.is-visible .step-line {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.step-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #3B6B2B;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.step.is-visible .step-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
 
 .step-content {
   padding-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
+.step.is-visible .step-content {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 
 .step-content h3 {
   font-size: 1.25rem;
   font-weight: 800;
   color: #1a1a1a;
   margin: 0 0 0.5rem;
-  padding-top: 0.15rem;
+  padding-top: 0;
 }
 
 .step-content p {
@@ -730,9 +783,9 @@ p {
 
 @media (max-width: 600px) {
   .step-number {
-    width: 44px;
-    height: 44px;
-    font-size: 1.25rem;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
   }
 
   .step {

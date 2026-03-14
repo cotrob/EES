@@ -30,6 +30,7 @@ const { title, subtitle = 'Geelong and surrounds', illustration, illustrationAlt
 <style>
   .service-hero {
     position: relative;
+    z-index: 1;
   }
 
   .service-hero__top {
@@ -89,8 +90,9 @@ const { title, subtitle = 'Geelong and surrounds', illustration, illustrationAlt
   .service-hero__illus {
     position: absolute;
     bottom: 5%;
-    right: max(calc((100vw - 1400px) / 2 + 2rem), 2rem);
-    width: 78%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
     max-width: 1440px;
     height: auto;
     z-index: 0;

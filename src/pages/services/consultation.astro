@@ -4,7 +4,6 @@ import ScrollIndicator from '../../components/ScrollIndicator.astro';
 import SplitFeature from '../../components/sections/SplitFeature.astro';
 import ProcessTimeline from '../../components/sections/ProcessTimeline.astro';
 import IconFeatureGrid from '../../components/sections/IconFeatureGrid.astro';
-import RelatedNav from '../../components/sections/RelatedNav.astro';
 import { hugeIconToSvg } from '../../lib/hugeicon-svg';
 import Layout01Icon from '@hugeicons/core-free-icons/Layout01Icon';
 import ChartBarIncreasingIcon from '@hugeicons/core-free-icons/ChartBarIncreasingIcon';
@@ -24,29 +23,46 @@ import UserAdd01Icon from '@hugeicons/core-free-icons/UserAdd01Icon';
       <p>No-obligation assessment of your property and energy needs.</p>
     </div>
   </section>
+  <div class="hero-curve">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,0 1440,0 1440,60 0,20" fill="#0E2B47" />
+    </svg>
+  </div>
 
-  <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_18_TopCut_.webp" alt="EES team conducting a property energy assessment" bg="white">
-    <p class="section-label">What to Expect</p>
-    <h2>It Starts With a Quick Phone Call</h2>
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-content">
+        <p class="section-label">What to Expect</p>
+        <h2>It Starts With a Quick Phone Call</h2>
+        <p>
+          When you enquire, we'll call you for a 5 to 10 minute discovery call. We want to understand what you've currently got, what phases your property is on, and whether you're planning to stay in the home for the next few years. If your electricity bill is around $100 or more a month, a system will usually make sense.
+        </p>
+        <p>
+          If it looks like a good fit, we'll book a <strong>one-hour in-person consultation</strong> at your property. This isn't a sales pitch. It's a proper energy assessment conducted by Lincoln or a qualified member of our team, not a subcontractor or third-party agent.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="geelong-slant">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1440" height="60" fill="rgba(240, 238, 217, 0.25)" />
+      <polygon points="0,0 1440,0 1440,40" fill="#fff" />
+    </svg>
+  </div>
+
+  <SplitFeature image="/image/illustrations/geelong_heads_.png" alt="Geelong heads illustration" reverse bg="cream" flat>
+    <p class="section-label">Service Area</p>
+    <h2>Local Geelong Team</h2>
     <p>
-      When you enquire, we'll call you for a 5 to 10 minute discovery call. We want to understand what you've currently got, what phases your property is on, and whether you're planning to stay in the home for the next few years. If your electricity bill is around $100 or more a month, a system will usually make sense.
+      We service Greater Geelong, Torquay, the Surf Coast, Bellarine Peninsula, Golden Plains, and wider regional Victoria. Based in Moolap, we're a local team with local knowledge.
     </p>
     <p>
-      If it looks like a good fit, we'll book a <strong>one-hour in-person consultation</strong> at your property. This isn't a sales pitch. It's a proper energy assessment conducted by Lincoln or a qualified member of our team, not a subcontractor or third-party agent.
+      EES is a CEC-accredited installer and Solar Victoria approved retailer. Every consultation is conducted by a qualified member of our team.
     </p>
+    <p><strong>Phone:</strong> <a href="tel:0427664827">0427 664 827</a></p>
+    <p><strong>Email:</strong> <a href="mailto:support@eeservices.io">support@eeservices.io</a></p>
   </SplitFeature>
-
-  <ProcessTimeline
-    label="During Your Consultation"
-    heading="What Happens When We Visit"
-    steps={[
-      { title: 'Understand Your Situation', description: 'We find out where your knowledge is and meet you there. Whether you\'re an electrical engineer or have no idea how solar works, we walk you through everything at your pace.' },
-      { title: 'Analyse Your Energy Data', description: 'Using your NMI number and smart meter, we pull your interval metering data down to half-hour increments. We see exactly where your power goes, when you\'re using it, and how much you\'re sending back to the grid.' },
-      { title: 'Assess Your Property', description: 'Roof orientation, pitch, shading, switchboard capacity, existing wiring, and what phase you\'re on. For architectural homes, we also look at how cabling and equipment can be installed without compromising the aesthetics.' },
-      { title: 'Consider Your Future', description: 'Are you planning an electric vehicle, induction cooktop, or heat pump? Retiring soon and going to be home more? We size the system around where your consumption is heading, not just where it is today.' },
-      { title: 'Design Your System', description: 'Based on your actual data and future plans, we recommend a system sized to cover your own usage first. We never oversize to sell you more panels, and we never design for winter production.' },
-    ]}
-  />
 
   <IconFeatureGrid
     label="Your Proposal"
@@ -87,33 +103,125 @@ import UserAdd01Icon from '@hugeicons/core-free-icons/UserAdd01Icon';
     ]}
   />
 
-  <SplitFeature image="/image/icon/Crednetials_3.webp" alt="Geelong bollards icon - trusted local team" reverse bg="cream" flat>
-    <p class="section-label">Service Area</p>
-    <h2>Local Geelong Team</h2>
-    <p>
-      We service Greater Geelong, Torquay, the Surf Coast, Bellarine Peninsula, Golden Plains, and wider regional Victoria. Based in Moolap, we're a local team with local knowledge.
-    </p>
-    <p>
-      EES is a CEC-accredited installer and Solar Victoria approved retailer. Every consultation is conducted by a qualified member of our team.
-    </p>
-    <p><strong>Phone:</strong> <a href="tel:0427664827">0427 664 827</a></p>
-    <p><strong>Email:</strong> <a href="mailto:support@eeservices.io">support@eeservices.io</a></p>
-  </SplitFeature>
+  <div class="timeline-slant">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1440" height="60" fill="#fbfaf5" />
+      <polygon points="0,60 1440,0 1440,60" fill="#f8f9fa" />
+    </svg>
+  </div>
 
-  <RelatedNav
-    links={[
-      { href: '/services/residential', title: 'Residential Systems', description: 'Solar, battery, heat pump solutions' },
-      { href: '/services/commercial', title: 'Commercial Systems', description: 'Solar and battery for business' },
-      { href: '/services/financing', title: 'Financing & Rebates', description: 'Payment plans and government incentives' },
+  <div class="timeline-wrapper">
+    <div class="timeline-texture" aria-hidden="true"></div>
+  <ProcessTimeline
+    label="During Your Consultation"
+    heading="What Happens When We Visit"
+    steps={[
+      { title: 'Understand Your Situation', description: 'We find out where your knowledge is and meet you there. Whether you\'re an electrical engineer or have no idea how solar works, we walk you through everything at your pace.' },
+      { title: 'Analyse Your Energy Data', description: 'Using your NMI number and smart meter, we pull your interval metering data down to half-hour increments. We see exactly where your power goes, when you\'re using it, and how much you\'re sending back to the grid.' },
+      { title: 'Assess Your Property', description: 'Roof orientation, pitch, shading, switchboard capacity, existing wiring, and what phase you\'re on. For architectural homes, we also look at how cabling and equipment can be installed without compromising the aesthetics.' },
+      { title: 'Consider Your Future', description: 'Are you planning an electric vehicle, induction cooktop, or heat pump? Retiring soon and going to be home more? We size the system around where your consumption is heading, not just where it is today.' },
+      { title: 'Design Your System', description: 'Based on your actual data and future plans, we recommend a system sized to cover your own usage first. We never oversize to sell you more panels, and we never design for winter production.' },
     ]}
   />
-
-  <section class="cta-section">
-    <div class="container">
-      <p>Ready to find out what's possible for your property?</p>
-      <a href="#solar-qualifier" class="btn btn-primary">Start Your Energy Assessment</a>
-    </div>
-  </section>
+  </div>
 
   <ScrollIndicator />
 </BaseLayout>
+
+<style>
+  .hero-curve {
+    line-height: 0;
+    margin-top: -1px;
+  }
+
+  .hero-curve svg {
+    display: block;
+    width: 100%;
+    height: 40px;
+  }
+
+  .intro-section {
+    padding: 4rem 0;
+    background: #fff;
+  }
+
+  .intro-content {
+    max-width: 720px;
+  }
+
+  .intro-content .section-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #0E2B47;
+    margin-bottom: 0.75rem;
+  }
+
+  .intro-content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0E2B47;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+
+  .intro-content p {
+    color: #444;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .intro-content strong {
+    font-weight: 700;
+    color: #0E2B47;
+  }
+
+  .geelong-slant {
+    line-height: 0;
+    margin-bottom: -1px;
+  }
+
+  .geelong-slant svg {
+    display: block;
+    width: 100%;
+    height: 40px;
+  }
+
+  :global(.split-feature--reverse .split-image img) {
+    transform: scale(0.83);
+  }
+
+  .timeline-slant {
+    line-height: 0;
+    margin-bottom: -1px;
+  }
+
+  .timeline-slant svg {
+    display: block;
+    width: 100%;
+    height: 40px;
+  }
+
+  .timeline-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .timeline-texture {
+    position: absolute;
+    top: -200px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: url('/image/textures/WhatWeDo_Texture.svg') no-repeat;
+    background-size: contain;
+    opacity: 0.08;
+    filter: sepia(1) saturate(0.3) brightness(0.7) hue-rotate(10deg);
+    transform: rotate(45deg) scale(1.3);
+    transform-origin: top right;
+    pointer-events: none;
+    z-index: 0;
+  }
+</style>

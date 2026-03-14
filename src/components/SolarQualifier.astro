@@ -55,8 +55,8 @@ const questions = [
   </div>
   <div class="qualifier-inner">
     <div class="qualifier-header">
-      <p class="qualifier-label">Solar Assessment</p>
-      <h2>Begin my free <em>quote</em></h2>
+      <p class="qualifier-label">Free Solar Quote</p>
+      <h2>Get a free solar <em>quote</em></h2>
       <p class="qualifier-desc">Answer a few quick questions to see how much you could save with solar energy</p>
     </div>
 
@@ -155,8 +155,8 @@ const questions = [
             <label class="progressive-label" for="form-message">Anything else? <span style="color: #999; font-weight: 400;">(optional)</span></label>
             <textarea id="form-message" class="form-input form-textarea" placeholder="Tell us about your property, energy usage, or any questions..." rows="3"></textarea>
           </div>
-          <div class="progressive-field progressive-hidden" id="field-submit">
-            <button class="form-submit-btn" id="form-submit" type="button">
+          <div class="progressive-field" id="field-submit">
+            <button class="form-submit-btn" id="form-submit" type="button" disabled>
               Send Enquiry
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" width="20" height="20">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
@@ -335,15 +335,27 @@ const questions = [
     });
   }
 
+  // Enable/disable submit button based on name + phone having values
+  const submitBtn = document.getElementById('form-submit') as HTMLButtonElement | null;
+  function updateSubmitState() {
+    if (!submitBtn) return;
+    const nameVal = (document.getElementById('form-name') as HTMLInputElement).value.trim();
+    const phoneVal = (document.getElementById('form-phone') as HTMLInputElement).value.trim();
+    submitBtn.disabled = !(nameVal.length > 0 && phoneVal.length > 0);
+  }
+
+  // Listen on name and phone inputs for submit button state
+  const nameInputEl = document.getElementById('form-name') as HTMLInputElement | null;
+  const phoneInputEl = document.getElementById('form-phone') as HTMLInputElement | null;
+  if (nameInputEl) nameInputEl.addEventListener('input', updateSubmitState);
+  if (phoneInputEl) phoneInputEl.addEventListener('input', updateSubmitState);
+
   // Also reveal submit when email has content (message is optional)
   const emailInput = document.getElementById('form-email') as HTMLInputElement | null;
   if (emailInput) {
     emailInput.addEventListener('input', () => {
       if (emailInput.value.trim().length > 0) {
         revealNextField('field-email');
-        // Also reveal submit since message is optional
-        const submitField = document.getElementById('field-submit');
-        if (submitField) submitField.classList.remove('progressive-hidden');
       }
     });
   }
@@ -376,14 +388,17 @@ const questions = [
     steps[0].style.display = 'block';
     steps[0].classList.add('active');
     updateProgress();
-    // Clear form fields and re-hide progressive fields
+    // Clear form fields and re-hide progressive fields (except submit which stays visible)
     (document.getElementById('form-name') as HTMLInputElement).value = '';
     (document.getElementById('form-phone') as HTMLInputElement).value = '';
     (document.getElementById('form-email') as HTMLInputElement).value = '';
     (document.getElementById('form-message') as HTMLTextAreaElement).value = '';
     fieldOrder.slice(1).forEach(id => {
-      document.getElementById(id)?.classList.add('progressive-hidden');
+      if (id !== 'field-submit') {
+        document.getElementById(id)?.classList.add('progressive-hidden');
+      }
     });
+    if (submitBtn) submitBtn.disabled = true;
   }
 
   resetBtn.addEventListener('click', fullReset);
@@ -898,7 +913,13 @@ const questions = [
     transition: background 0.2s, transform 0.2s;
   }
 
-  .form-submit-btn:hover {
+  .form-submit-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .form-submit-btn:hover:not(:disabled) {
     background: #184A8B;
     transform: scale(1.02);
   }

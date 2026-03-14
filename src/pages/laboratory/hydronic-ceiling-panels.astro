@@ -206,6 +206,41 @@ import {
                 <span><strong>Uniform MRT</strong> across the occupied zone at any distance</span>
               </div>
             </div>
+
+            <div class="energy-transfer-rings">
+              <div class="ring-item">
+                <svg viewBox="0 0 120 120" class="ring-svg">
+                  <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="14" />
+                  <circle cx="60" cy="60" r="48" fill="none" stroke="#C4956A" stroke-width="14"
+                    stroke-dasharray="301.6" stroke-dashoffset="158.3"
+                    stroke-linecap="round" transform="rotate(-90 60 60)" />
+                  <text x="60" y="64" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">47.5%</text>
+                </svg>
+                <span class="ring-label">Radiative</span>
+              </div>
+              <div class="ring-item">
+                <svg viewBox="0 0 120 120" class="ring-svg">
+                  <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="14" />
+                  <circle cx="60" cy="60" r="48" fill="none" stroke="#8BB8D9" stroke-width="14"
+                    stroke-dasharray="301.6" stroke-dashoffset="218.7"
+                    stroke-linecap="round" transform="rotate(-90 60 60)" />
+                  <text x="60" y="64" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">27.5%</text>
+                </svg>
+                <span class="ring-label">Convective</span>
+              </div>
+              <div class="ring-item">
+                <svg viewBox="0 0 120 120" class="ring-svg">
+                  <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="14" />
+                  <circle cx="60" cy="60" r="48" fill="none" stroke="#8BCB7A" stroke-width="14"
+                    stroke-dasharray="301.6" stroke-dashoffset="226.2"
+                    stroke-linecap="round" transform="rotate(-90 60 60)" />
+                  <text x="60" y="64" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">25%</text>
+                </svg>
+                <span class="ring-label">Respirative</span>
+              </div>
+            </div>
+            <p class="ring-caption"><em>The mechanisms of energy transfer within the human body and its environment are through radiation, convection & exhalation (or breathing). All three work together in establishing a comfort balance.</em></p>
+
           </div>
           <div class="why-image">
             <img src="/image/WIP/TestRoom_Development_webp/mounting.webp" alt="Comparison diagram of four radiant conditioning approaches: floor heating (A), ceiling heating and cooling (B and D), and wall heating (C) showing coverage, distance uniformity, and furniture obstruction" />
@@ -630,7 +665,7 @@ import {
       <div class="cta-box">
         <h2>Interested in hydronic ceiling panels?</h2>
         <p>We work with architects, engineers and building professionals to design radiant ceiling systems for residential, commercial and institutional projects.</p>
-        <a href="/contact" class="btn btn-primary">Request a Consultation</a>
+        <a href="/contact" class="btn btn-primary">Get a Free Solar Quote</a>
       </div>
     </div>
   </section>
@@ -978,6 +1013,57 @@ import {
 
   .why-point strong {
     color: #fff;
+  }
+
+  .energy-transfer-rings {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    justify-content: flex-start;
+  }
+
+  .ring-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .ring-svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .ring-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .ring-caption {
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.6;
+    max-width: 480px;
+  }
+
+  @media (max-width: 600px) {
+    .energy-transfer-rings {
+      gap: 1.25rem;
+      justify-content: center;
+    }
+
+    .ring-svg {
+      width: 80px;
+      height: 80px;
+    }
+
+    .ring-svg text {
+      font-size: 16px;
+    }
   }
 
   .why-image {

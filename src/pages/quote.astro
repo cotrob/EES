@@ -1,0 +1,392 @@
+---
+import SEO from '../components/SEO.astro';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet" />
+    <SEO
+      title="Get a Free Solar Quote | EES Geelong"
+      description="Scan the QR code on our yard banner? Get a free solar quote from EES — Geelong's trusted solar, battery and energy specialists."
+      noindex={true}
+    />
+  </head>
+  <body class="quote-body">
+    <div class="quote-bg">
+      <div class="quote-bg-grid" aria-hidden="true">
+        {Array.from({ length: 80 }).map((_, i) => (
+          <div class="quote-bg-icon" style={`--delay: ${(i * 0.08).toFixed(2)}s`}>
+            <img src="/image/icon/Icon_PageAccent_White_V2.svg" alt="" width="32" height="28" />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <main class="quote-main">
+      <div class="quote-card">
+        <a href="/" class="quote-logo">
+          <img src="/image/logo/Logo_color_bottom_cap.svg" alt="EES Environmental Energy Services" />
+        </a>
+
+        <div class="quote-header">
+          <h1>Get a Free Solar Quote</h1>
+          <p>Fill in your details and we'll be in touch to discuss your energy goals. No obligation, no pressure.</p>
+        </div>
+
+        <form class="quote-form" id="quote-form" action="#" method="POST">
+          <div class="quote-field">
+            <label for="qf-name">Name</label>
+            <input
+              type="text"
+              id="qf-name"
+              name="name"
+              required
+              autocomplete="name"
+              autocapitalize="words"
+              placeholder="Your full name"
+            />
+          </div>
+
+          <div class="quote-field">
+            <label for="qf-phone">Phone</label>
+            <input
+              type="tel"
+              id="qf-phone"
+              name="phone"
+              required
+              autocomplete="tel"
+              placeholder="0400 000 000"
+            />
+          </div>
+
+          <div class="quote-field">
+            <label for="qf-email">Email</label>
+            <input
+              type="email"
+              id="qf-email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="you@example.com"
+            />
+          </div>
+
+          <div class="quote-field">
+            <label for="qf-address">Property Address</label>
+            <input
+              type="text"
+              id="qf-address"
+              name="address"
+              required
+              autocomplete="street-address"
+              placeholder="123 Street Name, Suburb VIC"
+            />
+          </div>
+
+          <button type="submit" class="quote-submit">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            Get My Free Quote
+          </button>
+
+          <p class="quote-privacy">
+            By submitting you agree to our <a href="/privacy">Privacy Policy</a>. We'll only use your details to contact you about your enquiry.
+          </p>
+        </form>
+
+        <div class="quote-badges">
+          <div class="quote-badge">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M5 10l3.5 3.5L15 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>CEC Accredited</span>
+          </div>
+          <div class="quote-badge">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M5 10l3.5 3.5L15 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>SolarVic Approved</span>
+          </div>
+          <div class="quote-badge">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M5 10l3.5 3.5L15 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Local Geelong Team</span>
+          </div>
+        </div>
+
+        <div class="quote-contact">
+          <p>Prefer to call? <a href="tel:0427664827">0427 664 827</a></p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Auto-capitalize name field
+      const nameInput = document.getElementById('qf-name') as HTMLInputElement;
+      if (nameInput) {
+        nameInput.addEventListener('blur', () => {
+          nameInput.value = nameInput.value
+            .trim()
+            .replace(/\b\w/g, (c) => c.toUpperCase());
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  .quote-body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0E2B47;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 1rem;
+  }
+
+  /* Background accent grid — matches SolarQualifier pattern */
+  .quote-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .quote-bg-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    opacity: 0.04;
+  }
+
+  .quote-bg-icon {
+    animation: quote-fade-in 1.2s ease both;
+    animation-delay: var(--delay);
+  }
+
+  @keyframes quote-fade-in {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* Main container */
+  .quote-main {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  /* Card */
+  .quote-card {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  /* Logo */
+  .quote-logo {
+    display: block;
+    width: 120px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .quote-logo img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Header */
+  .quote-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .quote-header h1 {
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: #0E2B47;
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+  }
+
+  .quote-header p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Form */
+  .quote-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .quote-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .quote-field label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #0E2B47;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .quote-field input {
+    padding: 0.875rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.625rem;
+    background: #fff;
+    color: #0E2B47;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .quote-field input::placeholder {
+    color: #aaa;
+  }
+
+  .quote-field input:focus {
+    outline: none;
+    border-color: #2061B7;
+    box-shadow: 0 0 0 3px rgba(32, 97, 183, 0.1);
+  }
+
+  /* Submit button */
+  .quote-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #2061B7 0%, #184A8B 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.0625rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(32, 97, 183, 0.3);
+    margin-top: 0.25rem;
+  }
+
+  .quote-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(32, 97, 183, 0.45);
+  }
+
+  .quote-submit:active {
+    transform: translateY(0);
+  }
+
+  .quote-submit svg {
+    flex-shrink: 0;
+  }
+
+  /* Privacy note */
+  .quote-privacy {
+    font-size: 0.75rem;
+    color: #888;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .quote-privacy a {
+    color: #2061B7;
+    text-decoration: underline;
+  }
+
+  /* Trust badges */
+  .quote-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+  }
+
+  .quote-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #0E2B47;
+    background: #f3f6fa;
+    border-radius: 9999px;
+  }
+
+  .quote-badge svg {
+    width: 0.875rem;
+    height: 0.875rem;
+    color: #2061B7;
+    flex-shrink: 0;
+  }
+
+  /* Contact fallback */
+  .quote-contact {
+    text-align: center;
+    margin-top: 1.25rem;
+  }
+
+  .quote-contact p {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+  }
+
+  .quote-contact a {
+    color: #2061B7;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .quote-contact a:hover {
+    text-decoration: underline;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 480px) {
+    .quote-body {
+      padding: 1rem 0.75rem;
+      align-items: flex-start;
+      padding-top: 1.5rem;
+    }
+
+    .quote-card {
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+    }
+
+    .quote-header h1 {
+      font-size: 1.4rem;
+    }
+
+    .quote-bg-grid {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.25rem;
+    }
+  }
+</style>

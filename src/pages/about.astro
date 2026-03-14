@@ -30,28 +30,30 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
           <span class="intro-stat-label">Years operating<br />in Geelong</span>
         </div>
         <div class="intro-stat">
-          <span class="intro-stat-number">5000+</span>
-          <span class="intro-stat-label">Panels installed<br />&amp; counting</span>
-        </div>
-        <div class="intro-stat">
           <span class="intro-stat-number">10yr</span>
           <span class="intro-stat-label">Workmanship<br />warranty</span>
         </div>
         <div class="intro-stat">
-          <span class="intro-stat-number">48hr</span>
-          <span class="intro-stat-label">Critical fault<br />response time</span>
+          <span class="intro-stat-number">5000+</span>
+          <span class="intro-stat-label">Panels installed<br />&amp; counting</span>
         </div>
       </div>
     </div>
   </section>
+  <div class="intro-curve">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 L0,40 Q720,80 1440,40 L1440,0 Z" fill="#0E2B47" />
+    </svg>
+  </div>
 
   <!-- ── Our Story ── -->
   <section class="story-section">
+    <img src="/image/icon/Brand_wave_dots_BlueByGoogleMaps.svg" alt="" class="story-wave" aria-hidden="true" />
     <div class="container">
       <div class="story-layout">
         <div class="story-col-left">
           <p class="section-label">Our Story</p>
-          <h2>What if a home could<br />heat, cool, and power<br />itself?</h2>
+          <h2 class="story-heading">What if a home could<br />heat, cool, and power<br /><strong>itself?</strong></h2>
           <p class="story-lead">That question led to the founding of Environmental Energy Services in Moolap, Geelong.</p>
         </div>
         <div class="story-col-right">
@@ -81,33 +83,33 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
       <div class="difference-grid">
         <div class="difference-card">
           <div class="difference-number">01</div>
-          <h3>Holistic approach</h3>
-          <p>We look at your entire energy picture. Solar, battery, heat pump, hot water, home automation, even whether it's worth disconnecting from gas entirely. Every recommendation connects back to your actual usage and future plans.</p>
+          <h3>Your whole energy picture</h3>
+          <p>We look at everything together. Solar, battery, heat pump, hot water, automation, and whether it makes sense to move away from gas. Every recommendation is based on how you actually use energy and what you're planning for the future.</p>
         </div>
         <div class="difference-card">
           <div class="difference-number">02</div>
-          <h3>Data-driven design</h3>
-          <p>We pull your interval metering data down to half-hour increments. We look at where your power goes, when you're using it, and how much your existing system generates. We never guess, and we never oversize to sell you more panels.</p>
+          <h3>Designed from your data</h3>
+          <p>We pull your interval metering data down to half-hour increments so we can see exactly where your power goes and when. That way we can size your system properly and make sure it's working with your household, not against it.</p>
         </div>
         <div class="difference-card">
           <div class="difference-number">03</div>
-          <h3>Back-to-base monitoring</h3>
-          <p>Every system we install is connected to our monitoring portal. Our team checks every system each morning. We've contacted clients about faults before they even knew something was wrong. 48 business hour response for critical issues.</p>
+          <h3>Monitored every morning</h3>
+          <p>Every system we install is connected to our monitoring portal. Our team checks performance each morning, and we've contacted clients about faults before they even noticed. If something critical comes up, we respond within 48 business hours.</p>
         </div>
         <div class="difference-card">
           <div class="difference-number">04</div>
-          <h3>Built for high-end homes</h3>
-          <p>50 to 60 percent of our work is in architectural and designed homes. We work directly with architects and builders to run cabling under plaster, match finishes, and make sure your system fits the property, not the other way around.</p>
+          <h3>Experience with quality homes</h3>
+          <p>Around 50 to 60 percent of our work is in architectural and designed homes. We work alongside architects and builders to run cabling neatly, match finishes, and make sure the system suits the property.</p>
         </div>
         <div class="difference-card">
           <div class="difference-number">05</div>
-          <h3>Honest workmanship warranty</h3>
-          <p>We offer a 10-year workmanship warranty. That's double the legal minimum. We've been operating for over a decade and we'll be here long after the rebates expire. No 30-year promises from a company that's been around for one.</p>
+          <h3>10-year workmanship warranty</h3>
+          <p>That's double the legal minimum. We've been operating for over a decade, and your warranty sits with a real local business, not a call centre. We stand behind our work because we're here for the long run.</p>
         </div>
         <div class="difference-card">
           <div class="difference-number">06</div>
-          <h3>Ongoing energy advice</h3>
-          <p>We don't disappear after installation. We regularly check in with clients about new electricity plans, VPP opportunities, and ways to get more out of their system. It's advice as a service, not just panels on a roof.</p>
+          <h3>Support after installation</h3>
+          <p>We stay in touch after your system is in. Whether it's checking in about a better electricity plan, setting up a VPP, or helping you get more out of what you've got, we're always happy to have a chat.</p>
         </div>
       </div>
     </div>
@@ -141,12 +143,6 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
           <p>Senior electrician experienced in residential and commercial solar PV and battery installations. Checks every system every morning through back-to-base monitoring. Also involved in research and design on the Environmental Service Pod.</p>
         </div>
         <div class="team-member">
-          <img src="/image/photos_team/HungQDo_clean_transparent.png" alt="Hung Q. Do" loading="lazy" />
-          <h3>Hung Q. Do</h3>
-          <p class="team-role">Research Development</p>
-          <p>PhD candidate specialising in hydronic ceiling innovative systems. His research focuses on effective conditioning through hydronic control in commercial buildings.</p>
-        </div>
-        <div class="team-member">
           <img src="/image/photos_team/placeholder.svg" alt="Pat Sandall" loading="lazy" />
           <h3>Pat Sandall</h3>
           <p class="team-role">Head Electrician, A Grade</p>
@@ -178,17 +174,6 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
         <div class="accreditation-logo accreditation-logo--large"><img src="/image/_logos_partners/enphase.webp" alt="Enphase Silver Installer" /></div>
         <div class="accreditation-logo accreditation-logo--large"><img src="/image/_logos_partners/newenergytech_approvaed seller.webp" alt="New Energy Tech Approved Seller" /></div>
         <div class="accreditation-logo accreditation-logo--medium"><img src="/image/_logos_partners/sigenergy-certified-installer.webp" alt="Sigenergy Certified Installer" /></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CTA ── -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-inner">
-        <h2>Let's talk about your home</h2>
-        <p>We'd love to sit down, look at your energy data, and show you what's possible. No obligation, no pressure.</p>
-        <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
       </div>
     </div>
   </section>
@@ -295,7 +280,7 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
 
   .intro-strip-inner {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .intro-stat {
@@ -325,10 +310,36 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
     letter-spacing: 0.04em;
   }
 
+  /* ── Curve divider ── */
+  .intro-curve {
+    line-height: 0;
+    margin-top: -1px;
+  }
+
+  .intro-curve svg {
+    display: block;
+    width: 100%;
+    height: 50px;
+  }
+
   /* ── Our Story ── */
   .story-section {
     padding: 6rem 0 4rem;
     background: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .story-wave {
+    position: absolute;
+    right: -8%;
+    bottom: -10%;
+    transform: rotate(100deg);
+    opacity: 0.12;
+    pointer-events: none;
+    height: 80%;
+    width: auto;
+    z-index: 0;
   }
 
   .story-layout {
@@ -348,12 +359,16 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
     margin-bottom: 0.75rem;
   }
 
-  .story-col-left h2 {
+  .story-heading {
     font-size: 2.3rem;
-    font-weight: 700;
+    font-weight: 300;
     color: #0E2B47;
     line-height: 1.2;
     margin-bottom: 1.5rem;
+  }
+
+  .story-heading strong {
+    font-weight: 700;
   }
 
   .story-lead {
@@ -379,6 +394,8 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
     display: grid;
     grid-template-columns: 1.6fr 1fr;
     gap: 1.5rem;
+    position: relative;
+    z-index: 1;
   }
 
   .story-photo {
@@ -613,32 +630,6 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
     opacity: 1;
   }
 
-  /* ── CTA ── */
-  .cta-section {
-    padding: 5rem 0;
-    background: #0E2B47;
-  }
-
-  .cta-inner {
-    text-align: center;
-    max-width: 520px;
-    margin: 0 auto;
-  }
-
-  .cta-inner h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 0.75rem;
-  }
-
-  .cta-inner p {
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    font-size: 0.95rem;
-  }
-
   /* ── Responsive ── */
   @media (max-width: 900px) {
     .about-hero h1 {
@@ -650,7 +641,7 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
       gap: 2rem;
     }
 
-    .story-col-left h2 {
+    .story-heading {
       font-size: 1.8rem;
     }
 
@@ -700,7 +691,7 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
       padding: 4rem 0 3rem;
     }
 
-    .story-col-left h2 {
+    .story-heading {
       font-size: 1.6rem;
     }
 
@@ -734,8 +725,5 @@ import ScrollIndicator from '../components/ScrollIndicator.astro';
       max-width: 500px;
     }
 
-    .cta-inner h2 {
-      font-size: 1.5rem;
-    }
   }
 </style>

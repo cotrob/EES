@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ScrollIndicator from '../../components/ScrollIndicator.astro';
 import SplitFeature from '../../components/sections/SplitFeature.astro';
-import SpecCards from '../../components/sections/SpecCards.astro';
+import FinanceGuide from '../../components/sections/FinanceGuide.astro';
 import IconFeatureGrid from '../../components/sections/IconFeatureGrid.astro';
 import RelatedNav from '../../components/sections/RelatedNav.astro';
 import { hugeIconToSvg } from '../../lib/hugeicon-svg';
@@ -22,6 +22,16 @@ import ZapIcon from '@hugeicons/core-free-icons/ZapIcon';
       <p>Flexible ways to pay for your solar, battery, or energy system.</p>
     </div>
   </section>
+  <div class="hero-slant">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,0 1440,0 1440,60 0,20" fill="#0E2B47" />
+    </svg>
+  </div>
+
+  <FinanceGuide
+    label="Find the Right Fit"
+    heading="Our Finance Partners"
+  />
 
   <SplitFeature image="/image/photography/01_Hero_Images_OG/Frontage_17_TopCut_.webp" alt="EES solar installation" bg="white">
     <p class="section-label">Affordable Energy</p>
@@ -34,39 +44,9 @@ import ZapIcon from '@hugeicons/core-free-icons/ZapIcon';
     </p>
   </SplitFeature>
 
-  <SpecCards
-    label="Our Finance Partners"
-    heading="Choose How You Pay"
-    cards={[
-      {
-        title: 'Brighte',
-        body: 'Interest-free payment plans for solar, battery, and energy system installations. Spread the cost over time with no interest charges and start saving on energy bills from day one.',
-        footer: 'Interest-free plans available'
-      },
-      {
-        title: 'Parker Lane',
-        body: 'Flexible financing options for renewable energy systems. Competitive rates and tailored payment plans designed around your budget and energy goals.',
-        footer: 'Flexible payment terms'
-      },
-      {
-        title: '28 Finance',
-        body: 'An aggregated finance broker with access to over 70 financial institutions. We put the majority of our clients through 28 to find the best possible financing rate and payment plan for their circumstances.',
-        footer: '70+ lenders compared for you'
-      },
-    ]}
-  />
-
-  <SplitFeature image="/image/WIP/environmental-service-pod/esp-complete-system-front-photo.webp" alt="EES energy system installation" reverse bg="light">
-    <p class="section-label">Your Own Finance</p>
-    <h2>Already Have a Bank in Mind?</h2>
-    <p>
-      If your bank offers a green loan with a competitive rate, we're happy to work with that too. We understand and can assist you in choosing your own financing partner if their rate is cheaper than what our partners offer. The goal is always to get you the best deal, not to push a particular provider.
-    </p>
-  </SplitFeature>
-
   <IconFeatureGrid
-    label="Government Support"
-    heading="Rebates and Incentives"
+    label="Rebates and Incentives"
+    heading="Government Support"
     description="Several government programs reduce the upfront cost of your system. We handle the paperwork for you."
     bg="white"
     columns={2}
@@ -113,18 +93,24 @@ import ZapIcon from '@hugeicons/core-free-icons/ZapIcon';
 
   <RelatedNav
     links={[
-      { href: '/services/consultation', title: 'Free Consultation', description: 'Discuss your financing options in person' },
+      { href: '/services/consultation', title: 'Free Solar Quote', description: 'Discuss your financing options in person' },
       { href: '/services/residential', title: 'Residential Systems', description: 'See what systems are available' },
       { href: '/services/faq', title: 'FAQ', description: 'Common questions about rebates and costs' },
     ]}
   />
 
-  <section class="cta-section">
-    <div class="container">
-      <p>Ready to discuss financing and rebates for your system?</p>
-      <a href="/services/consultation" class="btn btn-primary">Book a Free Consultation</a>
-    </div>
-  </section>
-
   <ScrollIndicator />
 </BaseLayout>
+
+<style>
+  .hero-slant {
+    line-height: 0;
+    margin-top: -1px;
+  }
+
+  .hero-slant svg {
+    display: block;
+    width: 100%;
+    height: 40px;
+  }
+</style>

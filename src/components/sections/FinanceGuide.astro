@@ -1,0 +1,477 @@
+---
+interface Props {
+  label?: string;
+  heading?: string;
+  bg?: 'white' | 'light';
+}
+
+const { label, heading, bg = 'light' } = Astro.props;
+---
+
+<section class="finance-guide" style={`background: ${bg === 'white' ? '#fff' : '#f8f9fa'};`}>
+  <div class="container">
+    {(label || heading) && (
+      <div class="finance-guide-header">
+        {label && <p class="section-label">{label}</p>}
+        {heading && <h2>{heading}</h2>}
+      </div>
+    )}
+
+    <p class="finance-guide-intro">
+      We work with multiple financing partners so we can match you with the right option — not push a one-size-fits-all plan. Here's how each one works.
+    </p>
+
+    <div class="finance-options">
+
+      <details class="finance-option" open>
+        <summary>
+          <div class="finance-option-lead">
+            <span class="finance-option-tag">Zero Interest</span>
+            <h3>Brighte</h3>
+          </div>
+          <span class="finance-option-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="finance-option-body">
+          <p>Brighte's 0% interest payment plan means you pay no interest — ever. You apply through us, and once the system is installed, fortnightly repayments begin automatically.</p>
+          <div class="finance-detail-grid">
+            <div class="finance-detail">
+              <span class="finance-detail-label">Interest rate</span>
+              <span class="finance-detail-value">0%</span>
+            </div>
+            <div class="finance-detail">
+              <span class="finance-detail-label">Finance up to</span>
+              <span class="finance-detail-value">$30,000</span>
+            </div>
+            <div class="finance-detail">
+              <span class="finance-detail-label">Repayment terms</span>
+              <span class="finance-detail-value">6 months – 10 years</span>
+            </div>
+            <div class="finance-detail">
+              <span class="finance-detail-label">Repayment frequency</span>
+              <span class="finance-detail-value">Fortnightly</span>
+            </div>
+          </div>
+          <div class="finance-how-it-works">
+            <h4>How it works</h4>
+            <ol>
+              <li>We submit the application on your behalf during the quoting process</li>
+              <li>You complete a quick online approval (usually same-day)</li>
+              <li>Your system is installed — repayments don't start until the job is done</li>
+              <li>Brighte pays us directly. You repay Brighte over time, interest-free</li>
+            </ol>
+          </div>
+          <div class="finance-fine-print">
+            <p>A $75 establishment fee and $2.30/week account keeping fee apply. No interest is charged. Eligibility: Australian homeowner, employed 25+ hours/week or self-funded retiree. Subject to credit approval.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="finance-option">
+        <summary>
+          <div class="finance-option-lead">
+            <span class="finance-option-tag">Low-Rate Green Loan</span>
+            <h3>Parker Lane</h3>
+          </div>
+          <span class="finance-option-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="finance-option-body">
+          <p>Parker Lane is an independent finance broker that compares green loan products across multiple banks — including CBA, NAB, and Bankwest — to find you the lowest rate. These are unsecured loans, so your home isn't used as security.</p>
+          <div class="finance-detail-grid">
+            <div class="finance-detail">
+              <span class="finance-detail-label">Rates from</span>
+              <span class="finance-detail-value">5.99% p.a. fixed</span>
+            </div>
+            <div class="finance-detail">
+              <span class="finance-detail-label">Finance up to</span>
+              <span class="finance-detail-value">$100,000</span>
+            </div>
+            <div class="finance-detail">
+              <span class="finance-detail-label">Repayment terms</span>
+              <span class="finance-detail-value">1 – 10 years</span>
+            </div>
+            <div class="finance-detail">
+              <span class="finance-detail-label">Early exit penalty</span>
+              <span class="finance-detail-value">None</span>
+            </div>
+          </div>
+          <div class="finance-how-it-works">
+            <h4>How it works</h4>
+            <ol>
+              <li>We include Parker Lane financing options directly in your solar proposal</li>
+              <li>Parker Lane compares green loan products across their lender panel</li>
+              <li>You receive the best matched rate — no need to shop around yourself</li>
+              <li>Pay off early any time with no penalty, or make additional repayments to save on interest</li>
+            </ol>
+          </div>
+          <div class="finance-fine-print">
+            <p>Rates from 5.99% p.a. fixed (comparison rate 7.25% p.a.). Eligibility: Australian citizen or permanent resident. Pensioners and Centrelink recipients accepted. Subject to credit approval. Rates subject to change.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="finance-option">
+        <summary>
+          <div class="finance-option-lead">
+            <span class="finance-option-tag">60+ Lenders Compared</span>
+            <h3>28 Finance</h3>
+          </div>
+          <span class="finance-option-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="finance-option-body">
+          <p>28 Finance is a free broker service that scans over 60 lenders — from climate-focused specialists to the big four banks — to find the green loan you're actually eligible for. They present your options side-by-side so you can pick the best fit.</p>
+          <div class="finance-detail-grid">
+            <div class="finance-detail">
+              <span class="finance-detail-label">Rates from</span>
+              <span class="finance-detail-value">3.99% p.a. fixed</span>
+            </div>
+            <div class="finance-detail">
+              <span class="finance-detail-label">Finance up to</span>
+              <span class="finance-detail-value">$50,000</span>
+            </div>
+            <div class="finance-detail">
+              <span class="finance-detail-label">Cost to you</span>
+              <span class="finance-detail-value">Free</span>
+            </div>
+            <div class="finance-detail">
+              <span class="finance-detail-label">Credit score impact</span>
+              <span class="finance-detail-value">None (initial check)</span>
+            </div>
+          </div>
+          <div class="finance-how-it-works">
+            <h4>How it works</h4>
+            <ol>
+              <li>We refer you to 28 Finance as part of your consultation</li>
+              <li>They run a quick eligibility check across 60+ lenders — no credit score impact</li>
+              <li>You compare personalised offers side-by-side and choose the best one</li>
+              <li>You apply directly with the chosen lender for fast approval</li>
+            </ol>
+          </div>
+          <div class="finance-fine-print">
+            <p>We put the majority of our clients through 28 Finance. Rates vary by lender and eligibility. The broker service is free — 28 Finance earns a commission from their lender panel, not from you. Subject to lender approval.</p>
+          </div>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="finance-own-bank">
+      <div class="finance-own-bank-inner">
+        <div>
+          <h3>Already have a bank in mind?</h3>
+          <p>If your bank offers a green loan with a competitive rate, we're happy to work with that too. The goal is always to get you the best deal — not to push a particular provider.</p>
+        </div>
+        <a href="/services/consultation" class="btn btn-outline">Discuss Your Options</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .finance-guide {
+    padding: 4rem 0;
+  }
+
+  .finance-guide-header {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .finance-guide-header h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #0E2B47;
+  }
+
+  .finance-guide-intro {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .finance-options {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Accordion option */
+  .finance-option {
+    background: #fff;
+    border-radius: 1rem;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+
+  .finance-option[open] {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .finance-option summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .finance-option summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .finance-option summary::marker {
+    display: none;
+    content: '';
+  }
+
+  .finance-option-lead {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .finance-option-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: #2061B7;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    white-space: nowrap;
+  }
+
+  .finance-option-lead h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0E2B47;
+    margin: 0;
+  }
+
+  .finance-option-toggle {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .finance-option-toggle::before,
+  .finance-option-toggle::after {
+    content: '';
+    position: absolute;
+    background: #2061B7;
+    border-radius: 2px;
+    transition: transform 0.25s ease;
+  }
+
+  .finance-option-toggle::before {
+    width: 14px;
+    height: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .finance-option-toggle::after {
+    width: 2px;
+    height: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .finance-option[open] .finance-option-toggle::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+    opacity: 0;
+  }
+
+  /* Body */
+  .finance-option-body {
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .finance-option-body > p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0 0 1.5rem;
+  }
+
+  /* Detail grid */
+  .finance-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #e5e7eb;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .finance-detail {
+    background: #f8f9fa;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .finance-detail-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #888;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+
+  .finance-detail-value {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0E2B47;
+  }
+
+  /* How it works */
+  .finance-how-it-works {
+    margin-bottom: 1rem;
+  }
+
+  .finance-how-it-works h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0E2B47;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .finance-how-it-works ol {
+    list-style: none;
+    counter-reset: steps;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .finance-how-it-works li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .finance-how-it-works li::before {
+    content: counter(steps);
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #2061B7;
+    border: 1.5px solid #2061B7;
+    border-radius: 50%;
+    margin-top: 0.05rem;
+  }
+
+  /* Fine print */
+  .finance-fine-print {
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .finance-fine-print p {
+    font-size: 0.75rem;
+    color: #999;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Own bank CTA */
+  .finance-own-bank {
+    max-width: 800px;
+    margin: 1.5rem auto 0;
+  }
+
+  .finance-own-bank-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background: rgba(240, 238, 217, 0.25);
+    border: 1px dashed #d4d0b8;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .finance-own-bank h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0E2B47;
+    margin: 0 0 0.25rem;
+  }
+
+  .finance-own-bank p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.65rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2061B7;
+    border: 1.5px solid #2061B7;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover {
+    background: #2061B7;
+    color: #fff;
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .finance-detail-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .finance-option-lead {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .finance-own-bank-inner {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .finance-guide-header h2 {
+      font-size: 1.75rem;
+    }
+  }
+</style>
